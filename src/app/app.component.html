@@ -1,21 +1,54 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<!-- guest -->
+<div *ngIf="!this.loggedIn" class="top-navbar" [class.scrolled]="this.scrolled" [class.hide]="this.topnav.hide">
+  <div>
+    <img src="../assets/myras-logo.png" alt="">
+  </div>
+    
+  <div>
+    <ul class="navbar-items">
+      <li *ngFor="let item of this.navItems" [class.active]="item.active" [routerLink]="item.path" routerLinkActive>{{ item.label }}</li>
+      <li class="glow">Join Us</li>
+    </ul>
+  </div>
+  
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+  
+<div *ngIf="!this.loggedIn" class="body-wrapper">
+  <router-outlet></router-outlet>
+  
+</div>
 
-<router-outlet></router-outlet>
+<div *ngIf="!this.loggedIn" class="footer-wrapper" [class.hide]="this.footer.hide">
+  <app-section-footer></app-section-footer>
+</div>
+
+<!-- member -->
+<div *ngIf="this.loggedIn" class="user-topbar" [class.scrolled]="this.scrolled">
+  <div>
+    <img src="../assets/myras-logo.png" alt="">
+  </div>
+
+  <div>
+    <div class="welcome-text">
+      <span>Welcome! {{ this.username }}</span>
+    </div>
+
+    <div class="breadcrumb">
+      <p-breadcrumb [model]="this.breadcrumbItems" [home]="home"></p-breadcrumb>
+    </div>
+
+    <div class="btn-logout">
+      <span>Log out</span>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="this.loggedIn" class="user-sidenav">
+  <div class="btn-toggle">
+    <i class="fas fa-bars"></i>
+  </div>
+</div>
+
+<div *ngIf="this.loggedIn" class="user-body">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,38 @@
+<div class="wrapper">
+    <div class="body">
+        <div class="logo">
+            <img src="../../../../assets/myras-logo.png" alt="">
+        </div>
+
+        <div class="form">
+            <div class="form-container">
+                <div>
+                    <i class="fa fa-user"></i>
+                    <input type="text" placeholder="Username" #username>
+                </div>
+                
+                <div>
+                    <i class="fa fa-lock"></i>
+                    <input type="password" placeholder="Password" #password>
+                </div>
+                
+                <div>
+                    <p-checkbox [label]="'Remember me'" [binary]="true" (onChange)="tick($event)"></p-checkbox>
+                    <div class="forget">
+                        <span>Forgot the password?</span>
+                        <a>Click here</a>
+                    </div>
+
+                    <div class="btn-login">
+                        <span (click)="login()">Login</span>
+                    </div>
+                </div>
+
+                <div class="signup-txt">
+                    <span>Do not have an account?</span>
+                    <a>Sign up now!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

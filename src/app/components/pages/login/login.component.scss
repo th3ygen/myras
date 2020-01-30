@@ -1,0 +1,169 @@
+.wrapper {
+    position: relative;
+
+    height: 100vh;
+    width: 100%;
+
+    overflow: hidden;
+
+    background-color: rgb(15, 37, 87);
+
+    & > .body {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        height: 70vh;
+        width: 90%;
+
+        & > .logo {
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            height: 100%;
+            width: 50%;
+
+            border-right: 3px solid orange;
+
+            & > img {
+                display: inline-block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                max-height: 15vh;
+            }
+        }
+
+        & > .form {
+            position: absolute;
+            top: 0;
+            left: 50%;
+
+            height: 100%;
+            width: 50%;
+
+            & > .form-container {
+                
+                position: absolute;
+                top: 20%;
+                left: 50%;
+                transform: translateX(-50%);
+
+                height: 80%;
+                width: 70%;
+
+                & > div {
+                    position: relative;
+                    display: block;
+                    margin-top: 25px;
+
+                    & > i {
+                        display: inline-block;
+                        position: absolute;
+                        top: 50%;
+                        left: 15px;
+                        transform: translateY(-50%);
+
+                        padding: 2px;
+                        padding-right: 15px;
+
+                        font-size: 15px;
+                        /* color: orange; */
+
+                        border-right: 2px solid rgba(255, 255, 255, 0.356);
+                    }
+
+                    & > input {
+                        display: inline-block;
+                        
+                        padding: 15px;
+                        padding-left: 60px;
+                        
+                        width: 100%;
+    
+                        background-color: rgba(255, 255, 255, 0.226);
+
+                        font-size: 15px;
+                        color: white;
+
+                        border: none;
+
+                        transition: .3s all;
+                        &[type="password"] {
+                            letter-spacing: 4px;
+                        }
+
+                        &::placeholder {
+                            color: rgba(255, 255, 255, 0.603);
+                            letter-spacing: 2px;
+                        }
+
+                        &:focus {
+                            background-color: rgba(255, 255, 255, 0.486);
+                            outline: none;
+                        }
+                    }
+
+                    &:nth-child(3) {
+                        margin-top: 20px;
+                        color: white;
+
+                        & > .forget {
+                            position: relative;
+                            width: 100%;
+                            padding-top: 25px;
+                            text-align: center;
+
+                            & > span {
+                                padding: 5px;
+                            }
+                            
+                        }
+
+                        & > .btn-login {
+                            position: relative;
+
+                            padding-top: 50px;
+
+                            width: 100%;
+                            text-align: center;
+
+                            & > span {
+                                padding: 10px 50px;
+
+                                font-size: 20px;
+                                letter-spacing: 3px;
+                                color: orange;
+
+                                border: 2px solid orange;
+
+                                background-color: transparent;
+                                
+                                transition: .3s all;
+                                &:hover {
+                                    cursor: pointer;
+
+                                    background-color: rgba(0, 0, 0, 0.212);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                & > .signup-txt {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+
+                    & > span {
+                        padding-right: 10px;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}

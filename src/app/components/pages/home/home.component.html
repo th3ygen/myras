@@ -1,0 +1,135 @@
+<div class="section s1">
+    <div class="bg-overlay"></div>
+    <div class="snav snav-left" (click)="this.headerPrev()">
+        <div class="snav-btn">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div class="snav snav-right" (click)="this.headerNext()">
+        <div class="snav-btn">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    
+    <div class="welcome-text">
+        <div *ngFor="let item of this.headerContent; let i = index;" style="position: absolute; top: 0;
+        left: 0; height: 100%; width: auto;">
+            <div *ngIf="this.headerContentIndex === i" class="aos-anim" data-aos="fade-down" data-aos-duration="600">
+
+                <span>{{ item.title }}</span>
+                <span>{{ item.body }}</span>
+                <span>{{ item.brief }}</span>
+            
+                <div class="btn-hollow"> 
+                    <span (click)="routeTo(item.path)" >Take a look</span>
+                </div>
+    
+            </div>
+        </div>
+        
+
+        
+    </div>
+
+    <div class="svg-view-wrapper">
+        <div *ngFor="let item of this.headerContent; let i = index;" style="position: absolute; left: 0; top: 0; height: 100%; width: 100%;">
+            <img *ngIf="this.headerContentIndex === i" [src]="item.svg" class="svg-view" data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="400">
+        </div>
+    </div>
+</div>
+
+<div class="section s2">
+    <div class="header" data-aos="zoom-out">
+        <span>Latest News</span>
+    </div>
+
+    <div class="body">
+        <p-carousel [value]="news" [numVisible]="2" [numScroll]="1">
+            <ng-template let-news pTemplate="item">
+                <div class="ui-g hcarousel-item">
+                    <div class="ui-g-6">
+                        <div class="photo" data-aos="zoom-out" data-aos-duration="1000">
+
+                        </div>
+                    </div>
+                    <div class="ui-g-6">
+                        <div class="hcarousel-desc" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="300">
+                            <div class="header">
+                                <span>{{ news.title }}</span>
+                            </div>
+                            <div class="body">
+                                <span>{{ news.desc }}</span>
+                            </div>
+                            <div class="btn-next" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1000">
+                                <span>Read more</span>
+                            </div>
+                        </div>
+    
+                        
+                    </div>
+                </div>
+
+            </ng-template>
+        </p-carousel>
+    </div>
+   
+</div>
+
+
+<div class="section s3">
+    <div class="header" data-aos="zoom-out">
+        <span>Competition</span>
+    </div>
+
+    <div class="body">
+        <div>
+            <div class="header" data-aos="fade-down">
+                <span>Title</span>
+            </div>
+
+            <div class="body" data-aos="fade-down">
+                <span>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    Ut aliquet mauris justo, pharetra pretium massa lobortis sed. 
+                    Vivamus elementum eros a bibendum fringilla. 
+                    Cras condimentum suscipit consequat. Phasellus 
+                    nibh arcu, sagittis sit amet aliquet et, molestie 
+                    vel nulla. Morbi lacinia sem non tortor sodales rhoncus.
+                </span>
+            </div>
+            <div class="footer" data-aos="fade-down">
+                <div class="btn-next">
+                    <span>Read More</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="header" data-aos="fade-down" data-aos-delay="300">
+                <span>Title</span>
+            </div>
+
+            <div class="body" data-aos="fade-down" data-aos-delay="300">
+                <span>
+                    Nam interdum, nibh id volutpat hendrerit, 
+                    magna sem mollis lacus, non ullamcorper eros est 
+                    quis metus. Nunc ullamcorper accumsan ipsum, et 
+                    pulvinar justo elementum ac. Nunc blandit metus 
+                    sem, eu ultricies sem scelerisque et. Phasellus 
+                    sollicitudin consectetur magna, ac molestie arcu 
+                    volutpat ut. 
+                </span>
+            </div>
+            <div class="footer" data-aos="fade-down" data-aos-delay="300">
+                <div class="btn-next">
+                    <span>Read More</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

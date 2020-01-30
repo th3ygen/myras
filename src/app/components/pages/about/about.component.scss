@@ -1,0 +1,132 @@
+.page-header {
+    position: relative;
+
+    height: 60vh;
+    width: 100%;
+
+    background-color: rgb(15, 37, 87);
+
+    padding-top: 100px; // topnav is 100px height
+}
+
+.body {
+    position: relative;
+
+    min-height: 100vh;
+    width: 100%;
+
+    background-color: #E4EBF5;
+
+    & > .vision-wrapper {
+        position: relative;
+
+        width: 100%;
+        height: 80vh;
+
+        background-color: rgb(233, 211, 150);
+
+        & > .text-card {
+            position: absolute;
+            left: 100px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            height: 80%;
+            width: 50%;
+
+            background-color: rgb(15, 37, 87);
+
+            padding: 80px;
+
+            & > .header {
+                display: inline-block;
+                position: relative;
+
+                width: 100%;
+                text-align: center;
+
+                padding-top: 30px;
+                padding-bottom: 30px;
+
+                font-size: 35px;
+                color: orange;
+                text-transform: uppercase;
+                letter-spacing: 5px;
+            }
+
+            & > .desc {
+                position: relative;
+
+
+                text-align: justify;
+                line-height: 30px;
+
+                font-size: 18px;
+                color: white;
+                
+            }
+        }
+    }
+    & > .mission-wrapper {
+        position: relative;
+
+        width: 100%;
+        height: 80vh;
+
+        background-color: rgb(190, 226, 231);
+
+        & > .text-card {
+            position: absolute;
+            right: 100px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            height: 80%;
+            width: 50%;
+
+            background-color: rgb(15, 37, 87);
+
+            padding: 80px;
+
+            & > .header {
+                display: inline-block;
+                position: relative;
+
+                width: 100%;
+                text-align: center;
+
+                padding-top: 30px;
+                padding-bottom: 30px;
+
+                font-size: 35px;
+                color: orange;
+                text-transform: uppercase;
+                letter-spacing: 5px;
+            }
+
+            & > .desc {
+                position: relative;
+
+                text-align: justify;
+                line-height: 30px;
+
+                font-size: 18px;
+                color: white;
+
+                & > span {
+                    display: block;
+                    padding-bottom: 20px;
+                }
+                
+            }
+        }
+    }
+    & > .objective-wrapper {
+        position: relative;
+
+        width: 100%;
+        height: 80vh;
+
+        background-color: #E4EBF5;
+    }
+}
