@@ -29,13 +29,23 @@ export class PageLoginComponent implements OnInit {
     const password = this.password.nativeElement.value;
 
     if (this.auth.login(username, password)) {
-      this.router.navigateByUrl('user/membership');
+      switch (this.auth.getCurrentUser().getAccess()) {
+        case 0:
+          this.router.navigateByUrl('admin/home');
+          break;
+        case 1:
+          this.router.navigateByUrl('user/membership');
+          break;
+      }
+
     }
+
   }
 
   ngOnInit() {
     this.master.hideTopnav(true);
     this.master.hideFooter(true);
+
   }
 
 }

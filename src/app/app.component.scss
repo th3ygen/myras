@@ -300,6 +300,12 @@
     }
 }
 
+.user-body {
+    position: relative;
+    margin-top: 100px;
+    margin-left: 250px;
+}
+
 :host ::ng-deep {
 
     & .ui-breadcrumb  {

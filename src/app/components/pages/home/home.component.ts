@@ -10,6 +10,20 @@ import { MasterService } from '../../../services/master.service';
   styleUrls: ['./home.component.scss']
 })
 export class PageHomeComponent implements OnInit {
+  public carousel = {
+    responsive: [
+      {
+        breakpoint: '1680px',
+        numVisible: 3,
+        numScroll: 1
+      },
+      {
+        breakpoint: '1536px',
+        numVisible: 2,
+        numScroll: 1
+      }
+    ]
+  };
   public headerContentIndex = 3;
   public headerContent = [
     {
@@ -46,6 +60,18 @@ export class PageHomeComponent implements OnInit {
     {
       title: 'Praesent faucibus',
       desc: 'Mauris ultricies ante sit amet ligula pretium, luctus feugiat enim rhoncus'
+    },
+    {
+      title: 'Proin vitae',
+      desc: 'Donec eget luctus nulla. Pellentesque sit amet erat at orci vehicula lacinia'
+    },
+    {
+      title: 'Proin vitae',
+      desc: 'Donec eget luctus nulla. Pellentesque sit amet erat at orci vehicula lacinia'
+    },
+    {
+      title: 'Proin vitae',
+      desc: 'Donec eget luctus nulla. Pellentesque sit amet erat at orci vehicula lacinia'
     },
     {
       title: 'Proin vitae',

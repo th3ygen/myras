@@ -7,7 +7,7 @@
   <div>
     <ul class="navbar-items">
       <li *ngFor="let item of this.navItems" [class.active]="item.active" [routerLink]="item.path" routerLinkActive>{{ item.label }}</li>
-      <li class="glow">Join Us</li>
+      <li class="glow" routerLink="/login">Join Us</li>
     </ul>
   </div>
   
@@ -30,7 +30,7 @@
 
   <div>
     <div class="welcome-text">
-      <span>Welcome! {{ this.username }}</span>
+      <span>Welcome! {{ this.currentUser.getUsername() }}</span>
     </div>
 
     <div class="breadcrumb">

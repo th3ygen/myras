@@ -7,6 +7,7 @@ import * as AOS from 'aos';
 import { MasterService } from './services/master.service';
 
 // mock auth
+import { User } from './mockup/user';
 import { AuthService } from './services/auth.service';
 import { MenuItem } from 'primeng/api';
 
@@ -24,9 +25,9 @@ export class AppComponent implements AfterViewChecked {
   public breadcrumbItems: MenuItem[];
   public home = '/home';
 
-  public loggedIn = true;
+  public loggedIn = false;
 
-  public username = '';
+  public currentUser: User;
 
   title = 'myras';
 
@@ -49,17 +50,18 @@ export class AppComponent implements AfterViewChecked {
     ).subscribe((event: NavigationEnd) => {
       window.scrollTo(0, 0);
 
-      /* this.loggedIn = this.auth.loggedIn(); */
-      this.username = this.auth.getMemberInfo().username;
-      
-      
+      this.currentUser = this.auth.getCurrentUser();
+      if (this.currentUser) {
+        this.loggedIn = true;
+      }
+
     });
   }
 
   ngAfterViewChecked() {
+    
     this.breadcrumbItems = this.master.getBreadcrumbItems();
 
-    console.log(this.breadcrumbItems);
     this.changeRef.detectChanges();
   }
 }

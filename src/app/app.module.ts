@@ -21,6 +21,8 @@ import { PageMembershipComponent } from './components/pages/membership/membershi
 import { PageActivitiesComponent } from './components/pages/activities/activities.component';
 import { PageCommunitiesComponent } from './components/pages/communities/communities.component';
 import { PageUserMembershipComponent } from './components/pages/user/membership/membership.component';
+import { PageAdminHomeComponent } from './components/pages/admin/home/home.component';
+import { PageAdminNewsComponent } from './components/pages/admin/news/news.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { PageUserMembershipComponent } from './components/pages/user/membership/
     PageMembershipComponent,
     PageActivitiesComponent,
     PageCommunitiesComponent,
-    PageUserMembershipComponent
+    PageUserMembershipComponent,
+    PageAdminHomeComponent,
+    PageAdminNewsComponent
   ],
   imports: [
     BrowserModule,

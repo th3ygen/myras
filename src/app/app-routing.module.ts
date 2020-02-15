@@ -9,6 +9,10 @@ import { PageMembershipComponent } from './components/pages/membership/membershi
 import { PageActivitiesComponent } from './components/pages/activities/activities.component';
 import { PageCommunitiesComponent } from './components/pages/communities/communities.component';
 
+// Admin pages
+import { PageAdminHomeComponent } from './components/pages/admin/home/home.component';
+import { PageAdminNewsComponent } from './components/pages/admin/news/news.component';
+
 // User pages
 import { PageUserMembershipComponent } from './components/pages/user/membership/membership.component';
 
@@ -26,6 +30,10 @@ const routes: Routes = [
   { path: 'login', component: PageLoginComponent },
   { path: 'user', children: [
     { path: 'membership', component: PageUserMembershipComponent }
+  ] },
+  { path: 'admin', children: [
+    { path: 'home', component: PageAdminHomeComponent },
+    { path: 'news', component: PageAdminNewsComponent }
   ] }
 ];
 

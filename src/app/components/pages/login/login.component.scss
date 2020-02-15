@@ -1,12 +1,56 @@
+.bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 1;
+    
+    & > .bg-img {
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        height: 100%;
+        width: 100%;
+
+        background-image: url('../../../../assets/login-bg.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        
+        filter: grayscale(1);
+
+        z-index: 1;
+
+
+    }
+
+    /* filter: grayscale(70%); */
+
+    & > .bg-overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        height: 100%;
+        width: 100%;
+
+        background-color: rgb(15, 37, 87);
+        opacity: .9;
+
+        z-index: 2;
+    }
+}
 .wrapper {
     position: relative;
 
     height: 100vh;
     width: 100%;
 
-    overflow: hidden;
-
-    background-color: rgb(15, 37, 87);
+    z-index: 2;
 
     & > .body {
         position: absolute;
@@ -14,15 +58,24 @@
         left: 50%;
         transform: translate(-50%, -50%);
 
-        height: 70vh;
+        background: repeating-linear-gradient(90deg, hsla(298,16%,68%,0.06) 0px, hsla(298,16%,68%,0.06) 1px,transparent 1px, transparent 21px,hsla(298,16%,68%,0.06) 21px, hsla(298,16%,68%,0.06) 22px,transparent 22px, transparent 72px),repeating-linear-gradient(0deg, hsla(298,16%,68%,0.06) 0px, hsla(298,16%,68%,0.06) 1px,transparent 1px, transparent 21px,hsla(298,16%,68%,0.06) 21px, hsla(298,16%,68%,0.06) 22px,transparent 22px, transparent 72px),repeating-linear-gradient(135deg, hsla(298,16%,68%,0.06) 0px, hsla(298,16%,68%,0.06) 1px,transparent 1px, transparent 21px,hsla(298,16%,68%,0.06) 21px, hsla(298,16%,68%,0.06) 22px,transparent 22px, transparent 72px),linear-gradient(90deg, hsl(275,3%,97%),hsl(275,3%,97%));
+
+        max-width: 1240px;
+
+        height: 60vh;
         width: 90%;
+
+        /* border: 3px solid orange; */
+
+        border-radius: 8px;
 
         & > .logo {
             position: absolute;
             left: 0;
-            top: 0;
+            top: 50%;
+            transform: translateY(-50%);
 
-            height: 100%;
+            height: 80%;
             width: 50%;
 
             border-right: 3px solid orange;
@@ -33,7 +86,32 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                max-height: 15vh;
+                max-height: 90px;
+                height: 10vw;
+            }
+
+            @keyframes bgAnim {
+                from {
+                    box-shadow: inset 0 0 0 25vw orange;
+                }
+                to {
+                    box-shadow: inset 0 0 0 3px orange;
+                }
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+
+                height: 100%;
+                width: 100%;
+                /* box-shadow: inset 0 0 0 25vw orange;
+
+                animation: bgAnim ease-out;
+                animation-delay: .3s;
+                animation-duration: .3s;
+                animation-fill-mode: forwards; */
             }
         }
 
@@ -56,6 +134,8 @@
                 width: 70%;
 
                 & > div {
+                    
+
                     position: relative;
                     display: block;
                     margin-top: 25px;
@@ -71,9 +151,9 @@
                         padding-right: 15px;
 
                         font-size: 15px;
-                        /* color: orange; */
+                        color: rgb(15, 37, 87);
 
-                        border-right: 2px solid rgba(255, 255, 255, 0.356);
+                        border-right: 2px solid orange;
                     }
 
                     & > input {
@@ -82,14 +162,15 @@
                         padding: 15px;
                         padding-left: 60px;
                         
+                        max-width: 500px;
                         width: 100%;
     
-                        background-color: rgba(255, 255, 255, 0.226);
+                        background-color: white;
+                        border: 2px solid orange;
 
                         font-size: 15px;
-                        color: white;
+                        color: rgb(15, 37, 87);
 
-                        border: none;
 
                         transition: .3s all;
                         &[type="password"] {
@@ -97,19 +178,20 @@
                         }
 
                         &::placeholder {
-                            color: rgba(255, 255, 255, 0.603);
+                            color: rgb(15, 37, 87);
+                            opacity: .5;
                             letter-spacing: 2px;
                         }
 
                         &:focus {
-                            background-color: rgba(255, 255, 255, 0.486);
+                            background-color: white;
                             outline: none;
                         }
                     }
 
                     &:nth-child(3) {
                         margin-top: 20px;
-                        color: white;
+                        color: rgb(15, 37, 87);
 
                         & > .forget {
                             position: relative;
@@ -146,7 +228,6 @@
                                 &:hover {
                                     cursor: pointer;
 
-                                    background-color: rgba(0, 0, 0, 0.212);
                                 }
                             }
                         }
@@ -160,7 +241,7 @@
 
                     & > span {
                         padding-right: 10px;
-                        color: white;
+                        color: rgb(15, 37, 87);
                     }
                 }
             }

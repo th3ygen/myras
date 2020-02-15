@@ -49,12 +49,12 @@
     </div>
 
     <div class="body">
-        <p-carousel [value]="news" [numVisible]="2" [numScroll]="1">
+        <p-carousel [value]="news" [numVisible]="3" [numScroll]="1" [responsiveOptions]="this.carousel.responsive" [autoplayInterval]="5000">
             <ng-template let-news pTemplate="item">
                 <div class="ui-g hcarousel-item">
                     <div class="ui-g-6">
                         <div class="photo" data-aos="zoom-out" data-aos-duration="1000">
-
+                            
                         </div>
                     </div>
                     <div class="ui-g-6">
@@ -65,7 +65,7 @@
                             <div class="body">
                                 <span>{{ news.desc }}</span>
                             </div>
-                            <div class="btn-next" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1000">
+                            <div class="btn-next">
                                 <span>Read more</span>
                             </div>
                         </div>
