@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { User } from '../mockup/user';
+import { User, TEST_ACC } from '../mockup/user';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +8,11 @@ import { User } from '../mockup/user';
 
 
 export class AuthService {
+  private static TEST_MODE = false;
   private user: User;
 
   public getCurrentUser(): User {
-    return this.user;
+    return (AuthService.TEST_MODE ? TEST_ACC : this.user);
   }
 
   public login(username: string, password: string): User {

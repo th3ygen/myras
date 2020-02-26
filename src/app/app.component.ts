@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, AfterViewChecked, AfterViewInit} from '@angular/core';
+import { Component, ChangeDetectorRef, OnInit, AfterViewChecked, AfterViewInit} from '@angular/core';
 import { filter } from 'rxjs/operators';
 import { Router, NavigationEnd } from '@angular/router';
 
@@ -6,9 +6,13 @@ import * as AOS from 'aos';
 
 import { MasterService } from './services/master.service';
 
+// sidebar
+import { SidebarItem, SidebarItems } from './configs/sidebar.config';
+
 // mock auth
 import { User } from './mockup/user';
 import { AuthService } from './services/auth.service';
+
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -16,7 +20,8 @@ import { MenuItem } from 'primeng/api';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewChecked {
+export class AppComponent implements OnInit, AfterViewChecked {
+  public sidebarItems: SidebarItem[] = SidebarItems;
   public navItems = [];
   public scrolled = false;
   public topnav;
@@ -28,8 +33,21 @@ export class AppComponent implements AfterViewChecked {
   public loggedIn = false;
 
   public currentUser: User;
+  public username;
 
   title = 'myras';
+
+  public navigate(url) {
+    this.router.navigateByUrl(url);
+  }
+
+  ngOnInit() {
+    this.currentUser = this.auth.getCurrentUser();
+    if (this.currentUser) {
+      this.username = this.currentUser.getUsername();
+      this.loggedIn = true;
+    }
+  }
 
   constructor( private auth: AuthService, private master: MasterService, private changeRef: ChangeDetectorRef, private router: Router) {
     AOS.init();
@@ -50,10 +68,11 @@ export class AppComponent implements AfterViewChecked {
     ).subscribe((event: NavigationEnd) => {
       window.scrollTo(0, 0);
 
-      this.currentUser = this.auth.getCurrentUser();
+      /* this.currentUser = this.auth.getCurrentUser();
+      this.username = this.currentUser.getUsername();
       if (this.currentUser) {
         this.loggedIn = true;
-      }
+      } */
 
     });
   }

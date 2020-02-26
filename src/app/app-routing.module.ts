@@ -8,6 +8,8 @@ import { PageLoginComponent } from './components/pages/login/login.component';
 import { PageMembershipComponent } from './components/pages/membership/membership.component';
 import { PageActivitiesComponent } from './components/pages/activities/activities.component';
 import { PageCommunitiesComponent } from './components/pages/communities/communities.component';
+import { PageRegistrationComponent } from './components/pages/registration/registration.component';
+
 
 // Admin pages
 import { PageAdminHomeComponent } from './components/pages/admin/home/home.component';
@@ -24,6 +26,7 @@ const routes: Routes = [
   { path: 'contact', component: PageContactComponent },
 
   { path: 'membership', component: PageMembershipComponent },
+  { path: 'pricing', component: PageRegistrationComponent },
   { path: 'activities', component: PageActivitiesComponent },
   { path: 'communities', component: PageCommunitiesComponent },
 

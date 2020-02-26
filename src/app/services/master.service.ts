@@ -27,6 +27,11 @@ export class MasterService {
       active: false
     },
     {
+      label: 'Pricing',
+      path: 'pricing',
+      active: false
+    },
+    {
       label: 'Activities',
       path: 'activities',
       active: false

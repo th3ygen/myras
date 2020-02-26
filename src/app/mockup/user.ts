@@ -124,3 +124,20 @@ export class User {
     }
 }
 
+export const TEST_ACC = new User('admin', 0, {
+    fullname: 'Muhammad Aidil Syazwan',
+    gender: 'Male',
+    dob: '3 January 1999',
+    uni: 'Universiti Malaysia Pahang',
+    program: 'Diploma in Computer Science'
+}, {
+    phone: '011223334455',
+    email: 'aidil@gmail.com'
+}, {
+    id: '18023',
+    username: 'Aidil',
+    level: 'Student',
+    active: true,
+    since: '9 January 2019'
+});
+

@@ -23,14 +23,14 @@
 </div>
 
 <!-- member -->
-<div *ngIf="this.loggedIn" class="user-topbar" [class.scrolled]="this.scrolled">
+<!-- <div *ngIf="this.loggedIn" class="user-topbar" [class.scrolled]="this.scrolled">
   <div>
     <img src="../assets/myras-logo.png" alt="">
   </div>
 
   <div>
     <div class="welcome-text">
-      <span>Welcome! {{ this.currentUser.getUsername() }}</span>
+      <span>Welcome! {{ this.username }}</span>
     </div>
 
     <div class="breadcrumb">
@@ -41,12 +41,36 @@
       <span>Log out</span>
     </div>
   </div>
-</div>
+</div> -->
 
 <div *ngIf="this.loggedIn" class="user-sidenav">
   <div class="btn-toggle">
     <i class="fas fa-bars"></i>
   </div>
+
+  <div class="sidebar-userInfo">
+    <div class="userInfo-img">
+      <img src="../assets/login-bg.jpg" alt="">
+    </div>
+
+    <div class="userInfo-label">
+      <div class="name"> {{ this.username }} </div>
+      <div class="email"> {{ this.currentUser.getContact().email }} </div>
+    </div>
+  </div>
+
+  <ul class="sidebar-items">
+    <li *ngFor="let item of this.sidebarItems" >
+      <span>{{ item.label }}</span>
+      <ng-container *ngIf="item.child">
+        <ul class="sidebar-childs" *ngFor="let child of item.child" >
+          <li (click)="this.navigate(child.url)">
+            <span> {{ child.label }} </span>
+          </li>
+        </ul>
+      </ng-container>
+    </li>
+  </ul>
 </div>
 
 <div *ngIf="this.loggedIn" class="user-body">

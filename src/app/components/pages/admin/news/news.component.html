@@ -1,1 +1,76 @@
-<p>news works!</p>
+<div class="wrapper">
+    <div class="news-add">
+        <div class="header">
+            <span>Post news</span>
+        </div>
+
+        <div class="body">
+            <div class="form-group ui-g">
+                <div class="ui-g-6" style="padding-right: 30px;">
+                    <div class="label">
+                        <span>Header</span>
+                    </div>
+                    <input type="text" pInputText placeholder="Username">  
+                    
+                    <div class="label" style="padding-top: 30px;">
+                        <span>Brief</span>
+                    </div>
+                    <textarea rows="5" cols="30" pInputTextarea autoResize="autoResize"></textarea>
+
+                    <div class="label" style="padding-top: 30px;">
+                        <span>Keywords</span>
+                    </div>
+                    <p-chips></p-chips>
+                    <!-- <div class="label" style="padding-top: 30px;">
+                        <span>Type</span>
+                    </div> 
+                    <p-selectButton [options]="this.type" formControlName="selectedType"></p-selectButton>
+                    -->
+                </div>
+
+                <div class="ui-g-6">
+                    <div class="label">
+                        <span>Front Image</span>
+                    </div>
+                        
+                    <div class="img-preview">
+                        <div id="img"></div>
+                    </div>
+
+                    <p-button class="btn-imgBrowse" label="Browse"></p-button>
+                    <span class="label-file">Click browse to upload your image</span>
+                </div>
+                <!-- <div class="ui-g-6">
+                    
+                </div> -->
+                
+            </div>
+
+            <hr>
+
+            <div class="form-group ui-g">
+                <div class="ui-g-12">
+                    <div class="label">
+                        <span>Content</span>
+                    </div>
+                    <p-editor [style]="{'height':'320px'}"></p-editor>
+                </div>
+                
+            </div>
+
+            <hr>
+
+            <div class="form-group" style="height: 50px;">
+                <div class="news-action">
+                    <p-button label="Cancel" class="btn-cancel" styleClass="ui-button-secondary"></p-button>
+                    <p-button label="Post" ></p-button>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="footer">
+
+        </div>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { HomeModule } from './components/pages/home/home.module';
 
@@ -12,6 +13,13 @@ import { PageContactComponent } from './components/pages/contact/contact.compone
 // PrimeNG modules
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { CheckboxModule } from 'primeng/checkbox';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { InputTextModule } from 'primeng/inputtext';
+import { EditorModule } from 'primeng/editor';
+import { ChipsModule } from 'primeng/chips';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { ButtonModule } from 'primeng/button';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 // Sections
 import { SectionFooterComponent } from './components/sections/footer/footer.component';
@@ -23,6 +31,7 @@ import { PageCommunitiesComponent } from './components/pages/communities/communi
 import { PageUserMembershipComponent } from './components/pages/user/membership/membership.component';
 import { PageAdminHomeComponent } from './components/pages/admin/home/home.component';
 import { PageAdminNewsComponent } from './components/pages/admin/news/news.component';
+import { PageRegistrationComponent } from './components/pages/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -37,16 +46,25 @@ import { PageAdminNewsComponent } from './components/pages/admin/news/news.compo
     PageCommunitiesComponent,
     PageUserMembershipComponent,
     PageAdminHomeComponent,
-    PageAdminNewsComponent
+    PageAdminNewsComponent,
+    PageRegistrationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HomeModule,
+    HttpClientModule,
 
     // PrimeNg
+    TabMenuModule,
     BreadcrumbModule,
-    CheckboxModule
+    CheckboxModule,
+    InputTextModule,
+    EditorModule,
+    ChipsModule,
+    SelectButtonModule,
+    ButtonModule,
+    InputTextareaModule
   ],
   providers: [],
   bootstrap: [AppComponent],

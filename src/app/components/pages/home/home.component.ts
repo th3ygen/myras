@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 import { MasterService } from '../../../services/master.service';
+import { NewsService } from '../../../services/news.service';
 
 @Component({
   selector: 'app-page-home',
@@ -62,6 +62,37 @@ export class PageHomeComponent implements OnInit {
       desc: 'Mauris ultricies ante sit amet ligula pretium, luctus feugiat enim rhoncus'
     },
     {
+      title: 'Praesent faucibus',
+      desc: 'Mauris ultricies ante sit amet ligula pretium, luctus feugiat enim rhoncus'
+    },
+    {
+      title: 'Praesent faucibus',
+      desc: 'Mauris ultricies ante sit amet ligula pretium, luctus feugiat enim rhoncus'
+    },
+    {
+      title: 'Praesent faucibus',
+      desc: 'Mauris ultricies ante sit amet ligula pretium, luctus feugiat enim rhoncus'
+    },
+    {
+      title: 'Praesent faucibus',
+      desc: 'Mauris ultricies ante sit amet ligula pretium, luctus feugiat enim rhoncus'
+    },
+    {
+      title: 'Praesent faucibus',
+      desc: 'Mauris ultricies ante sit amet ligula pretium, luctus feugiat enim rhoncus'
+    },
+    {
+      title: 'Praesent faucibus',
+      desc: 'Mauris ultricies ante sit amet ligula pretium, luctus feugiat enim rhoncus'
+    },
+  ];
+
+  /* public news: any[] = [
+    {
+      title: 'Praesent faucibus',
+      desc: 'Mauris ultricies ante sit amet ligula pretium, luctus feugiat enim rhoncus'
+    },
+    {
       title: 'Proin vitae',
       desc: 'Donec eget luctus nulla. Pellentesque sit amet erat at orci vehicula lacinia'
     },
@@ -81,7 +112,7 @@ export class PageHomeComponent implements OnInit {
       title: 'Proin vitae',
       desc: 'Donec eget luctus nulla. Pellentesque sit amet erat at orci vehicula lacinia'
     }
-  ];
+  ]; */
 
   routeTo(path: string) {
     this.router.navigateByUrl(path);
@@ -94,10 +125,21 @@ export class PageHomeComponent implements OnInit {
     this.headerContentIndex = (this.headerContentIndex === 0) ? 3 : this.headerContentIndex - 1;
   }
 
-  constructor(private master: MasterService, private router: Router) {
+  constructor(private master: MasterService, private router: Router, private newsService: NewsService) {
+  }
+
+  public loadNews() {
+    this.newsService.getLatestNews(1).subscribe(data => {
+      this.news.push({
+        title: data[0].header,
+        desc: data[0].brief,
+        img: data[0].imgURL
+      });
+    });
   }
 
   ngOnInit() {
+    this.loadNews();
     this.master.setActive(0);
   }
 
