@@ -89,6 +89,7 @@
     <p-radioButton name="groupname" value="std" label="Student"></p-radioButton>
     <p-radioButton name="groupname" value="reg" label="Regular"></p-radioButton>
     <p-radioButton name="groupname" value="corp" label="Corporate"></p-radioButton>
+    <p-checkbox name="groupname" value="val1" label="I agree to the term and conditions"></p-checkbox>
     <button pButton type="button" label="Warning" class="ui-button-raised ui-button-warning"></button>
   </div>
   </div>
@@ -96,8 +97,36 @@
   <div class="wrapper">
     <div class="step">
       <p-steps [model]="items" [readonly]="true"></p-steps>
-
     </div>
+    <div class="ui-g ui-fluid">
+      <div class="ui-g-12 ui-md-4">
+        <label for="fName">Full Name :</label>
+          <div class="ui-inputgroup">
+              <span class="ui-inputgroup-addon"><i class="pi pi-user" style="line-height: 1.25;"></i></span>
+              <input type="text" pInputText placeholder="Full Name">
+          </div>
+      </div>
+
+      <div class="ui-g-12 ui-md-4">
+        <div class="ui-inputgroup">
+          <label for="password">Date of Birthng s :</label>
+          <span class="ui-inputgroup-addon"><i class="pi pi-user" style="line-height: 1.25;"></i></span>
+          <input type="password" pInputText placeholder="Password">
+      </div>
+      <div class="ui-inputgroup">
+        <label for="Cpassword">Confrim Password :</label>
+        <span class="ui-inputgroup-addon"><i class="pi pi-user" style="line-height: 1.25;"></i></span>
+        <input type="password" pInputText placeholder="Confirm Password">
+    </div>
+      </div>
+
+      <div class="ui-g-12 ui-md-4">
+        <div class="ui-inputgroup">
+          <label for="email">Email :</label>
+          <span class="ui-inputgroup-addon"><i class="pi pi-user" style="line-height: 1.25;"></i></span>
+          <input type="email" pInputText placeholder="Email">
+      </div>
+
   </div>
   <hr>
   <div class="wrapper">
