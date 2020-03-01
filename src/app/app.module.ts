@@ -20,6 +20,12 @@ import { ChipsModule } from 'primeng/chips';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { ButtonModule } from 'primeng/button';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import {AccordionModule} from 'primeng/accordion';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {StepsModule} from 'primeng/steps';
+import {RadioButtonModule, } from 'primeng/radiobutton';
+
+
 
 // Sections
 import { SectionFooterComponent } from './components/sections/footer/footer.component';
@@ -64,7 +70,12 @@ import { PageRegistrationComponent } from './components/pages/registration/regis
     ChipsModule,
     SelectButtonModule,
     ButtonModule,
-    InputTextareaModule
+    InputTextareaModule,
+    AccordionModule,
+    BrowserAnimationsModule,
+    StepsModule,
+    RadioButtonModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

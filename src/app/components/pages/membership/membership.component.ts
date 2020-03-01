@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {MenuItem} from 'primeng/api';
 import { MasterService } from '../../../services/master.service';
 import { PageHeaderServiceService } from '../../../services/page-header-service.service';
 
@@ -12,6 +12,8 @@ export class PageMembershipComponent implements OnInit {
 
   constructor(private master: MasterService, private headerService: PageHeaderServiceService) { }
 
+  items: MenuItem[];
+
   ngOnInit() {
     this.master.setActive(2);
 
@@ -21,6 +23,12 @@ export class PageMembershipComponent implements OnInit {
     this.headerService.setBreadcrumbItems([
       {label: 'Membership', url: '/membership'}
     ]);
+    this.items = [
+      {label: 'SUBSCRIPTION'},
+      {label: 'ACCOUNT DETAILS'},
+      {label: 'PERSONAL INFORMATION'},
+      {label: 'PAYMENT DETAILS'}
+  ];
   }
 
 }

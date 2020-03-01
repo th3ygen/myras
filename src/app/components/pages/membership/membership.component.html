@@ -2,4 +2,111 @@
     <app-section-page-header></app-section-page-header>
 </div>
 
-<div class="body"></div>
+<div class="body">
+  <div class="wrapper">
+
+    <div class="step">
+      <p-steps [model]="items" [readonly]="true"></p-steps>
+    </div>
+
+    <div class="title">
+      <h1>Pricing</h1>
+    <h2>Select Your Plan!</h2>
+    </div>
+
+    <div class="pricing-cards">
+      <div class="pricing-card">
+        <div class="header">
+          <h2>Free</h2>
+        </div>
+        <div class="body">
+          <p>dfghjkl</p>
+        </div>
+        <div class="footer">
+          <div class="btn"><button pButton type="button" label="Warning" class="ui-button-raised ui-button-warning"></button></div>
+        </div>
+      </div>
+
+      <div class="pricing-card">
+        <p> or sit amet, consectetur adipiscing elit. Pellentesque vitae metus varius, egestas justo sit amet, vulputate mauris.
+          Aenean libero justo, ornare vitae semper suscipit, imperdiet eu arcu. Donec at convallis nisi. Phasellus dapibus lectus odio, vitae bibendum metus semper a.
+           Vivamus et purus arcu. Mauris consequat diam in lacus elementum hendrerit. Etiam sit amet felis eget dui aliquet vehicula. Maecenas consectetur lacus non diam tristique, eu bibendum sapien efficitur. Duis lobortis interdum mi. Integer sit amet nibh eget nibh porttitor iaculis. Fusce volutpat dolor in eros hendrerit, iaculis bibendum dolor laoreet. Pellentesque condimentum luctus enim vitae imperdiet.
+
+          Aliquam sed dui nec tortor blandit semper sed in elit. Nullam eu nisi eget elit consectetur bibendum eu eget elit. Nulla sed iaculis lectus, non sollicitudin augue.
+           Nullam ornare sit amet mauris consectetur dictum. Integer aliquam justo vitae augue sagittis ultricies. Sed eget tincidunt nunc. Suspendisse ac orci diam. Sed a leo eu diam finibus tristique a eget quam.
+            Cras sem enim, tempor semper diam in, pretium scelerisque erat. Vivamus lobortis leo in orci mollis, sit amet convallis quam luctus. Aenean a nunc rutrum, consectetur mi a, dapibus est. Aliquam placerat ligula ac erat consequat, vitae laoreet odio finibus.
+
+          Maecenas posuere augue erat, eget viverra diam placerat ac. Donec </p>
+
+          <div class="btn"><button pButton type="button" label="Warning" class="ui-button-raised ui-button-warning"></button>      </div>
+      </div>
+      <div class="pricing-card">
+        <p> or sit amet, consectetur adipiscing elit. Pellentesque vitae metus varius, egestas justo sit amet, vulputate mauris. Aenean libero justo, ornare vitae semper suscipit, imperdiet eu arcu.
+           Donec at convallis nisi. Phasellus dapibus lectus odio, vitae bibendum metus semper a.
+          Vivamus et purus arcu. Mauris consequat diam in lacus elementum hendrerit. Etiam sit amet felis eget dui aliquet vehicula.
+          Maecenas consectetur lacus non diam tristique, eu bibendum sapien efficitur. Duis lobortis interdum mi. Integer sit amet nibh eget nibh porttitor iaculis.
+          Fusce volutpat dolor in eros hendrerit, iaculis bibendum dolor laoreet. Pellentesque condimentum luctus enim vitae imperdiet.
+
+          Aliquam sed dui nec tortor blandit semper sed in elit. Nullam eu nisi eget elit consectetur bibendum eu eget elit. Nulla sed iaculis lectus, non sollicitudin augue. Nullam ornare sit amet mauris consectetur dictum. Integer aliquam justo vitae augue sagittis ultricies. Sed eget tincidunt nunc. Suspendisse ac orci diam. Sed a leo eu diam finibus tristique a eget quam. Cras sem enim, tempor semper diam in, pretium scelerisque erat. Vivamus lobortis leo in orci mollis, sit amet convallis quam luctus. Aenean a nunc rutrum, consectetur mi a, dapibus est. Aliquam placerat ligula ac erat consequat, vitae laoreet odio finibus.
+
+          Maecenas posuere augue erat, eget viverra diam placerat ac. Donec </p>
+
+          <div class="btn"><button pButton type="button" label="Warning" class="ui-button-raised ui-button-warning"></button>      </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="wrapper">
+    <div class="step">
+      <p-steps [model]="items" [readonly]="true"></p-steps>
+    </div>
+<div class="ui-g ui-fluid">
+    <div class="ui-g-12 ui-md-4">
+      <label for="username">Username :</label>
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon"><i class="pi pi-user" style="line-height: 1.25;"></i></span>
+            <input type="text" pInputText placeholder="Username">
+        </div>
+    </div>
+
+    <div class="ui-g-12 ui-md-4">
+      <div class="ui-inputgroup">
+        <label for="password">Password :</label>
+        <span class="ui-inputgroup-addon"><i class="pi pi-user" style="line-height: 1.25;"></i></span>
+        <input type="password" pInputText placeholder="Password">
+    </div>
+    <div class="ui-inputgroup">
+      <label for="Cpassword">Confrim Password :</label>
+      <span class="ui-inputgroup-addon"><i class="pi pi-user" style="line-height: 1.25;"></i></span>
+      <input type="password" pInputText placeholder="Confirm Password">
+  </div>
+    </div>
+
+    <div class="ui-g-12 ui-md-4">
+      <div class="ui-inputgroup">
+        <label for="email">Email :</label>
+        <span class="ui-inputgroup-addon"><i class="pi pi-user" style="line-height: 1.25;"></i></span>
+        <input type="email" pInputText placeholder="Email">
+    </div>
+    </div>
+    <label for="membership">Membership :</label>
+    <p-radioButton name="groupname" value="std" label="Student"></p-radioButton>
+    <p-radioButton name="groupname" value="reg" label="Regular"></p-radioButton>
+    <p-radioButton name="groupname" value="corp" label="Corporate"></p-radioButton>
+    <button pButton type="button" label="Warning" class="ui-button-raised ui-button-warning"></button>
+  </div>
+  </div>
+  <hr>
+  <div class="wrapper">
+    <div class="step">
+      <p-steps [model]="items" [readonly]="true"></p-steps>
+
+    </div>
+  </div>
+  <hr>
+  <div class="wrapper">
+    <div class="step">
+      <p-steps [model]="items" [readonly]="true"></p-steps>
+    </div>
+  </div>
+</div>

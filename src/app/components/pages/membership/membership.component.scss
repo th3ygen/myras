@@ -10,11 +10,121 @@
 }
 
 
-.body {
+/* .body {
     position: relative;
 
     min-height: 100vh;
+    height: auto;
     width: 100%;
 
+    padding: 20px;
+
     background-color: #E4EBF5;
+} */
+
+.wrapper {
+  position: relative;
+
+  height: auto;
+  width: 100%;
+
+  padding: 20px;
+
+  background-color: #fff;
 }
+
+.title{
+  position: relative;
+
+  margin-left: 50%;
+
+
+  font-weight: bold;
+  color:orange;
+}
+
+
+
+.pricing-cards {
+  position: relative;
+
+  height: fit-content;
+  width: 90%;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  display: flex;
+  justify-content: space-between;
+
+  & > .pricing-card {
+    position: relative;
+
+    width: 28%;
+    height: 800px;
+
+    background-color:#efeff2;
+    opacity: 100%;
+
+    box-shadow: 0 0px 30px 10px #d6d6d6;
+    border-radius: 15px;
+
+    & > .header {
+      display: block !important;
+      position: relative;
+
+      height: 100px;
+      width: 100%;
+
+
+    }
+    & > .body {
+      display: block !important;
+      position: relative;
+
+      height: 100px;
+      width: 100%;
+    }
+    & > .footer {
+      & > .btn{
+        position: absolute;
+        right: 0;
+        left: 0;
+        display: block;
+        text-align: center;
+        bottom: 30px;
+        border: 2px #ef8216 !important;
+        color: white !important;
+      }
+    }
+
+
+  }
+}
+
+  .step{
+    position: relative;
+
+    padding: 20px;
+
+    margin-left: 30%;
+    margin-right:20%;
+
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+
+  .ui-button {
+    & > .ui-state {
+
+    }
+  }
+  .ui-button.ui-state-default.ui-button-warning{
+    background-color: white !important;
+      border: 2px solid #ef8216 !important;
+  }
+
+
+
