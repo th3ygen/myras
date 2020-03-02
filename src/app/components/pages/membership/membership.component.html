@@ -17,7 +17,7 @@
     <div class="pricing-cards">
       <div class="pricing-card">
         <div class="header">
-          <span>Free</span>
+          <span>Regular</span>
         </div>
         <div class="body">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -32,7 +32,7 @@
 
       <div class="pricing-card">
         <div class="header">
-          <span>Free</span>
+          <span>Student</span>
         </div>
         <div class="body">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -46,7 +46,7 @@
       </div>
       <div class="pricing-card">
         <div class="header">
-          <span>Free</span>
+          <span>Corporate</span>
         </div>
         <div class="body">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -60,34 +60,114 @@
       </div>
     </div>
   </div>
+
   <hr>
+
   <div class="wrapper">
-    <div class="step">
-      <p-steps [model]="items" [readonly]="true"></p-steps>
+    <div class="ui-g ui-fluid" style="width: 75%; margin-left: auto; margin-right: auto;">
+
+      <div class="ui-g-12">
+        <div class="ui-g-2">
+          <label for="username">Username :</label>
+
+        </div>
+
+        <div class="ui-g-6">
+
+          <div class="ui-inputgroup">
+            <input name="username" type="text" pInputText>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-g-12">
+        <div class="ui-g-2">
+          <label for="username">Email :</label>
+        </div>
+
+        <div class="ui-g-6">
+          <div class="ui-inputgroup">
+            <input name="username" type="text" pInputText>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-g-12">
+        <div class="ui-g-6">
+          <div class="ui-g-4">
+            <label for="username">Password :</label>
+          </div>
+          <div class="ui-g-8">
+            <div class="ui-inputgroup">
+              <input name="username" type="text" pInputText>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-g-6">
+          <div class="ui-g-4">
+            <label for="username">Confirm :</label>
+          </div>
+          <div class="ui-g-8">
+            <div class="ui-inputgroup">
+              <input name="username" type="text" pInputText>
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="ui-g-12">
+        <div class="ui-g-2">
+          <label for="membership">Membership :</label>
+        </div>
+
+        <div class="ui-g-6 cb-type">
+          <p-radioButton name="groupname" value="std" label="Student"></p-radioButton>
+          <p-radioButton name="groupname" value="reg" label="Regular"></p-radioButton>
+          <p-radioButton name="groupname" value="corp" label="Corporate"></p-radioButton>
+        </div>
+      </div>
+
+      <div class="ui-g-12">
+        <p-checkbox name="groupname" value="val1" label="I agree to the term and conditions"></p-checkbox>
+      </div>
+
     </div>
+
+  </div>
+  <!-- <div class="wrapper">
 <div class="ui-g ui-fluid">
   <div class="body2">
     <div class="ui-g-12 ui-md-4">
-      <label for="username">Username :</label>
-        <div class="ui-inputgroup"><input type="text" pInputText>
-
+        <div class="ui-inputgroup">
+          <label for="username">Username :</label>
+          <input type="text" pInputText>
         </div>
     </div>
 
     <div class="ui-g-12 ui-md-4">
       <div class="ui-inputgroup">
-        <label for="password">Password :</label><input type="password" pInputText >
+        <label for="password">Password :</label>
+        <input type="password" pInputText >
     </div>
 
     <div class="ui-g-12 ui-md-4">
     <div class="ui-inputgroup">
-      <label for="Cpassword">Confrim Password :</label><input type="password" pInputText >
+      <label for="Cpassword">Confrim Password :</label>
+     <input type="password" pInputText >
   </div>
     </div>
 
     <div class="ui-g-12 ui-md-4">
       <div class="ui-inputgroup">
-        <label for="email">Email :</label><input type="email" pInputText >
+        <label for="email">Email :</label>
+        <input type="email" pInputText >
     </div>
     </div>
     <label for="membership">Membership :</label>
@@ -104,14 +184,11 @@
   </div>
   <hr>
   <div class="wrapper">
-    <div class="step">
-      <p-steps [model]="items" [readonly]="true"></p-steps>
-    </div>
     <div class="body3">
     <div class="ui-g ui-fluid">
       <div class="ui-g-12 ui-md-4">
-        <label for="fName">Full Name :</label>
           <div class="ui-inputgroup">
+            <label for="fName">Full Name :</label>
               <input type="text" pInputText >
           </div>
       </div>
@@ -149,9 +226,6 @@
     </div>
   <hr>
   <div class="wrapper">
-    <div class="step">
-      <p-steps [model]="items" [readonly]="true"></p-steps>
-    </div>
     <div class="body4">
      <label for="successful">fjsdhjksdfkhsdkf</label>
      <label for="proof">dfsdnfjlsdfjsdfjksdnkfj</label>
@@ -165,3 +239,4 @@
 
   </div>
 </div>
+ -->
