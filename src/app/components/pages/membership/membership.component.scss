@@ -87,7 +87,7 @@
       height: fit-content;
       width: 100%;
 
-      padding: 25px;
+      padding: 40px 25px 25px;
 
       text-align: center;
 
@@ -105,6 +105,14 @@
 
       height: 100px;
       width: 100%;
+
+      padding-left: 40px;
+      padding-right: 40px;
+
+      /*padding-top: 40px;
+      padding-bottom: 40px;*/
+
+      text-align: center;
     }
     & > .footer {
       & > .btn{
@@ -113,7 +121,7 @@
         left: 0;
         display: block;
         text-align: center;
-        bottom: 30px;
+        bottom: 40px;
         border: 2px #ef8216 !important;
         color: white !important;
       }
@@ -145,6 +153,15 @@
   .ui-button.ui-state-default.ui-button-warning{
     background-color: white !important;
       border: 2px solid #ef8216 !important;
+  }
+
+  .ui-inputgroup{
+    display: flex;
+    //padding: 40%;
+
+
+    margin-left: auto;
+    margin-right: auto;
   }
 
 

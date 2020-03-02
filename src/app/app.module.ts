@@ -24,7 +24,7 @@ import {AccordionModule} from 'primeng/accordion';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {StepsModule} from 'primeng/steps';
 import {RadioButtonModule, } from 'primeng/radiobutton';
-import {DropdownModule} from 'primeng/dropdown';
+/* import {DropdownModule} from 'primeng/dropdown'; */
 
 
 
@@ -76,7 +76,7 @@ import { PageRegistrationComponent } from './components/pages/registration/regis
     BrowserAnimationsModule,
     StepsModule,
     RadioButtonModule,
-    DropdownModule
+   /*  DropdownModule */
 
   ],
   providers: [],
