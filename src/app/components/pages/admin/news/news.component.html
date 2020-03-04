@@ -10,17 +10,17 @@
                     <div class="label">
                         <span>Header</span>
                     </div>
-                    <input type="text" pInputText placeholder="Username">  
+                    <input type="text" pInputText #header>  
                     
                     <div class="label" style="padding-top: 30px;">
-                        <span>Brief</span>
+                        <span>Description</span>
                     </div>
-                    <textarea rows="5" cols="30" pInputTextarea autoResize="autoResize"></textarea>
+                    <textarea rows="5" cols="30" pInputTextarea autoResize="autoResize" #desc></textarea>
 
                     <div class="label" style="padding-top: 30px;">
                         <span>Keywords</span>
                     </div>
-                    <p-chips></p-chips>
+                    <p-chips #tags></p-chips>
                     <!-- <div class="label" style="padding-top: 30px;">
                         <span>Type</span>
                     </div> 
@@ -36,13 +36,15 @@
                     <div class="img-preview">
                         <div id="img"></div>
                     </div>
-
-                    <p-button class="btn-imgBrowse" label="Browse"></p-button>
-                    <span class="label-file">Click browse to upload your image</span>
-                </div>
-                <!-- <div class="ui-g-6">
+                    <label class="image-upload-container btn btn-bwm">
+                        <input #imageInput
+                               type="file"
+                               accept="image/*"
+                               (change)="processFile(imageInput)">
+                      </label>
                     
-                </div> -->
+                    <span class="label-file">Click Choose file to upload your image</span>
+                </div>
                 
             </div>
 
@@ -53,7 +55,7 @@
                     <div class="label">
                         <span>Content</span>
                     </div>
-                    <p-editor [style]="{'height':'320px'}"></p-editor>
+                    <p-editor [style]="{'height':'320px'}" #content></p-editor>
                 </div>
                 
             </div>
@@ -63,7 +65,7 @@
             <div class="form-group" style="height: 50px;">
                 <div class="news-action">
                     <p-button label="Cancel" class="btn-cancel" styleClass="ui-button-secondary"></p-button>
-                    <p-button label="Post" ></p-button>
+                    <p-button label="Post" (click)="this.uploadNews()"></p-button>
                 </div>
                 
             </div>

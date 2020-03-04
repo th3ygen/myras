@@ -23,8 +23,10 @@
                 <div>
                     <p-checkbox [label]="'Remember me'" [binary]="true" (onChange)="tick($event)"></p-checkbox>
                     <div class="forget">
-                        <span>Forgot the password?</span>
-                        <a href="#">Click here</a>
+                        
+                        <a href="#">Forgot password?</a>
+                        <span> | </span>
+                        <a routerLink="/membership">Sign Up</a>
                     </div>
 
                     <div class="btn-login">

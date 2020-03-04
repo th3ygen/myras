@@ -54,7 +54,7 @@
 
         height: 100%;
         &:nth-child(1) {
-            width: 30%;
+            width: 20%;
 
             & > img {
                 position: absolute;
@@ -68,7 +68,7 @@
             }
         }
         &:nth-child(2) {
-            width: 70%;
+            width: 80%;
 
             & > ul {
                 margin: 0;
@@ -192,7 +192,7 @@
 }
 
 // user
-
+/* 
 .user-topbar {
     position: fixed;
     top: 0;
@@ -266,6 +266,18 @@
             }
         }
     }
+} */
+.user-topbar {
+    position: fixed;
+    top: 0;
+    left: 250px;
+
+    height: 80px;
+    width: calc(100% - 250px);
+
+    background-color: rgb(15, 37, 87);
+
+    z-index: 2;
 }
 
 .user-sidenav {
@@ -277,6 +289,28 @@
     width: 250px;
 
     background-color: rgb(15, 37, 87);
+
+    box-shadow: 5px 5px 10px 8px rgba(0, 0, 0, .1);
+
+    & > .logo {
+        position: relative;
+
+        height: fit-content;
+        width: 100%;
+
+        text-align: center;
+
+        padding: 20px;
+
+        & > img {
+            position: relative;
+
+            width: 200px;
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
 
     & > .btn-toggle {
         position: absolute;
@@ -303,6 +337,9 @@
 .user-body {
     position: relative;
     margin-left: 250px;
+    margin-top: 80px;
+
+    z-index: 1;
 }
 
 :host ::ng-deep {
@@ -381,24 +418,35 @@
 .sidebar-items {
     position: relative;
 
-    color: white;
+    color: orange;
     list-style: none;
     
     padding: 0;
 
+    font-size: 17px;
+
     & > li {
         position: relative;
-        padding: 15px 15px;
+        padding: 20px;
 
         z-index: 2;
 
+        text-align: center;
         & > span {
             padding: 15px 15px;
+        }
+
+        &.active {
+            background-color: #fff;
+            
         }
 
         & > .sidebar-childs {
             list-style: none;
             padding: 15px 35px;
+
+            font-size: 14px;
+            color: white;
 
             & > li {
                 position: relative;

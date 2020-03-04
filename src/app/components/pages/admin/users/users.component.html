@@ -1,0 +1,92 @@
+<div class="wrapper">
+    <div class="dd-category">
+        <label for="category">Category: </label>
+        <select name="category">
+            <option value="free">Student</option>
+            <option value="free">Regular</option>
+            <option value="free">Corporate</option>
+        </select>
+    </div>
+
+    <div class="table-news">
+        <p-table [columns]="cols" [value]="cars" dataKey="vin">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th style="width: 3em"></th>
+                    <th *ngFor="let col of columns">
+                        {{col.header}}
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
+                <tr>
+                    <td>
+                        <a href="#" [pRowToggler]="rowData">
+                            <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
+                        </a>
+                    </td>
+                    <td *ngFor="let col of columns">
+                        {{rowData[col.field]}}
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+                <tr>
+                    <td [attr.colspan]="columns.length + 1">
+                        <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
+                            <div class="ui-g-12 ui-md-12">
+                                
+                                <div class="title" style="justify-content: center;">
+                                    <span>Student Information</span>
+                                </div>
+                         
+                        </div>
+                            <div class="ui-g-12 ui-md-3" style="text-align:center">
+                                <img [attr.alt]="rowData.brand" src="assets/showcase/images/demo/car/{{rowData.brand}}.png">
+                            </div>
+                            <div class="ui-g-12 ui-md-9">
+                                <div class="ui-g">
+                                    
+                                    <div class="ui-g-12">
+                                        <b>No.:</b> {{rowData.numb}}
+                                    </div>
+                                    <div class="ui-g-12">
+                                        <b>Full Name:</b> {{rowData.fName}}
+                                    </div>
+                                    <div class="ui-g-12">
+                                        <b>Email:</b> {{rowData.email}}
+                                    </div>
+                                    <div class="ui-g-12">
+                                        <b>Phone Number:</b> {{rowData.pNumb}}
+                                    </div>
+                                    <div class="ui-g-12">
+                                        <b>Address:</b> {{rowData.adrs}}
+                                    </div>
+                                    <div class="ui-g-12">
+                                        <b>University:</b> {{rowData.uni}}
+                                    </div>
+                                    <div class="ui-g-12">
+                                        <b>Course:</b> {{rowData.crs}}
+                                    </div>
+                                    <div class="ui-g-12">
+                                        <b>Status:</b> {{rowData.payStatus}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="editBtn">
+                                <p-button label="Edit" icon="pi pi-pencil" iconPos="right"></p-button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+
+    </div>
+
+</div>
+<!-- 
+<div class="p-grid f">
+    <div class="p-col">1</div>
+    <div class="p-col">1</div>
+</div> -->

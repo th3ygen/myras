@@ -1,15 +1,24 @@
 import { Injectable, Output } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 
 import { Router } from '@angular/router';
 import { EventEmitter } from 'protractor';
 
 import { MenuItem } from 'primeng/api';
 
+import { AuthService } from './auth.service';
+
 @Injectable({
   providedIn: 'root'
 })
 export class MasterService {
  /*  @Output() activeChanged: EventEmitter = new EventEmitter(); */
+
+  private userUIObservable = new Subject<boolean>();
+  private userUI = false;
+
+  public loading = false;
+
   public navItems = [
     {
       label: 'Home',
@@ -89,6 +98,16 @@ export class MasterService {
     return this.footer;
   }
 
+  public setUserUI(show) {
+    this.userUI = show;
+
+    this.userUIObservable.next(this.userUI);
+  }
+
+  public getUserUI() {
+    return this.userUIObservable;
+  }
+
   public hideTopnav(flag: boolean) {
     this.topnav.hide = flag;
   }
@@ -115,8 +134,18 @@ export class MasterService {
 
   }
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private auth: AuthService) {
+    /* this.auth.currentUser.subscribe(data => {
+      if (data) {
+        this.setUserUI(true);
+        this.loading = false;
+      } else {
+        this.setUserUI(false);
+      }
+    }); */
+
     this.router.events.subscribe(val => {
+      this.loading = true;
       this.reset();
     });
   }

@@ -1,0 +1,95 @@
+
+.title{
+    line-height: 60px;
+}
+
+/* .body{
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    background-color: #fff;
+}
+ */
+
+ input[type='text'] {
+     width: 300px;
+ }
+
+.body {
+    position: relative;
+
+    min-height: 100vh;
+    width: 100%;
+
+    padding: 50px;
+
+    background-color: #E4EBF5;
+}
+
+.profile {
+    position: relative;
+
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* border: 2px solid #0f2557; */
+    border-radius: 10px;
+    margin: auto;
+
+    box-shadow: 5px 10px 10px 5px rgba(0, 0, 0, .1);
+
+    padding: 50px;
+
+    background-color: #fff;
+}
+
+.labels {
+    display: inline-block;
+    position: relative;
+
+    width: 150px;
+    height: fit-content;
+
+    & > label {
+        display: block;
+
+        height: 50px;
+    }
+}
+.inputs {
+    display: inline-block;
+    position: relative;
+
+    width: 100%;
+    height: fit-content;
+
+    padding: 10px;
+
+    & > input {
+        display: block;
+        height: 50px;
+    }
+}
+
+.image {
+    content: url(https://icons.iconarchive.com/icons/papirus-team/papirus-status/256/avatar-default-icon.png);
+   margin:auto;
+   padding-bottom: 30px;
+
+
+}
+
+.title{
+    text-align:center;
+
+    & > span{
+        font-size:20px;
+        font-weight:bold;
+    }
+}
+
+.ui-g{
+    padding-top:20px;
+    float:right;
+}

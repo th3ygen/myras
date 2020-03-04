@@ -1,6 +1,16 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
-import { User, TEST_ACC } from '../mockup/user';
+import { Observable, throwError, BehaviorSubject } from 'rxjs';
+
+import { MasterService } from '../services/master.service';
+
+import { ROUTE_CONFIG } from '../configs/api.config';
+
+import { User } from '../models/user';
+
+/* import { User, TEST_ACC } from '../mockup/user'; */
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -8,17 +18,35 @@ import { User, TEST_ACC } from '../mockup/user';
 
 
 export class AuthService {
-  private static TEST_MODE = false;
-  private user: User;
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
 
-  public getCurrentUser(): User {
-    return (AuthService.TEST_MODE ? TEST_ACC : this.user);
+  public register(userData): Observable<any> {
+    return this.http.post<any>(ROUTE_CONFIG.auth.register, userData);
   }
 
-  public login(username: string, password: string): User {
-    this.user = User.login(username, password);
-    return this.user;
+  public logout() {
+    window.location.reload();
+
+    localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
   }
 
-  constructor() { }
+  public login(username: string, password: string): Observable<any> {
+    return this.http.post<any>(ROUTE_CONFIG.auth.login, {username, password})
+      .pipe(map(data => {
+        localStorage.setItem('currentUser', JSON.stringify(data.user));
+        this.currentUserSubject.next(data.user);
+        return data.user;
+      }));
+  }
+
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
+  }
+
+  constructor(private http: HttpClient) {
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
+  }
 }

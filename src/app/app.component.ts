@@ -10,7 +10,7 @@ import { MasterService } from './services/master.service';
 import { SidebarItem, SidebarItems } from './configs/sidebar.config';
 
 // mock auth
-import { User } from './mockup/user';
+import { User } from './models/user';
 import { AuthService } from './services/auth.service';
 
 import { MenuItem } from 'primeng/api';
@@ -20,20 +20,24 @@ import { MenuItem } from 'primeng/api';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, AfterViewChecked {
-  public sidebarItems: SidebarItem[] = SidebarItems;
+export class AppComponent implements OnInit, AfterViewChecked, AfterViewInit {
+  public sidebarItems = SidebarItems;
   public navItems = [];
   public scrolled = false;
   public topnav;
   public footer;
+
+  public userUI = false;
 
   public breadcrumbItems: MenuItem[];
   public home = '/home';
 
   public loggedIn = false;
 
-  public currentUser: User;
+  public currentUser;
   public username;
+
+  public loading = true;
 
   title = 'myras';
 
@@ -42,14 +46,16 @@ export class AppComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit() {
-    this.currentUser = this.auth.getCurrentUser();
-    if (this.currentUser) {
-      this.username = this.currentUser.getUsername();
-      this.loggedIn = true;
-    }
+    this.master.getUserUI().subscribe(flag => {
+      this.userUI = flag;
+    });
   }
 
-  constructor( private auth: AuthService, private master: MasterService, private changeRef: ChangeDetectorRef, private router: Router) {
+  public logout() {
+    this.auth.logout();
+  }
+
+  constructor( private auth: AuthService, public master: MasterService, private changeRef: ChangeDetectorRef, private router: Router) {
     AOS.init();
 
     window.addEventListener('scroll', () => {
@@ -68,17 +74,15 @@ export class AppComponent implements OnInit, AfterViewChecked {
     ).subscribe((event: NavigationEnd) => {
       window.scrollTo(0, 0);
 
-      /* this.currentUser = this.auth.getCurrentUser();
-      this.username = this.currentUser.getUsername();
-      if (this.currentUser) {
-        this.loggedIn = true;
-      } */
-
+      this.currentUser = this.auth.currentUserValue;
     });
   }
 
-  ngAfterViewChecked() {
+  ngAfterViewInit() {
     
+  }
+
+  ngAfterViewChecked() {
     this.breadcrumbItems = this.master.getBreadcrumbItems();
 
     this.changeRef.detectChanges();

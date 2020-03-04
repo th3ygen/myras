@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { first } from 'rxjs/operators';
 
 import { MasterService } from '../../../services/master.service';
 
@@ -15,30 +17,57 @@ export class PageLoginComponent implements OnInit {
   @ViewChild('username', {static: true}) username: ElementRef;
   @ViewChild('password', {static: true}) password: ElementRef;
 
+  public error = '';
+  private returnUrl = '';
+
   public rememberUser = false;
 
-  constructor(private master: MasterService, private router: Router, private auth: AuthService) { }
+  constructor(private master: MasterService, private router: Router, private route: ActivatedRoute, private auth: AuthService) {
+    const currentUser = this.auth.currentUserValue;
+    if (currentUser) {
+      if (currentUser.admin) {
+        this.router.navigate(['/admin/home']);
+      } else {
+        this.router.navigate(['/user/profile']);
+      }
+    }
+  }
 
   tick(val) {
     this.rememberUser = val;
-
   }
 
   public login() {
     const username = this.username.nativeElement.value;
     const password = this.password.nativeElement.value;
 
-    if (this.auth.login(username, password)) {
-      switch (this.auth.getCurrentUser().getAccess()) {
-        case 0:
-          this.router.navigateByUrl('admin/home');
-          break;
-        case 1:
-          this.router.navigateByUrl('user/membership');
-          break;
-      }
+    this.auth.login(username, password)
+      .pipe(first())
+      .subscribe(
+        user => {
+          if (user.admin) {
+            this.router.navigate(['/admin/home']);
+          } else {
+            /* console.log(user); */
+            
+            this.router.navigate(['/user/news/add']);
+          }
+        },
 
-    }
+        error => {
+          this.error = error;
+        }
+      );
+
+    /* this.auth.login(username, password).subscribe(res => {
+      const user = res.user;
+
+      if (user.admin) {
+        this.router.navigateByUrl('admin/home');
+      } else {
+        this.router.navigateByUrl('user/membership');
+      }
+    }); */
 
   }
 
@@ -46,6 +75,7 @@ export class PageLoginComponent implements OnInit {
     this.master.hideTopnav(true);
     this.master.hideFooter(true);
 
+    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
   }
 
 }

@@ -10,6 +10,8 @@ import { NewsService } from '../../../services/news.service';
   styleUrls: ['./home.component.scss']
 })
 export class PageHomeComponent implements OnInit {
+  public showDialog = false;
+
   public carousel = {
     responsive: [
       {
@@ -56,63 +58,10 @@ export class PageHomeComponent implements OnInit {
     }
   ];
 
-  public news: any[] = [
-    {
-      title: 'Praesent faucibus',
-      desc: 'Mauris ultricies ante sit amet ligula pretium, luctus feugiat enim rhoncus'
-    },
-    {
-      title: 'Praesent faucibus',
-      desc: 'Mauris ultricies ante sit amet ligula pretium, luctus feugiat enim rhoncus'
-    },
-    {
-      title: 'Praesent faucibus',
-      desc: 'Mauris ultricies ante sit amet ligula pretium, luctus feugiat enim rhoncus'
-    },
-    {
-      title: 'Praesent faucibus',
-      desc: 'Mauris ultricies ante sit amet ligula pretium, luctus feugiat enim rhoncus'
-    },
-    {
-      title: 'Praesent faucibus',
-      desc: 'Mauris ultricies ante sit amet ligula pretium, luctus feugiat enim rhoncus'
-    },
-    {
-      title: 'Praesent faucibus',
-      desc: 'Mauris ultricies ante sit amet ligula pretium, luctus feugiat enim rhoncus'
-    },
-    {
-      title: 'Praesent faucibus',
-      desc: 'Mauris ultricies ante sit amet ligula pretium, luctus feugiat enim rhoncus'
-    },
-  ];
+  public news: any[] = [];
+  public loaded = false;
 
-  /* public news: any[] = [
-    {
-      title: 'Praesent faucibus',
-      desc: 'Mauris ultricies ante sit amet ligula pretium, luctus feugiat enim rhoncus'
-    },
-    {
-      title: 'Proin vitae',
-      desc: 'Donec eget luctus nulla. Pellentesque sit amet erat at orci vehicula lacinia'
-    },
-    {
-      title: 'Proin vitae',
-      desc: 'Donec eget luctus nulla. Pellentesque sit amet erat at orci vehicula lacinia'
-    },
-    {
-      title: 'Proin vitae',
-      desc: 'Donec eget luctus nulla. Pellentesque sit amet erat at orci vehicula lacinia'
-    },
-    {
-      title: 'Proin vitae',
-      desc: 'Donec eget luctus nulla. Pellentesque sit amet erat at orci vehicula lacinia'
-    },
-    {
-      title: 'Proin vitae',
-      desc: 'Donec eget luctus nulla. Pellentesque sit amet erat at orci vehicula lacinia'
-    }
-  ]; */
+  
 
   routeTo(path: string) {
     this.router.navigateByUrl(path);
@@ -129,13 +78,17 @@ export class PageHomeComponent implements OnInit {
   }
 
   public loadNews() {
-    this.newsService.getLatestNews(1).subscribe(data => {
-      this.news.push({
-        title: data[0].header,
-        desc: data[0].brief,
-        img: data[0].imgURL
+    this.newsService.getLatestNews(10).subscribe(data => {
+      data.forEach(e => {
+        this.news.push({
+          title: e.header,
+          desc: e.description,
+          img: `http://localhost:8080${e.imgURL}`
+        });
       });
+      this.loaded = true;
     });
+
   }
 
   ngOnInit() {

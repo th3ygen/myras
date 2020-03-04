@@ -1,78 +1,74 @@
-<!-- guest -->
-<div *ngIf="!this.loggedIn" class="top-navbar" [class.scrolled]="this.scrolled" [class.hide]="this.topnav.hide">
-  <div>
-    <img src="../assets/myras-logo.png" alt="">
-  </div>
+
+<div *ngIf="!this.userUI">
+  <div class="top-navbar" [class.scrolled]="this.scrolled" [class.hide]="this.topnav.hide">
+    <div>
+      <img src="../assets/myras-logo.png" alt="" (click)="this.logout()">
+    </div>
+      
+    <div>
+      <ul class="navbar-items">
+        <li *ngFor="let item of this.navItems" [class.active]="item.active" [routerLink]="item.path" routerLinkActive>{{ item.label }}</li>
+        <li class="glow" routerLink="/login">Login</li>
+      </ul>
+    </div>
     
-  <div>
-    <ul class="navbar-items">
-      <li *ngFor="let item of this.navItems" [class.active]="item.active" [routerLink]="item.path" routerLinkActive>{{ item.label }}</li>
-      <li class="glow" routerLink="/login">Join Us</li>
-    </ul>
   </div>
-  
-</div>
-  
-<div *ngIf="!this.loggedIn" class="body-wrapper">
-  <router-outlet></router-outlet>
-  
-</div>
 
-<div *ngIf="!this.loggedIn" class="footer-wrapper" [class.hide]="this.footer.hide">
-  <app-section-footer></app-section-footer>
+  <div class="body-wrapper">
+    <router-outlet></router-outlet>
+    
+  </div>
+
+  <div class="footer-wrapper" [class.hide]="this.footer.hide">
+    <app-section-footer></app-section-footer>
+  </div>
+
 </div>
 
-<!-- member -->
-<!-- <div *ngIf="this.loggedIn" class="user-topbar" [class.scrolled]="this.scrolled">
-  <div>
-    <img src="../assets/myras-logo.png" alt="">
-  </div>
-
-  <div>
-    <div class="welcome-text">
-      <span>Welcome! {{ this.username }}</span>
-    </div>
-
-    <div class="breadcrumb">
-      <p-breadcrumb [model]="this.breadcrumbItems" [home]="home"></p-breadcrumb>
-    </div>
-
-    <div class="btn-logout">
-      <span>Log out</span>
+<div *ngIf="this.userUI">
+  <div class="user-topbar">
+    <div class="p-grid p-justify-end">
+      <div class="p-col-2" style="line-height: 80px; text-align: center;">
+        <p-button class="btn-signout" label="Log out" (click)="this.logout()"></p-button>
+      </div>
     </div>
   </div>
-</div> -->
-
-<div *ngIf="this.loggedIn" class="user-sidenav">
-  <div class="btn-toggle">
-    <i class="fas fa-bars"></i>
-  </div>
-
-  <div class="sidebar-userInfo">
-    <div class="userInfo-img">
-      <img src="../assets/login-bg.jpg" alt="">
+  
+  <div class="user-sidenav">
+    <div class="logo">
+      <img src="../assets//myras-logo.png" alt="">
     </div>
-
-    <div class="userInfo-label">
-      <div class="name"> {{ this.username }} </div>
-      <div class="email"> {{ this.currentUser.getContact().email }} </div>
+  
+    <div class="sidebar-userInfo">
+      <div class="userInfo-img">
+        <img src="../assets/login-bg.jpg" alt="">
+      </div>
+  
+      <div class="userInfo-label">
+        <div class="name"> {{ this.currentUser.username }} </div>
+        <div class="email"> {{ this.currentUser.email }} </div>
+      </div>
     </div>
-  </div>
-
-  <ul class="sidebar-items">
-    <li *ngFor="let item of this.sidebarItems" >
-      <span>{{ item.label }}</span>
-      <ng-container *ngIf="item.child">
-        <ul class="sidebar-childs" *ngFor="let child of item.child" >
-          <li (click)="this.navigate(child.url)">
-            <span> {{ child.label }} </span>
-          </li>
+    <p-accordion>
+      <p-accordionTab header="Dashboard">
+      </p-accordionTab>
+      <p-accordionTab header="Pages">
+        <ul>
+          <li>Overview</li>
+          <li>Add View</li>
         </ul>
-      </ng-container>
-    </li>
-  </ul>
+      </p-accordionTab>
+      <p-accordionTab header="Member">
+        <ul>
+          <li>Disable Member Account</li>
+        </ul>   
+      </p-accordionTab>
+  </p-accordion>
+  </div>
+  
+  <div class="user-body">
+    <router-outlet></router-outlet>
+  </div>
+
 </div>
 
-<div *ngIf="this.loggedIn" class="user-body">
-  <router-outlet></router-outlet>
-</div>
