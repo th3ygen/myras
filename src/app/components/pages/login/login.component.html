@@ -12,16 +12,16 @@
             <div class="form-container">
                 <div>
                     <i class="fa fa-user"></i>
-                    <input type="text" placeholder="Username" #username>
+                    <input type="text" placeholder="Username" [(ngModel)]="this.username" #username>
                 </div>
                 
                 <div>
                     <i class="fa fa-lock"></i>
-                    <input type="password" placeholder="Password" #password>
+                    <input type="password" placeholder="Password" [(ngModel)]="this.password"  #password>
                 </div>
                 
                 <div>
-                    <p-checkbox [label]="'Remember me'" [binary]="true" (onChange)="tick($event)"></p-checkbox>
+                    <p-checkbox [label]="'Remember me'" [binary]="true" [(ngModel)]="this.rememberUser"></p-checkbox>
                     <div class="forget">
                         
                         <a href="#">Forgot password?</a>

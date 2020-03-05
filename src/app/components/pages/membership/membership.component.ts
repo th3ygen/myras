@@ -22,7 +22,7 @@ export class PageMembershipComponent implements OnInit {
   public dob: Date;
 
   public items = [];
-  public currentIndex = 0;
+  public currentIndex = 1;
   public progress = {width: '0%'};
 
   public showDialog = false;

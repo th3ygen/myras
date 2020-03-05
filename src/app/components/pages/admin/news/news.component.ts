@@ -10,10 +10,10 @@ import { SelectItem } from 'primeng/api';
   styleUrls: ['./news.component.scss']
 })
 export class PageAdminNewsComponent implements OnInit {
-  @ViewChild('header', {static: false}) header: any;
-  @ViewChild('desc', {static: false}) desc: any;
-  @ViewChild('tags', {static: false}) tags: any;
-  @ViewChild('content', {static: false}) content: any;
+  @ViewChild('header') header: any;
+  @ViewChild('desc') desc: any;
+  @ViewChild('tags') tags: any;
+  @ViewChild('content') content: any;
 
   public img: File;
 

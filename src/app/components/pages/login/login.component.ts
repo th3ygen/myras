@@ -14,11 +14,10 @@ import { AuthService } from '../../../services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class PageLoginComponent implements OnInit {
-  @ViewChild('username', {static: true}) username: ElementRef;
-  @ViewChild('password', {static: true}) password: ElementRef;
+  public username: string;
+  public password: string;
 
   public error = '';
-  private returnUrl = '';
 
   public rememberUser = false;
 
@@ -33,15 +32,22 @@ export class PageLoginComponent implements OnInit {
     }
   }
 
-  tick(val) {
-    this.rememberUser = val;
+  private validate(){
+    if (!this.username) {
+      alert('Username is empty');
+      return false;
+    }
+    if (!this.password) {
+      alert('Password is empty');
+      return false;
+    }
+
+    return true;
   }
 
   public login() {
-    const username = this.username.nativeElement.value;
-    const password = this.password.nativeElement.value;
-
-    this.auth.login(username, password)
+    if (this.validate()) {
+      this.auth.login(this.username, this.password)
       .pipe(first())
       .subscribe(
         user => {
@@ -49,7 +55,7 @@ export class PageLoginComponent implements OnInit {
             this.router.navigate(['/admin/home']);
           } else {
             /* console.log(user); */
-            
+
             this.router.navigate(['/user/news/add']);
           }
         },
@@ -58,24 +64,13 @@ export class PageLoginComponent implements OnInit {
           this.error = error;
         }
       );
-
-    /* this.auth.login(username, password).subscribe(res => {
-      const user = res.user;
-
-      if (user.admin) {
-        this.router.navigateByUrl('admin/home');
-      } else {
-        this.router.navigateByUrl('user/membership');
-      }
-    }); */
+    }
 
   }
 
   ngOnInit() {
     this.master.hideTopnav(true);
     this.master.hideFooter(true);
-
-    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
   }
 
 }
