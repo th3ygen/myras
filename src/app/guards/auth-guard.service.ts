@@ -16,9 +16,9 @@ export class AuthGuardService implements CanActivate {
     const role = next.data.role;
 
     if (user) {
-      if (role === 'admin') {
+      /* if (role === 'admin') {
         return user.admin;
-      }
+      } */
 
       this.master.setUserUI(true);
       return true;

@@ -1,5 +1,5 @@
 import { Injectable, Output } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, BehaviorSubject } from 'rxjs';
 
 import { Router } from '@angular/router';
 import { EventEmitter } from 'protractor';
@@ -13,11 +13,14 @@ import { AuthService } from './auth.service';
 })
 export class MasterService {
  /*  @Output() activeChanged: EventEmitter = new EventEmitter(); */
+  private loadingSubject: BehaviorSubject<boolean>;
+  public loading: Observable<boolean>;
 
   private userUIObservable = new Subject<boolean>();
   private userUI = false;
 
-  public loading = false;
+  private registerFormSubject: BehaviorSubject<boolean>;
+  public registerForm: Observable<boolean>;
 
   public navItems = [
     {
@@ -52,24 +55,98 @@ export class MasterService {
     active: [false, false, false, false, false]
   };
 
-  private userSideBar = {
+  public userSideBar = {
     hide: true,
 
     items: [
       {
-        label: 'Membership information',
-        child: [
+        label: 'News',
+        childs: [
           {
-            label: 'Subscription information',
-            path: 'user/membership/subscription'
+            label: 'Overview',
+            path: 'user/news/overview',
+            icon: 'fas fa-eye'
+          },
+          {
+            label: 'Post',
+            path: 'user/news/post',
+            icon: 'fas fa-id-card'
+          },
+        ]
+      },
+      {
+        label: 'User profile',
+        childs: [
+          {
+            label: 'Personal informations',
+            path: 'user/profile/info',
+            icon: 'fas fa-info'
+          },
+          {
+            label: 'Change password',
+            path: 'user/profile/password',
+            icon: 'fas fa-key'
+          }
+        ]
+      },
+      {
+        label: 'Membership information',
+        childs: [
+          {
+            label: 'Subscription',
+            path: 'user/membership/subscription',
+            icon: 'fas fa-users-cog'
           },
           {
             label: 'Membership card',
-            path: 'user/membership/card'
+            path: 'user/membership/card',
+            icon: 'fas fa-id-card'
+          },
+          /* {
+            label: 'Directories',
+            path: 'user/membership/directories',
+            icon: 'fas fa-th-list'
+          }, */
+        ]
+      }
+    ]
+  };
+  public adminSideBar = {
+    hide: true,
+
+    items: [
+      {
+        label: 'Dashboard',
+        path: 'admin/dashboard',
+        icon: 'fas fa-solar-panel'
+      },
+      {
+        label: 'News',
+        childs: [
+          {
+            label: 'Overview',
+            path: 'admin/news/overview',
+            icon: 'fas fa-clipboard-check'
           },
           {
-            label: 'Directories',
-            path: 'user/membership/directories'
+            label: 'Post news',
+            path: 'admin/news/post',
+            icon: 'fas fa-share-square'
+          },
+        ]
+      },
+      {
+        label: 'Members',
+        childs: [
+          {
+            label: 'Manager',
+            path: 'admin/members/manager',
+            icon: 'fas fa-tasks'
+          },
+          {
+            label: 'Payments',
+            path: 'admin/members/payments',
+            icon: 'fas fa-money-bill-wave'
           },
         ]
       }
@@ -134,18 +211,30 @@ export class MasterService {
 
   }
 
+  public setLoading(flag: boolean) {
+    this.loadingSubject.next(flag);
+  }
+
+  public get getLoading(): boolean {
+    return this.loadingSubject.value;
+  }
+
+  public setRegisterForm(flag) {
+    this.registerFormSubject.next(flag);
+  }
+
+  public get getRegisterForm() {
+    return this.registerFormSubject.value;
+  }
+
   constructor(private router: Router, private auth: AuthService) {
-    /* this.auth.currentUser.subscribe(data => {
-      if (data) {
-        this.setUserUI(true);
-        this.loading = false;
-      } else {
-        this.setUserUI(false);
-      }
-    }); */
+    this.loadingSubject = new BehaviorSubject<boolean>(false);
+    this.loading = this.loadingSubject.asObservable();
+
+    this.registerFormSubject = new BehaviorSubject<boolean>(true);
+    this.registerForm = this.registerFormSubject.asObservable();
 
     this.router.events.subscribe(val => {
-      this.loading = true;
       this.reset();
     });
   }

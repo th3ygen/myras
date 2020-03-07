@@ -16,7 +16,7 @@ interface Car {
 }
 
 @Component({
-  selector: 'app-page-admin-overview',
+  selector: 'app-page-admin-news-overview',
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.scss'],
   animations: [
@@ -35,7 +35,7 @@ interface Car {
 
 })
 
-export class PageAdminOverviewComponent implements OnInit {
+export class PageAdminNewsOverviewComponent implements OnInit {
   public cars: Car[] = [];
   public cols: any[];
 

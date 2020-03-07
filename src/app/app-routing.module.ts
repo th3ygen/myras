@@ -10,21 +10,34 @@ import { PageLoginComponent } from './components/pages/login/login.component';
 import { PageMembershipComponent } from './components/pages/membership/membership.component';
 import { PageActivitiesComponent } from './components/pages/activities/activities.component';
 import { PageCommunitiesComponent } from './components/pages/communities/communities.component';
-import { PageRegistrationComponent } from './components/pages/registration/registration.component';
+/* import { PageRegistrationComponent } from './components/pages/registration/registration.component'; */
 import { PageNewsPageComponent } from './components/pages/news-page/news-page.component';
 
 
 // Admin pages
 import { PageAdminHomeComponent } from './components/pages/admin/home/home.component';
 import { PageAdminNewsComponent } from './components/pages/admin/news/news.component';
-import { PageAdminOverviewComponent } from './components/pages/admin/news/overview/overview.component';
+// import { PageAdminNewsOverviewComponent } from './components/pages/admin/news/overview/overview.component';
 import { PageAdminUsersComponent } from './components/pages/admin/users/users.component';
+import { PageAdminDashboardComponent } from './components/pages/admin/dashboard/dashboard.component';
+import { PageAdminNewsOverviewComponent } from './components/pages/admin/news/overview/overview.component';
+import { PageAdminNewsPostComponent } from './components/pages/admin/news/post/post.component';
+import { PageAdminMembersManagerComponent } from './components/pages/admin/members/manager/manager.component';
+import { PageAdminMembersPaymentsComponent } from './components/pages/admin/members/payments/payments.component';
 
 
 // User pages
 import { PageUserMembershipComponent } from './components/pages/user/membership/membership.component';
 import { PagesUserNewsAddComponent } from './components/pages/user/news/add/add.component';
 import { PageUserProfileComponent } from './components/pages/user/profile/profile.component';
+import { PageUserProfilePersonalComponent } from './components/pages/user/profile/personal/personal.component';
+import { PageUserProfilePasswordComponent } from './components/pages/user/profile/password/password.component';
+import { PageUserMembershipSubscriptionComponent } from './components/pages/user/membership/subscription/subscription.component';
+import { PageUserMembershipCardComponent } from './components/pages/user/membership/card/card.component';
+import { PageUserNewsOverviewComponent } from './components/pages/user/news/overview/overview.component';
+
+// Shared
+import { PageSharedNewsPostComponent } from './components/shared/news/post/post.component';
 
 
 const routes: Routes = [
@@ -35,28 +48,39 @@ const routes: Routes = [
   { path: 'contact', component: PageContactComponent },
 
   { path: 'membership', component: PageMembershipComponent },
-  { path: 'pricing', component: PageRegistrationComponent },
   { path: 'activities', component: PageActivitiesComponent },
   { path: 'communities', component: PageCommunitiesComponent },
 
   { path: 'news', component: PageNewsPageComponent },
 
   { path: 'login', component: PageLoginComponent },
+
   { path: 'user', canActivate: [AuthGuardService], data: { role: 'user' }, children: [
-    { path: 'membership', component: PageUserMembershipComponent },
-    { path: 'profile', component: PageUserProfileComponent },
     { path: 'news', children: [
-      { path: 'add', component: PageAdminNewsComponent },
+      { path: 'overview', component: PageUserNewsOverviewComponent },
+      { path: 'post', component: PageSharedNewsPostComponent },
+
+    ] },
+    { path: 'profile', children: [
+      { path: 'info', component: PageUserProfilePersonalComponent },
+      { path: 'password', component: PageUserProfilePasswordComponent },
+
+    ] },
+    { path: 'membership', children: [
+      { path: 'subscription', component: PageUserMembershipSubscriptionComponent },
+      { path: 'card', component: PageUserMembershipCardComponent },
+      /* { path: 'directories', component: PageUserMembershipSubscriptionComponent }, */
     ] },
   ] },
   { path: 'admin', canActivate: [AuthGuardService], data: { role: 'admin' }, children: [
-    { path: 'home', component: PageAdminHomeComponent },
+    { path: 'dashboard', component: PageAdminDashboardComponent },
     { path: 'news', children: [
-      { path: 'add', component: PageAdminNewsComponent },
-      { path: 'overview', component: PageAdminOverviewComponent },
+      { path: 'overview', component: PageAdminNewsOverviewComponent },
+      { path: 'post', component: PageSharedNewsPostComponent },
     ] },
-    { path: 'users', children: [
-      { path: 'overview', component: PageAdminUsersComponent },
+    { path: 'members', children: [
+      { path: 'manager', component: PageAdminMembersManagerComponent },
+      { path: 'overview', component: PageAdminMembersPaymentsComponent },
     ] }
   ] }
 ];

@@ -13,7 +13,6 @@ import { AppComponent } from './app.component';
 import { PageAboutComponent } from './components/pages/about/about.component';
 import { PageContactComponent } from './components/pages/contact/contact.component';
 
-
 // PrimeNG modules
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { CheckboxModule } from 'primeng/checkbox';
@@ -34,30 +33,62 @@ import { DialogModule } from 'primeng/dialog';
 /* import {DropdownModule} from 'primeng/dropdown'; */
 
 // Sections
+import { PageUserProfileComponent } from './components/pages/user/profile/profile.component';
+import { PageUserMembershipComponent } from './components/pages/user/membership/membership.component';
+import { PageAdminHomeComponent } from './components/pages/admin/home/home.component';
+import { PageAdminNewsComponent } from './components/pages/admin/news/news.component';
+/* import { PageRegistrationComponent } from './components/pages/registration/registration.component'; */
+import { PagesUserNewsAddComponent } from './components/pages/user/news/add/add.component';
+import { PageAdminUsersComponent } from './components/pages/admin/users/users.component';
+
+
+// interceptors
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { ErrorInterceptor } from './interceptors/error.interceptor';
+
+// Guest
+import { PageNewsPageComponent } from './components/pages/news-page/news-page.component';
 import { SectionFooterComponent } from './components/sections/footer/footer.component';
 import { SectionPageHeaderComponent } from './components/sections/page-header/page-header.component';
 import { PageLoginComponent } from './components/pages/login/login.component';
 import { PageMembershipComponent } from './components/pages/membership/membership.component';
 import { PageActivitiesComponent } from './components/pages/activities/activities.component';
 import { PageCommunitiesComponent } from './components/pages/communities/communities.component';
-import { PageUserMembershipComponent } from './components/pages/user/membership/membership.component';
-import { PageAdminHomeComponent } from './components/pages/admin/home/home.component';
-import { PageAdminNewsComponent } from './components/pages/admin/news/news.component';
-import { PageRegistrationComponent } from './components/pages/registration/registration.component';
-import { PageAdminOverviewComponent } from './components/pages/admin/news/overview/overview.component';
-import { PagesUserNewsAddComponent } from './components/pages/user/news/add/add.component';
-import { PageNewsPageComponent } from './components/pages/news-page/news-page.component';
-import { RegisterComponent } from './components/pages/popup/register/register.component';
-import { PageAdminUsersComponent } from './components/pages/admin/users/users.component';
-import { PageUserProfileComponent } from './components/pages/user/profile/profile.component';
 
-// interceptors
-import { JwtInterceptor } from './interceptors/jwt.interceptor';
-import { ErrorInterceptor } from './interceptors/error.interceptor';
+// Admin
+import { PageAdminDashboardComponent } from './components/pages/admin/dashboard/dashboard.component';
+import { PageAdminNewsOverviewComponent } from './components/pages/admin/news/overview/overview.component';
+import { PageAdminNewsPostComponent } from './components/pages/admin/news/post/post.component';
+import { PageAdminMembersManagerComponent } from './components/pages/admin/members/manager/manager.component';
+import { PageAdminMembersPaymentsComponent } from './components/pages/admin/members/payments/payments.component';
+
+// User
+import { PageUserProfilePersonalComponent } from './components/pages/user/profile/personal/personal.component';
+import { PageUserProfilePasswordComponent } from './components/pages/user/profile/password/password.component';
+import { PageUserMembershipSubscriptionComponent } from './components/pages/user/membership/subscription/subscription.component';
+import { PageUserMembershipCardComponent } from './components/pages/user/membership/card/card.component';
+import { PageUserNewsOverviewComponent } from './components/pages/user/news/overview/overview.component';
+
+// Shared
+import { LoadingComponent } from './components/loading/loading.component';
+import { FormRegisterComponent } from './components/forms/register/register.component';
+import { PageSharedNewsPostComponent } from './components/shared/news/post/post.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+
+    PageUserMembershipComponent,
+    PageAdminHomeComponent,
+    PageAdminNewsComponent,
+    /* PageRegistrationComponent, */
+    PagesUserNewsAddComponent,
+    PageNewsPageComponent,
+    PageAdminUsersComponent,
+    PageUserProfileComponent,
+
+    // Guest
     PageAboutComponent,
     PageContactComponent,
     SectionFooterComponent,
@@ -66,16 +97,26 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
     PageMembershipComponent,
     PageActivitiesComponent,
     PageCommunitiesComponent,
-    PageUserMembershipComponent,
-    PageAdminHomeComponent,
-    PageAdminNewsComponent,
-    PageRegistrationComponent,
-    PageAdminOverviewComponent,
-    PagesUserNewsAddComponent,
-    PageNewsPageComponent,
-    RegisterComponent,
-    PageAdminUsersComponent,
-    PageUserProfileComponent
+
+    // Admin
+    PageAdminDashboardComponent,
+    PageAdminNewsOverviewComponent,
+    PageAdminNewsPostComponent,
+    PageAdminMembersManagerComponent,
+    PageAdminMembersPaymentsComponent,
+
+    // User
+    PageUserProfilePersonalComponent,
+    PageUserProfilePasswordComponent,
+    PageUserMembershipSubscriptionComponent,
+    PageUserMembershipCardComponent,
+    PageUserNewsOverviewComponent,
+
+    // Shared
+    LoadingComponent,
+    FormRegisterComponent,
+    PageSharedNewsPostComponent,
+
   ],
   imports: [
     FormsModule,

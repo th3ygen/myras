@@ -1,0 +1,78 @@
+<div class="wrapper">
+    <div class="news-add">
+        <div class="header">
+            <span>Post news</span>
+        </div>
+
+        <div class="body">
+            <div class="form-group ui-g">
+                <div class="ui-g-6" style="padding-right: 30px;">
+                    <div class="label">
+                        <span>Header</span>
+                    </div>
+                    <input type="text" pInputText #header>  
+                    
+                    <div class="label" style="padding-top: 30px;">
+                        <span>Description</span>
+                    </div>
+                    <textarea rows="5" cols="30" pInputTextarea autoResize="autoResize" #desc></textarea>
+
+                    <div class="label" style="padding-top: 30px;">
+                        <span>Keywords</span>
+                    </div>
+                    <p-chips #tags></p-chips>
+                    <!-- <div class="label" style="padding-top: 30px;">
+                        <span>Type</span>
+                    </div> 
+                    <p-selectButton [options]="this.type" formControlName="selectedType"></p-selectButton>
+                    -->
+                </div>
+
+                <div class="ui-g-6">
+                    <div class="label">
+                        <span>Front Image</span>
+                    </div>
+                        
+                    <div class="img-preview">
+                        <div id="img"></div>
+                    </div>
+                    <label class="image-upload-container btn btn-bwm">
+                        <input #imageInput
+                               type="file"
+                               accept="image/*"
+                               (change)="processFile(imageInput)">
+                      </label>
+                    
+                    <span class="label-file">Click Choose file to upload your image</span>
+                </div>
+                
+            </div>
+
+            <hr>
+
+            <div class="form-group ui-g">
+                <div class="ui-g-12">
+                    <div class="label">
+                        <span>Content</span>
+                    </div>
+                    <p-editor [style]="{'height':'320px'}" #content></p-editor>
+                </div>
+                
+            </div>
+
+            <hr>
+
+            <div class="form-group" style="height: 50px;">
+                <div class="news-action">
+                    <p-button label="Cancel" class="btn-cancel" styleClass="ui-button-secondary"></p-button>
+                    <p-button label="Post" (click)="this.uploadNews()"></p-button>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="footer">
+
+        </div>
+    </div>
+</div>

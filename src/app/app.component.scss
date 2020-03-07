@@ -1,3 +1,6 @@
+@import './theme/colors.scss';
+@import './imports/scss/accordion.scss';
+
 .top-navbar {
     position: fixed;
     left: 0;
@@ -104,6 +107,8 @@
 
                     &.glow {
                         background-color: orange;
+                        float: right;
+                        padding: 8px 40px;
                     }
                 }
             }
@@ -121,6 +126,7 @@
 
     z-index: 1;
 
+    background-color: $color-bg-light;
     /* border-bottom: 3px solid orange; */
     
 }
@@ -272,10 +278,97 @@
     top: 0;
     left: 250px;
 
-    height: 80px;
+    height: 40px;
     width: calc(100% - 250px);
 
-    background-color: rgb(15, 37, 87);
+    background-color: rgb(76, 120, 221);
+
+    & > .theader {
+        display: inline-block;
+        position: relative;
+
+        height: 100%;
+        width: 250px;
+        border-right: 1px solid orange;
+
+        text-align: center;
+        line-height: 40px;;
+
+        font-size: 20px;
+        font-weight: bold;
+
+        color: white;
+
+        letter-spacing: 5px;
+    }
+
+    & > .tbody {
+        position: relative;
+
+        height: 100%;
+        width: 100%;
+
+        & > .topbar-items {
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+
+            height: 100%;
+            width: 100%;
+
+            padding: 0 35px;
+
+            font-size: 20px;
+
+            color: white;
+
+            & > .topbar-item {
+                position: relative;
+                
+                line-height: 40px;
+
+                padding: 0 25px;
+                
+                /* width: 0; */
+
+                & > span {
+                    
+                    /* transition: .3s all; */
+
+                    display: inline-block;
+                   /*  position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%) scaleX(.3); */
+                    position: relative;
+
+                    /* opacity: 0; */
+
+                    text-align: center;
+
+                    padding-left: 10px;
+                    font-size: 15px;
+                }
+
+                transition: .7s all;
+                &:hover {
+                    cursor: pointer;
+
+                    /* width: 150px;
+
+                    & > span {
+                        transform: translate(-50%, -50%) scaleX(1);
+
+                        opacity: 1;
+                    } */
+                }
+
+                &:nth-child(3) {
+                    /* color: rgb(221, 75, 75); */
+                }
+            }
+        }
+    }
 
     z-index: 2;
 }
@@ -335,11 +428,16 @@
 }
 
 .user-body {
-    position: relative;
     margin-left: 250px;
-    margin-top: 80px;
+    padding: 50px;
 
-    z-index: 1;
+    position: relative;
+
+    min-height: 100vh;
+    height: 100%;
+    width: calc(100% - 250px);
+
+    background-color: rgb(233, 238, 245);
 }
 
 :host ::ng-deep {

@@ -1,10 +1,12 @@
+@import '../../../theme/colors.scss';
+
 .page-header {
     position: relative;
 
-    height: 60vh;
+    height: 100vh;
     width: 100%;
 
-    background-color: rgb(15, 37, 87);
+    background-color: $color-dark;
 
     padding-top: 100px; // topnav is 100px height
 }
@@ -17,8 +19,11 @@
     height: auto;
     width: 100%;
 
+    padding: 0;
+    margin: 0;
+
     background-color: #efeff2;
-    border: 20px solid #efeff2;
+    /* border: 20px solid #efeff2; */
 }
 
 .wrapper {
@@ -26,17 +31,92 @@
 
   height: auto;
   
-  /* max-width: 1248px; */
   width: 100%;
-
-  /* margin-left: auto;
-  margin-right: auto; */
 
   padding: 20px;
 
   background-color: #fff;
 }
 
+.section {
+  position: relative;
+
+  min-height: 100vh;
+  height: fit-content;
+  width: 100%;
+
+  & > .section-header {
+    position: relative;
+
+    width: 100%;
+    height: 150px;
+
+    font-size: 40px;
+
+    line-height: 150px;
+
+    text-align: center;
+  }
+
+  &.s1 {
+    & > .section-body {
+      position: relative;
+
+      height: calc(100% - 150px);
+      width: 100%;
+
+      & > .intro-item {
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-bottom: 100px;
+      }
+    }
+  }
+
+  &.s2 {
+    background-color: $color-side;
+  }
+}
+
+.svg {
+  position: relative;
+
+  height: 300px;
+  width: 500px;
+
+  background: url('../../../../assets/svg/undraw_team_spirit_hrr4.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+ 
+
+.poly-0 {
+  position: absolute;
+  top: 0;
+  left: 0; 
+
+  width: 100%;
+  height: 10vh;
+
+  background-color: $color-dark;
+
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 51%, 0 100%);;
+}
+.poly-1 {
+  position: absolute;
+  bottom: -1px;
+  left: 0; 
+
+  width: 100%;
+  height: 150px;
+
+  background-color: $color-side;
+
+  clip-path: polygon(0 85%, 100% 0, 100% 100%, 0% 100%);
+}
+
+/* 
 .stepper {
   position: relative;
 
@@ -152,8 +232,6 @@
   padding-bottom: 40px;
 }
 
-
-
 .pricing-cards {
   position: relative;
 
@@ -170,35 +248,37 @@
     position: relative;
 
     min-height: 100vh;
-    width: 28%;
+    width: 350px;
     height: fit-content;
 
     background-color:#efeff2;
     opacity: 100%;
 
-    box-shadow: 0 0px 30px 10px rgba(#d6d6d6, 0);
-    border-radius: 15px;
+    box-shadow: 0 0px 20px 5px rgba(#d6d6d6, 0);
 
     transition: .3s all;
 
     &:hover {
-      box-shadow: 0 0px 30px 10px rgba(#d6d6d6, 1);
+      box-shadow: 0 0px 20px 5px rgba(#d6d6d6, .7);
     }
 
     & > .header {
       display: block !important;
       position: relative;
 
-      height: fit-content;
+      height: 50px;
       width: 100%;
 
-      padding: 40px 25px 20px;
-
       text-align: center;
+      text-transform: uppercase;
+
+      background-color: orange;
+
+      line-height: 50px;
 
       & > span {
-        font-size: 30px;
-        color: orange;
+        font-size: 25px;
+        color: white;
         font-weight: bold;
 
       }
@@ -208,28 +288,132 @@
       display: block !important;
       position: relative;
 
-      height: 100px;
+      height: auto;
+      min-height: 150px;
       width: 100%;
 
-      padding-left: 40px;
-      padding-right: 40px;
-
-      /*padding-top: 40px;
-      padding-bottom: 40px;*/
+      padding: 30px 0;
 
       text-align: center;
       border: 0px !important;
 
+      & > .brief {
+        position: relative;
+
+        height: fit-content;
+        width: 100%;
+
+        padding: 20px;
+
+        background-color: rgb(204, 204, 204);
+
+        text-align: justify;
+
+        & > span {
+          position: relative;
+
+          height: fit-content;
+          width: 100%;
+        }
+      }
+
+      & > .features {
+        position: relative;
+
+        height: fit-content;
+        width: 80%;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        padding-top: 50px;
+
+        & > .feature {
+          position: relative;
+
+          height: fit-content;
+          width: 100%;
+
+          word-wrap: break-word;
+
+          & > div > i {
+            font-size: 20px;
+          }
+        }
+      }
     }
+
     & > .footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      height: 200px;
+      width: 100%;
+      
+      background-color: orange;
+
+      clip-path: polygon(31% 0, 100% 36%, 100% 100%, 0 100%, 0 23%);
+
+      & > .price {
+        position: absolute;
+
+        height: 100%;
+        width: 100%;
+
+        line-height: 200px;
+
+        text-align: center;
+        letter-spacing: 2px;
+
+        & > span {
+          display: inline-block;
+
+          color: white;
+
+          &:nth-child(1) {
+            font-size: 50px;
+          }
+          &:nth-child(2) {
+            font-size: 18px;
+          }
+        }
+      }
+
+      & > .cont {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        height: 50px;
+        width: 100%;
+
+        line-height: 50px;
+
+        text-align: center;
+        font-size: 18px;
+
+        letter-spacing: 3px;
+        color: white;
+
+        background-color: rgba(0, 0, 0, .3);
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
       & > .btn{
         position: absolute;
         right: 0;
         left: 0;
-        display: block;
+        
+        transform: translate(-50%, -50%);
+
         text-align: center;
         bottom: 40px;
         border: 2px #ef8216 !important;
+
         color: white !important;
       }
     }
@@ -294,25 +478,6 @@
   }
 }
 
-/* .step{
-  position: relative;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  width: 80%;
-
-  display: flex;
-  justify-content: space-around;
-
-} */
-
-
-//.ui-button {
- // & > .ui-state {
-
-//  }
-//}
 
 .ui-button.ui-state-default.ui-button-warning{
   background-color: white !important;
@@ -344,19 +509,6 @@
 
     
 }
-/* 
-  .yourStyle2 { color: #000000; } 
-}*/
-
-/* .cb-type {
-  display: flex;
-  position: relative;
-
-  justify-content: space-around;
-}
- */
-
- /*css register*/
 
  .section {
    padding-top:60px;
@@ -369,10 +521,6 @@
     padding: 25px;
     text-align:center;
 
-    /*& > .hover-color-bg{
-      background: #ffffff;
-      border: 2px solid  #0f2557;
-   }*/
   } 
   & > div > div > .hover-color:hover{
     background: #ffffff;
@@ -383,6 +531,6 @@
      padding-top:20px;
    }
  }
- 
+  */
 
 

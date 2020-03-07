@@ -12,7 +12,7 @@ import { AuthService } from '../../../services/auth.service';
   styleUrls: ['./membership.component.scss']
 })
 export class PageMembershipComponent implements OnInit {
-
+  public plans = [];
   public user;
   public rPassword = '';
 
@@ -22,7 +22,7 @@ export class PageMembershipComponent implements OnInit {
   public dob: Date;
 
   public items = [];
-  public currentIndex = 1;
+  public currentIndex = 0;
   public progress = {width: '0%'};
 
   public showDialog = false;
@@ -93,6 +93,9 @@ export class PageMembershipComponent implements OnInit {
   }
 
   ngOnInit() {
+    
+
+
     this.user = {
 
       username: '',

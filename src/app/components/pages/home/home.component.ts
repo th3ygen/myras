@@ -78,6 +78,7 @@ export class PageHomeComponent implements OnInit {
   }
 
   public loadNews() {
+    this.master.setLoading(true);
     this.newsService.getLatestNews(10).subscribe(data => {
       data.forEach(e => {
         this.news.push({
@@ -87,6 +88,7 @@ export class PageHomeComponent implements OnInit {
         });
       });
       this.loaded = true;
+      this.master.setLoading(false);
     });
 
   }

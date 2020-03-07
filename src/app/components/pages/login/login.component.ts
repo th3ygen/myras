@@ -25,11 +25,15 @@ export class PageLoginComponent implements OnInit {
     const currentUser = this.auth.currentUserValue;
     if (currentUser) {
       if (currentUser.admin) {
-        this.router.navigate(['/admin/home']);
+        this.router.navigate(['/admin/dashboard']);
       } else {
-        this.router.navigate(['/user/profile']);
+        this.router.navigate(['/user/news/overview']);
       }
     }
+  }
+
+  register(): void {
+    this.master.setRegisterForm(false);
   }
 
   private validate(){
@@ -47,16 +51,16 @@ export class PageLoginComponent implements OnInit {
 
   public login() {
     if (this.validate()) {
+      this.master.setLoading(true);
       this.auth.login(this.username, this.password)
       .pipe(first())
       .subscribe(
         user => {
+          this.master.setLoading(false);
           if (user.admin) {
-            this.router.navigate(['/admin/home']);
+            this.router.navigate(['/admin/dashboard']);
           } else {
-            /* console.log(user); */
-
-            this.router.navigate(['/user/news/add']);
+            this.router.navigate(['/user/news/overview']);
           }
         },
 
@@ -66,6 +70,10 @@ export class PageLoginComponent implements OnInit {
       );
     }
 
+  }
+
+  close(): void {
+    this.router.navigate(['/home']);
   }
 
   ngOnInit() {

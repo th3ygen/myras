@@ -3,30 +3,33 @@
     <div class="bg-img"></div>
 </div>
 <div class="wrapper">
+    <div class="btn-close" (click)="this.close()">
+        <i class="fas fa-times"></i>
+    </div>
     <div class="body">
         <div class="logo">
-            <img src="../../../../assets/myras-logo.png" alt="">
+            <img src="../../../../assets/myras-logo.png" alt="" routerLink="/home">
         </div>
 
         <div class="form">
             <div class="form-container">
                 <div>
                     <i class="fa fa-user"></i>
-                    <input type="text" placeholder="Username" [(ngModel)]="this.username" #username>
+                    <input type="text" placeholder="Username" [(ngModel)]="this.username">
                 </div>
                 
                 <div>
                     <i class="fa fa-lock"></i>
-                    <input type="password" placeholder="Password" [(ngModel)]="this.password"  #password>
+                    <input type="password" placeholder="Password" [(ngModel)]="this.password">
                 </div>
                 
                 <div>
                     <p-checkbox [label]="'Remember me'" [binary]="true" [(ngModel)]="this.rememberUser"></p-checkbox>
                     <div class="forget">
                         
-                        <a href="#">Forgot password?</a>
+                        <a class="hlink">Forgot password?</a>
                         <span> | </span>
-                        <a routerLink="/membership">Sign Up</a>
+                        <a class="hlink" (click)="this.register()">Sign Up</a>
                     </div>
 
                     <div class="btn-login">

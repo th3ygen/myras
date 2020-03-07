@@ -21,7 +21,7 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, AfterViewChecked, AfterViewInit {
-  public sidebarItems = SidebarItems;
+  public sidebar;
   public navItems = [];
   public scrolled = false;
   public topnav;
@@ -46,6 +46,20 @@ export class AppComponent implements OnInit, AfterViewChecked, AfterViewInit {
   }
 
   ngOnInit() {
+    this.master.setLoading(true);
+    this.auth.currentUser.subscribe(user => {
+      if (user) {
+        this.currentUser = user;
+
+        if (this.currentUser.admin) {
+          this.sidebar = this.master.adminSideBar;
+        } else {
+          this.sidebar = this.master.userSideBar;
+        }
+
+      }
+      this.master.setLoading(false);
+    });
     this.master.getUserUI().subscribe(flag => {
       this.userUI = flag;
     });
@@ -79,7 +93,6 @@ export class AppComponent implements OnInit, AfterViewChecked, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    
   }
 
   ngAfterViewChecked() {

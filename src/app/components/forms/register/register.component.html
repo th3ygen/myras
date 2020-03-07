@@ -1,0 +1,274 @@
+<div class="wrapper" *ngIf="!this.hidden">
+</div>
+<div class="inner" *ngIf="!this.hidden">
+    <div class="header">
+        <div class="btn-close" (click)="this.close()">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="stepper">
+            <div class="line-placeholder"></div>
+            <div class="line" [ngStyle]="this.progress"></div>
+    
+            <div class="items">
+                <div class="item" [class.active]="item.active" *ngFor="let item of this.items; let x = index" (click)="this.selectPage(x)">
+                    <i class="{{ item.icon }}"></i>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+    
+
+    <div class="body">
+        <ng-container *ngIf="this.currentIndex === 0">
+            <div class="title">
+                <h1>Pricing</h1>
+                <h2>To proceed, please select one of the awesome plans below!</h2>
+            </div>
+        
+            <div class="pricing-cards">
+                <div class="pricing-card" *ngFor="let plan of this.plans; let x = index" (click)="this.selectPlan(x)" [class.select]="plan.selected">
+                    <div class="header">
+                        <span>{{ plan.title }}</span>
+                    </div>
+                    <div class="body">
+                        <div class="brief">
+                            <span>{{ plan.brief }}</span>
+                        </div>
+            
+                        <div class="features">
+                            <div class="feature p-grid" *ngFor="let feature of plan.features">
+                                <div class="p-col-3 p-grid p-dir-row p-align-center">
+                                    <i class="fas fa-check p-col"></i>
+                                </div>
+                                <div class="p-col-9" style="text-align: left;">
+                                    <span>{{ feature }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <div class="price">
+                            <span>{{ (plan.price > 0) ? 'RM' + plan.price : 'Free'}}</span>
+                            <span>{{ (plan.price > 0) ? 'Per year' : '' }}</span>
+                        </div>
+                        <div class="cont">
+                            <span>{{ plan.selected ? 'Selected' : 'Select' }}</span>
+                        </div>
+                        <!-- <div class="btn"><button (click)="this.selectPlan('reg');" pButton type="button" label="Continue" class="ui-button-raised ui-button-warning"></button></div> -->
+                    </div>
+                </div>
+        
+                <!-- <div class="pricing-card">
+                <div class="header">
+                    <span>Student</span>
+                </div>
+                <div class="body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Aliquet bibendum enim facilisis gravida neque convallis. Nisi porta lorem mollis aliquam ut porttitor leo a diam.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Aliquet bibendum enim facilisis gravida neque convallis. Nisi porta lorem mollis aliquam ut porttitor leo a diam.</p>
+                </div>
+                <div class="footer">
+                    <div class="btn"><button (click)="this.selectPlan('std');" pButton type="button" label="Continue" class="ui-button-raised ui-button-warning"></button></div>
+                </div>
+                </div>-->
+        
+            </div>
+            
+        </ng-container>
+    
+        <ng-container *ngIf="this.currentIndex === 1">
+            <div style="width: 900px; margin-left: auto; margin-right: auto; margin-top: 50px;">
+        
+                <div class="p-grid" style="padding-bottom: 50px;">
+                    <div class="p-col-3">
+                        <label for="username">Username :</label>
+                    </div>
+                    <div class="p-col-6">
+                        <input class="input-txt-1" name="username" type="text" pInputText [(ngModel)]="this.user.username" #username>
+                    </div>
+                </div>
+                
+                <div class="p-grid" style="padding-bottom: 50px;">
+                    <div class="p-col-3">
+                        <label for="username">Email :</label>
+                    </div>
+                    <div class="p-col-6">
+                        <input class="input-txt-1" name="username" type="text" pInputText [(ngModel)]="this.user.email" #email>
+                    </div>
+                </div>
+        
+                <div class="p-grid" style="padding-bottom: 50px;">
+                    <div class="p-col-6">
+                        <div class="p-grid">
+                            <div class="p-col-3">
+                                <label for="username">Password :</label>
+                            </div>
+                            <div class="p-col-6">
+                                <input class="input-txt-1" name="username" type="password" pInputText [(ngModel)]="this.user.password" #info>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="p-col-6">
+                        <div class="p-grid">
+                            <div class="p-col-3">
+                                <label for="username">Confirm :</label>
+                            </div>
+                            <div class="p-col-6">
+                                <input class="input-txt-1" name="username" type="password" [(ngModel)]="this.rPassword" pInputText>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+        
+                <div class="p-grid" style="padding-bottom: 50px;">
+                    <div class="p-col-2">
+                        <label for="membership">Membership :</label>
+                    </div>
+            
+                    <div class="p-col-8">
+                        <div class="p-grid">
+                            <p-radioButton class="p-col" name="groupname" value="std" label="Student" [(ngModel)]="this.user.membership.plan"></p-radioButton>
+                            <p-radioButton class="p-col" name="groupname" value="reg" label="Regular" [(ngModel)]="this.user.membership.plan"></p-radioButton>
+                            <p-radioButton class="p-col" name="groupname" value="corp" label="Corporate" [(ngModel)]="this.user.membership.plan"></p-radioButton>
+                        </div>
+                    </div>
+                </div>
+        
+                <div style="padding-bottom: 50px;">
+                    <p-checkbox name="groupname" value="val1" label="I agree to the term and conditions" [(ngModel)]="this.acceptTerm"></p-checkbox>
+                </div>
+        
+                <!-- <div class="p-grid p-justify-end" style="padding-bottom: 50px;">
+                    <div class="btn p-col-2">
+                        <button (click)="this.submitAccount()" style="float: right" pButton type="button" label="Next" class="ui-button-raised ui-button-warning"></button>
+                    </div>
+                </div> -->
+        
+            </div>
+    
+        </ng-container>
+    
+        <ng-container *ngIf="this.currentIndex === 2">
+            <div style="width: 900px; margin-left: auto; margin-right: auto; margin-top: 50px;">
+        
+                <div class="p-grid" style="padding-bottom: 50px;">
+                    <div class="p-col-3">
+                        <label for="username">Fullname :</label>
+                    </div>
+                    <div class="p-col-6">
+                        <input class="input-txt-1" name="username" type="text" [(ngModel)]="this.user.details.fullname" pInputText>
+                    </div>
+                </div>
+                
+                <div class="p-grid" style="padding-bottom: 50px;">
+                    <div class="p-col-3">
+                        <label for="username">Date of birth :</label>
+                    </div>
+                    <div class="p-col-6">
+                        <p-calendar [(ngModel)]="this.user.details.dob"></p-calendar>
+                    </div>
+                </div>
+        
+                <div class="p-grid" style="padding-bottom: 50px;">
+                    <div class="p-col-3">
+                        <label for="username">Phone number :</label>
+                    </div>
+                    <div class="p-col-6">
+                        <input class="input-txt-1" name="username" type="text" [(ngModel)]="this.user.details.phoneNum" pInputText>
+                    </div>
+                </div>
+        
+                <div class="p-grid" style="padding-bottom: 50px;">
+                    <div class="p-col-3">
+                        <label for="username">Address :</label>
+                    </div>
+                    <div class="p-col-6">
+                        <input class="input-txt-1" name="username" type="text" [(ngModel)]="this.user.details.address" pInputText>
+                    </div>
+                </div>
+        <!-- 
+                <div class="p-grid" style="padding-bottom: 50px;">
+                <div class="p-col-3">
+                    <label for="username">Address line 2 :</label>
+                </div>
+                <div class="p-col-6">
+                    <input class="input-txt-1" name="username" type="text" pInputText>
+                </div>
+                </div> -->
+        
+                <div class="p-grid" style="padding-bottom: 50px;">
+                    <div class="p-col-3">
+                        <label for="username">University :</label>
+                    </div>
+                    <div class="p-col-6">
+                        <input class="input-txt-1" name="username" type="text" [(ngModel)]="this.user.details.student.university" pInputText>
+                    </div>
+                </div>
+        
+                <div class="p-grid" style="padding-bottom: 50px;">
+                    <div class="p-col-3">
+                        <label for="username">Course :</label>
+                    </div>
+                    <div class="p-col-6">
+                        <input class="input-txt-1" name="username" type="text" [(ngModel)]="this.user.details.student.course" pInputText>
+                    </div>
+                </div>
+        
+            <!--  <div class="p-grid p-justify-end" style="padding-bottom: 50px;">
+                    <div class="btn p-col-2">
+                        <button (click)="this.submit()" style="float: right" pButton type="button" label="Submit" class="ui-button-raised ui-button-warning"></button>
+                    </div>
+                </div> -->
+        
+            </div>
+        </ng-container>
+    
+        <ng-container *ngIf="this.currentIndex === 3">
+            <div class="msgbox-success">
+                <div class="header">
+                    <span>Successfully registration!</span>
+                </div>
+        
+                <div class="body">
+                    <span>Payment Info</span>
+                    <span>FOR ONLINE BANK TRANSFER :</span>
+                    <span>Maybank Islamic</span>
+                    <span>Malaysia Robotics and Automation Society</span>
+                    <span>Account No: 5456465465466</span>
+                </div>
+        
+                <div class="footer">
+                    <div>
+                        <span>email the proof of payment to</span>
+                        <span>muhaimim@robotics-malaysia.com</span>
+                        <span>or</span>
+                        <span>anis@robotics-malaysia.com</span>
+                    </div>
+                    <div>
+                        <span>email the proof of payment to</span>
+                        <span>muhaimim@robotics-malaysia.com</span>
+                        <span>or</span>
+                        <span>anis@robotics-malaysia.com</span>
+                    </div>
+                </div>
+        
+            <!--  <div class="p-grid p-justify-center" style="padding-top: 50px;">
+                <div class="btn p-col-2" style="text-align: center;">
+                    <button pButton type="button" label="Login" class="ui-button-raised ui-button-warning" routerLink="/login"></button>
+                </div>
+                </div> -->
+            </div>
+        </ng-container>
+        
+        <div class="proceed-glow"></div>
+        <div class="proceed" (click)="this.nextPage()">
+            <span>{{ this.btnText }}</span>
+        </div>
+    </div>
+
+</div>
