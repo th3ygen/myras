@@ -12,170 +12,122 @@ import { AuthService } from '../../../services/auth.service';
   styleUrls: ['./membership.component.scss']
 })
 export class PageMembershipComponent implements OnInit {
-  public plans = [];
-  public user;
-  public rPassword = '';
-
-  public acceptTerm = false;
-
-  public plan = '';
-  public dob: Date;
-
-  public items = [];
-  public currentIndex = 0;
-  public progress = {width: '0%'};
-
-  public showDialog = false;
-
-  public dismis = true;
+  public packages = [];
 
   constructor(private master: MasterService, private headerService: PageHeaderServiceService, private auth: AuthService) { }
 
-  toggleDialog() {
-    this.showDialog = !this.showDialog;
-  }
-
-  nextPage() {
-    this.currentIndex = (this.currentIndex > 3) ? 3 : this.currentIndex + 1;
-    this.progress = {width: `${(100 / (this.items.length - 1)) * this.currentIndex}%`};
-
-    this.items.forEach(e => {
-      e.active = false;
-    });
-
-    this.items[this.currentIndex].active = true;
-  }
-
-  submit() {
-    this.auth.register(this.user).subscribe(done => {
-      alert('Account created');
-      this.nextPage();
-    });
-  }
-
-  submitAccount() {
-    if (!this.user.username) {
-      return alert('Username cannot be blank');
-
-    }
-
-    if (!this.user.email) {
-      return alert('Email cannot be blank');
-
-    }
-
-    if (!this.user.password) {
-      return alert('Password cannot be blank');
-
-    }
-
-    if (this.user.password.length < 7) {
-      return alert('Password must have atleast 8 characters');
-    }
-
-    if (!(this.user.password === this.rPassword)) {
-      return alert('Password does not match');
-
-    }
-
-    if (!this.acceptTerm) {
-      return alert('Please accept our term and conditions first');
-    }
-
-
-    this.nextPage();
-  }
-
-  selectPlan(plan) {
-    this.user.membership.plan = plan;
-
-    this.nextPage();
+  public register(): void {
+    this.master.setRegisterForm(false);
   }
 
   ngOnInit() {
-    
+    this.packages.push({
+      name: 'Student',
+      svg: 'undraw_Graduation_ktn0.svg',
+      brief: 'Register for FREE and enjoy these benefits',
+      price: 0,
 
+      features: [
+        {
+          icon: 'fas fa-cog',
+          label: 'Receive MyRAS\'s Newsletter '
+        },
+        {
+          icon: 'fas fa-cog',
+          label: 'Access to MyRAS network of companies and job opportunities'
+        },
+        {
+          icon: 'fas fa-cog',
+          label: '10% Discounts for events directly organized by MyRAS'
+        },
+      ]
+    });
+    this.packages.push({
+      name: 'Regular',
+      svg: 'undraw_abstract_x68e.svg',
+      brief: 'Pay only RM50 of our membership fee and enjoy these benefits',
+      price: 50,
+      lifetime: 200,
 
-    this.user = {
+      features: [
+        {
+          icon: 'fas fa-cog',
+          label: 'Receive MyRAS\'s Newsletter '
+        },
+        {
+          icon: 'fas fa-cog',
+          label: 'Access to MyRAS network of companies and job opportunities'
+        },
+        {
+          icon: 'fas fa-cog',
+          label: '20% Discounts for events directly organized by MyRAS'
+        },
+        {
+          icon: 'fas fa-cog',
+          label: 'Display your products on our NRX website for FREE!'
+        },
+        {
+          icon: 'fas fa-cog',
+          label: 'Member discount on our Global Certification Program'
+        },
+        {
+          icon: 'fas fa-cog',
+          label: 'Personal invitation to events by MyRAS, our partners and co-organized by MyRAS'
+        },
+        {
+          icon: 'fas fa-cog',
+          label: 'Discount on event booth registration'
+        },
+      ]
+    });
+    this.packages.push({
+      name: 'Corporate',
+      svg: 'undraw_active_options_8je6.svg',
+      brief: 'Pay only RM200 of our membership fee and enjoy these benefits',
+      price: 200,
+      lifetime: 1000,
 
-      username: '',
-      email: '',
-
-      password: '',
-
-      membership: {
-          plan: '',
-          status: '',
-          paid: '',
-      },
-
-      details: {
-          fullname: '',
-          dob: '',
-          phoneNum: '',
-          address: '',
-
-          student: {
-              university: '',
-              course: '',
-          },
-
-          regular: {
-              cluster: '',
-              org: '',
-              occu: '',
-              web: '',
-          },
-
-          corp: {
-              cluster: '',
-
-              company: '',
-              business: '',
-              phoneNum: '',
-
-              represent: {
-                  name: '',
-                  job: '',
-                  phone: '',
-              }
-          },
-      }
-    };
-
-    this.master.setActive(2);
+      features: [
+        {
+          icon: 'fas fa-cog',
+          label: 'Receive MyRAS\'s Newsletter '
+        },
+        {
+          icon: 'fas fa-cog',
+          label: 'Have your company logo displayed on the MyRAS official website'
+        },
+        {
+          icon: 'fas fa-cog',
+          label: 'Give your company\'s product talk at any of MyRAS\'s event for FREE!'
+        },
+        {
+          icon: 'fas fa-cog',
+          label: 'Invitation for Free/Heavily discounted' +
+          ' booth space in major events organized by MyRAS partners and MyRAS co-organized events'
+        },
+        {
+          icon: 'fas fa-cog',
+          label: 'Display your products on our NRX website for FREE!'
+        },
+        {
+          icon: 'fas fa-cog',
+          label: 'Special corporate member discount on our Global Certification Program'
+        },
+        {
+          icon: 'fas fa-cog',
+          label: 'Special offer for co-organized events'
+        },
+      ]
+    });
+    this.master.setActive(3);
 
     this.headerService.setHeader('Membership');
-    this.headerService.setBody('Morbi ac lacinia leo');
-    this.headerService.setDescription('Morbi ac lacinia leo. Morbi auctor tortor id ante pharetra, sit amet tincidunt tellus lacinia.');
+    this.headerService.setBody('Join Us For More Information');
+    this.headerService.setDescription('To promote the advancement of the robotics and automation industry.');
     this.headerService.setBreadcrumbItems([
       {label: 'Membership', url: '/membership'}
     ]);
 
-    this.items = [
-      {
-        label: 'SUBSCRIPTION',
-        icon: 'fas fa-shopping-cart',
-        active: true
-      },
-      {
-        label: 'ACCOUNT DETAILS',
-        icon: 'fas fa-calendar-check',
-        active: false
-      },
-      {
-        label: 'PERSONAL INFORMATION',
-        icon: 'fas fa-user-check',
-        active: false
-      },
-      {
-        label: 'PAYMENT DETAILS',
-        icon: 'fas fa-credit-card',
-        active: false
-      }
-    ];
-
-    this.progress = {width: `${(100 / (this.items.length - 1)) * this.currentIndex}%`};
   }
 
 }

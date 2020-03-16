@@ -15,6 +15,8 @@
 
     transition: .3s all;
 
+    user-select: none;
+
     &::after {
         content: "";
         background: repeating-linear-gradient(90deg, hsla(298,16%,68%,0.06) 0px, hsla(298,16%,68%,0.06) 1px,transparent 1px, transparent 21px,hsla(298,16%,68%,0.06) 21px, hsla(298,16%,68%,0.06) 22px,transparent 22px, transparent 72px),repeating-linear-gradient(0deg, hsla(298,16%,68%,0.06) 0px, hsla(298,16%,68%,0.06) 1px,transparent 1px, transparent 21px,hsla(298,16%,68%,0.06) 21px, hsla(298,16%,68%,0.06) 22px,transparent 22px, transparent 72px),repeating-linear-gradient(135deg, hsla(298,16%,68%,0.06) 0px, hsla(298,16%,68%,0.06) 1px,transparent 1px, transparent 21px,hsla(298,16%,68%,0.06) 21px, hsla(298,16%,68%,0.06) 22px,transparent 22px, transparent 72px),linear-gradient(90deg, hsl(275,3%,97%),hsl(275,3%,97%));
@@ -281,7 +283,9 @@
     height: 40px;
     width: calc(100% - 250px);
 
-    background-color: rgb(76, 120, 221);
+    background-color: orange;
+
+    transition: .3s all;
 
     & > .theader {
         display: inline-block;
@@ -310,7 +314,7 @@
 
         & > .topbar-items {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
             position: relative;
 
             height: 100%;
@@ -350,6 +354,12 @@
                     font-size: 15px;
                 }
 
+                &.btn-toggleside {
+                    color: white;
+
+                    opacity: 1;
+                }
+
                 transition: .7s all;
                 &:hover {
                     cursor: pointer;
@@ -363,9 +373,6 @@
                     } */
                 }
 
-                &:nth-child(3) {
-                    /* color: rgb(221, 75, 75); */
-                }
             }
         }
     }
@@ -430,6 +437,8 @@
 .user-body {
     margin-left: 250px;
     padding: 50px;
+
+    transition: .3s all;
 
     position: relative;
 
@@ -557,3 +566,14 @@
 
     }
 }
+
+@media only screen and (max-width: 1300px) {
+    .user-topbar {
+      left: 0;
+      width: 100%;
+    }
+    .user-body {
+        margin-left: 0;
+        width: 100%;
+    }
+  }

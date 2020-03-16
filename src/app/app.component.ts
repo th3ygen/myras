@@ -37,12 +37,18 @@ export class AppComponent implements OnInit, AfterViewChecked, AfterViewInit {
   public currentUser;
   public username;
 
+  public showSidebar = true;
+
   public loading = true;
 
   title = 'myras';
 
   public navigate(url) {
     this.router.navigateByUrl(url);
+  }
+
+  public toggleSidebar() {
+    this.showSidebar = !this.showSidebar;
   }
 
   ngOnInit() {
@@ -66,7 +72,11 @@ export class AppComponent implements OnInit, AfterViewChecked, AfterViewInit {
   }
 
   public logout() {
-    this.auth.logout();
+    this.master.setLoading(true);
+    this.auth.logout().subscribe(data => {
+      this.master.setLoading(false);
+      window.location.reload();
+    });
   }
 
   constructor( private auth: AuthService, public master: MasterService, private changeRef: ChangeDetectorRef, private router: Router) {

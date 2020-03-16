@@ -41,16 +41,70 @@
             <img *ngIf="this.headerContentIndex === i" [src]="item.svg" class="svg-view" data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="400">
         </div>
     </div>
+
+    <div class="poly-0">
+        <div></div>
+        <div></div>
+    </div>
 </div>
 
 <div class="section s2">
+    <div class="section-header">
+        <span>Welcome to MyRAS official website!</span>
+    </div>
+
+    <div class="section-brief">
+        <span>
+            MyRAS or Malaysia Robotics and Automation Society is an NGO based
+            in Cyberjaya, Malaysia which aims to facilitate in the advance the
+            Malaysian Robotics and automation industry by engaging in activities
+            that bring together the different stakeholders in the industry.
+        </span>
+    </div>
+
+    <div class="poly-1">
+        <div></div>
+    </div>
+</div>
+
+<div class="section s3">
+    <div class="section-header">
+        <span>Stakeholder involved...</span>
+    </div>
+
+    <div class="section-body">
+        <div class="p-grid cluster-items">
+            <div class="p-col cluster-item" style="width: 100%" *ngFor="let cluster of this.clusters">
+                <div class="cluster-icon">
+                    <i [class]="cluster.icon"></i>
+                </div>
+                <div class="cluster-icon-shadow"></div>
+                <div class="cluster-label">
+                    <span>{{ cluster.label }}</span>
+                </div>
+                <div class="cluster-brief">
+                    <span>{{ cluster.brief }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="poly-2">
+        <div></div>
+    </div>
+</div>
+
+<div class="section s4">
+    
+</div>
+
+<!-- <div class="section s2">
     <div class="header" data-aos="zoom-out">
         <span>Latest News</span>
     </div>
 
     <div class="body">
-        <!-- [responsiveOptions]="this.carousel.responsive" -->
-        <p-carousel *ngIf="this.loaded" [value]="news" [numVisible]="3" [numScroll]="1" [autoplayInterval]="5000">
+        <p-carousel *ngIf="this.loaded" [value]="news" [numVisible]="3" [numScroll]="1" [responsiveOptions]="this.carousel.responsive" [autoplayInterval]="5000">
             <ng-template let-news pTemplate="item">
                 <div class="ui-g hcarousel-item">
                     <div class="ui-g-6">
@@ -80,9 +134,9 @@
     </div>
    
 </div>
+ -->
 
-
-<div class="section s3">
+<!-- <div class="section s3">
     <div class="header" data-aos="zoom-out">
         <span>Competition</span>
     </div>
@@ -133,4 +187,4 @@
         </div>
     </div>
     
-</div>
+</div> -->

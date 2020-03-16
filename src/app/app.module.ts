@@ -30,6 +30,9 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { CalendarModule } from 'primeng/calendar';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
+import { CarouselModule } from 'primeng/carousel';
+import { DropdownModule } from 'primeng/dropdown';
+
 /* import {DropdownModule} from 'primeng/dropdown'; */
 
 // Sections
@@ -141,12 +144,14 @@ import { PageSharedNewsPostComponent } from './components/shared/news/post/post.
     RadioButtonModule,
     CalendarModule,
     TableModule,
-    DialogModule
-   /*  DropdownModule */
+    DialogModule,
+    CarouselModule,
+    DropdownModule
 
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
     AuthService, AuthGuardService
   ],

@@ -27,39 +27,25 @@
 </div>
 
 <div *ngIf="this.userUI">
-  <div class="user-topbar">
-    <!-- <div class="theader">
-      <span>MyRAS</span>
-    </div> -->
+  <div class="user-topbar" [ngStyle]="{'left': (this.showSidebar) ? '250px' : 0, 'width': (this.showSidebar) ? 'calc(100% - 250px)' : '100%'}">
     <div class="tbody">
       <div class="topbar-items">
-        <!-- <div class="topbar-item">
-          <i class="fas fa-bell"></i>
-          <span>Notification</span>
+        <div class="topbar-item btn-toggleside" (click)="this.toggleSidebar()">
+          <i class="fas fa-bars"></i>
         </div>
-        <div class="topbar-item">
-          <i class="fas fa-comment-alt"></i>
-          <span>Chat</span>
-        </div> -->
         <div class="topbar-item" (click)="this.logout()">
           <i class="fas fa-sign-out-alt"></i>
           <span>Logout</span>
         </div>
       </div>
-      <!-- <div class="p-grid p-justify-end">
-        <div class="p-col-2" style=" text-align: center;">
-          <i class="fas fa-sign-out-alt"></i>
-        </div>
-      </div> -->
     </div>
     
   </div>
 
   
-  <div class="left-menu">
+  <div class="left-menu" [ngStyle]="{'left': (this.showSidebar) ? 0 : '-250px'}">
     <div class="logo">
-      <i class="fa fa-align-justify"></i>
-      <!-- <div>Pure CSS Accordion Nav</div> -->
+      <div class="myras-logo"></div>
     </div>
     <div class="accordion">
       <div class="section" *ngFor="let item of this.sidebar.items; let x = index;">
@@ -72,88 +58,10 @@
           </ul>
         </div>
       </div>
-      
-      <!-- <div class="section">
-        <input id="section-1" type="radio" name="accordion-1" value="toggle"/>
-        <label for="section-1"><span>Messages</span></label>
-        <div class="content">
-          <ul>
-            <li><i class="fa fa-inbox"></i><span>Inbox</span></li>
-            <li><i class="fa fa-share"></i><span>Sent</span></li>
-            <li><i class="fa fa-archive"></i><span>Archive</span></li>
-            
-          </ul>
-        </div>
-      </div>
-      <div class="section">
-        <input id="section-2" type="radio" name="accordion-1" value="toggle"/>
-        <label for="section-2"> <span>Usage</span></label>
-        <div class="content">
-          <ul>
-            <li><i class="fa fa-cog"></i><span>System</span></li>
-            <li><i class="fa fa-group"></i><span>Users</span></li>
-            <li><i class="fa fa-sitemap"></i><span>Visitation</span></li>
-          </ul>
-        </div>
-      </div>
-      <div class="section">
-        <input id="section-3" type="radio" name="accordion-1" value="toggle"/>
-        <label for="section-3"> <span>Scroller</span></label>
-        <div class="content">
-          <ul>
-            <li><i class="fa fa-coffee"></i><span>Need Coffee</span></li>
-            <li><i class="fa fa-coffee"></i><span>Need Coffee</span></li>
-            <li><i class="fa fa-coffee"></i><span>Need Coffee</span></li>
-            <li><i class="fa fa-coffee"></i><span>Need Coffee</span></li>
-            <li><i class="fa fa-coffee"></i><span>Need Coffee</span></li>
-            <li><i class="fa fa-coffee"></i><span>Need Coffee</span></li>
-            <li><i class="fa fa-coffee"></i><span>Need Coffee</span></li>
-            <li><i class="fa fa-coffee"></i><span>Need Coffee</span></li>
-            <li><i class="fa fa-coffee"></i><span>Need Coffee</span></li>
-          </ul>
-        </div>
-      </div>
-      <div class="section">
-        <input id="section-4" type="radio" name="accordion-1" value="toggle"/>
-        <label for="section-4"> <span>Section 4</span></label>
-        <div class="content"></div>
-      </div> -->
     </div>
   </div>
   
-  <!-- <div class="user-sidenav">
-    <div class="logo">
-      <img src="../assets//myras-logo.png" alt="">
-    </div>
-  
-    <div class="sidebar-userInfo">
-      <div class="userInfo-img">
-        <img src="../assets/login-bg.jpg" alt="">
-      </div>
-  
-      <div class="userInfo-label">
-        <div class="name"> {{ this.currentUser.username }} </div>
-        <div class="email"> {{ this.currentUser.email }} </div>
-      </div>
-    </div>
-    <p-accordion>
-      <p-accordionTab header="Dashboard">
-      </p-accordionTab>
-      <p-accordionTab header="Pages">
-        <ul>
-          <li>Overview</li>
-          <li>Add View</li>
-        </ul>
-      </p-accordionTab>
-      <p-accordionTab header="Member">
-        <ul>
-          <li>Disable Member Account</li>
-        </ul>   
-      </p-accordionTab>
-  </p-accordion>
-  </div> -->
-  
-  <div class="user-body">
+  <div class="user-body" [ngStyle]="{'margin-left': (this.showSidebar) ? '250px' : 0, 'width': (this.showSidebar) ? 'calc(100% - 250px)' : '100%'}">
     <router-outlet></router-outlet>
   </div>
 

@@ -1,7 +1,6 @@
 .wrapper {
     position: relative;
-
-    height: 85vh;
+    height: 68vh;
     width: 100%;
 }
 
@@ -29,6 +28,7 @@
 }
 
 .btn-print {
+    
     position: absolute;
     top: 90%;
     left: 50%;
@@ -44,6 +44,8 @@
     border: 1px solid orange;
     border-radius: 5px;
 
+    margin-top: 60px;
+
     &:hover {
         cursor: pointer;
     }
@@ -57,10 +59,10 @@
     }
 }
 
-.p-col-8{
+/*.p-col-8{
     position: relative;
 
-    /* border: 2px solid #0f2557; */
+    //border: 2px solid #0f2557;
     border-radius: 30px;
     margin: auto;
 
@@ -88,4 +90,4 @@
     position: relative;
     min-height: 100vh;
     width: 100%;
-}
+}*/

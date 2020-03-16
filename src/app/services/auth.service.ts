@@ -21,15 +21,34 @@ export class AuthService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
+  public refreshAccessToken(): Observable<any> {
+    return this.http.post<any>(ROUTE_CONFIG.auth.refreshToken, { refreshToken: this.currentUserValue.refreshToken })
+    .pipe(map(data => {
+      if (data) {
+        const u = this.currentUserValue;
+
+        u.token = data.token;
+        localStorage.setItem('currentUser', JSON.stringify(u));
+        this.currentUserSubject.next(u);
+    }
+    }));
+  }
+
   public register(userData): Observable<any> {
     return this.http.post<any>(ROUTE_CONFIG.auth.register, userData);
   }
 
-  public logout() {
-    window.location.reload();
+  public getUser(userId: string): Observable<any> {
+    return this.http.get<any>(ROUTE_CONFIG.user.getOne + userId);
+  }
 
-    localStorage.removeItem('currentUser');
-    this.currentUserSubject.next(null);
+  public logout() {
+    return this.http.delete<any>(ROUTE_CONFIG.auth.logout)
+    .pipe(map(data => {
+      localStorage.removeItem('currentUser');
+      this.currentUserSubject.next(null);
+    }));
+
   }
 
   public login(username: string, password: string): Observable<any> {

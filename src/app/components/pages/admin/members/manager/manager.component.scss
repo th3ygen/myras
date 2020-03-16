@@ -1,0 +1,86 @@
+@import '../../../../../theme/colors.scss';
+
+.wrapper {
+    position: relative;
+
+    height: fit-content;
+    width: 100%;
+
+    background-color: $color-bg-light;
+}
+
+.card-member-wrapper {
+    position: relative;
+
+    width: 100%;
+    height: fit-content;
+
+    padding: 20px;
+
+    & > .card {
+        position: relative;
+
+        width: 100%;
+        height: 100%;
+
+        background-color: white;
+
+        box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, .2);
+        border-radius: 3px;
+
+        padding: 10px;
+
+        & .user-img-wrapper {
+            position: relative;
+
+            min-height: 300px;
+            height: 100%;
+            width: 100%;
+
+            & > .img { 
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+
+                height: 150px;
+                width: 150px;
+
+                border: 1px dashed orange;
+                border-radius: 50%;
+
+                background-color: white;
+            }
+        } 
+        
+        
+        & .user-detail {
+            & > .value {
+                & span {
+                    display: inline;
+                    padding: 0 20px;
+                } 
+                & .label {
+                    font-size: 14px;
+                    color: rgba(0, 0, 0, .6);
+                }
+                & .val {
+                    font-size: 16px;
+                    color: rgba(0, 0, 0, 1);
+                }
+            }
+            
+
+            & > .action > .btn-edit {
+                & > span {
+                    background-color: orange;
+                    padding: 5px 15px;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

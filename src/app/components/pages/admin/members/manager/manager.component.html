@@ -1,1 +1,221 @@
-<p>manager works!</p>
+<div class="wrapper">
+    <p-table #dt [columns]="cols" [value]="users" [paginator]="true" [rows]="13" dataKey="id">
+        <ng-template pTemplate="caption">
+            <div style="text-align: right">        
+                <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+                <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th style="width: 3em"></th>
+                <th *ngFor="let col of columns">
+                    {{col.header}}
+                </th>
+            </tr>
+            <tr>
+                <th style="width: 3em"></th>
+                <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                    <input *ngSwitchCase="'id'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, 'contains')">
+                    <input *ngSwitchCase="'package'" pInputText type="text" placeholder="Search package" (input)="dt.filter($event.target.value, col.field, 'contains')">
+                    <input *ngSwitchCase="'lifetime'" pInputText type="text" placeholder="Search lifetime" (input)="dt.filter($event.target.value, col.field, 'contains')">
+                    <input *ngSwitchCase="'payment'" pInputText type="text" placeholder="Search payment" (input)="dt.filter($event.target.value, col.field, 'contains')">
+                    <input *ngSwitchCase="'status'" pInputText type="text" placeholder="Search status" (input)="dt.filter($event.target.value, col.field, 'contains')">
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
+            <tr>
+                <td>
+                    <a href="#" [pRowToggler]="rowData">
+                        <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
+                    </a>
+                </td>
+                <td *ngFor="let col of columns">
+                    {{rowData[col.field]}}
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+            <tr>
+                <td [attr.colspan]="columns.length + 1">
+                    <div class="card-member-wrapper">
+                        <div class="card">
+                            <div class="p-grid p-nogutter">
+                                <div class="p-col-3" style="border-right: 1px solid rgba(0, 0, 0, .2);">
+                                    <div class="user-img-wrapper">
+                                        <div class="img"></div>
+                                    </div>
+                                </div> 
+                                <div class="p-col-9"> 
+                                    <div class="p-grid p-dir-col">
+                                        <div class="p-col" style="border-bottom: 1px solid rgba(0, 0, 0, .2);">
+                                            <div class="user-detail p-grid">
+                                                <div class="p-col-9 value">
+                                                    <div class="p-grid">
+                                                        <div class="p-col-3 label">
+                                                            <span>Id</span>
+                                                        </div>
+                                                        <div class="p-col-9 val">
+                                                            <span>{{ rowData.id }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="p-col-3 action">
+                                                    <!-- <div class="btn-edit">
+                                                        <span>Edit</span>
+                                                    </div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-col" style="border-bottom: 1px solid rgba(0, 0, 0, .2);">
+                                            <div class="user-detail p-grid">
+                                                <div class="p-col-9 value">
+                                                    <div class="p-grid">
+                                                        <div class="p-col-3 label">
+                                                            <span>Fullname</span>
+                                                        </div>
+                                                        <div class="p-col-9 val">
+                                                            <span>{{ this.userDetails[rowData.id].details.fullname }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="p-col-3 action">
+                                                    <!-- <div class="btn-edit">
+                                                        <span>Edit</span>
+                                                    </div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-col" style="border-bottom: 1px solid rgba(0, 0, 0, .2);">
+                                            <div class="user-detail p-grid">
+                                                <div class="p-col-9 value">
+                                                    <div class="p-grid">
+                                                        <div class="p-col-3 label">
+                                                            <span>Package</span>
+                                                        </div>
+                                                        <div class="p-col-9 val" style="text-transform: capitalize;">
+                                                            <span>{{ this.userDetails[rowData.id].membership.plan }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="p-col-3 action">
+                                                    <div class="btn-edit">
+                                                        <span>Activate</span>
+                                                    </div>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                        <div class="p-col" style="border-bottom: 1px solid rgba(0, 0, 0, .2);">
+                                            <div class="user-detail p-grid">
+                                                <div class="p-col-9 value">
+                                                    <div class="p-grid">
+                                                        <div class="p-col-3 label">
+                                                            <span>Lifetime</span>
+                                                        </div>
+                                                        <div class="p-col-9 val">
+                                                            <span>{{ (this.userDetails[rowData.id].membership.lifetime) ? 'Yes' : 'No' }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="p-col-3 action">
+                                                    <div class="btn-edit">
+                                                        <span>Change</span>
+                                                    </div>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                        <div class="p-col" style="border-bottom: 1px solid rgba(0, 0, 0, .2);">
+                                            <div class="user-detail p-grid">
+                                                <div class="p-col-9 value">
+                                                    <div class="p-grid">
+                                                        <div class="p-col-3 label">
+                                                            <span>Total paid</span>
+                                                        </div>
+                                                        <div class="p-col-9 val">
+                                                            <span>RM{{ (this.userDetails[rowData.id].membership.paymentMade).toFixed(2) }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="p-col-3 action">
+                                                    <div class="btn-edit">
+                                                        <span>Change</span>
+                                                    </div>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                        <div class="p-col" style="border-bottom: 1px solid rgba(0, 0, 0, .2);">
+                                            <div class="user-detail p-grid">
+                                                <div class="p-col-9 value">
+                                                    <div class="p-grid">
+                                                        <div class="p-col-3 label">
+                                                            <span>Status</span>
+                                                        </div>
+                                                        <div class="p-col-9 val">
+                                                            <span>{{ this.userDetails[rowData.id].membership.status }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="p-col-3 action">
+                                                    <div class="btn-edit" (click)="this.activateMember(this.userDetails[rowData.id].membership.id)">
+                                                        <span>Activate</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!-- <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
+                        <div class="ui-g-12 ui-md-3" style="text-align:center">
+                            <img [attr.alt]="rowData.package" src="assets/showcase/images/demo/car/{{rowData.brand}}.png">
+                        </div>
+                        <div class="ui-g-12 ui-md-9">
+                            <div class="ui-g">
+                                <div class="ui-g-6 ui-g">
+                                    <div class="ui-g-12">
+                                        <b>Id:</b> {{rowData.id}}
+                                    </div>
+                                    <div class="ui-g-12">
+                                        <b>Package:</b> {{rowData.package}}
+                                    </div>
+                                    <div class="ui-g-12">
+                                        <b>Lifetime:</b> {{rowData.lifetime}}
+                                    </div>
+                                    <div class="ui-g-12">
+                                        <b>Payment:</b> {{rowData.payment}}
+                                    </div>
+                                    <div class="ui-g-12">
+                                        <b>Status:</b> {{rowData.status}}
+                                    </div>
+                                    
+                                </div>
+                                <div class="ui-g-6 ui-g" style="position: relative; border-left: 1px solid black">
+                                    
+                                    <div class="actions-label">
+                                        <span>Actions</span>
+                                    </div>
+
+                                    <div class="p-grid p-justify-around p-align-center" style="margin-left: auto; margin-right: auto">
+                                        <div class="p-col">
+                                            <p-button label="Edit" ></p-button>
+                                        </div>
+                                        <div class="p-col">
+                                            <p-button label="Hide" styleClass="ui-button-secondary"></p-button>
+                                        </div>
+                                        <div class="p-col">
+                                            <p-button label="Delete" styleClass="ui-button-danger"></p-button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

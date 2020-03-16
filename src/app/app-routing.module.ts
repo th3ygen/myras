@@ -80,7 +80,7 @@ const routes: Routes = [
     ] },
     { path: 'members', children: [
       { path: 'manager', component: PageAdminMembersManagerComponent },
-      { path: 'overview', component: PageAdminMembersPaymentsComponent },
+      { path: 'payments', component: PageAdminMembersPaymentsComponent },
     ] }
   ] }
 ];

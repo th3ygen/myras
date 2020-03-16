@@ -8,13 +8,13 @@
         <div class="card-header">
             <img src="../../../../../../assets/login-bg.jpg" alt="">
             <div class="username">
-                <span>aidil</span>
+                <span>{{ this.username }}</span>
             </div>
             <div class="email">
-                <span>aidil@syazwan.com</span>
+                <span>{{ this.email }}</span>
             </div>
             <div class="plan">
-                <span>student</span>
+                <span>{{ this.plan }}</span>
             </div>
         </div>
 
@@ -28,21 +28,21 @@
                         <div class="info-item-list-item">
                             <span>Username:</span>
                             <span class="info-value">
-                                aidil
+                                {{ this.username }}
                             </span>
                             
                         </div>
                         <div class="info-item-list-item">
                             <span>Email:</span>
                             <span class="info-value">
-                                aidil@syazwan.com
+                                {{ this.email }}
                             </span>
                             
                         </div>
                         <div class="info-item-list-item">
                             <span>Subscription: </span>
                             <span class="info-value">
-                                Student
+                                {{ this.plan }}
                             </span>
                             
                         </div>
@@ -57,21 +57,21 @@
                         <div class="info-item-list-item">
                             <span>Full name:</span>
                             <span class="info-value">
-                                Muhammad Aidil Syazwan
+                                {{ this.fullname }}
                             </span>
                             
                         </div>
                         <div class="info-item-list-item">
                             <span>DoB:</span>
                             <span class="info-value">
-                                12/12/1221
+                                {{ this.dob }}
                             </span>
                             
                         </div>
                         <div class="info-item-list-item">
                             <span>Phone: </span>
                             <span class="info-value">
-                                +602154657564
+                                {{ this.phone }}
                             </span>
                             
                         </div>
@@ -87,25 +87,25 @@
                         <div class="info-item-list-item">
                             <span>Line:</span>
                             <span class="info-value">
-                                No. 144, Kg. Kroh Hilir
+                                {{ this.address.line }}
                             </span>
                         </div>
                         <div class="info-item-list-item">
                             <span>City:</span>
                             <span class="info-value">
-                                Padang Rengas
+                                {{ this.address.city }}
                             </span>
                         </div>
                         <div class="info-item-list-item">
                             <span>State:</span>
                             <span class="info-value">
-                                Perak
+                                {{ this.address.state }}
                             </span>
                         </div>
                         <div class="info-item-list-item">
                             <span>ZIP Code:</span>
                             <span class="info-value">
-                                33700
+                                {{ this.address.zip }}
                             </span>
                         </div>
                     </div>
@@ -119,19 +119,19 @@
                         <div class="info-item-list-item">
                             <span>Student ID:</span>
                             <span class="info-value">
-                                CA191234
+                                {{ this.student.id }}
                             </span>
                         </div>
                         <div class="info-item-list-item">
                             <span>Name:</span>
                             <span class="info-value">
-                                University Malaysia Pahang
+                                {{ this.student.university }}
                             </span>
                         </div>
                         <div class="info-item-list-item">
                             <span>Course:</span>
                             <span class="info-value">
-                                BCN
+                                {{ this.student.course }}
                             </span>
                         </div>
                         <div class="info-item-list-item"></div>

@@ -3,16 +3,98 @@
 </div>
 
 <div class="body">
-    <div class="content-navitems">
-        <div class="navitem">
-            News
+    <div class="section s1">
+        <div class="section-header">
+            <span>Latest news</span>
         </div>
-        <div class="navitem">
-            Announcement
-        </div>
-        <div class="navitem">
-            Collaboration
+        <div class="section-header-t"></div>
+        <!-- <div class="section-brief">
+            <span>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Donec finibus odio libero, sed ultrices orci convallis ut.
+            </span>
+        </div> -->
+
+        <div class="section-body">
+            <div class="highlights-wrapper">
+                <div class="highlight-img blur">
+                    <div class="img"
+                    [ngStyle]="{
+                        'background-image': ((!this.news) && this.master.getLoading) ? '' : 'url(' + 'http://159.89.206.45:8080' + this.news[this.newsIndex].img + ')',
+                        'background-position': 'center',
+                        'background-repeat': 'no-repeat',
+                        'background-size': 'cover'
+                    
+                    }"></div>
+               </div>
+                <div class="highlight-img">
+                     <div class="img"
+                     [ngStyle]="{
+                        'background-image': ((!this.news) && this.master.getLoading) ? '' : 'url(' + 'http://159.89.206.45:8080' + this.news[this.newsIndex].img + ')',
+                        'background-position': 'center',
+                        'background-repeat': 'no-repeat',
+                        'background-size': 'contain'
+                    
+                    }"></div>
+                </div>
+                
+                
+                <div class="highlight-title">
+                    <!-- <div class="highlight-title b">
+
+                    </div> -->
+                    <span>{{ (this.master.getLoading) ? '' : this.news[this.newsIndex].header }}</span>
+                </div>
+
+                <div class="highlight-nav">
+                    
+                    <p-carousel *ngIf="(this.news) && (!this.master.getLoading) " [value]="this.news" [numVisible]="3" orientation="vertical" verticalViewPortHeight="490px" (onPage)="this.switchPage($event)">
+                        <ng-template let-news pTemplate="item">
+                            <div class="highlight-nav-item" [ngStyle]="{'border': (this.newsIndex === news.index) ? '2px solid orange' : '2px solid transparent'}" (click)="this.switchNews(news.index)">
+                                <div class="brief">
+                                    <div class="bheader">
+                                        <span>{{ news.header }}</span>
+                                    </div>
+                                    <div class="bbody">
+                                        <span>{{ news.brief }}</span>
+                                    </div>
+                                </div>
+                                <div class="img" 
+                                [ngStyle]="{
+                                    'background-image': 'url(' + 'http://159.89.206.45:8080' + news.img + ')',
+                                    'background-position': 'center',
+                                    'background-repeat': 'no-repeat',
+                                    'background-size': 'contain'
+                                
+                                }">
+                                    
+                                </div>
+                            </div>
+                        </ng-template>
+                    </p-carousel>
+                </div>
+            </div>
         </div>
     </div>
 
+    <!-- <div class="section t">
+        <div class="section-header">
+            <span>Industry</span>
+        </div>
+    </div>
+    <div class="section t">
+        <div class="section-header">
+            <span>Academian</span>
+        </div>
+    </div>
+    <div class="section t">
+        <div class="section-header">
+            <span>Government</span>
+        </div>
+    </div>
+    <div class="section t">
+        <div class="section-header">
+            <span>Public</span>
+        </div>
+    </div> -->
 </div>

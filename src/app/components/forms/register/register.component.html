@@ -23,7 +23,7 @@
         <ng-container *ngIf="this.currentIndex === 0">
             <div class="title">
                 <h1>Pricing</h1>
-                <h2>To proceed, please select one of the awesome plans below!</h2>
+                <h2>To proceed, please select one of our awesome plans below!</h2>
             </div>
         
             <div class="pricing-cards">
@@ -55,70 +55,57 @@
                         <div class="cont">
                             <span>{{ plan.selected ? 'Selected' : 'Select' }}</span>
                         </div>
-                        <!-- <div class="btn"><button (click)="this.selectPlan('reg');" pButton type="button" label="Continue" class="ui-button-raised ui-button-warning"></button></div> -->
+                        
                     </div>
                 </div>
-        
-                <!-- <div class="pricing-card">
-                <div class="header">
-                    <span>Student</span>
-                </div>
-                <div class="body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <p>Aliquet bibendum enim facilisis gravida neque convallis. Nisi porta lorem mollis aliquam ut porttitor leo a diam.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <p>Aliquet bibendum enim facilisis gravida neque convallis. Nisi porta lorem mollis aliquam ut porttitor leo a diam.</p>
-                </div>
-                <div class="footer">
-                    <div class="btn"><button (click)="this.selectPlan('std');" pButton type="button" label="Continue" class="ui-button-raised ui-button-warning"></button></div>
-                </div>
-                </div>-->
         
             </div>
             
         </ng-container>
     
         <ng-container *ngIf="this.currentIndex === 1">
-            <div style="width: 900px; margin-left: auto; margin-right: auto; margin-top: 50px;">
-        
+            <div style="width: 900px; margin-left: auto; margin-right: auto;">
+                <div class="form-header">
+                    <span>Account information</span>
+                </div>
                 <div class="p-grid" style="padding-bottom: 50px;">
                     <div class="p-col-3">
                         <label for="username">Username :</label>
                     </div>
-                    <div class="p-col-6">
-                        <input class="input-txt-1" name="username" type="text" pInputText [(ngModel)]="this.user.username" #username>
+                    <div class="p-col-4">
+                        <input class="input-txt-1" name="username" type="text" pInputText [(ngModel)]="this.accountForm.username" #username>
                     </div>
                 </div>
                 
                 <div class="p-grid" style="padding-bottom: 50px;">
                     <div class="p-col-3">
-                        <label for="username">Email :</label>
+                        <label for="email">Email :</label>
                     </div>
-                    <div class="p-col-6">
-                        <input class="input-txt-1" name="username" type="text" pInputText [(ngModel)]="this.user.email" #email>
+                    <div class="p-col-4">
+                        <input class="input-txt-1" name="email" type="email" pInputText [(ngModel)]="this.accountForm.email" #email>
                     </div>
                 </div>
         
                 <div class="p-grid" style="padding-bottom: 50px;">
-                    <div class="p-col-6">
+                    <div class="p-col-3">
                         <div class="p-grid">
-                            <div class="p-col-3">
-                                <label for="username">Password :</label>
-                            </div>
-                            <div class="p-col-6">
-                                <input class="input-txt-1" name="username" type="password" pInputText [(ngModel)]="this.user.password" #info>
+                            <div class="p-col-12">
+                                <label for="pass">Password :</label>
                             </div>
                         </div>
                         
                     </div>
 
-                    <div class="p-col-6">
+                    <div class="p-col-9">
                         <div class="p-grid">
-                            <div class="p-col-3">
-                                <label for="username">Confirm :</label>
+                            <div class="p-col-4">
+                                <input class="input-txt-1" name="pass" type="password" pInputText [(ngModel)]="this.accountForm.password" #info>
                             </div>
-                            <div class="p-col-6">
-                                <input class="input-txt-1" name="username" type="password" [(ngModel)]="this.rPassword" pInputText>
+                            <div class="p-col-3">
+                                <label for="pass2">Confirm :</label>
+                            </div>
+                            <div class="p-col-4">
+                                <input class="input-txt-1" name="pass2" type="password" [(ngModel)]="this.rPassword" pInputText>
                             </div>
                         </div>
                         
@@ -126,15 +113,15 @@
                 </div>
         
                 <div class="p-grid" style="padding-bottom: 50px;">
-                    <div class="p-col-2">
+                    <div class="p-col-3">
                         <label for="membership">Membership :</label>
                     </div>
             
-                    <div class="p-col-8">
+                    <div class="p-col-7">
                         <div class="p-grid">
-                            <p-radioButton class="p-col" name="groupname" value="std" label="Student" [(ngModel)]="this.user.membership.plan"></p-radioButton>
-                            <p-radioButton class="p-col" name="groupname" value="reg" label="Regular" [(ngModel)]="this.user.membership.plan"></p-radioButton>
-                            <p-radioButton class="p-col" name="groupname" value="corp" label="Corporate" [(ngModel)]="this.user.membership.plan"></p-radioButton>
+                            <p-radioButton class="p-col" name="groupname" value="std" label="Annually"></p-radioButton>
+                            <p-radioButton class="p-col" name="groupname" value="reg" label="Lifetime" [(ngModel)]="this.accountForm.lifetime"></p-radioButton>
+                            
                         </div>
                     </div>
                 </div>
@@ -154,118 +141,415 @@
         </ng-container>
     
         <ng-container *ngIf="this.currentIndex === 2">
+            <div class="form-header">
+                <span>Contact information</span>
+            </div>
             <div style="width: 900px; margin-left: auto; margin-right: auto; margin-top: 50px;">
-        
-                <div class="p-grid" style="padding-bottom: 50px;">
+                <div class="p-grid" style="padding-bottom: 30px;">
+                    <div class="p-col-3">
+                        <label for="username">Title :</label>
+                    </div>
+                    <div class="p-col-4">
+                        <p-dropdown [options]="this.userTitles" [(ngModel)]="this.contactInfoForm.title"></p-dropdown>
+                    </div>
+                </div>
+
+                <div class="p-grid" style="padding-bottom: 30px;">
                     <div class="p-col-3">
                         <label for="username">Fullname :</label>
                     </div>
                     <div class="p-col-6">
-                        <input class="input-txt-1" name="username" type="text" [(ngModel)]="this.user.details.fullname" pInputText>
+                        <input class="input-txt-1" name="username" type="text" [(ngModel)]="this.contactInfoForm.fullname" pInputText>
                     </div>
                 </div>
                 
-                <div class="p-grid" style="padding-bottom: 50px;">
-                    <div class="p-col-3">
-                        <label for="username">Date of birth :</label>
+                <div class="p-grid" style="padding-bottom: 30px;">
+                    <div class="p-col-6">
+                        <div class="p-grid">
+                            <div class="p-col-6">
+                                <label for="username">IC/Passport Number :</label>
+                            </div>
+                            <div class="p-col-6">
+                                <input class="input-txt-0" name="ic" type="text" [(ngModel)]="this.contactInfoForm.ic" pInputText>
+                            </div>
+                        </div>
                     </div>
                     <div class="p-col-6">
-                        <p-calendar [(ngModel)]="this.user.details.dob"></p-calendar>
+                        <div class="p-grid">
+                            <div class="p-col">
+                                <label for="username">Date of birth :</label>
+                            </div>
+                            <div class="p-col">
+                                <p-calendar [(ngModel)]="this.contactInfoForm.dob"></p-calendar>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
-        
-                <div class="p-grid" style="padding-bottom: 50px;">
+
+                <div class="p-grid" style="padding-bottom: 30px;">
                     <div class="p-col-3">
-                        <label for="username">Phone number :</label>
+                        <label for="username">Nationality :</label>
                     </div>
                     <div class="p-col-6">
-                        <input class="input-txt-1" name="username" type="text" [(ngModel)]="this.user.details.phoneNum" pInputText>
+                        <input class="input-txt-0" name="nation" type="text" [(ngModel)]="this.contactInfoForm.nationality" pInputText>
                     </div>
                 </div>
         
-                <div class="p-grid" style="padding-bottom: 50px;">
+                <div class="p-grid" style="padding-bottom: 30px;">
                     <div class="p-col-3">
-                        <label for="username">Address :</label>
+                        <label for="username">Mailing Address :</label>
                     </div>
                     <div class="p-col-6">
-                        <input class="input-txt-1" name="username" type="text" [(ngModel)]="this.user.details.address" pInputText>
+                        <input class="input-txt-1" name="username" type="text" [(ngModel)]="this.contactInfoForm.address" pInputText>
                     </div>
                 </div>
-        <!-- 
-                <div class="p-grid" style="padding-bottom: 50px;">
-                <div class="p-col-3">
-                    <label for="username">Address line 2 :</label>
-                </div>
-                <div class="p-col-6">
-                    <input class="input-txt-1" name="username" type="text" pInputText>
-                </div>
-                </div> -->
-        
-                <div class="p-grid" style="padding-bottom: 50px;">
-                    <div class="p-col-3">
-                        <label for="username">University :</label>
+
+                <div class="p-grid" style="padding-bottom: 30px;">
+                    <div class="p-col-6">
+                        <div class="p-grid">
+                            <div class="p-col">
+                                <label for="username">City :</label>
+                            </div>
+                            <div class="p-col">
+                                <input class="input-txt-0" name="ic" type="text" [(ngModel)]="this.contactInfoForm.city" pInputText>
+                            </div>
+                        </div>
                     </div>
                     <div class="p-col-6">
-                        <input class="input-txt-1" name="username" type="text" [(ngModel)]="this.user.details.student.university" pInputText>
+                        <div class="p-grid">
+                            <div class="p-col">
+                                <label for="username">Post code :</label>
+                            </div>
+                            <div class="p-col-">
+                                <input class="input-txt-0" name="ic" type="text" [(ngModel)]="this.contactInfoForm.zip" pInputText>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
-        
-                <div class="p-grid" style="padding-bottom: 50px;">
-                    <div class="p-col-3">
-                        <label for="username">Course :</label>
+
+                <div class="p-grid" style="padding-bottom: 30px;">
+                    <div class="p-col-6">
+                        <div class="p-grid">
+                            <div class="p-col">
+                                <label for="username">State :</label>
+                            </div>
+                            <div class="p-col">
+                                <input class="input-txt-0" name="ic" type="text" [(ngModel)]="this.contactInfoForm.state" pInputText>
+                            </div>
+                        </div>
                     </div>
                     <div class="p-col-6">
-                        <input class="input-txt-1" name="username" type="text" [(ngModel)]="this.user.details.student.course" pInputText>
+                        <div class="p-grid">
+                            <div class="p-col">
+                                <label for="username">Country :</label>
+                            </div>
+                            <div class="p-col-">
+                                <input class="input-txt-0" name="ic" type="text" [(ngModel)]="this.contactInfoForm.country" pInputText>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
-        
-            <!--  <div class="p-grid p-justify-end" style="padding-bottom: 50px;">
-                    <div class="btn p-col-2">
-                        <button (click)="this.submit()" style="float: right" pButton type="button" label="Submit" class="ui-button-raised ui-button-warning"></button>
+
+                <div class="p-grid" style="padding-bottom: 30px;">
+                    <div class="p-col-3">
+                        <label for="username">Mobile number :</label>
                     </div>
-                </div> -->
-        
+                    <div class="p-col-6">
+                        <input class="input-txt-1" name="username" type="text" [(ngModel)]="this.contactInfoForm.mobileNum" pInputText>
+                    </div>
+                </div>
+
+                <ng-container *ngIf="this.plans[2].selected" >
+                    <div class="form-header">
+                        <span>Student information</span>
+                    </div>
+    
+                    <div class="p-grid" style="padding-bottom: 30px;">
+                        <div class="p-col-3">
+                            <label for="username">University name :</label>
+                        </div>
+                        <div class="p-col-6">
+                            <input class="input-txt-1" name="username" type="text" [(ngModel)]="this.studentInfoForm.university" pInputText>
+                        </div>
+                    </div>
+    
+                    <div class="p-grid" style="padding-bottom: 30px;">
+                        <div class="p-col-3">
+                            <label for="username">Student ID :</label>
+                        </div>
+                        <div class="p-col-6">
+                            <input class="input-txt-0" name="username" type="text" [(ngModel)]="this.studentInfoForm.studentId" pInputText>
+                        </div>
+                    </div>
+    
+                    
+                    <div class="p-grid" style="padding-bottom: 30px;">
+                        <div class="p-col-3">
+                            <label for="username">Course:</label>
+                        </div>
+                        <div class="p-col-6">
+                            <input class="input-txt-1" name="username" type="text" [(ngModel)]="this.studentInfoForm.course" pInputText>
+                        </div>
+                    </div>
+                    
+                    <div class="p-grid" style="padding-bottom: 30px;">
+                        <div class="p-col-3">
+                            <label for="username">University address :</label>
+                        </div>
+                        <div class="p-col-6">
+                            <input class="input-txt-1" name="username" type="text" [(ngModel)]="this.studentInfoForm.address" pInputText>
+                        </div>
+                    </div>
+            
+                    <div class="p-grid" style="padding-bottom: 30px;">
+                        <div class="p-col-6">
+                            <div class="p-grid">
+                                <div class="p-col">
+                                    <label for="username">City :</label>
+                                </div>
+                                <div class="p-col">
+                                    <input class="input-txt-0" name="ic" type="text" [(ngModel)]="this.studentInfoForm.city" pInputText>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-6">
+                            <div class="p-grid">
+                                <div class="p-col">
+                                    <label for="username">Post code :</label>
+                                </div>
+                                <div class="p-col-">
+                                    <input class="input-txt-0" name="ic" type="text" [(ngModel)]="this.studentInfoForm.zip" pInputText>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+    
+                    <div class="p-grid" style="padding-bottom: 30px;">
+                        <div class="p-col-6">
+                            <div class="p-grid">
+                                <div class="p-col">
+                                    <label for="username">State :</label>
+                                </div>
+                                <div class="p-col">
+                                    <input class="input-txt-0" name="ic" type="text" [(ngModel)]="this.studentInfoForm.state" pInputText>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-6">
+                            <div class="p-grid">
+                                <div class="p-col">
+                                    <label for="username">Country :</label>
+                                </div>
+                                <div class="p-col-">
+                                    <input class="input-txt-0" name="ic" type="text" [(ngModel)]="this.studentInfoForm.country" pInputText>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngIf="this.plans[1].selected" >
+                    <div class="form-header">
+                        <span>Company information</span>
+                    </div>
+    
+                    <div class="p-grid" style="padding-bottom: 30px;">
+                        <div class="p-col-3">
+                            <label for="username">Company name :</label>
+                        </div>
+                        <div class="p-col-6">
+                            <input class="input-txt-1" name="username" type="text" [(ngModel)]="this.companyInfoForm.name" pInputText>
+                        </div>
+                    </div>
+    
+                    <div class="p-grid" style="padding-bottom: 30px;">
+                        <div class="p-col-3">
+                            <label for="username">Nature of busniness :</label>
+                        </div>
+                        <div class="p-col-6">
+                            <input class="input-txt-1" name="username" type="text" [(ngModel)]="this.companyInfoForm.nature" pInputText>
+                        </div>
+                    </div>
+    
+                    <div class="p-grid" style="padding-bottom: 30px;">
+                        <div class="p-col-3">
+                            <label for="username">Company sectors :</label>
+                        </div>
+                        <div class="p-col-9">
+                            <div class="p-grid">
+                                <div class="p-col-3">
+                                    <p-checkbox name="groupname" value="Agriculture" label="Agriculture" [(ngModel)]="this.companyInfoForm.sectors"></p-checkbox>
+                                </div>
+                                <div class="p-col-3">
+                                    <p-checkbox name="groupname" value="Defence" label="Defence" [(ngModel)]="this.companyInfoForm.sectors"></p-checkbox>
+                                </div>
+                                <div class="p-col-3">
+                                    <p-checkbox name="groupname" value="Edutaiment" label="Edutaiment" [(ngModel)]="this.companyInfoForm.sectors"></p-checkbox>
+                                </div>
+                                <div class="p-col-3">
+                                    <p-checkbox name="groupname" value="SME" label="SME" [(ngModel)]="this.companyInfoForm.sectors"></p-checkbox>
+                                </div>
+                                <div class="p-col-3">
+                                    <p-checkbox name="groupname" value="Healtcare" label="Healtcare" [(ngModel)]="this.companyInfoForm.sectors"></p-checkbox>
+                                </div>
+                                <div class="p-col-3">
+                                    <p-checkbox name="groupname" value="Oil & Gas" label="Oil & Gas" [(ngModel)]="this.companyInfoForm.sectors"></p-checkbox>
+                                </div>
+                                <div class="p-col-4">
+                                    <p-checkbox name="groupname" value="SmartCity Devices" label="SmartCity Devices" [(ngModel)]="this.companyInfoForm.sectors"></p-checkbox>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="p-grid" style="padding-bottom: 30px;">
+                        <div class="p-col-3">
+                            <label for="username">Job title :</label>
+                        </div>
+                        <div class="p-col-6">
+                            <input class="input-txt-1" name="username" type="text" [(ngModel)]="this.companyInfoForm.jobTitle" pInputText>
+                        </div>
+                    </div>
+                    
+                    <div class="p-grid" style="padding-bottom: 30px;">
+                        <div class="p-col-3">
+                            <label for="username">Company address :</label>
+                        </div>
+                        <div class="p-col-6">
+                            <input class="input-txt-1" name="username" type="text" [(ngModel)]="this.companyInfoForm.address" pInputText>
+                        </div>
+                    </div>
+            
+                    <div class="p-grid" style="padding-bottom: 30px;">
+                        <div class="p-col-6">
+                            <div class="p-grid">
+                                <div class="p-col">
+                                    <label for="username">City :</label>
+                                </div>
+                                <div class="p-col">
+                                    <input class="input-txt-0" name="ic" type="text" [(ngModel)]="this.companyInfoForm.city" pInputText>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-6">
+                            <div class="p-grid">
+                                <div class="p-col">
+                                    <label for="username">Post code :</label>
+                                </div>
+                                <div class="p-col-">
+                                    <input class="input-txt-0" name="ic" type="text" [(ngModel)]="this.companyInfoForm.zip" pInputText>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+    
+                    <div class="p-grid" style="padding-bottom: 30px;">
+                        <div class="p-col-6">
+                            <div class="p-grid">
+                                <div class="p-col">
+                                    <label for="username">State :</label>
+                                </div>
+                                <div class="p-col">
+                                    <input class="input-txt-0" name="ic" type="text" [(ngModel)]="this.companyInfoForm.state" pInputText>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-6">
+                            <div class="p-grid">
+                                <div class="p-col">
+                                    <label for="username">Country :</label>
+                                </div>
+                                <div class="p-col-">
+                                    <input class="input-txt-0" name="ic" type="text" [(ngModel)]="this.companyInfoForm.country" pInputText>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+    
+                    <div class="p-grid" style="padding-bottom: 30px;">
+                        <div class="p-col-3">
+                            <label for="username">Office phone number :</label>
+                        </div>
+                        <div class="p-col-6">
+                            <input class="input-txt-0" name="username" type="text" [(ngModel)]="this.companyInfoForm.officePhone" pInputText>
+                        </div>
+                    </div>
+                </ng-container>
+
+                
             </div>
         </ng-container>
     
         <ng-container *ngIf="this.currentIndex === 3">
+            <div class="header">
+                <span>Successfully registration!</span>
+            </div>
+
             <div class="msgbox-success">
-                <div class="header">
-                    <span>Successfully registration!</span>
-                </div>
-        
                 <div class="body">
-                    <span>Payment Info</span>
-                    <span>FOR ONLINE BANK TRANSFER :</span>
-                    <span>Maybank Islamic</span>
-                    <span>Malaysia Robotics and Automation Society</span>
-                    <span>Account No: 5456465465466</span>
+                    <span>Your account with username</span>
+                    <span class="username">{{ this.accountForm.username }}</span>
+                    <span>has been created!</span>
+                    <span>This account will be flagged as inactive until you pay</span>
+                    <span class="fee">RM{{ this.fee.toFixed(2) }}</span>
+                    <span>for the registration fee</span>
                 </div>
-        
-                <div class="footer">
-                    <div>
-                        <span>email the proof of payment to</span>
-                        <span>muhaimim@robotics-malaysia.com</span>
-                        <span>or</span>
-                        <span>anis@robotics-malaysia.com</span>
+            </div>
+
+            <div class="info-cards">
+                <div class="card">
+                    <div class="card-header">
+                        <span>Payment information</span>
                     </div>
-                    <div>
-                        <span>email the proof of payment to</span>
-                        <span>muhaimim@robotics-malaysia.com</span>
-                        <span>or</span>
-                        <span>anis@robotics-malaysia.com</span>
+
+                    <div class="card-body">
+                        <div>
+                            <span>Online transfer:</span>
+                            
+                        </div>
+                        
+                        <div>
+                            <span>Maybank Islamic</span>
+                            <span>Account No: 5456465465466</span>
+                            <span>Malaysia Robotics and Automation Society</span>
+                        </div>
+                        
+                        
                     </div>
                 </div>
-        
-            <!--  <div class="p-grid p-justify-center" style="padding-top: 50px;">
-                <div class="btn p-col-2" style="text-align: center;">
-                    <button pButton type="button" label="Login" class="ui-button-raised ui-button-warning" routerLink="/login"></button>
+                <div class="card">
+                    <div class="card-header">
+                        <span>Proof of payment</span>
+                    </div>
+
+                    <div class="card-body">
+                        <div>
+                            <span>Email:</span>
+                            
+                        </div>
+                        
+                        <div>
+                            <span>muhaimim@robotics-malaysia.com</span>
+                            <span>or</span>
+                            <span>anis@robotics-malaysia.com</span>
+                        </div>
+                        
+                        
+                    </div>
                 </div>
-                </div> -->
+                
             </div>
         </ng-container>
-        
-        <div class="proceed-glow"></div>
+        <!-- [class.disabled]="!this.currentPageDone" -->
+        <div class="proceed-glow" ></div>
         <div class="proceed" (click)="this.nextPage()">
             <span>{{ this.btnText }}</span>
         </div>

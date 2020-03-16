@@ -58,23 +58,236 @@
     text-align: center;
   }
 
+  & > .section-body {
+    position: relative;
+
+    height: calc(100% - 150px);
+    width: 100%;
+
+    & > .intro-item {
+      align-items: center;
+          
+    }
+  }
+
   &.s1 {
     & > .section-body {
-      position: relative;
-
-      height: calc(100% - 150px);
-      width: 100%;
-
       & > .intro-item {
-        padding-left: 50px;
-        padding-right: 50px;
+        padding-left: 12%;
+        padding-right: 12%;
         padding-bottom: 100px;
       }
     }
   }
 
   &.s2 {
-    background-color: $color-side;
+    background-color: orange;
+
+    & > .section-body {
+      padding: 50px;
+
+      filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, .3));
+      & > .plan-card {
+        position: relative;
+
+        height: 450px;
+        width: 100%;
+
+        background-color: #fff; // 
+
+        clip-path: polygon(5% 0, 100% 0, 100% 85%, 95% 100%, 0 100%, 0 15%);
+        
+        /* box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, .5); */
+        
+        border-radius: 5px;
+
+        overflow: hidden;
+
+        margin-bottom: 50px;
+
+        /* transform: scale(1);
+        transition: .3s transform;
+        &:hover {
+          transform: scale(1.01);
+        } */
+
+        & > div {
+          display: inline-block;
+
+          position: relative;
+
+          height: 100%;
+        }
+
+        & > .plan-header {
+          width: 400px;
+
+          /* border-right: 1px dashed rgba(0, 0, 0, .3); */
+
+          & > .plan-svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            height: 300px;
+            width: 300px;
+
+            
+            /* background: url('../../../../assets/svg/undraw_team_spirit_hrr4.svg'); */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            
+            // aidil123, asdasdasd
+          }
+          
+          /* border-right: 1px solid rgba(0, 0, 0, .3); */
+        }
+        & > .plan-body {
+          position: absolute;
+          left: 400px;
+          top: 0;
+          
+          width: calc(100% - 400px);
+
+          & > .package-name {
+            display: inline-block;
+            position: relative;
+
+            height: 80px;
+            width: 100%;
+
+            font-size: 25px;
+            text-transform: uppercase;
+
+            line-height: 80px;
+
+            color: rgba(0, 0, 0, .6);
+
+          }
+
+          & > .package-price {
+            position: absolute;
+            right: 0;
+            top: 80px;
+
+            height: calc(100% - 80px);
+            width: 300px;
+
+            text-align: center;
+
+            & > div {
+              position: relative;
+              /* position: absolute;
+              right: 0;
+              top: 50%;
+              transform: translateY(-50%); */
+
+              height: 100%;
+              width: 100%;
+
+              & > .btn-register {
+                position: absolute;
+                left: 50%;
+                bottom: 120px;
+                transform: translateX(-50%);
+
+                height: fit-content;
+                width: fit-content;
+
+                &:hover {
+                  cursor: pointer;
+                  user-select: none;
+                }
+
+                & > span {
+                  padding: 15px 30px;
+                  color: white;
+                  background-color: orange;
+                  font-weight: bold;
+                }
+              }
+
+              & > hr {
+                width: 65%;
+              }
+
+              & > span {
+                display: block;
+  
+                padding-bottom: 20px;
+                &.small {
+                  font-size: 18px;
+                  color: rgba(0, 0, 0, .5);
+                }
+
+                &.price {
+                  display: inline-block;
+                  font-size: 50px;
+                  color: orange;
+                }
+  
+                &.price-postfix {
+                  display: inline-block;
+                  padding-left: 10px;
+                  color: orange;
+                  font-size: 18px;
+                }
+
+               
+              }
+            }
+            
+          }
+
+          & > .package-benefits {
+            position: absolute;
+            left: 0;
+            top: 80px;
+
+            height: calc(100% - 80px);
+            width: calc(100% - 300px);
+
+            & > .brief {
+              position: relative;
+
+              height: 60px;
+              width: 100%;
+
+              padding: 15px 20px;
+            }
+
+            & > .benefits {
+              
+              position: relative;
+
+              height: calc(100% - 60px);
+              width: 100%;
+
+              padding: 20px;
+
+              & > div > div > div > .benefit-item {
+                width: 100%;
+                height: 100%;
+
+                font-size: 15px;
+
+                & > i {
+                  padding-right: 10px;
+                }
+
+                & > span {
+                  font-weight: bold;
+                }
+              }
+            }
+          }
+
+
+        }
+      }
+    }
   }
 }
 
@@ -103,6 +316,7 @@
 
   clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 51%, 0 100%);;
 }
+
 .poly-1 {
   position: absolute;
   bottom: -1px;
@@ -111,426 +325,7 @@
   width: 100%;
   height: 150px;
 
-  background-color: $color-side;
+  background-color: orange;
 
   clip-path: polygon(0 85%, 100% 0, 100% 100%, 0% 100%);
 }
-
-/* 
-.stepper {
-  position: relative;
-
-  width: 90%;
-  height: fit-content;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  margin-top: 60px;
-
-  & > .line-placeholder {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-
-    height: 8px;
-    width: 100%;
-
-    background-color: gainsboro;
-
-    z-index: 1;
-  }
-
-  & > .line {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-
-    background-color: orange;
-
-    height: 8px;
-    width: 0%;
-
-    z-index: 2;
-
-    transition: .3s all;
-    transition-delay: .6s;
-  }
-
-  & > .items {
-    display: flex;
-    justify-content: space-between;
-
-    position: relative;
-
-    z-index: 3;
-
-    & > .item {
-      position: relative;
-      
-      height: 100px;
-      width: 100px;
-
-      background-color: white;
-
-      border-radius: 50%;
-      border: 3px solid orange;
-
-      line-height: 100px;
-      text-align: center;
-
-      font-size: 30px;
-
-      transition: .3s all;
-      transition-delay: .6s;
-      &.active {
-        background-color: orange;
-      }
-
-    }
-
-    & > .label {
-      position: relative;
-      
-      height: auto;
-      width: 100px;
-
-      font-size: 15px;
-
-      text-align: center;
-
-      color: black;
-
-      transition: .3s all;
-      &.active {
-        color: orange;
-      }
-
-    }
-  }
-
-
-}
-
-.title{
-  position: relative;
-
-  height: fit-content;
-  width: fit-content;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  font-weight: bold;
-  color:orange;
-
-  text-align: center;
-
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-
-.pricing-cards {
-  position: relative;
-
-  height: fit-content;
-  width: 90%;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  display: flex;
-  justify-content: space-between;
-
-  & > .pricing-card {
-    position: relative;
-
-    min-height: 100vh;
-    width: 350px;
-    height: fit-content;
-
-    background-color:#efeff2;
-    opacity: 100%;
-
-    box-shadow: 0 0px 20px 5px rgba(#d6d6d6, 0);
-
-    transition: .3s all;
-
-    &:hover {
-      box-shadow: 0 0px 20px 5px rgba(#d6d6d6, .7);
-    }
-
-    & > .header {
-      display: block !important;
-      position: relative;
-
-      height: 50px;
-      width: 100%;
-
-      text-align: center;
-      text-transform: uppercase;
-
-      background-color: orange;
-
-      line-height: 50px;
-
-      & > span {
-        font-size: 25px;
-        color: white;
-        font-weight: bold;
-
-      }
-
-    }
-    & > .body {
-      display: block !important;
-      position: relative;
-
-      height: auto;
-      min-height: 150px;
-      width: 100%;
-
-      padding: 30px 0;
-
-      text-align: center;
-      border: 0px !important;
-
-      & > .brief {
-        position: relative;
-
-        height: fit-content;
-        width: 100%;
-
-        padding: 20px;
-
-        background-color: rgb(204, 204, 204);
-
-        text-align: justify;
-
-        & > span {
-          position: relative;
-
-          height: fit-content;
-          width: 100%;
-        }
-      }
-
-      & > .features {
-        position: relative;
-
-        height: fit-content;
-        width: 80%;
-
-        margin-left: auto;
-        margin-right: auto;
-
-        padding-top: 50px;
-
-        & > .feature {
-          position: relative;
-
-          height: fit-content;
-          width: 100%;
-
-          word-wrap: break-word;
-
-          & > div > i {
-            font-size: 20px;
-          }
-        }
-      }
-    }
-
-    & > .footer {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-
-      height: 200px;
-      width: 100%;
-      
-      background-color: orange;
-
-      clip-path: polygon(31% 0, 100% 36%, 100% 100%, 0 100%, 0 23%);
-
-      & > .price {
-        position: absolute;
-
-        height: 100%;
-        width: 100%;
-
-        line-height: 200px;
-
-        text-align: center;
-        letter-spacing: 2px;
-
-        & > span {
-          display: inline-block;
-
-          color: white;
-
-          &:nth-child(1) {
-            font-size: 50px;
-          }
-          &:nth-child(2) {
-            font-size: 18px;
-          }
-        }
-      }
-
-      & > .cont {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-
-        height: 50px;
-        width: 100%;
-
-        line-height: 50px;
-
-        text-align: center;
-        font-size: 18px;
-
-        letter-spacing: 3px;
-        color: white;
-
-        background-color: rgba(0, 0, 0, .3);
-
-        &:hover {
-          cursor: pointer;
-        }
-      }
-
-      & > .btn{
-        position: absolute;
-        right: 0;
-        left: 0;
-        
-        transform: translate(-50%, -50%);
-
-        text-align: center;
-        bottom: 40px;
-        border: 2px #ef8216 !important;
-
-        color: white !important;
-      }
-    }
-
-
-  }
-}
-
-.msgbox-success {
-  position: relative;
-
-  height: fit-content;
-
-  padding: 20px;
-
-  & > .header {
-    position: relative;
-
-    font-size: 25px;
-    font-weight: bolder;
-
-    text-transform: uppercase;
-    text-align: center;
-    letter-spacing: 3px;
-
-    margin-bottom: 15px;
-  }
-
-  & > .body {
-    position: relative;
-
-    font-size: 18px;
-    font-weight: 400;
-
-    letter-spacing: 1px;
-
-    text-align: center;
-    & > span {
-      display: block;
-
-      padding: 5px;
-    }
-  }
-
-  & > .footer {
-    margin-top: 100px;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    text-align: center;
-    & > div {
-      width: 300px;
-
-      & > span {
-        display: block;
-
-        padding: 5px;
-      }
-    }
-  }
-}
-
-
-.ui-button.ui-state-default.ui-button-warning{
-  background-color: white !important;
-    border: 2px solid #ef8216 !important;
-}
-
-.input-txt-1 {
-  width: 300px;
-}
-
-// overwrite PrimeNg style here
-
-:host {
-  ::ng-deep {
-
-    &.ui-steps-number {
-      height: 70px !important;
-      width: 70px !important;
-
-      line-height: 70px !important;
-    }  
-
-    &.ui-steps {
-      display: flex !important;
-      justify-content: space-between !important;
-    }  
-
-  }
-
-    
-}
-
- .section {
-   padding-top:60px;
-   padding-bottom: 60px;
-
-   
-  & > div > div > .hover-color{
-    background-color: #fff;
-    border: 2px solid  #0f2557;
-    padding: 25px;
-    text-align:center;
-
-  } 
-  & > div > div > .hover-color:hover{
-    background: #ffffff;
-    border: 2px solid  #ffa500;
-  }
-
-  & > .cont{
-     padding-top:20px;
-   }
- }
-  */
-
-

@@ -1,5 +1,6 @@
 export class User {
     token: string;
+    refreshToken: string;
 
     username: string;
     email: string;

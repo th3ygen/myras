@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import * as alertify from 'alertifyjs';
+
 import { first } from 'rxjs/operators';
 
 import { MasterService } from '../../../services/master.service';
@@ -27,7 +29,7 @@ export class PageLoginComponent implements OnInit {
       if (currentUser.admin) {
         this.router.navigate(['/admin/dashboard']);
       } else {
-        this.router.navigate(['/user/news/overview']);
+        this.router.navigate(['/user/profile/info']);
       }
     }
   }
@@ -36,13 +38,13 @@ export class PageLoginComponent implements OnInit {
     this.master.setRegisterForm(false);
   }
 
-  private validate(){
+  private validate() {
     if (!this.username) {
-      alert('Username is empty');
+      alertify.error('Username is empty');
       return false;
     }
     if (!this.password) {
-      alert('Password is empty');
+      alertify.error('Password is empty');
       return false;
     }
 
@@ -60,12 +62,17 @@ export class PageLoginComponent implements OnInit {
           if (user.admin) {
             this.router.navigate(['/admin/dashboard']);
           } else {
-            this.router.navigate(['/user/news/overview']);
+            this.router.navigate(['/user/profile/info']);
           }
         },
 
         error => {
+          this.master.setLoading(false);
+
           this.error = error;
+          if (error.status === 401) {
+            alertify.error('Username and password does not match');
+          }
         }
       );
     }

@@ -3,7 +3,254 @@
 </div>
 
 <div class="body">
-    <div class="vision-wrapper">
+    <div class="section s1">
+        <div class="section-header">
+            <span>About us?</span>
+        </div>
+
+        <div class="section-body">
+            <div class="p-grid intro-item">
+                <div class="p-col">
+                    <div class="svg" style="
+                    background: url('http://159.89.206.45:7070/assets/svg/undraw_stand_out_1oag.svg');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;"></div>
+                </div>
+                <div class="p-col vision-text">
+                    <span>Vision</span>
+                    <span>
+                        MyRAS vision is to be professional platform 
+                    where all engineers and technologies can 
+                    meet and network to discuss about robotics 
+                    and automation program in the country.
+                    </span>
+                </div>
+            </div>
+            <div class="p-grid intro-item">
+                <div class="p-col vision-text">
+                    <span>Mission</span>
+                    <span>
+                        To communicate to the government 
+                        on the need for robotics and 
+                        automation in Malaysia
+                    </span>
+        
+                    <span>
+                        To create awareness on robotics and 
+                        automation through various 
+                        activities such as conference 
+                        and seminars
+                    </span>
+                </div>
+                <div class="p-col">
+                    <div class="svg" style="
+                    background: url('http://159.89.206.45:7070/assets/svg/undraw_goals_w8tw.svg');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="poly-1"></div>
+    </div>
+
+    <div class="section s2">
+        <div class="section-header">
+            <span>Meet our team</span>
+        </div>
+
+        <div class="section-body">
+            <div class="p-grid p-justify-center" style="padding-bottom: 50px;" *ngIf="this.top">
+                <div class="p-col-12 team-item" style="width: 100%;" *ngFor="let member of this.top">
+                    <div class="team-avatar" style="
+                    background: url('http://159.89.206.45:7070/assets/svg/undraw_male_avatar_323b.svg');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;">
+
+                    </div>
+                    <div class="team-details">
+                        <div class="team-name">
+                            <span> {{member.name}} </span>
+                        </div>
+                        <div class="team-title">
+                            <span> {{member.title}} </span>
+                        </div>
+                        <div class="team-contact">
+                            <div class="p-grid">
+                                <div class="p-col" *ngFor="let c of member.contacts">
+                                    <i [class]="c.icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-grid p-justify-center" style="padding-bottom: 50px;" *ngIf="this.mid">
+                <div class="p-col-4 team-item" *ngFor="let member of this.mid">
+                    <div class="team-avatar" style="
+                    background: url('http://159.89.206.45:7070/assets/svg/undraw_male_avatar_323b.svg');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;">
+
+                    </div>
+                    <div class="team-details">
+                        <div class="team-name">
+                            <span> {{member.name}} </span>
+                        </div>
+                        <div class="team-title">
+                            <span> {{member.title}} </span>
+                        </div>
+                        <div class="team-contact">
+                            <div class="p-grid">
+                                <div class="p-col" *ngFor="let c of member.contacts">
+                                    <i [class]="c.icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-grid p-justify-center" style="padding-bottom: 50px;" *ngIf="this.bot">
+                <div class="p-col-3 team-item" *ngFor="let member of this.bot">
+                    <div class="team-avatar" style="
+                    background: url('http://159.89.206.45:7070/assets/svg/undraw_male_avatar_323b.svg');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;">
+
+                    </div>
+                    <div class="team-details">
+                        <div class="team-name">
+                            <span> {{member.name}} </span>
+                        </div>
+                        <div class="team-title">
+                            <span> {{member.title}} </span>
+                        </div>
+                        <div class="team-contact">
+                            <div class="p-grid">
+                                <div class="p-col" *ngFor="let c of member.contacts">
+                                    <i [class]="c.icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="p-grid" style="padding-bottom: 50px;">
+                <div class="p-col-3 team-item" style="width: 100%;" *ngFor="let member of this.team" >
+                    <div class="team-avatar" style="
+                    background: url('http://localhost:4200/assets/svg/undraw_male_avatar_323b.svg');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;">
+
+                    </div>
+                    <div class="team-details">
+                        <div class="team-name">
+                            Muhammad Aidil Syazwan
+                        </div>
+                        <div class="team-title">
+                            Web Developer
+                        </div>
+                        <div class="team-contact">
+                            <div class="p-grid">
+                                <div class="p-col">
+                                    <i class="fas fa-at"></i>
+                                </div>
+                                <div class="p-col">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div class="p-col">
+                                    <i class="fab fa-twitter"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+
+        
+    </div>
+
+    <div class="section s3">
+        <div class="poly-0"></div>
+
+        <div class="section-header">
+            <span>Get in touch with us</span>
+        </div>
+
+        <div class="section-body">
+            <div class="body-start-text">
+                <span>
+                    Malaysia Robotics and Automation Society
+                </span>
+                <span>
+                    Monday to Friday, 8AM - 5PM
+                </span>
+            </div>
+            <div class="p-grid p-col-align-stretch">
+                <div class="p-col contact-card card-left">
+                    <div class="card-header">
+                        <span>Mail address</span>
+                    </div>
+                    <div class="card-body">
+                        <span>Sandbox 2, Ground Floor,</span>
+                        <span>Block 3710 Persiaran Apec,</span>
+                        <span>Cyber 8, 63000 Cyberjaya,</span>
+                        <span>Selangor</span>
+                    </div>
+                </div>
+                <div class="p-col contact-card card-left">
+                    <div class="card-header">
+                        <span>Email address</span>
+                    </div>
+                    <div class="card-body">
+                        <span>admin@myras.org</span>
+                    </div>
+                    <div class="card-header">
+                        <span>Mobile</span>
+                    </div>
+                    <div class="card-body">
+                        <span>+6012348975</span>
+                    </div>
+                    <div class="card-header">
+                        <span>Fax</span>
+                    </div>
+                    <div class="card-body">
+                        <span>+03548975</span>
+                    </div>
+                </div>
+                <div class="p-col contact-card card-left">
+                    <div class="card-header">
+                        <span>Social Media</span>
+                    </div>
+                    <div class="card-body social-items">
+                        <div class="p-grid p-dir-col">
+                            <div class="p-col social-item">
+                                <i class="fab fa-facebook-square fb"></i>
+                                <span>Facebook</span>
+                            </div>
+                            <div class="p-col social-item">
+                                <i class="fab fa-instagram-square ig"></i>
+                                <span>Instagram</span>
+                            </div>
+                            <div class="p-col social-item">
+                                <i class="fab fa-twitter-square tw"></i>
+                                <span>Twitter</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- <div class="vision-wrapper">
         <div class="text-card">
             <span class="header">
                 Vision
@@ -42,9 +289,9 @@
             </div>
         </div>
         
-    </div>
+    </div> -->
 
-    <div class="objective-wrapper">
+    <!-- <div class="objective-wrapper">
         
-    </div>
+    </div> -->
 </div>

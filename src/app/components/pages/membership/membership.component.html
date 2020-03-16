@@ -5,7 +5,7 @@
 <div class="main-body">
   <div class="section s1">
     <div class="section-header">
-      <span>Lorem papetah</span>
+      <span>Our Membership</span>
     </div>
 
     <div class="section-body">
@@ -13,14 +13,23 @@
         <div class="p-col">
           <div class="svg"></div>
         </div>
-        <div class="p-col">
-          MyRAS membership is open to all individuals and companies.
+        <div class="p-col detail-text">
+          <span>
+            MyRAS membership is open to all individuals and companies.
+            This will help MyRAS to expand its contributions on robotics
+            and automation awereness for industrial growth in Malaysia.
+            The technology of robotics and automation is advancing day-to-day
+            throughout the world and Malaysia should keep up with the pace.
+          </span>
         </div>
         
       </div>
       <div class="p-grid intro-item">
         <div class="p-col">
-          MyRAS membership is open to all individuals and companies.
+          MyRAS will be launching a new membership plan starting next year
+          (2020), offering members discounts on robotics training events, 
+          early notification of free and paid events and much more in the 
+          pipeline.
         </div>
         <div class="p-col">
           <div class="svg"></div>
@@ -48,24 +57,84 @@
 
   <div class="section s2">
     <div class="section-header">
-      <span>Our membership package</span>
+      <span>Our Membership Package</span>
     </div>
 
     <div class="section-body">
+      <div class="plan-card" *ngFor="let item of this.packages">
+        <div class="plan-header">
+          <div class="plan-svg" 
+          style="background: url('../../../../assets/svg/{{ item.svg }}');
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;">
+            
+          </div>
+        </div>
+        <div class="plan-body">
+          <div class="package-name">
+            <span>{{ item.name }}</span>
+          </div>
 
+          <div class="package-benefits">
+            <div class="brief">
+              <span>{{ item.brief }}</span>
+            </div>
+            <div class="benefits">
+              <div class="p-grid">
+                <div class="p-col">
+                  <div class="p-grid p-dir-col">
+                    <div class="p-col benefit-item" *ngFor="let benefit of item.features.slice(0, 3)">
+                      <i class="fas fa-check"></i>
+                      <span>{{ benefit.label }}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-col" *ngIf="item.features.length > 4">
+                  <div class="p-grid p-dir-col">
+                    <div class="p-col benefit-item" *ngFor="let benefit of item.features.slice(3, (item.features.length - 1))">
+                      <i class="fas fa-check"></i>
+                      <span>{{ benefit.label }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="package-price">
+            <div>
+              <span class="small">This package is for</span>
+              <span class="price">RM{{ item.price }}</span>
+              <span class="price-postfix">Per year!</span>
+              <hr>
+              <!-- <span class="small">or just pay for once!</span>
+              <span class="price">RM{{ item.lifetime }}</span>
+              <span class="price-postfix">for lifetime!</span> -->
+              <div class="btn-register" (click)="this.register()">
+                <span>Register now!</span>
+              </div>
+            </div>
+            
+          </div>
+
+          
+        </div>
+      </div>
     </div>
+
   </div>
-  <div class="section">
+  <!-- <div class="section">
     <h1>Student</h1>
   </div>
   <div class="section">
     <h1>Corporate</h1>
-  </div>
+  </div> -->
   
 
 <!-- <button type="button" (click)="this.toggleDialog()" pButton icon="pi pi-info-circle" label="Show"></button> -->
 
-  <div class="wrapper">
+ <!--  <div class="wrapper">
 
     <div class="section">
       <div class="p-grid">
@@ -110,7 +179,7 @@
 
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
    <!--  <p-dialog class="wrapper" header="Title" [(visible)]="this.showDialog" [modal]="true">
   

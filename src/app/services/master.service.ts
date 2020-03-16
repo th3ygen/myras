@@ -29,8 +29,13 @@ export class MasterService {
       active: false
     },
     {
-      label: 'About',
-      path: 'about',
+      label: 'Activities',
+      path: 'activities',
+      active: false
+    },
+    {
+      label: 'Communities',
+      path: 'communities',
       active: false
     },
     {
@@ -39,13 +44,8 @@ export class MasterService {
       active: false
     },
     {
-      label: 'Activities',
-      path: 'activities',
-      active: false
-    },
-    {
-      label: 'Communities',
-      path: 'communities',
+      label: 'About',
+      path: 'about',
       active: false
     }
   ];
@@ -59,7 +59,7 @@ export class MasterService {
     hide: true,
 
     items: [
-      {
+      /* {
         label: 'News',
         childs: [
           {
@@ -73,7 +73,7 @@ export class MasterService {
             icon: 'fas fa-id-card'
           },
         ]
-      },
+      }, */
       {
         label: 'User profile',
         childs: [
@@ -123,11 +123,11 @@ export class MasterService {
       {
         label: 'News',
         childs: [
-          {
+          /* {
             label: 'Overview',
             path: 'admin/news/overview',
             icon: 'fas fa-clipboard-check'
-          },
+          }, */
           {
             label: 'Post news',
             path: 'admin/news/post',

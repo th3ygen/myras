@@ -30,15 +30,15 @@ export class PageHomeComponent implements OnInit {
   public headerContent = [
     {
       title: 'About',
-      body: 'Curabitur accumsan dui magna',
-      brief: 'Integer sodales dignissim ex, congue semper nisi euismod id',
+      body: 'Get In Touch With Us',
+      brief: 'To promote the advancement of the robotics and automation industry.',
       svg: '../../../../assets/svg/undraw_location_search_bqps.svg',
       path: 'about'
     },
     {
       title: 'Membership',
-      body: 'Donec sit amet viverra nisi',
-      brief: 'Aenean diam metus, vehicula at turpis maximus, tincidunt',
+      body: 'Join Us For More Information',
+      brief: 'To promote the advancement of the robotics and automation industry.',
       svg: '../../../../assets/svg/undraw_sign_in_e6hj.svg',
       path: 'membership'
     },
@@ -61,7 +61,28 @@ export class PageHomeComponent implements OnInit {
   public news: any[] = [];
   public loaded = false;
 
-  
+  public clusters = [
+    {
+      icon: 'fas fa-industry',
+      label: 'Industry',
+      brief: 'The main movers and shakers of the robotics industry'
+    },
+    {
+      icon: 'fas fa-university',
+      label: 'Government',
+      brief: 'Policymakers and administrators that for the robotics industry'
+    },
+    {
+      icon: 'fas fa-graduation-cap',
+      label: 'Academia',
+      brief: 'Research on technologies and matters related to robotics and automation'
+    },
+    {
+      icon: 'fas fa-users',
+      label: 'Public',
+      brief: 'Members of the general public which are the direct consumers of robotics industry'
+    },
+  ];
 
   routeTo(path: string) {
     this.router.navigateByUrl(path);

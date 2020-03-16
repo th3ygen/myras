@@ -8,24 +8,27 @@
             <div class="form-group ui-g">
                 <div class="ui-g-6" style="padding-right: 30px;">
                     <div class="label">
+                        <span>Cluster</span>
+                    </div> 
+                    <p-dropdown [options]="this.clusters" [(ngModel)]="this.cluster"></p-dropdown>
+                    <div class="label" style="padding-top: 30px;">
                         <span>Header</span>
                     </div>
-                    <input type="text" pInputText #header>  
+                    <input type="text" pInputText [(ngModel)]="this.header" style="width: 100%;">  
                     
                     <div class="label" style="padding-top: 30px;">
                         <span>Description</span>
                     </div>
-                    <textarea rows="5" cols="30" pInputTextarea autoResize="autoResize" #desc></textarea>
+                    <textarea rows="5" cols="30" pInputTextarea autoResize="autoResize" [(ngModel)]="this.brief" style="width: 100%;"></textarea>
 
                     <div class="label" style="padding-top: 30px;">
                         <span>Keywords</span>
                     </div>
-                    <p-chips #tags></p-chips>
-                    <!-- <div class="label" style="padding-top: 30px;">
-                        <span>Type</span>
-                    </div> 
-                    <p-selectButton [options]="this.type" formControlName="selectedType"></p-selectButton>
-                    -->
+                    <p-chips [(ngModel)]="this.tags"></p-chips>
+                    <span class="label-file" style="text-align: left; font-size: 14px; color: rgba(0, 0, 0, .7)">Press Enter to add a keyword</span>
+                    
+                    <!-- <p-selectButton [options]="this.type" formControlName="selectedType"></p-selectButton> -->
+                   
                 </div>
 
                 <div class="ui-g-6">
@@ -33,17 +36,38 @@
                         <span>Front Image</span>
                     </div>
                         
-                    <div class="img-preview">
-                        <div id="img"></div>
+                    <div class="img-preview" [ngStyle]="{'background-color': ((this.img) ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, .1)')}" (drop)="this.dropHandler($event)" (dragover)="this.dragOverHandler($event)">
+                        <div *ngIf="!this.img" class="drop-label">
+                            <i class="fas fa-file-upload"></i>
+                            <span>Drag & drop an image</span>
+                        </div>
+                        <div class="img blur" [ngStyle]="this.imgViewBlurStyle"></div>
+                        <div class="img" [ngStyle]="this.imgViewStyle"></div>
                     </div>
-                    <label class="image-upload-container btn btn-bwm">
-                        <input #imageInput
-                               type="file"
-                               accept="image/*"
-                               (change)="processFile(imageInput)">
-                      </label>
+                    <div style="width: 100%; text-align: center; padding: 15px 0;">
+                        <span>or browse your file</span>
+                    </div>
                     
-                    <span class="label-file">Click Choose file to upload your image</span>
+                    <div class="button-wrapper">
+                        <span class="label">
+                          Browse file
+                        </span>
+                        
+                          <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File">
+                          <input #imageInput
+                          id="upload" 
+                          class="upload-box" 
+                          placeholder="Upload File"
+                          type="file"
+                          accept="image/*"
+                          (change)="processFile($event.target.files.item(0))">
+                      </div>
+
+                    <div class="image-upload-container btn btn-bwm">
+                        
+                    </div>
+                    
+                    <!-- <span class="label-file">Click Choose file to upload your image</span> -->
                 </div>
                 
             </div>
@@ -55,20 +79,19 @@
                     <div class="label">
                         <span>Content</span>
                     </div>
-                    <p-editor [style]="{'height':'320px'}" #content></p-editor>
+                    <p-editor [style]="{'height':'320px'}" [(ngModel)]="this.content"></p-editor>
                 </div>
                 
             </div>
 
-            <hr>
-
-            <div class="form-group" style="height: 50px;">
-                <div class="news-action">
-                    <p-button label="Cancel" class="btn-cancel" styleClass="ui-button-secondary"></p-button>
-                    <p-button label="Post" (click)="this.uploadNews()"></p-button>
+            <div class="news-action">
+                <!-- <p-button label="Cancel" class="btn-cancel" styleClass="ui-button-secondary"></p-button> -->
+                <!-- <p-button label="Post" (click)="this.uploadNews()"></p-button> -->
+                <div class="btn-post">
+                    <span (click)="this.uploadNews()">POST</span>
                 </div>
-                
             </div>
+                
         </div>
 
         <div class="footer">
