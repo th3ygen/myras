@@ -5,8 +5,12 @@
 <div class="main-body">
     <div class="cluster">
         <div class="cluster-nav">
-            <div class="cluster-nav-item" *ngFor="let item of ['Industry', 'Academian', 'Government', 'Public']; let x = index" [class.active]="this.clusterIndex === x" (click)="this.clusterIndex = x">
-                <span>{{ item }}</span>
+            <div class="cluster-nav-item" *ngFor="let item of [['Industry', 'fas fa-industry'], ['Academian', 'fas fa-university'], ['Government','fas fa-graduation-cap'], ['Public', 'fas fa-users']]; let x = index" [class.active]="this.clusterIndex === x" (click)="this.clusterIndex = x">
+                <div>
+                    <i [class]="item[1]" ></i>
+                    <span>{{ item[0] }}</span>
+                </div>
+                
             </div>
         </div>
 
@@ -16,8 +20,47 @@
             </div>
 
             <div class="body">
-                
-                <div class="header">
+                <div class="card">
+                    <div class="header">
+                        <div class="header-line"></div>
+                        <div class="header-label">
+                            <span>Events</span>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        <p-carousel [value]="this.events" [numVisible]="3" [numScroll]="1">
+                            <ng-template let-event pTemplate="item">
+                                <div class="act-card">
+                                    <div class="header">
+                                        <span>{{ event.title }}</span>
+                                    </div>
+    
+                                    <div class="img"></div>
+    
+                                    <div class="brief">
+                                        <span>{{ event.brief }}</span>
+                                        <div class="prop">
+                                            <div>
+                                                <i class="fas fa-user-tie"></i>
+                                                <span>MyRAS</span>
+                                            </div>
+                                            <div>
+                                                <i class="far fa-clock"></i>
+                                                <span>Tommorow</span>
+                                            </div>
+                                            <div>
+                                                <i class="far fa-eye"></i>
+                                                <span>128</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </p-carousel>
+                    </div>
+                </div>
+                <!-- <div class="header">
                     <div class="header-line"></div>
                     <div class="header-label">
                         <span>Events</span>
@@ -41,9 +84,9 @@
                             </div>
                         </ng-template>
                     </p-carousel>
-                </div>
+                </div> -->
                 
-                <div class="header">
+                <!-- <div class="header">
                     <div class="header-line"></div>
                     <div class="header-label">
                         <span>Robotic Competitions</span>
@@ -67,9 +110,9 @@
                             </div>
                         </ng-template>
                     </p-carousel>
-                </div>
+                </div> -->
                 
-                <div class="header">
+                <!-- <div class="header">
                     <div class="header-line"></div>
                     <div class="header-label">
                         <span>Event Calendar</span>
@@ -79,7 +122,7 @@
 
                 <div class="content">
 
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
