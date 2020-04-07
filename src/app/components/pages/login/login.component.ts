@@ -70,7 +70,7 @@ export class PageLoginComponent implements OnInit {
           this.master.setLoading(false);
 
           this.error = error;
-          if (error.status === 401) {
+          if (error === 'Unauthorized') {
             alertify.error('Username and password does not match');
           }
         }

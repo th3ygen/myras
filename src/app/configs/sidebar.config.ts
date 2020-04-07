@@ -13,11 +13,14 @@ export const SidebarItems = [
     {
         label: 'Dashboard', url: 'admin/home', ico: 'fa fa-mail', active: true, child: []
     },
-    { label: 'News', url: '', ico: 'fa fa-mail', active: false, child: [
-        { label: 'Overview', url: 'admin/news', ico: 'fa fa-cog' },
-        { label: 'Add new', url: 'admin/news', ico: 'fa fa-cog' },
-    ] },
-    { label: 'Member', url: '', ico: 'fa fa-mail', active: false, child: [
-        { label: 'Manage members', url: 'admin/news', ico: 'fa fa-cog' }
-    ] },
+    { label: 'Content manager', url: '', ico: 'fa fa-mail', active: false, child: [
+            { label: 'Sponsors', url: 'admin/news', ico: 'fa fa-cog' },
+            { label: 'News', url: 'admin/news', ico: 'fa fa-cog' },
+            { label: 'Event', url: 'admin/news', ico: 'fa fa-cog' },
+        ]
+    },
+    { label: 'Members', url: '', ico: 'fa fa-mail', active: false, child: [
+        { label: 'Manage', url: 'admin/members/manager', ico: 'fa fa-cog' },
+        { label: 'Payments', url: 'admin/members/payments', ico: 'fa fa-cog' }
+    ] }
 ];

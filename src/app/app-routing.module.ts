@@ -38,7 +38,7 @@ import { PageUserNewsOverviewComponent } from './components/pages/user/news/over
 
 // Shared
 import { PageSharedNewsPostComponent } from './components/shared/news/post/post.component';
-
+import { AdminSharedContenteditComponent } from './components/pages/admin/shared/contentedit/contentedit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -77,6 +77,14 @@ const routes: Routes = [
     { path: 'news', children: [
       { path: 'overview', component: PageAdminNewsOverviewComponent },
       { path: 'post', component: PageSharedNewsPostComponent },
+    ] },
+    { path: 'contentedit', children: [
+      { path: 'home', component: AdminSharedContenteditComponent },
+      { path: 'activities', component: AdminSharedContenteditComponent },
+      { path: 'communities', component: AdminSharedContenteditComponent },
+      { path: 'membership', component: AdminSharedContenteditComponent },
+      { path: 'about', component: AdminSharedContenteditComponent },
+      { path: 'footer', component: AdminSharedContenteditComponent },
     ] },
     { path: 'members', children: [
       { path: 'manager', component: PageAdminMembersManagerComponent },

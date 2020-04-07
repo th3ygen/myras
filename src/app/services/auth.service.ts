@@ -43,11 +43,12 @@ export class AuthService {
   }
 
   public logout() {
-    return this.http.delete<any>(ROUTE_CONFIG.auth.logout)
+    localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
+    /* return this.http.delete<any>(ROUTE_CONFIG.auth.logout)
     .pipe(map(data => {
-      localStorage.removeItem('currentUser');
-      this.currentUserSubject.next(null);
-    }));
+      
+    })); */
 
   }
 

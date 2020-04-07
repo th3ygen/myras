@@ -136,6 +136,41 @@ export class MasterService {
         ]
       },
       {
+        label: 'Content editor',
+        childs: [
+          {
+            label: 'Home',
+            path: 'admin/contentedit/home',
+            icon: 'fas fa-home'
+          },
+          {
+            label: 'Activities',
+            path: 'admin/contentedit/activities',
+            icon: 'fas fa-tasks'
+          },
+          {
+            label: 'Communities',
+            path: 'admin/contentedit/communities',
+            icon: 'fas fa-users'
+          },
+          {
+            label: 'Membership',
+            path: 'admin/contentedit/membership',
+            icon: 'fas fa-users-cog'
+          },
+          {
+            label: 'About',
+            path: 'admin/contentedit/about',
+            icon: 'fas fa-info-circle'
+          },
+          {
+            label: 'Footer',
+            path: 'admin/contentedit/footer',
+            icon: 'fas fa-bars'
+          },
+        ]
+      },
+      {
         label: 'Members',
         childs: [
           {
@@ -149,7 +184,7 @@ export class MasterService {
             icon: 'fas fa-money-bill-wave'
           },
         ]
-      }
+      },
     ]
   };
 

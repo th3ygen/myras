@@ -72,11 +72,8 @@ export class AppComponent implements OnInit, AfterViewChecked, AfterViewInit {
   }
 
   public logout() {
-    this.master.setLoading(true);
-    this.auth.logout().subscribe(data => {
-      this.master.setLoading(false);
-      window.location.reload();
-    });
+    this.auth.logout();
+    window.location.reload();
   }
 
   constructor( private auth: AuthService, public master: MasterService, private changeRef: ChangeDetectorRef, private router: Router) {
@@ -100,6 +97,11 @@ export class AppComponent implements OnInit, AfterViewChecked, AfterViewInit {
 
       this.currentUser = this.auth.currentUserValue;
     });
+
+    /* window.onbeforeunload = () => {
+      localStorage.removeItem('currentUser');
+      return '';
+    } */
   }
 
   ngAfterViewInit() {

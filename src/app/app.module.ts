@@ -76,6 +76,7 @@ import { PageUserNewsOverviewComponent } from './components/pages/user/news/over
 import { LoadingComponent } from './components/loading/loading.component';
 import { FormRegisterComponent } from './components/forms/register/register.component';
 import { PageSharedNewsPostComponent } from './components/shared/news/post/post.component';
+import { AdminSharedContenteditComponent } from './components/pages/admin/shared/contentedit/contentedit.component';
 
 
 @NgModule({
@@ -119,6 +120,7 @@ import { PageSharedNewsPostComponent } from './components/shared/news/post/post.
     LoadingComponent,
     FormRegisterComponent,
     PageSharedNewsPostComponent,
+    AdminSharedContenteditComponent,
 
   ],
   imports: [

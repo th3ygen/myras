@@ -42,8 +42,8 @@
             ],
             "scripts": [
               "node_modules/aos/dist/aos.js",
-              "node_modules/quill/dist/quill.js"
-              
+              "node_modules/quill/dist/quill.js",
+              "node_modules/alertifyjs/build/alertify.min.js"
             ]
           },
           "configurations": {
