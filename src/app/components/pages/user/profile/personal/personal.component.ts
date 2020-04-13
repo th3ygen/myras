@@ -53,7 +53,10 @@ export class PageUserProfilePersonalComponent implements OnInit {
         this.student.university = data.details.student.university;
         this.student.course = data.details.student.course;
 
-        this.master.setLoading(false);
+        if (data) {
+          this.master.setLoading(false);
+        }
+        
       });
       
     });

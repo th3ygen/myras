@@ -27,6 +27,7 @@ import { PageAdminMembersPaymentsComponent } from './components/pages/admin/memb
 
 
 // User pages
+import { PageUserDashboardComponent } from './components/pages/user/dashboard/dashboard.component';
 import { PageUserMembershipComponent } from './components/pages/user/membership/membership.component';
 import { PagesUserNewsAddComponent } from './components/pages/user/news/add/add.component';
 import { PageUserProfileComponent } from './components/pages/user/profile/profile.component';
@@ -35,6 +36,9 @@ import { PageUserProfilePasswordComponent } from './components/pages/user/profil
 import { PageUserMembershipSubscriptionComponent } from './components/pages/user/membership/subscription/subscription.component';
 import { PageUserMembershipCardComponent } from './components/pages/user/membership/card/card.component';
 import { PageUserNewsOverviewComponent } from './components/pages/user/news/overview/overview.component';
+import { PageUserPurchaseInvoicesComponent } from './components/pages/user/purchases/invoices/invoices.component';
+import { PageUserPurchaseOrdersComponent } from './components/pages/user/purchases/orders/orders.component';
+
 
 // Shared
 import { PageSharedNewsPostComponent } from './components/shared/news/post/post.component';
@@ -56,11 +60,7 @@ const routes: Routes = [
   { path: 'login', component: PageLoginComponent },
 
   { path: 'user', canActivate: [AuthGuardService], data: { role: 'user' }, children: [
-    { path: 'news', children: [
-      { path: 'overview', component: PageUserNewsOverviewComponent },
-      { path: 'post', component: PageSharedNewsPostComponent },
-
-    ] },
+    { path: 'dashboard', component: PageUserDashboardComponent },
     { path: 'profile', children: [
       { path: 'info', component: PageUserProfilePersonalComponent },
       { path: 'password', component: PageUserProfilePasswordComponent },
@@ -70,6 +70,10 @@ const routes: Routes = [
       { path: 'subscription', component: PageUserMembershipSubscriptionComponent },
       { path: 'card', component: PageUserMembershipCardComponent },
       /* { path: 'directories', component: PageUserMembershipSubscriptionComponent }, */
+    ] },
+    { path: 'purchase', children: [
+      { path: 'invoices', component: PageUserPurchaseInvoicesComponent },
+      { path: 'orders', component: PageUserPurchaseOrdersComponent },
     ] },
   ] },
   { path: 'admin', canActivate: [AuthGuardService], data: { role: 'admin' }, children: [

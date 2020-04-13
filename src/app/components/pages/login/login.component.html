@@ -15,12 +15,12 @@
             <div class="form-container">
                 <div>
                     <i class="fa fa-user"></i>
-                    <input type="text" placeholder="Username" [(ngModel)]="this.username">
+                    <input type="text" placeholder="Username" [(ngModel)]="this.username" #inputUsername>
                 </div>
                 
                 <div>
                     <i class="fa fa-lock"></i>
-                    <input type="password" placeholder="Password" [(ngModel)]="this.password">
+                    <input type="password" placeholder="Password" [(ngModel)]="this.password" #inputPassword>
                 </div>
                 
                 <div>
@@ -33,14 +33,9 @@
                     </div>
 
                     <div class="btn-login">
-                        <span (click)="login()">Login</span>
+                        <span (click)="login()" #btnSubmit>Login</span>
                     </div>
                 </div>
-
-                <!-- <div class="signup-txt">
-                    <span>Do not have an account?</span>
-                    <a>Sign up now!</a>
-                </div> -->
             </div>
         </div>
     </div>

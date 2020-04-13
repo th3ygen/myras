@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import * as alertify from 'alertifyjs';
@@ -15,7 +15,12 @@ import { AuthService } from '../../../services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class PageLoginComponent implements OnInit {
+export class PageLoginComponent implements OnInit, AfterViewInit {
+  @ViewChild('inputUsername') inputUsername: ElementRef;
+  @ViewChild('inputPassword') inputPassword: ElementRef;
+  @ViewChild('btnSubmit') btnSubmit: ElementRef;
+
+
   public username: string;
   public password: string;
 
@@ -29,7 +34,7 @@ export class PageLoginComponent implements OnInit {
       if (currentUser.admin) {
         this.router.navigate(['/admin/dashboard']);
       } else {
-        this.router.navigate(['/user/profile/info']);
+        this.router.navigate(['/user/dashboard']);
       }
     }
   }
@@ -62,7 +67,7 @@ export class PageLoginComponent implements OnInit {
           if (user.admin) {
             this.router.navigate(['/admin/dashboard']);
           } else {
-            this.router.navigate(['/user/profile/info']);
+            this.router.navigate(['/user/dashboard']);
           }
         },
 
@@ -81,6 +86,22 @@ export class PageLoginComponent implements OnInit {
 
   close(): void {
     this.router.navigate(['/home']);
+  }
+
+  private onKeyEnter(): void {
+    const submit = (e) => {
+      if (e.keyCode === 13) {
+        e.preventDefault();
+        this.btnSubmit.nativeElement.click();
+      }
+    };
+
+    this.inputUsername.nativeElement.addEventListener('keyup', submit);
+    this.inputPassword.nativeElement.addEventListener('keyup', submit);
+  }
+
+  ngAfterViewInit(): void {
+    this.onKeyEnter();
   }
 
   ngOnInit() {

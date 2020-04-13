@@ -29,6 +29,10 @@
 <div *ngIf="this.userUI">
   <div class="user-topbar" [ngStyle]="{'left': (this.showSidebar) ? '250px' : 0, 'width': (this.showSidebar) ? 'calc(100% - 250px)' : '100%'}">
     <div class="tbody">
+      <div class="time">
+        <span></span>
+      </div>
+
       <div class="topbar-items">
         <div class="topbar-item btn-toggleside" (click)="this.toggleSidebar()">
           <i class="fas fa-bars"></i>

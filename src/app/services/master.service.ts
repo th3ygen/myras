@@ -22,6 +22,9 @@ export class MasterService {
   private registerFormSubject: BehaviorSubject<boolean>;
   public registerForm: Observable<boolean>;
 
+  private currentTimeSubject: BehaviorSubject<string>;
+  public currentTime: Observable<string>;
+
   public navItems = [
     {
       label: 'Home',
@@ -59,23 +62,13 @@ export class MasterService {
     hide: true,
 
     items: [
-      /* {
-        label: 'News',
-        childs: [
-          {
-            label: 'Overview',
-            path: 'user/news/overview',
-            icon: 'fas fa-eye'
-          },
-          {
-            label: 'Post',
-            path: 'user/news/post',
-            icon: 'fas fa-id-card'
-          },
-        ]
-      }, */
       {
-        label: 'User profile',
+        label: 'Dashboard',
+        path: 'user/dashboard',
+        icon: 'fas fa-solar-panel'
+      },
+      {
+        label: 'Profile',
         childs: [
           {
             label: 'Personal informations',
@@ -90,7 +83,7 @@ export class MasterService {
         ]
       },
       {
-        label: 'Membership information',
+        label: 'Membership',
         childs: [
           {
             label: 'Subscription',
@@ -98,17 +91,27 @@ export class MasterService {
             icon: 'fas fa-users-cog'
           },
           {
-            label: 'Membership card',
+            label: 'Card',
             path: 'user/membership/card',
             icon: 'fas fa-id-card'
-          },
-          /* {
-            label: 'Directories',
-            path: 'user/membership/directories',
-            icon: 'fas fa-th-list'
-          }, */
+          }
         ]
-      }
+      },
+      {
+        label: 'Purchase',
+        childs: [
+          {
+            label: 'Invoices',
+            path: 'user/purchase/invoices',
+            icon: 'fas fa-list-ul'
+          },
+          {
+            label: 'Orders',
+            path: 'user/purchase/orders',
+            icon: 'fas fa-money-check-alt'
+          }
+        ]
+      },
     ]
   };
   public adminSideBar = {

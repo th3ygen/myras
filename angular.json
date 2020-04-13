@@ -41,6 +41,7 @@
               "src/styles.scss"
             ],
             "scripts": [
+              "node_modules/chart.js/dist/Chart.js",
               "node_modules/aos/dist/aos.js",
               "node_modules/quill/dist/quill.js",
               "node_modules/alertifyjs/build/alertify.min.js"

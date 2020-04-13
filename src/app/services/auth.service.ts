@@ -66,7 +66,18 @@ export class AuthService {
   }
 
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    let userObj;
+    try {
+      userObj = JSON.parse(localStorage.getItem('currentUser'));
+    } catch (err) {
+      console.warn('Error: could not find current user object, logged out');
+    }
+
+    this.currentUserSubject = userObj ? new BehaviorSubject<User>(userObj) : new BehaviorSubject<User>(null);
+    if (!userObj) {
+      this.logout();
+    }
+
     this.currentUser = this.currentUserSubject.asObservable();
   }
 }

@@ -1,0 +1,147 @@
+.wrapper {
+    position: relative;
+
+    padding: 40px 30px;
+
+    height: 100%;
+    width: 100%;
+}
+
+
+:host ::ng-deep {
+    .ui-table-scrollable-body {
+        height: 405px !important;
+    }
+
+    .ui-button-warn {
+        background-color: orange !important;
+        border: 0 !important;
+    }
+
+    .ui-paginator-page {
+        background-color: orange !important;
+        color: white !important;
+    }
+}
+
+.invoices {
+    position: relative;
+
+    height: 620px;
+    width: 100%;
+
+    background-color: #fff;
+
+    border-radius: 5px;
+
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, .1);
+
+    overflow: hidden;
+    & > .header {
+        position: relative;
+
+        height: 50px;
+        width: 100%;
+
+        border-bottom: 1px solid orange;
+
+        padding-left: 15px;
+        line-height: 50px;
+
+        & > i {
+            margin-right: 15px;
+            color: orange;
+            font-size: 20px;
+        }
+
+        & > span {
+            font-size: 15px;
+        }
+    }
+
+    & > .body {
+        position: relative;
+
+        height: calc(100% - 50px);
+        width: 100%;
+
+        & > .filters {
+            position: relative;
+
+            height: 100px;
+            width: 100%;
+
+            /* background-color: green; */
+
+            & > .inputs {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+
+                height: fit-content;
+                width: 100%;
+
+                padding: 0 50px;
+
+                display: flex;
+                justify-content: flex-end;
+
+                & > div {
+                    padding-left: 10px;
+                }
+            }
+        }
+
+        & > .table {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+
+            height: calc(100% - 100px);
+            width: calc(100% - 100px);
+        }
+    }
+}
+
+
+
+.invoice-details {
+    position: relative;
+
+    height: 200px;
+    width: 100%;
+
+    
+}
+
+p-table {
+    min-height: 100% !important;
+}
+
+th, td {
+    border: 0px !important;
+}
+
+th {
+    background-color: orange!important;
+    color: white !important;
+
+    text-align: left !important;
+}
+
+tr {
+    background-color: white !important;
+    border-bottom: 2px solid orange;
+    color: gray !important;
+
+    box-shadow: 1px 1px 5px 0px rgba(black, .1);
+
+    transition: .3s all;
+    &:hover {
+        box-shadow: 5px 1px 5px 0px rgba(black, .3);
+        /* color: white !important; */
+    }
+}
+/* tr:nth-child(even) {background-color: rgba(orange, .1) !important;} */

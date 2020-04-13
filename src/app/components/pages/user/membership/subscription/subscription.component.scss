@@ -1,98 +1,332 @@
-/* .p-col-8{
+.wrapper {
     position: relative;
 
-    border-radius: 5px;
-    margin: auto;
+    padding: 40px 80px;
 
-    box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.3);
-    padding: 50px;
-
-    background-color: #fff;
-} */
-
-.title{
-    padding-bottom:20px;
-    
-    text-align:center;
-    
-    & > span{
-        font-size:20px;
-        font-weight:bold;
-    }
+    height: 100%;
+    width: 100%;
 }
 
-.body{
+/* :host ::ng-deep {
+}
+ */
+.orders {
     position: relative;
 
-    min-height: 100vh;
+    height: 600px;
     width: 100%;
 
-    padding: 50px;
-
-    background-color: #E4EBF5;
-}
-
-.card {
-    position: relative;
-
-    height: fit-content;
-    width: 800px;
-
-    margin-left: auto;
-    margin-right: auto;
-
-    box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.3);
-    padding: 50px;
+    background-color: #fff;
 
     border-radius: 5px;
 
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, .1);
+}
+
+.info {
+    position: relative;
+
+    height: 600px;
+    width: 55%;
+
     background-color: #fff;
 
-    & > .card-header {
-        padding-bottom: 40px;
-    
-        text-align:center;
-        
-        & > span{
-            font-size: 20px;
-            font-weight:bold;
-        }
+    border-radius: 5px;
 
-        & > .member-status {
-            & > span {
-                display: inline-block;
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, .1);
 
-                &:nth-child(1) {
-                    font-size: 20px;
-                    padding-right: 40px;
+    & > .header {
+        position: relative;
+
+        height: 80px;
+        width: 100%;
+
+        padding: 0 50px;
+        line-height: 100px;
+
+        color: orange;
+        font-size: 24px;
+    }
+
+    & > .body {
+        position: relative;
+
+        height: calc(100% - 80px);
+        width: 100%;
+
+        padding: 20px 50px;
+
+        & > .info-items {
+            position: relative;
+
+            height: fit-content;
+            width: 100%;
+
+            & > .info-item {
+                position: relative;
+
+                height: fit-content;
+                width: 100%;
+
+                padding: 10px 0;
+
+                color: gray;
+
+                & > .label {
+                    display: inline-block;
+                    position: relative;
+
+                    height: fit-content;
+                    width: 35%;
+                    
+                    vertical-align: top;
+
                 }
-                /* &:nth-child(2) {
-                    padding-right: 10px;
-                } */
-                &:nth-child(2) {
-                    font-size: 25px;
-                    color: rgba(0, 0, 0, 0.5);
+                & > .value {
+                    display: inline-block;
+                    position: relative;
+
+                    height: fit-content;
+                    width: 65%;
+                    
+                    & > span {
+                        display: block;
+                        padding-bottom: 5px;
+                    }
                 }
             }
         }
     }
 
-    & > .card-body {
-        position: relative;
+    & > .footer {
+        position: absolute;
+        left: 0;
+        bottom: 0;
 
-        height: fit-content;
-        width: 90%;
+        height: 80px;
+        width: 100%;
+        
+        background-color: orange;
 
-        margin-left: auto;
-        margin-right: auto;
+        & > .total {
+            display: inline-block;
+            position: relative;
+
+            height: 80px;
+            width: 50%;
+
+            text-align: center;
+            line-height: 80px;
+            color: white;
+
+            font-size: 20px;
+        }
+
+        & > .btn-order {
+            position: absolute;
+            right: 30px;
+            bottom: 50%;
+            transform: translateY(50%);
+
+            height: fit-content;
+            width: fit-content;
+
+            padding: 10px 20px;
+
+            background-color: white;
+            color: orange;
+
+            text-align: center;
+
+            border-radius: 25px;
+        }
     }
 }
 
-.text-0 {
-    font-size: 16px;
-    color: rgba(0, 0, 0, 0.7);
+.status {
+    position: absolute;
+    right: 80px;
+    top: 40px;
+
+    height: 280px;
+    width: calc(40% - 30px - 30px);
+
+    background-color: #fff;
+
+    border-radius: 5px;
+
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, .1);
+
+    & > .header {
+        position: relative;
+
+        height: 50px;
+        width: 100%;
+
+        border-bottom: 1px solid orange;
+
+        padding-left: 15px;
+        line-height: 50px;
+
+        & > i {
+            margin-right: 15px;
+            color: orange;
+            font-size: 20px;
+        }
+
+        & > span {
+            font-size: 15px;
+        }
+    }
+
+    & > .body {
+        position: relative;
+
+        height: calc(100% - 50px);
+        width: 100%;
+
+        & > .status-label {
+            position: relative;
+
+            height: 100px;
+            width: 100%;
+
+            text-align: center;
+            line-height: 100px;
+            color: rgb(0, 214, 0);
+
+            background: linear-gradient(177deg, rgba(255,205,0,.2) 0%, transparent 100%);
+
+            font-size: 30px;
+        }
+
+        & > .reasons {
+            position: relative;
+
+            height: calc(100% - 100px);
+            width: 100%;
+
+            padding: 20px 80px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            & > .reason {
+                position: relative;
+
+                height: fit-content;
+                width: 100%;
+
+                display: flex;
+                justify-content: space-between;
+
+                & > .label {
+                    color: gray;
+                }
+
+                & > .value {
+                    width: 30%;
+                    color: rgb(0, 214, 0);
+                }
+            }
+        }
+    }
 }
-.text-1 {
-    font-size: 16px;
-    color: rgba(0, 0, 0, 1);
+
+.timeleft {
+    position: absolute;
+    right: 80px;
+    bottom: 40px;
+
+    height: 280px;
+    width: calc(40% - 30px - 30px);
+
+    background-color: #fff;
+
+    border-radius: 5px;
+
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, .1);
+
+    & > .header {
+        position: relative;
+
+        height: 50px;
+        width: 100%;
+
+        border-bottom: 1px solid orange;
+
+        padding-left: 15px;
+        line-height: 50px;
+
+        & > i {
+            margin-right: 15px;
+            color: orange;
+            font-size: 20px;
+        }
+
+        & > span {
+            font-size: 15px;
+        }
+    }
+
+    & > .body {
+        position: relative;
+
+        height: calc(100% - 50px);
+        width: 100%;
+
+        & > .days {
+            position: absolute;
+            left: 50%;
+            top: calc(50% - 30px);
+            transform: translate(-50%, -50%);
+
+            height: fit-content;
+            width: fit-content;
+
+            font-size: 60px;
+            color: orange;
+        }
+        & > .days-text {
+            position: absolute;
+            left: 50%;
+            top: calc(50% + 15px);
+            transform: translate(-50%, -50%);
+
+            height: fit-content;
+            width: fit-content;
+
+            font-size: 14px;
+            color: gray;
+        }
+
+        & > .start {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+
+            text-align: center;
+
+            color: gray;
+
+            & > .value {
+                color: black;
+            }
+        }
+
+        & > .end {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+
+            text-align: center;
+
+            color: gray;
+
+            & > .value {
+                color: black;
+            }
+        }
+    }
 }

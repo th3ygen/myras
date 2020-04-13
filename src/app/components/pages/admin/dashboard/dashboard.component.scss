@@ -1,0 +1,467 @@
+.wrapper {
+    position: relative;
+
+    padding: 30px 10px;
+
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+}
+
+:host ::ng-deep {
+    .ui-carousel {
+        height: 100%;
+    }
+    .ui-carousel-content {
+        height: 100%;
+    }
+    .ui-carousel-container {
+        height: 100%;
+    }
+    .ui-carousel-items-container {
+        height: 100%;
+    }
+    .ui-carousel-dots-container{
+        display: none !important;
+    }
+}
+
+
+.events {
+    position: relative;
+
+    margin-bottom: 40px;
+
+    width: 100%;
+    height: 80px;
+
+    background-color: white;
+
+    border-radius: 5px;
+
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, .1);
+
+    & > .label {
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        height: 100%;
+        width: 200px;
+
+        line-height: 80px;
+        text-align: center;
+        color: orange;
+
+        border-right: 2px solid rgba(black, .1);
+
+        & > span {
+            font-size: 15px;
+            font-weight: bold;
+        }
+    }
+
+    & > .event-slider {
+        position: absolute;
+        top: 0;
+        left: 200px;
+
+        height: 100%;
+        width: calc(100% - 200px);
+    }
+}
+
+.event-item {
+    position: relative;
+    height: 100%;
+
+    & > .event-title {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+
+        height: fit-content;
+        width: calc(100% - 300px);
+
+        font-size: 15px;
+
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        color: gray;
+    }
+
+    & > .event-venue {
+        position: absolute;
+        top: 50%;
+        left: 40%;
+        transform: translateY(-50%);
+
+        padding-left: 15px;
+
+        height: fit-content;
+        width: fit-content;
+
+        font-weight: bold;
+    }
+
+    & > .event-details {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+
+        padding-right: 15px;
+
+        height: fit-content;
+        width: 250px;
+
+        /* font-weight: bold; */
+
+        & > .event-details-venue {
+            position: relative;
+            & > i {
+                padding-right: 10px;
+            }
+        }
+        & > .event-details-timer {
+            position: relative;
+            & > i {
+                padding-right: 10px;
+            }
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.summary {
+    position: relative;
+
+    padding-bottom: 40px;
+
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+    justify-content: space-between;
+
+    & > .summary-item {
+        position: relative;
+
+        width: 250px;
+        height: 120px;
+
+        background-color: white;
+
+        border-radius: 5px;
+
+        box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, .1);
+
+        & > .summary-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            height: 100%;
+            width: 40%;
+
+            line-height: 120px;
+            text-align: center;
+
+            font-size: 35px;
+            color: orange;
+        }
+
+        & > .summary-value {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+
+            height: fit-content;
+            width: 60%;
+
+            line-height: 30px;
+            text-align: center;
+            & > span {
+                display: block;
+                &:nth-child(1) {
+                    font-size: 24px;
+                }
+                &:nth-child(2) {
+                    font-size: 14px;
+                    color: gray;
+                }
+            }
+        }
+    }
+}
+
+.chart {
+    position: relative;
+
+    display: inline-block;
+
+    height: 400px;
+    width: calc(100% - 350px);
+
+    background-color: white;
+
+    border-radius: 5px;
+
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, .1);
+
+    & > .chart-header {
+        position: relative;
+
+        height: 50px;
+        width: 100%;
+
+        border-bottom: 1px solid orange;
+
+        padding-left: 15px;
+        line-height: 50px;
+
+        & > i {
+            margin-right: 15px;
+            color: orange;
+            font-size: 20px;
+        }
+
+        & > span {
+            font-size: 15px;
+        }
+    }
+
+    & > .chart-body {
+        position: relative;
+
+        height: calc(100% - 50px);
+        width: 100%;
+
+        padding: 20px;
+    }
+}
+
+.todo {
+    position: relative;
+
+    float: right;
+
+    height: 400px;
+    width: 300px;
+
+    background-color: white;
+
+    border-radius: 5px;
+
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, .1);
+
+    overflow: hidden;
+
+    & > .todo-header {
+        position: relative;
+
+        height: 50px;
+        width: 100%;
+
+        border-bottom: 1px solid orange;
+
+        padding-left: 15px;
+        line-height: 50px;
+
+        & > i {
+            margin-right: 15px;
+            color: orange;
+            font-size: 20px;
+        }
+
+        & > span {
+            font-size: 15px;
+        }
+    }
+
+    & > .todo-body {
+        position: relative;
+
+        height: calc(100% - 50px);
+        width: 100%;
+
+        & > .todo-items {
+            position: relative;
+
+            height: 100%;
+            width: 100%;
+
+            overflow-y: scroll;
+            & > .todo-item {
+                display: block;
+
+                position: relative;
+
+                height: 50px;
+                width: 100%;
+
+                background-color: rgba(orange, 0);
+
+                & > .todo-label {
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+
+                    height: fit-content;
+                    width: calc(100% - 50px);
+
+                    & > span {
+                        color: gray;
+                        font-size: 15px;
+                        padding-left: 15px;
+                    }
+                }
+
+                & > .todo-check {
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    transform: translateY(-50%);
+
+                    height: fit-content;
+                    width: 50px;
+                }
+
+                transition: .3s all;
+                &:hover {
+                    background-color: rgba(orange, .3);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.recent-activity {
+    position: relative;
+
+    margin-top: 30px;
+
+    height: 400px;
+    width: 100%;
+
+    background-color: white;
+
+    border-radius: 5px;
+
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, .1);
+
+    & > .recent-activity-header {
+        position: relative;
+
+        height: 50px;
+        width: 100%;
+
+        border-bottom: 1px solid orange;
+
+        padding-left: 15px;
+        line-height: 50px;
+
+        & > i {
+            margin-right: 15px;
+            color: orange;
+            font-size: 20px;
+        }
+
+        & > span {
+            font-size: 15px;
+        }
+    }
+
+    & > .recent-activity-body {
+        position: relative;
+
+        height: calc(100% - 50px);
+        width: 100%;
+
+        & > .recent-activity-items {
+            position: relative;
+
+            height: 100%;
+            width: 100%;
+
+            overflow-y: scroll;
+
+            & > .recent-activity-item {
+                display: block;
+
+                position: relative;
+
+                height: 50px;
+                width: 100%;
+
+                & > .item-icon {
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+
+                    height: fit-content;
+                    width: 50px;
+
+                    text-align: center;
+
+                    color: gray;
+                }
+
+                & > .item-sections {
+                    position: absolute;
+                    top: 50%;
+                    left: 50px;
+                    transform: translateY(-50%);
+
+                    height: fit-content;
+                    width: 250px;
+
+                    color: gray;
+
+                    font-size: 14px;
+                }
+
+                & > .item-action {
+                    position: absolute;
+                    top: 50%;
+                    right: 150px;
+                    transform: translateY(-50%);
+
+                    height: fit-content;
+                    width: calc(100% - 450px);
+
+                    white-space: nowrap;
+
+                    color: gray;
+
+                    font-size: 14px;
+                }
+                
+                & > .item-time {
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    transform: translateY(-50%);
+
+                    height: fit-content;
+                    width: 150px;
+
+                    white-space: nowrap;
+
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

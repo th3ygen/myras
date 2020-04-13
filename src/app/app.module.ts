@@ -32,6 +32,8 @@ import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { CarouselModule } from 'primeng/carousel';
 import { DropdownModule } from 'primeng/dropdown';
+import { ChartModule } from 'primeng/chart';
+import { PanelModule } from 'primeng/panel';
 
 /* import {DropdownModule} from 'primeng/dropdown'; */
 
@@ -66,18 +68,20 @@ import { PageAdminMembersManagerComponent } from './components/pages/admin/membe
 import { PageAdminMembersPaymentsComponent } from './components/pages/admin/members/payments/payments.component';
 
 // User
+import { PageUserDashboardComponent } from './components/pages/user/dashboard/dashboard.component';
 import { PageUserProfilePersonalComponent } from './components/pages/user/profile/personal/personal.component';
 import { PageUserProfilePasswordComponent } from './components/pages/user/profile/password/password.component';
 import { PageUserMembershipSubscriptionComponent } from './components/pages/user/membership/subscription/subscription.component';
 import { PageUserMembershipCardComponent } from './components/pages/user/membership/card/card.component';
 import { PageUserNewsOverviewComponent } from './components/pages/user/news/overview/overview.component';
+import { PageUserPurchaseInvoicesComponent } from './components/pages/user/purchases/invoices/invoices.component';
+import { PageUserPurchaseOrdersComponent } from './components/pages/user/purchases/orders/orders.component';
 
 // Shared
 import { LoadingComponent } from './components/loading/loading.component';
 import { FormRegisterComponent } from './components/forms/register/register.component';
 import { PageSharedNewsPostComponent } from './components/shared/news/post/post.component';
 import { AdminSharedContenteditComponent } from './components/pages/admin/shared/contentedit/contentedit.component';
-
 
 @NgModule({
   declarations: [
@@ -110,6 +114,7 @@ import { AdminSharedContenteditComponent } from './components/pages/admin/shared
     PageAdminMembersPaymentsComponent,
 
     // User
+    PageUserDashboardComponent,
     PageUserProfilePersonalComponent,
     PageUserProfilePasswordComponent,
     PageUserMembershipSubscriptionComponent,
@@ -121,6 +126,8 @@ import { AdminSharedContenteditComponent } from './components/pages/admin/shared
     FormRegisterComponent,
     PageSharedNewsPostComponent,
     AdminSharedContenteditComponent,
+    PageUserPurchaseInvoicesComponent,
+    PageUserPurchaseOrdersComponent,
 
   ],
   imports: [
@@ -148,7 +155,9 @@ import { AdminSharedContenteditComponent } from './components/pages/admin/shared
     TableModule,
     DialogModule,
     CarouselModule,
-    DropdownModule
+    DropdownModule,
+    ChartModule,
+    PanelModule
 
   ],
   providers: [

@@ -1,1 +1,114 @@
-<p>dashboard works!</p>
+<div class="wrapper">
+    <div class="events">
+        <div class="label">
+            <span>Upcoming events</span>
+        </div>
+
+        <div class="event-slider">
+            <p-carousel [value]="events">
+                <ng-template let-event pTemplate="item">
+                    <div class="event-item">
+                        <div class="event-title">
+                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat dui, auctor ut suscipit in, bibendum et ante. Vivamus sed quam in magna</span>
+                        </div>
+                        <!-- <div class="event-venue">
+                            <span>{{ event.date }}</span>
+                        </div> -->
+                        <div class="event-details">
+                            <div class="event-details-venue">
+                                <i class="far fa-map"></i>
+                                <span>University Malaysia Pahang</span>
+                            </div>
+                            <div class="event-details-timer">
+                                <i class="far fa-clock"></i>
+                                <span>In 2 days</span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                </ng-template>
+            </p-carousel>
+        </div>
+    </div>
+
+    <div class="summary">
+        <div class="summary-item" *ngFor="let item of summary">
+            <div class="summary-icon">
+                <i [class]="item.i"></i>
+            </div>
+
+            <div class="summary-value">
+                <span>{{ item.value }}</span>
+                <span>{{ item.label }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart">
+        <div class="chart-header">
+            <i class="fas fa-chart-line"></i>
+            <span>User activity</span>
+        </div>
+        <div class="chart-body">
+            <p-chart type="line" 
+            [data]="data" 
+            [width]="'100%'" 
+            [height]="'100%'" 
+            [responsive]="true"
+            ></p-chart>
+        </div>
+        
+    </div>
+
+    <div class="todo">
+        <div class="todo-header">
+            <i class="fas fa-tasks"></i>
+            <span>Todo checklist</span>
+        </div>
+
+        <div class="todo-body">
+            <div class="todo-items">
+                <div class="todo-item" *ngFor="let item of todos; let x = index" (click)="tickTodoItem(x)">
+                    <div class="todo-label">
+                        <span>
+                            {{ x + 1 }}. {{ item.label }}
+                        </span>
+                        
+                    </div>
+                    <div class="todo-check">
+                        <p-checkbox name="groupname" [(ngModel)]="item.tick" [binary]="true"></p-checkbox>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="recent-activity">
+        <div class="recent-activity-header">
+            <i class="fas fa-sliders-h"></i>
+            <span>Your recent activity</span>
+        </div>
+
+        <div class="recent-activity-body">
+            <div class="recent-activity-items">
+                <div class="recent-activity-item" *ngFor="let item of activities">
+                    <div class="item-icon">
+                        <i [class]="item.icon" ></i>
+                    </div>
+                    <div class="item-sections">
+                        <span *ngFor="let section of item.sections">
+                            {{ section }} ->
+                        </span>
+                    </div>
+                    <div class="item-action">
+                        <span>{{ item.action }}</span>
+                    </div>
+                    <div class="item-time">
+                        <span>{{ item.time }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

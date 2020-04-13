@@ -1,23 +1,50 @@
-<!-- <div class="body">
-    <div class="p-col-2">
-    
-    </div>
-    <div class="p-col-8">
-      <div class="title">
-        <span> Membership Card</span>
-      </div> 
 
-    </div>
-    <div class="p-col-2">
-    </div>
-</div>
- -->
 <div class="wrapper">
   <div class="membership-card">
-    <span>Membership card</span>
+    <div class="front">
+      <object data="../../../../../../assets/svg/membercard/front.svg" type="image/svg+xml"></object>
+    </div>
+    <div class="back">
+      <object data="../../../../../../assets/svg/membercard/back.svg" type="image/svg+xml" #svg></object>
+    </div>
   </div>
 
-  <div class="btn-print">
-    <span>Print card</span>
-  </div>
+   <div class="actions">
+      <div class="header">
+        <div class="label">
+          <span>Membership card</span>
+        </div>
+      </div>
+
+      <div class="body">
+        <div class="brief">
+          <span>Your card will be filled as the information given below.
+             Please make sure all of the information are correct.
+          </span>
+        </div>
+
+        <div class="information">
+          <div class="item" *ngFor="let item of info">
+            <div class="label">
+              <span>{{ item[0] }}</span>
+            </div>
+            <div class="value">
+              <span>{{ item[1] }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="edit-link">
+          <span>Visit</span>
+          <a href="http://" target="_blank" rel="noopener noreferrer">
+            Your personal details
+          </a>
+          <span> to update your information</span>
+        </div>
+
+        <div class="btn-print">
+          <span>Print</span>
+        </div>
+      </div>
+   </div>
 </div>

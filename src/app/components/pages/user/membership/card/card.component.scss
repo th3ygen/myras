@@ -1,33 +1,174 @@
 .wrapper {
     position: relative;
-    height: 68vh;
+
+    padding: 40px 30px;
+
+    height: 100%;
     width: 100%;
 }
 
 .membership-card {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
 
-    height: 350px;
-    width: 700px;
+    height: 550px;
+    width: fit-content;
 
-    background-color: white;
+    float: right;
 
-    box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, .3);
-    border-radius: 5px;
+    margin-right: 50px;
 
-    line-height: 350px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-    & > span {
-        font-size: 40px;
-        color: rgba(0, 0, 0, .5);
+    & > div {
+        position: relative;
+
+        height: 248px;
+        width: 450x;
+
+        background-color: #fff;
+
+        border-radius: 5px;
+
+        box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, .3);
+
+        overflow: hidden;
+        & > object {
+            position: relative;
+
+            height: 250px;
+
+            transform: translateY(-2px)
+        }
+
+        transition: .3s all;
+        &:hover {
+            transform: translateY(-10px);
+            box-shadow: 1px 12px 10px 0px rgba(0, 0, 0, .2);
+        }
     }
 }
 
-.btn-print {
+.actions {
+    position: relative;
+
+    float: left;
+
+    margin-left: 50px;
+
+    width: 650px;
+    height: 550px;
+
+    background-color: #fff;
+
+    border-radius: 5px;
+
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, .1);
+
+    & > .header {
+        position: relative;
+
+        height: 100px;
+        width: 100%;
+
+        padding: 0 50px;
+        line-height: 100px;
+
+        color: orange;
+        font-size: 24px;
+    }
+
+    & > .body {
+        position: relative;
+
+        height: calc(100% - 100px);
+        width: 100%;
+
+        padding: 0 50px;
+
+        & > .brief {
+            position: relative;
+
+            height: fit-content;
+            width: 100%;
+
+            font-size: 15px;
+        }
+
+        & > .edit-link {
+            position: relative;
+
+            height: fit-content;
+            width: 100%;
+
+            font-size: 15px;
+        }
+
+        & > .information {
+            margin: 20px 0;
+            position: relative;
+
+            height: fit-content;
+            width: 100%;
+
+            padding: 10px 20px;
+
+            border: 1px solid orange;
+
+            & > .item {
+                position: relative;
+
+                height: fit-content;
+                width: 100%;
+
+                font-size: 14px;
+                & > .label {
+                    display: inline-block;
+                    position: relative;
+
+                    height: fit-content;
+                    width: 35%;
+
+                    text-transform: capitalize;
+                }
+                & > .value {
+                    display: inline-block;
+                    position: relative;
+
+                    height: fit-content;
+                    width: 65%;
+
+                    color: gray;
+                }
+            }
+        }
+
+        & > .btn-print {
+            position: absolute;
+            bottom: 30px;
+            right: 50px;
+
+            height: fit-content;
+            width: fit-content;
+
+            padding: 5px 25px;
+
+            border: 1px solid orange;
+            color: white;
+            background-color: orange;
+            border-radius: 2px;
+
+            cursor: pointer;
+        }
+    }
+}
+
+#membership {
+    text-transform: uppercase;
+}
+
+/* .btn-print {
     
     position: absolute;
     top: 90%;
@@ -57,37 +198,4 @@
         
         
     }
-}
-
-/*.p-col-8{
-    position: relative;
-
-    //border: 2px solid #0f2557;
-    border-radius: 30px;
-    margin: auto;
-
-    box-shadow: 5px 10px 10px 5px rgba(0, 0, 0, .1);
-
-    padding: 50px;
-
-    background-color: #fff;
-}
-
-.title{
-    padding-bottom:30px;
-    
-    text-align:center;
-    
-    & > span{
-        font-size:20px;
-        font-weight:bold;
-    }
-}
-
-.body{
-    padding: 50px;
-    background-color: #E4EBF5;
-    position: relative;
-    min-height: 100vh;
-    width: 100%;
-}*/
+} */

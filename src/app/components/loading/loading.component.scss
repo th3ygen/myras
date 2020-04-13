@@ -1,4 +1,5 @@
 .wrapper {
+  display: block;
     position: fixed;
     top: 0;
     left: 0;
@@ -12,6 +13,7 @@
     z-index: 99;
 
     &::before {
+      display: block;
         content: '';
         position: absolute;
         top: 0;
@@ -20,7 +22,7 @@
         height: 100vh;
         width: 100%;
 
-        opacity: .95;
+        opacity: 1;
 
         background-color: white;
     }
@@ -29,9 +31,11 @@
 .hidden {
     pointer-events: none;
     opacity: 0;
+    display: none;
 
     &::before {
         opacity: 0;
+        display: none;
     }
 }
 
