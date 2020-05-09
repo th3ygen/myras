@@ -1,0 +1,215 @@
+<div class="wrapper">
+    <div class="header-banner">
+        <div class="bg-poly-overlay"></div>
+        <div class="banner">
+            <div class="label">
+                <div class="title">
+                    <span>News</span>
+                </div>
+                <div class="brief">
+                    <span>Stay up to date!</span>
+                </div>
+            </div>
+           
+            <div class="svg"></div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="news">
+            <div class="highlight">
+                <div class="img"></div>
+                <div class="info-overlay">
+                    <div class="date">
+                        <span>3 Jan 2731</span>
+                    </div>
+                    <div class="info">
+                        <div class="tag">
+                            <span>Academia</span>
+                        </div>
+                        <div class="heading">
+                            <span>News title here, panjang2 pon xpe, jgn risau</span>
+                        </div>
+                    </div>
+                    <div class="news-data">
+                        <div class="author">
+                            by <span class="val">MyRAS</span>
+                        </div>
+                        <div class="views">
+                            <span class="val">100</span> views
+                        </div>
+                    </div>
+
+                    <div class="gradient-bot"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="filter">
+                    <span>Filter letak sini</span>
+                </div>
+                <div class="news-cards">
+                    <div class="news-card" *ngFor="let card of [0, 0, 0, 0, 0]">
+                        <div class="img"></div>
+                        <div class="details-panel">
+                            <div class="title">
+                                <span>MyRAS Website delayedl lorem itsum doler sit amit bace2 news pape tah test try tengok</span>
+                            </div>
+                            <div class="item-bot">
+                                <div class="tag">
+                                    <span>Academia</span>
+                                </div>
+                                <div class="read-more">
+                                    <span>Read more</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="wrapper">
+    <div class="container">
+        <div class="section">
+
+            <div class="news-wrapper">
+                <div class="trending-news-bar">
+                    <div class="label">
+                        <span>Trending now</span>
+                    </div>
+                    <div class="value">
+                        <div class="trending-news-bar-items">
+                            <p-carousel [value]="['', '']">
+                                <ng-template let-event pTemplate="item">
+                                    <div class="item">
+                                        <div class="title">
+                                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat dui, auctor ut suscipit in, bibendum et ante. Vivamus sed quam in magna</span>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                </ng-template>
+                            </p-carousel>
+                        </div>
+                        
+                    </div>
+                </div>
+        
+                <div class="news-row" style="margin-top: 30px;">
+                    <div class="news-highlights">
+                        <div class="img"></div>
+                        <div class="dark-overlay"></div>
+                        <div class="overlay">
+                            <div class="cluster">
+                                <span>Government</span>
+                            </div>
+                            <div class="title">
+                                <span>Lorem itsum test test lol</span>
+                            </div>
+                            <div class="info-items">
+                                <div class="item">
+                                    <span>18 April, 2020</span>
+                                </div>
+                                <div class="item">
+                                    <i class="fas fa-times"></i>
+                                    <span>69</span>
+                                </div>
+                                <div class="item">
+                                    <i class="fas fa-times"></i>
+                                    <span>69</span>
+                                </div>
+                            </div>
+                            <div class="action-items">
+                                <div class="item">
+                                    <span>Read more</span>
+                                </div>
+                                <div class="item">
+                                    <span>Add to favourite</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="news-nav">
+                        <div class="header">
+                            <span>Trending Posts</span>
+                        </div>
+        
+                        <div class="nav-body">
+                            <div class="trending-news-nav-items">
+                                <div class="item" *ngFor="let item of [0, 0, 0, 0]">
+                                    <div class="img"></div>
+                                    <div class="info">
+                                        <div class="cluster">
+                                            <span>Government</span>
+                                        </div>
+                                        <div class="title">
+                                            <span>Lorem itsum lmao test</span>
+                                        </div>
+                                        <div class="date">
+                                            <span>18 April, 2020</span>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                
+            </div>
+        </div>
+        <div class="section">
+            <div class="cluster-news-wrapper">
+                <div class="cluster" *ngFor="let item of ['Industry', 'Government', 'Academia', 'Public']">
+                    <div class="header">
+                        <span>{{ item }}</span>
+                    </div>
+
+                    <div class="body">
+                        <div class="cluster-news-items">
+                            <div class="cluster-news-item" *ngFor="let item of [0, 0, 0, 0, 0]">
+                                <div class="content">
+                                    <div class="img"></div>
+                                </div>
+                                <div class="title">
+                                    <span>News title here!</span>
+                                </div>
+                                <div class="info-items">
+                                    <div class="info-item">
+                                        <span>3rd Jan 2020</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span>100 views</span>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="cluster-news-item hidden">
+                                <div class="img">
+                                    <div class="title">
+                                        <span>News title here!</span>
+                                    </div>
+                                </div>
+                                <div class="info-items">
+                                    <div class="info-item">
+                                        <span>3rd Jan 2020</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span>100 views</span>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    
+</div> -->

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import './app/theme/colors.scss';
 
 body {
     margin: 0;
@@ -8,5 +9,95 @@ body {
     font-family: 'Poppins', sans-serif;
 
     overflow-x: hidden;
+}
+
+.bg-poly-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    height: 100%;
+    width: 100%;
+
+    background: linear-gradient(23deg, rgba(202, 202, 202,0.2) 0%, rgba(202, 202, 202,0.2) 13%,transparent 13%, transparent 80%,rgba(11, 11, 11,0.2) 80%, rgba(11, 11, 11,0.2) 100%),linear-gradient(42deg, rgba(98, 98, 98,0.2) 0%, rgba(98, 98, 98,0.2) 36%,transparent 36%, transparent 77%,rgba(252, 252, 252,0.2) 77%, rgba(252, 252, 252,0.2) 100%),linear-gradient(286deg, rgba(173, 173, 173,0.2) 0%, rgba(173, 173, 173,0.2) 2%,transparent 2%, transparent 12%,rgba(59, 59, 59,0.2) 12%, rgba(59, 59, 59,0.2) 100%),linear-gradient(77deg, rgba(87, 87, 87,0.2) 0%, rgba(87, 87, 87,0.2) 18%,transparent 18%, transparent 55%,rgba(247, 247, 247,0.2) 55%, rgba(247, 247, 247,0.2) 100%),linear-gradient(90deg, rgb(255,255,255),rgb(255,255,255));
+    opacity: .1;
+
+    z-index: 0;
+}
+
+.header-banner {
+    position: relative;
+
+    height: 400px;
+    width: 100%;
+
+    background-color: $color-dark;
+
+    z-index: 99;
+
+    padding-top: 100px;
+
+    & > .banner {
+        position: relative;
+
+        height: 100%;
+        width: 100%;
+
+        & > .label {
+            position: absolute;
+            left: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+
+            height: fit-content;
+            width: fit-content;
+
+            & > div {
+                position: relative;
+
+                height: fit-content;
+                width: fit-content;
+
+                &.title {
+                    font-size: 60px;
+                    font-weight: bolder;
+    
+                    color: orange;
+                }
+                &.brief {
+                    font-size: 20px;
+                    font-weight: bold;
+    
+                    color: white;
+                    
+                    letter-spacing: 2px;
+                }
+            }
+
+            
+        }
+
+        & > .svg {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            
+            height: 400px;
+            width: 500px;
+
+            /* background: url('./assets/svg/undraw-edited/banner/about.svg'); */
+            /* background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain; */
+
+            user-select: none;
+            pointer-events: none;
+        }
+    }
+
+    & > .svg {
+        position: absolute;
+    }
 }
 

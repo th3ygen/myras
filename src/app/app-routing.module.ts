@@ -44,16 +44,45 @@ import { PageUserPurchaseOrdersComponent } from './components/pages/user/purchas
 import { PageSharedNewsPostComponent } from './components/shared/news/post/post.component';
 import { AdminSharedContenteditComponent } from './components/pages/admin/shared/contentedit/contentedit.component';
 
+// new components
+import { PageAboutTeamComponent } from './components/pages/about/team/team.component';
+import { PageAboutContactComponent } from './components/pages/about/contact/contact.component';
+import { PageAboutFaqComponent } from './components/pages/about/faq/faq.component';
+import { PageActivitiesEventsComponent } from './components/pages/activities/events/events.component';
+import { PageActivitiesCalendarComponent } from './components/pages/activities/calendar/calendar.component';
+import { PageActivitiesGcpComponent } from './components/pages/activities/gcp/gcp.component';
+import { PageActivitiesCompetitionsComponent } from './components/pages/activities/competitions/competitions.component';
+import { PageCommunitiesNewsComponent } from './components/pages/communities/news/news.component';
+import { PageCommunitiesCollaborationsComponent } from './components/pages/communities/collaborations/collaborations.component';
+
+// 404 error page
+import { PageNotFoundComponent } from './components/pages/not-found/not-found.component';
+
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: PageHomeComponent },
 
-  { path: 'about', component: PageAboutComponent },
-  { path: 'contact', component: PageContactComponent },
+  { path: 'about', children: [
+    { path: 'team', component: PageAboutTeamComponent },
+    { path: 'contact', component: PageAboutContactComponent },
+    { path: 'faq', component: PageAboutFaqComponent },
+  ] },
+ /*  { path: 'contact', children: [
+    { path: '' }
+  ] }, */
 
   { path: 'membership', component: PageMembershipComponent },
-  { path: 'activities', component: PageActivitiesComponent },
-  { path: 'communities', component: PageCommunitiesComponent },
+  { path: 'activities', children: [
+    { path: 'events', component: PageActivitiesEventsComponent },
+    { path: 'calendar', component: PageActivitiesCalendarComponent },
+    { path: 'competitions', component: PageActivitiesCompetitionsComponent },
+    { path: 'gcp', component: PageActivitiesGcpComponent },
+  ] },
+  { path: 'communities', children: [
+    { path: 'news', component: PageCommunitiesNewsComponent },
+    { path: 'collab', component: PageCommunitiesCollaborationsComponent },
+  ] },
 
   { path: 'news', component: PageNewsPageComponent },
 
@@ -94,7 +123,9 @@ const routes: Routes = [
       { path: 'manager', component: PageAdminMembersManagerComponent },
       { path: 'payments', component: PageAdminMembersPaymentsComponent },
     ] }
-  ] }
+  ] },
+  { path: '**', redirectTo: '/404' },
+  { path: '404', component: PageNotFoundComponent },
 ];
 
 @NgModule({

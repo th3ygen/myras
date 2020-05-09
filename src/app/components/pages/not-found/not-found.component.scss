@@ -1,0 +1,64 @@
+.wrapper {
+    position: absolute;
+    left: 0;
+    top: 80px;
+
+    height: calc(100% - 80px);
+    width: 100%;
+
+    overflow: hidden;
+}
+
+.svg {
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    height: 500px;
+    width: 800px;
+
+    background: url('../../../../assets/svg/undraw_lost_bqr2.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.text-wrapper {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+   /*  transform: translate(-50%, -50%); */
+
+    height: fit-content;
+    width: 60%;
+    max-width: 500px;
+
+    margin: 50px;
+
+    z-index: 3;
+
+    & > .header {
+        font-size: 150px;
+        font-weight: bold;
+
+        text-align: center;
+    }
+
+    & > .subheader {
+        font-size: 24px;
+        font-weight: bold;
+
+        text-align: center;
+    }
+
+    & > .brief {
+        margin-top: 20px;
+        padding: 0 10px;
+
+        font-size: 18px;
+        
+        text-align: center;
+        color: gray;
+    }
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MasterService } from '../../../services/master.service';
+import { TreeNode } from 'primeng/api';
 
 import { PageHeaderServiceService } from '../../../services/page-header-service.service';
 
@@ -16,449 +17,500 @@ export class PageAboutComponent implements OnInit {
   public mid = [];
   public bot = [];
 
+  public org: TreeNode[] = [];
+
   constructor(private master: MasterService, private headerService: PageHeaderServiceService) { }
 
   initTeam(): void {
-    this.team.push({
-      level: 0,
-      name: 'Dr Ishkandar Bin Baharin',
-      title: 'President',
-      contacts: [
+    this.org = [{
+      label: 'President',
+      data: {
+        name: 'Dr Ishkandar Bin Baharin',
+        contacts: [
+          {
+            icon: 'fas fa-at',
+            link: ''
+          },
+          {
+            icon: 'fab fa-whatsapp',
+            link: ''
+          },
+          {
+            icon: 'fab fa-twitter',
+            link: ''
+          },
+        ]
+      },
+      type: 'member',
+      expanded: true,
+      children: [
         {
-          icon: 'fas fa-at',
-          link: ''
+          label: 'Vice President',
+          data: {
+            name: 'Prof. Zamri Bin Mohamed',
+            contacts: [
+              {
+                icon: 'fas fa-at',
+                link: ''
+              },
+              {
+                icon: 'fab fa-whatsapp',
+                link: ''
+              },
+              {
+                icon: 'fab fa-twitter',
+                link: ''
+              },
+            ]
+          },
+          type: 'member',
+          expanded: true,
+          children: [
+            {
+              label: 'Hon. Secretary',
+              data: {
+                name: 'Dr. Mohd Azizi Abdul Rahman',
+                contacts: [
+                  {
+                    icon: 'fas fa-at',
+                    link: ''
+                  },
+                  {
+                    icon: 'fab fa-whatsapp',
+                    link: ''
+                  },
+                  {
+                    icon: 'fab fa-twitter',
+                    link: ''
+                  },
+                ]
+              },
+              type: 'member',
+              expanded: true,
+            },
+            {
+              label: 'Asst. Secretary',
+              data: {
+                name: 'Mr. Abdul Muhaimin Zamri',
+                contacts: [
+                  {
+                    icon: 'fas fa-at',
+                    link: ''
+                  },
+                  {
+                    icon: 'fab fa-whatsapp',
+                    link: ''
+                  },
+                  {
+                    icon: 'fab fa-twitter',
+                    link: ''
+                  },
+                ]
+              },
+              type: 'member',
+              expanded: true,
+            },
+            {
+              label: 'Treasurer',
+              data: {
+                name: 'Dr. Abdul Hadi Abdul Rahman',
+                contacts: [
+                  {
+                    icon: 'fas fa-at',
+                    link: ''
+                  },
+                  {
+                    icon: 'fab fa-whatsapp',
+                    link: ''
+                  },
+                  {
+                    icon: 'fab fa-twitter',
+                    link: ''
+                  },
+                ]
+              },
+              type: 'member',
+              expanded: true,
+            },
+          ]
+        },
+        
+        /* {
+          label: 'Exco',
+          data: {
+            name: 'Ir. Max Ong Chong Hup',
+            contacts: [
+              {
+                icon: 'fas fa-at',
+                link: ''
+              },
+              {
+                icon: 'fab fa-whatsapp',
+                link: ''
+              },
+              {
+                icon: 'fab fa-twitter',
+                link: ''
+              },
+            ]
+          },
+          type: 'member',
+          expanded: true,
         },
         {
-          icon: 'fab fa-whatsapp',
-          link: ''
+          label: 'Exco',
+          data: {
+            name: 'Mr. Raghunathan Kuppusamy',
+            contacts: [
+              {
+                icon: 'fas fa-at',
+                link: ''
+              },
+              {
+                icon: 'fab fa-whatsapp',
+                link: ''
+              },
+              {
+                icon: 'fab fa-twitter',
+                link: ''
+              },
+            ]
+          },
+          type: 'member',
+          expanded: true,
         },
         {
-          icon: 'fab fa-twitter',
-          link: ''
+          label: 'Exco',
+          data: {
+            name: 'Mr. Mohd Bazli Bahar',
+            contacts: [
+              {
+                icon: 'fas fa-at',
+                link: ''
+              },
+              {
+                icon: 'fab fa-whatsapp',
+                link: ''
+              },
+              {
+                icon: 'fab fa-twitter',
+                link: ''
+              },
+            ]
+          },
+          type: 'member',
+          expanded: true,
         },
+        {
+          label: 'Exco',
+          data: {
+            name: 'Mr. Chu Chee Seng',
+            contacts: [
+              {
+                icon: 'fas fa-at',
+                link: ''
+              },
+              {
+                icon: 'fab fa-whatsapp',
+                link: ''
+              },
+              {
+                icon: 'fab fa-twitter',
+                link: ''
+              },
+            ]
+          },
+          type: 'member',
+          expanded: true,
+        },
+        {
+          label: 'Exco',
+          data: {
+            name: 'Mr. Syed Zaini Putra Aljamalullail Syed Yusof',
+            contacts: [
+              {
+                icon: 'fas fa-at',
+                link: ''
+              },
+              {
+                icon: 'fab fa-whatsapp',
+                link: ''
+              },
+              {
+                icon: 'fab fa-twitter',
+                link: ''
+              },
+            ]
+          },
+          type: 'member',
+          expanded: true,
+        },
+        {
+          label: 'Exco',
+          data: {
+            name: 'Mr. Tim Lim',
+            contacts: [
+              {
+                icon: 'fas fa-at',
+                link: ''
+              },
+              {
+                icon: 'fab fa-whatsapp',
+                link: ''
+              },
+              {
+                icon: 'fab fa-twitter',
+                link: ''
+              },
+            ]
+          },
+          type: 'member',
+          expanded: true,
+        },
+        {
+          label: 'Exco',
+          data: {
+            name: 'Dr. Syafiq Fauzi Kamarulzaman',
+            contacts: [
+              {
+                icon: 'fas fa-at',
+                link: ''
+              },
+              {
+                icon: 'fab fa-whatsapp',
+                link: ''
+              },
+              {
+                icon: 'fab fa-twitter',
+                link: ''
+              },
+            ]
+          },
+          type: 'member',
+          expanded: true,
+        },
+        {
+          label: 'Exco',
+          data: {
+            name: 'Mr. Jonathan Kan',
+            contacts: [
+              {
+                icon: 'fas fa-at',
+                link: ''
+              },
+              {
+                icon: 'fab fa-whatsapp',
+                link: ''
+              },
+              {
+                icon: 'fab fa-twitter',
+                link: ''
+              },
+            ]
+          },
+          type: 'member',
+          expanded: true,
+        },
+        {
+          label: 'Exco',
+          data: {
+            name: 'Dr. Yeong Che Fai',
+            contacts: [
+              {
+                icon: 'fas fa-at',
+                link: ''
+              },
+              {
+                icon: 'fab fa-whatsapp',
+                link: ''
+              },
+              {
+                icon: 'fab fa-twitter',
+                link: ''
+              },
+            ]
+          },
+          type: 'member',
+          expanded: true,
+        },
+        {
+          label: 'Exco',
+          data: {
+            name: 'Dr. Syamimi Shamsuddin',
+            contacts: [
+              {
+                icon: 'fas fa-at',
+                link: ''
+              },
+              {
+                icon: 'fab fa-whatsapp',
+                link: ''
+              },
+              {
+                icon: 'fab fa-twitter',
+                link: ''
+              },
+            ]
+          },
+          type: 'member',
+          expanded: true,
+        },
+        {
+          label: 'Exco',
+          data: {
+            name: 'Mrs. Ainil Fidrah Mohd Ghazali',
+            contacts: [
+              {
+                icon: 'fas fa-at',
+                link: ''
+              },
+              {
+                icon: 'fab fa-whatsapp',
+                link: ''
+              },
+              {
+                icon: 'fab fa-twitter',
+                link: ''
+              },
+            ]
+          },
+          type: 'member',
+          expanded: true,
+        },
+        {
+          label: 'Exco',
+          data: {
+            name: 'Mr. Azharuddin Bin Zahamail',
+            contacts: [
+              {
+                icon: 'fas fa-at',
+                link: ''
+              },
+              {
+                icon: 'fab fa-whatsapp',
+                link: ''
+              },
+              {
+                icon: 'fab fa-twitter',
+                link: ''
+              },
+            ]
+          },
+          type: 'member',
+          expanded: true,
+        },
+        {
+          label: 'Exco',
+          data: {
+            name: 'Mr. Ahmad Khairi Bin Hamzah',
+            contacts: [
+              {
+                icon: 'fas fa-at',
+                link: ''
+              },
+              {
+                icon: 'fab fa-whatsapp',
+                link: ''
+              },
+              {
+                icon: 'fab fa-twitter',
+                link: ''
+              },
+            ]
+          },
+          type: 'member',
+          expanded: true,
+        },
+        {
+          label: 'Exco',
+          data: {
+            name: 'Mr. Hamidi Bin Maulod',
+            contacts: [
+              {
+                icon: 'fas fa-at',
+                link: ''
+              },
+              {
+                icon: 'fab fa-whatsapp',
+                link: ''
+              },
+              {
+                icon: 'fab fa-twitter',
+                link: ''
+              },
+            ]
+          },
+          type: 'member',
+          expanded: true,
+        },
+        {
+          label: 'Exco',
+          data: {
+            name: 'Mohammed Norwin Bin Ishkandar Amir',
+            contacts: [
+              {
+                icon: 'fas fa-at',
+                link: ''
+              },
+              {
+                icon: 'fab fa-whatsapp',
+                link: ''
+              },
+              {
+                icon: 'fab fa-twitter',
+                link: ''
+              },
+            ]
+          },
+          type: 'member',
+          expanded: true,
+        },
+        {
+          label: 'Exco',
+          data: {
+            name: 'Asyraf Bin Abdul Rahman',
+            contacts: [
+              {
+                icon: 'fas fa-at',
+                link: ''
+              },
+              {
+                icon: 'fab fa-whatsapp',
+                link: ''
+              },
+              {
+                icon: 'fab fa-twitter',
+                link: ''
+              },
+            ]
+          },
+          type: 'member',
+          expanded: true,
+        },
+        {
+          label: 'Exco',
+          data: {
+            name: 'Matthew Troniak',
+            contacts: [
+              {
+                icon: 'fas fa-at',
+                link: ''
+              },
+              {
+                icon: 'fab fa-whatsapp',
+                link: ''
+              },
+              {
+                icon: 'fab fa-twitter',
+                link: ''
+              },
+            ]
+          },
+          type: 'member',
+          expanded: true,
+        } */
       ]
-    });
-
-    this.team.push({
-      level: 1,
-      name: 'Prof. Zamri Bin Mohamed',
-      title: 'Vice President',
-      contacts: [
-        {
-          icon: 'fas fa-at',
-          link: ''
-        },
-        {
-          icon: 'fab fa-whatsapp',
-          link: ''
-        },
-        {
-          icon: 'fab fa-twitter',
-          link: ''
-        },
-      ]
-    });
-
-    this.team.push({
-      level: 1,
-      name: 'Dr. Mohd Azizi Abdul Rahman',
-      title: 'Hon. Secretary',
-      contacts: [
-        {
-          icon: 'fas fa-at',
-          link: ''
-        },
-        {
-          icon: 'fab fa-whatsapp',
-          link: ''
-        },
-        {
-          icon: 'fab fa-twitter',
-          link: ''
-        },
-      ]
-    });
-
-    this.team.push({
-      level: 1,
-      name: 'Mr. Abdul Muhaimin Zamri',
-      title: 'Asst. Secretary',
-      contacts: [
-        {
-          icon: 'fas fa-at',
-          link: ''
-        },
-        {
-          icon: 'fab fa-whatsapp',
-          link: ''
-        },
-        {
-          icon: 'fab fa-twitter',
-          link: ''
-        },
-      ]
-    });
-
-    this.team.push({
-      level: 1,
-      name: 'Dr. Abdul Hadi Abdul Rahman',
-      title: 'Treasurer',
-      contacts: [
-        {
-          icon: 'fas fa-at',
-          link: ''
-        },
-        {
-          icon: 'fab fa-whatsapp',
-          link: ''
-        },
-        {
-          icon: 'fab fa-twitter',
-          link: ''
-        },
-      ]
-    });
-
-    this.team.push({
-      level: 2,
-      name: 'Ir. Max Ong Chong Hup',
-      title: 'Exco',
-      contacts: [
-        {
-          icon: 'fas fa-at',
-          link: ''
-        },
-        {
-          icon: 'fab fa-whatsapp',
-          link: ''
-        },
-        {
-          icon: 'fab fa-twitter',
-          link: ''
-        },
-      ]
-    });
-
-    this.team.push({
-      level: 2,
-      name: 'Mr. Raghunathan Kuppusamy',
-      title: 'Exco',
-      contacts: [
-        {
-          icon: 'fas fa-at',
-          link: ''
-        },
-        {
-          icon: 'fab fa-whatsapp',
-          link: ''
-        },
-        {
-          icon: 'fab fa-twitter',
-          link: ''
-        },
-      ]
-    });
-
-    this.team.push({
-      level: 2,
-      name: 'Mr. Mohd Bazli Bahar',
-      title: 'Exco',
-      contacts: [
-        {
-          icon: 'fas fa-at',
-          link: ''
-        },
-        {
-          icon: 'fab fa-whatsapp',
-          link: ''
-        },
-        {
-          icon: 'fab fa-twitter',
-          link: ''
-        },
-      ]
-    });
-
-    this.team.push({
-      level: 2,
-      name: 'Mr. Chu Chee Seng',
-      title: 'Exco',
-      contacts: [
-        {
-          icon: 'fas fa-at',
-          link: ''
-        },
-        {
-          icon: 'fab fa-whatsapp',
-          link: ''
-        },
-        {
-          icon: 'fab fa-twitter',
-          link: ''
-        },
-      ]
-    });
-
-    this.team.push({
-      level: 2,
-      name: 'Mr. Syed Zaini Putra Aljamalullail Syed Yusof',
-      title: 'Exco',
-      contacts: [
-        {
-          icon: 'fas fa-at',
-          link: ''
-        },
-        {
-          icon: 'fab fa-whatsapp',
-          link: ''
-        },
-        {
-          icon: 'fab fa-twitter',
-          link: ''
-        },
-      ]
-    });
-
-    this.team.push({
-      level: 2,
-      name: 'Mr. Tim Lim',
-      title: 'Exco',
-      contacts: [
-        {
-          icon: 'fas fa-at',
-          link: ''
-        },
-        {
-          icon: 'fab fa-whatsapp',
-          link: ''
-        },
-        {
-          icon: 'fab fa-twitter',
-          link: ''
-        },
-      ]
-    });
-
-    this.team.push({
-      level: 2,
-      name: 'Dr. Syafiq Fauzi Kamarulzaman',
-      title: 'Exco',
-      contacts: [
-        {
-          icon: 'fas fa-at',
-          link: ''
-        },
-        {
-          icon: 'fab fa-whatsapp',
-          link: ''
-        },
-        {
-          icon: 'fab fa-twitter',
-          link: ''
-        },
-      ]
-    });
-
-    this.team.push({
-      level: 2,
-      name: 'Mr. Jonathan Kan',
-      title: 'Exco',
-      contacts: [
-        {
-          icon: 'fas fa-at',
-          link: ''
-        },
-        {
-          icon: 'fab fa-whatsapp',
-          link: ''
-        },
-        {
-          icon: 'fab fa-twitter',
-          link: ''
-        },
-      ]
-    });
-
-    this.team.push({
-      level: 2,
-      name: 'Dr. Yeong Che Fai',
-      title: 'Exco',
-      contacts: [
-        {
-          icon: 'fas fa-at',
-          link: ''
-        },
-        {
-          icon: 'fab fa-whatsapp',
-          link: ''
-        },
-        {
-          icon: 'fab fa-twitter',
-          link: ''
-        },
-      ]
-    });
-
-    this.team.push({
-      level: 2,
-      name: 'Dr. Syamimi Shamsuddin',
-      title: 'Exco',
-      contacts: [
-        {
-          icon: 'fas fa-at',
-          link: ''
-        },
-        {
-          icon: 'fab fa-whatsapp',
-          link: ''
-        },
-        {
-          icon: 'fab fa-twitter',
-          link: ''
-        },
-      ]
-    });
-
-    this.team.push({
-      level: 2,
-      name: 'Mrs. Ainil Fidrah Mohd Ghazali',
-      title: 'Exco',
-      contacts: [
-        {
-          icon: 'fas fa-at',
-          link: ''
-        },
-        {
-          icon: 'fab fa-whatsapp',
-          link: ''
-        },
-        {
-          icon: 'fab fa-twitter',
-          link: ''
-        },
-      ]
-    });
-
-    this.team.push({
-      level: 2,
-      name: 'Mr. Azharuddin Bin Zahamail',
-      title: 'Exco',
-      contacts: [
-        {
-          icon: 'fas fa-at',
-          link: ''
-        },
-        {
-          icon: 'fab fa-whatsapp',
-          link: ''
-        },
-        {
-          icon: 'fab fa-twitter',
-          link: ''
-        },
-      ]
-    });
-
-    this.team.push({
-      level: 2,
-      name: 'Mr. Ahmad Khairi Bin Hamzah',
-      title: 'Exco',
-      contacts: [
-        {
-          icon: 'fas fa-at',
-          link: ''
-        },
-        {
-          icon: 'fab fa-whatsapp',
-          link: ''
-        },
-        {
-          icon: 'fab fa-twitter',
-          link: ''
-        },
-      ]
-    });
-
-    this.team.push({
-      level: 2,
-      name: 'Mr. Hamidi Bin Maulod',
-      title: 'Exco',
-      contacts: [
-        {
-          icon: 'fas fa-at',
-          link: ''
-        },
-        {
-          icon: 'fab fa-whatsapp',
-          link: ''
-        },
-        {
-          icon: 'fab fa-twitter',
-          link: ''
-        },
-      ]
-    });
-
-    this.team.push({
-      level: 2,
-      name: 'Mohammed Norwin Bin Ishkandar Amir',
-      title: 'Exco',
-      contacts: [
-        {
-          icon: 'fas fa-at',
-          link: ''
-        },
-        {
-          icon: 'fab fa-whatsapp',
-          link: ''
-        },
-        {
-          icon: 'fab fa-twitter',
-          link: ''
-        },
-      ]
-    });
-
-    this.team.push({
-      level: 2,
-      name: 'Asyraf Bin Abdul Rahman',
-      title: 'Exco',
-      contacts: [
-        {
-          icon: 'fas fa-at',
-          link: ''
-        },
-        {
-          icon: 'fab fa-whatsapp',
-          link: ''
-        },
-        {
-          icon: 'fab fa-twitter',
-          link: ''
-        },
-      ]
-    });
-
-    this.team.push({
-      level: 2,
-      name: 'Matthew Troniak',
-      title: 'Exco',
-      contacts: [
-        {
-          icon: 'fas fa-at',
-          link: ''
-        },
-        {
-          icon: 'fab fa-whatsapp',
-          link: ''
-        },
-        {
-          icon: 'fab fa-twitter',
-          link: ''
-        },
-      ]
-    });
-
+    }];
   }
 
   ngOnInit() {

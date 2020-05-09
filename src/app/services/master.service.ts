@@ -25,37 +25,60 @@ export class MasterService {
   private currentTimeSubject: BehaviorSubject<string>;
   public currentTime: Observable<string>;
 
+  private topnavToggleSubject: BehaviorSubject<boolean>;
+  public topnavToggle: Observable<boolean>;
+
   public navItems = [
     {
       label: 'Home',
       path: 'home',
-      active: false
+      active: false,
     },
     {
       label: 'Activities',
       path: 'activities',
-      active: false
+      active: false,
+      menu: [
+        { label: 'Events', path: '/activities/events' },
+        { label: 'Event calendar', path: '/activities/calendar', disabled: true },
+        { label: 'Competitions', path: '/activities/competitions', disabled: true },
+        { label: 'Global Certification Program', path: '/activities/gcp' },
+      ]
     },
     {
       label: 'Communities',
       path: 'communities',
-      active: false
+      active: false,
+      menu: [
+        { label: 'News', path: '/communities/news' },
+        { label: 'Collaborations', path: '/communities/collab', disabled: true },
+      ]
     },
     {
       label: 'Membership',
       path: 'membership',
-      active: false
+      active: false,
+      menu: [
+        { label: 'Our membership package', path: '/membership' },
+        { label: 'Register', path: 'register' },
+        { label: 'Login', path: '/login' },
+      ]
     },
     {
       label: 'About',
       path: 'about',
-      active: false
+      active: false,
+      menu: [
+        { label: 'Our team', path: '/about/team' },
+        { label: 'Contact us', path: '/about/contact' },
+        { label: 'FAQ', path: '/about/faq' },
+      ]
     }
   ];
 
   private topnav = {
     hide: false,
-    active: [false, false, false, false, false]
+    active: [false, false, false, false, false],
   };
 
   public userSideBar = {
@@ -125,12 +148,22 @@ export class MasterService {
       },
       {
         label: 'News',
+        path: 'admin/dashboard',
+        icon: 'fas fa-share-square'
+      },
+      {
+        label: 'Events',
+        path: 'admin/dashboard',
+        icon: 'fas fa-share-square'
+      },
+      {
+        label: 'Members',
+        path: 'admin/dashboard',
+        icon: 'fas fa-share-square'
+      },
+      /* {
+        label: 'News',
         childs: [
-          /* {
-            label: 'Overview',
-            path: 'admin/news/overview',
-            icon: 'fas fa-clipboard-check'
-          }, */
           {
             label: 'Post news',
             path: 'admin/news/post',
@@ -172,7 +205,7 @@ export class MasterService {
             icon: 'fas fa-bars'
           },
         ]
-      },
+      }, 
       {
         label: 'Members',
         childs: [
@@ -187,7 +220,7 @@ export class MasterService {
             icon: 'fas fa-money-bill-wave'
           },
         ]
-      },
+      },*/
     ]
   };
 
@@ -235,8 +268,6 @@ export class MasterService {
       e.active = false;
     });
     this.navItems[index].active = true;
-
-    /* this.activeChanged.emit() */
   }
 
   private reset() {
@@ -246,7 +277,6 @@ export class MasterService {
     if (this.footer.hide) {
       this.footer.hide = false;
     }
-
   }
 
   public setLoading(flag: boolean) {
@@ -265,12 +295,19 @@ export class MasterService {
     return this.registerFormSubject.value;
   }
 
+  public toggleTopnav(flag: boolean) {
+    this.topnavToggleSubject.next(flag);
+  }
+
   constructor(private router: Router, private auth: AuthService) {
     this.loadingSubject = new BehaviorSubject<boolean>(false);
     this.loading = this.loadingSubject.asObservable();
 
     this.registerFormSubject = new BehaviorSubject<boolean>(true);
     this.registerForm = this.registerFormSubject.asObservable();
+
+    this.topnavToggleSubject = new BehaviorSubject<boolean>(false);
+    this.topnavToggle = this.topnavToggleSubject.asObservable();
 
     this.router.events.subscribe(val => {
       this.reset();

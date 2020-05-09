@@ -1,0 +1,971 @@
+.wrapper {
+    position: relative;
+
+    min-height: 100vh;
+    height: fit-content;
+    width: 100%;
+
+    /* margin: 0 100px; */
+   /*  margin-top: 80px; */
+
+    background-color: white;
+    /* box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, .1); */
+}
+
+.header-banner > .banner > .svg {
+    background: url('../../../../../assets/svg/undraw-edited/banner/communities.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.content {
+    position: relative;
+
+    height: fit-content;
+    width: 100%;
+
+    padding: 100px 12%;
+}
+
+.news {
+    position: relative;
+
+    height: fit-content;
+    width: 100%;
+
+    & > .highlight {
+        position: relative;
+
+        height: 35vw;
+        width: 100%;
+
+        background-color: orange;
+
+        overflow: hidden;
+
+        & > .img {
+            position: absolute;
+
+            height: 100%;
+            width: 100%;
+
+            background-image: url('../../../../../assets/sunge\ perak.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            transition: 3s all;
+        }
+
+        & > .info-overlay {
+            position: absolute;
+
+            height: 100%;
+            width: 100%;
+
+            background-color: rgba(black, 0.3);
+
+            cursor: pointer;
+
+            & > .date {
+                position: absolute;
+                top: 0;
+                right: 0;
+
+                padding: 30px 50px;
+                font-size: 20px;
+                font-weight: bold;
+
+                color: white;
+
+                z-index: 1;
+            }
+
+            & > .info {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+
+                padding-left: 50px;
+                padding-bottom: 80px;
+
+                height: fit-content;
+                width: fit-content;
+
+                z-index: 1;
+
+                & > .tag {
+                    position: relative;
+
+                    height: fit-content;
+                    width: fit-content;
+
+                    padding: 5px 15px;
+
+                    background-color: orange;
+
+                    font-size: 20px;
+                    font-weight: bold;
+
+                    color: white;
+                }
+
+                & > .heading {
+                    position: relative;
+
+                    height: fit-content;
+                    width: 70%;
+
+                    padding: 30px 0;
+
+                    font-size: 30px;
+                    font-weight: bolder;
+
+                    color: white;
+                }
+            }
+
+            & > .news-data {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+
+                padding: 30px 50px;
+
+                height: fit-content;
+                width: 100%;
+
+                display: flex;
+                justify-content: space-between;
+
+                z-index: 1;
+
+                & > div {
+                    position: relative;
+
+                    height: fit-content;
+                    width: fit-content;
+
+                    font-size: 20px;
+
+                    color: white;
+
+                    & > .val {
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            & > .gradient-bot {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+
+                height: 50%;
+                width: 100%;
+
+                background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(16,41,105,0) 100%);
+                opacity: .3;
+
+                transition:  .5s all;
+
+                z-index: 0;
+            }
+        }
+
+        &:hover {
+            & > .img {
+                transform: scale(1.05);
+            }
+
+            & > .info-overlay > .gradient-bot {
+                opacity: .7;
+            }
+        }
+    }
+
+    & > .container {
+        position: relative;
+
+        height: fit-content;
+        width: 100%;
+
+        margin-top: 30px;
+
+        & > .filter {
+            position: relative;
+
+            height: fit-content;
+            width: 100%;
+            
+            padding: 50px 0;
+
+            text-align: right;
+        }
+
+        & > .news-cards {
+            position: relative;
+
+            height: fit-content;
+            width: 100%;
+            
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+            & > .news-card {
+                position: relative;
+
+                height: 400px;
+                width: 350px;
+
+                box-shadow: 2px 2px 5px 0px rgba(black, 0.2);
+
+                margin-bottom: 30px;
+
+                & > .img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    height: 60%;
+                    width: 100%;
+
+                    background-image: url('../../../../../assets/sunge\ perak.jpg');
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+
+                & > .details-panel {
+                    position: absolute;
+                    top: 60%;
+                    left: 0;
+
+                    height: 40%;
+                    width: 100%;
+
+                    padding: 10px 20px;
+
+                    background-color: white;
+
+                    & > .title {
+                        position: relative;
+
+                        font-size: 16px;
+                    }
+
+                    & > .item-bot {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+
+                        height: fit-content;
+                        width: 100%;
+
+                        padding: 10px 20px;
+
+                        font-size: 16px;
+
+                        display: flex;
+                        justify-content: space-between;
+
+                        & > div {
+                            position: relative;
+
+                            height: fit-content;
+                            width: fit-content;
+                        }
+
+                        & > .tag {
+                            font-weight: bold;
+                            color: orange;
+                        }
+
+                        & > .read-more {
+                            cursor: pointer;
+
+                            color: gray;
+
+                            border-bottom: 1px solid orange;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* .wrapper {
+    position: relative;
+
+    min-height: 100vh;
+    height: fit-content;
+    width: calc(100% - 200px);
+
+    margin: 0 100px;
+    margin-top: 80px;
+}
+
+.container {
+    position: relative;
+
+    height: fit-content;
+    width: 100%;
+
+    background-color: #fff;
+    border-radius: 5px;
+
+    box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, .1);
+
+    padding: 50px 0;
+
+}
+
+.section {
+    position: relative;
+
+    height: fit-content;
+    width: 100%;
+
+    padding-bottom: 50px;
+}
+
+.highlights-wrapper {
+    position: relative;
+
+    height: 600px;
+    width: 100%;
+
+    background-color: #152342;
+    border-top: 25px solid orange;
+
+    overflow: hidden;
+
+    & > .highlight-img {
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        height: 100%;
+        width: calc(100% - 500px);
+
+        & > .img {
+            height: 100%;
+            width: 100%;
+        }
+
+        &.blur {
+            filter: blur(10px);
+            
+            & > .img {
+                opacity: .3;
+            }
+        }
+    }
+
+    & > .highlight-title {
+        position: absolute;
+        bottom: 50px;
+        left: 0;
+
+        height: 100px;
+        width: 50%;
+
+        background-color: orange;
+
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+
+        line-height: 100px;
+
+        padding-left: 20px;
+
+        clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+
+        &.b {
+            bottom: 35px;
+
+            width: calc(50% + 20px);
+
+            background-color: #152342;
+
+            
+        }
+
+        transition: .3s all;
+        &:hover {
+            opacity: .05;
+        }
+    }
+
+    & > .highlight-nav {
+        position: absolute;
+        right: 40px;
+        top: 0;
+
+        height: 100%;
+        width: 460px;
+
+        & .highlight-nav-item {
+            position: relative;
+
+            padding: 5px 0;
+            border-bottom: 1px solid orange;
+            
+
+            height: 162px;
+            width: 100%;
+
+            color: white;
+
+            border: 2px solid transparent;
+
+            transition: .3s all;
+            &:hover {
+                cursor: pointer;
+
+                border: 2px solid rgba(255, 166, 0, 0.747);
+            }
+
+            & > .brief {
+                position: absolute;
+                left: 0;
+                top: 0;
+
+                height: 100%;
+                width: calc(100% - 180px);
+
+                & > .bheader {
+                    height: 50px;
+                    width: 100%;
+
+                    padding-left: 10px;
+
+                    line-height: 50px;
+
+                    font-weight: bold;
+                    font-size: 20px;
+
+                    color: orange;
+                }
+
+                & > .bbody {
+                    height: calc(100% - 50px);
+                    width: 100%;
+
+                    padding: 10px;
+
+                    font-size: 15px;
+                }
+            }
+
+            & > .img {
+                position: absolute;
+                right: 0;
+                top: 0;
+
+                height: 100%;
+                width: 200px;
+            }   
+            
+        }
+    }
+}
+
+:host ::ng-deep {
+    .ui-carousel {
+        height: 100%;
+    }
+    .ui-carousel-content {
+        height: 100%;
+    }
+    .ui-carousel-container {
+        height: 100%;
+    }
+    .ui-carousel-items-container {
+        height: 100%;
+    }
+    .ui-carousel-dots-container{
+        display: none !important;
+    }
+}
+
+.news-wrapper {
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+}
+
+.trending-news-bar {
+    position: relative;
+
+    height: fit-content;
+    width: 100%;
+
+    display: flex;
+
+    & > .label {
+        position: relative;
+
+        height: fit-content;
+        width: 190px;
+
+        padding: 10px 25px;
+
+        white-space: nowrap;
+        background-color: orange;
+        color: white;
+
+        text-transform: uppercase;
+
+        &::before {
+            content: '';
+            
+            position: absolute;
+            right: -0.5px;
+            top: 0;
+
+            height: 100%;
+            width: 20px;
+
+            background-color: white;
+
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 100% 50%);
+        }
+    }
+
+    & > .value {
+        position: relative;
+
+        height: 100%;
+        width: calc(100% - 190px);
+    }
+}
+
+.trending-news-bar-items {
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+
+    & .item {
+        position: relative;
+
+        height: 100%;
+        width: 100%;
+
+        & > .title {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+
+            height: fit-content;
+            width: 100%;
+            
+            padding: 0 30px;
+
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+
+            color: gray;
+
+        }
+    }
+}
+
+.news-row {
+    position: relative;
+
+    height: 70vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.news-highlights {
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+
+    & > .img {
+        position: relative;
+
+        height: 100%;
+        width: 100%;
+
+        background-image: url('../../../../../assets/panaroma-city.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    z-index: 1;
+
+    & > .dark-overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+
+        background: radial-gradient(circle, rgba(0,0,0,0.19681375968356096) 0%, rgba(0,0,0,1) 100%);
+        opacity: .4;
+        z-index: 2;
+    }
+
+    & > .overlay {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+
+        height: 200px;
+        width: 100%;
+
+        background-color: rgba(black, .1);
+
+        color: white;
+
+        z-index: 3;
+        & > .cluster {
+            position: relative;
+
+            height: fit-content;
+            width: fit-content;
+
+            color: white;
+            background-color: orange;
+
+            padding: 5px 15px;
+            margin-left: 30px;
+
+            text-transform: uppercase;
+            font-weight: bold;
+
+            &::before {
+                content: '';
+                
+                position: absolute;
+                right: -17.5px;
+                top: 0;
+    
+                height: 100%;
+                width: 18px;
+    
+                background-color: orange;
+    
+                clip-path: polygon(0 0, 0% 100%, 100% 50%);
+            }
+        }
+
+        & > .title {
+            position: relative;
+
+            height: fit-content;
+            max-width: 600px;
+            width: fit-content;
+
+            font-size: 35px;
+            font-weight: bold;
+            color: white;
+
+            padding: 10px 0;
+            margin-left: 30px;
+
+        }
+
+        & > .info-items {
+            position: relative;
+
+            height: fit-content;
+            width: 100%;
+
+            margin-left: 30px;
+
+            display: flex;
+
+            & > div {
+                position: relative;
+
+                height: fit-content;
+                width: fit-content;
+
+                padding: 10px 20px;
+
+                &:nth-child(1) {
+                    padding-left: 0;
+                }
+            }
+        }
+
+        & > .action-items {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+
+            height: fit-content;
+            width: 100%;
+
+            padding: 15px 30px;
+
+            background: linear-gradient(180deg, rgba(0,0,0,0.19681375968356096) 0%, rgba(0,0,0,1) 100%);
+
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+
+.news-nav {
+    position: relative;
+
+    height: 100%;
+    width: 500px;
+
+    background-color: #efeff2;
+
+    display: flex;
+    flex-direction: column;
+
+    & > .header {
+        position: relative;
+
+        height: 60px;
+        width: fit-content;
+
+        padding: 15px 30px;
+
+        color: orange;
+        font-size: 18px;
+    }
+
+    & > .nav-body {
+        position: relative;
+
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.trending-news-nav-items {
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    & > .item {
+        position: relative;
+
+        height: fit-content;
+        width: 100%;
+
+        padding: 10px;
+
+        display: flex;
+
+        & > .img {
+            position: relative;
+
+            height: 90px;
+            width: 200px;
+
+            background-color: green;
+
+            margin-right: 10px;
+        }
+
+        & > .info {
+            position: relative;
+
+            height: fit-content;
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+.cluster-news-wrapper {
+    position: relative;
+
+    height: fit-content;
+    width: 100%;
+
+    & > .cluster {
+        position: relative;
+
+        height: fit-content;
+        width: 100%;
+
+        & > .header {
+            position: relative;
+    
+            height: fit-content;
+            width: 100%;
+    
+            border-bottom: 2px solid orange;
+    
+            padding: 5px 15px; 
+    
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        & > .body {
+            position: relative;
+
+            height: fit-content;
+            width: 100%;
+
+            padding: 30px;
+
+            & > .cluster-news-items {
+                position: relative;
+
+                height: fit-content;
+                width: 100%;
+
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+
+                & > .cluster-news-item {
+                    position: relative;
+
+                    height: 300px;
+                    width: 350px;
+                    min-width: 300px;
+
+                    box-shadow: 1px 1px 5px 0 rgba(black, 1);
+
+                    margin-bottom: 30px;
+
+                    overflow: hidden;
+                    cursor: pointer;
+
+                    & > .content {
+                        position: relative;
+
+                        height: 100%;
+                        width: 100%;
+
+                        & > .img {
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+
+                            height: 100%;
+                            width: 100%;
+
+                            background-image: url('../../../../../assets/sunge\ perak.jpg');
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: cover;
+
+                            pointer-events: none;
+
+                            z-index: 2;
+                        }
+
+                        & > .img-bg {
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+
+                            height: 100%;
+                            width: 100%;
+
+                            background-image: url('../../../../../assets/sunge\ perak.jpg');
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: cover;
+
+                            filter: blur(10px);
+
+                            pointer-events: none;
+
+                            z-index: 1;
+                        }
+                    }
+
+                    & > .title {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+
+                        padding: 10px;
+
+                        font-weight: bold;
+                        font-size: 18px;
+                        color: white;
+
+                        z-index: 6;
+                        transition: .3s all;
+                    }
+
+                    & > .info-items {
+                        position: absolute;
+                        bottom: -30%;
+                        left: 0;
+
+                        height: 30%;
+                        width: 100%;
+
+                        padding: 10px;
+
+                        background-color: white;
+
+                        display: flex;
+                        justify-content: space-between;
+
+                        transition: .3s all;
+
+                        z-index: 5;
+
+                        & > .info-item {
+                            position: relative;
+
+                            height: 100%;
+                            width: fit-content;
+
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-end;
+
+                            & > span {
+                                display: inline-block;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        & > .title {
+                            bottom: 13%;
+                            color: black;
+                        }
+                        & > .info-items {
+                            bottom: 0;
+                        }
+                    }
+
+                    &.hidden {
+                        opacity: 0;
+                        pointer-events: none;
+                    }
+                }
+            }
+        }
+    }
+    
+} */

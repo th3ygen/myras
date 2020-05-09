@@ -5,16 +5,117 @@
         </div>
     
         <div class="body">
-            <p-panel header="Fees" [toggleable]="true">
-                Content
+            <p-panel header="Fees" [toggleable]="true" [collapsed]="false">
+                <div class="order-items">
+                    <div class="item" *ngFor="let item of [0]">
+                        <div class="item-wrapper">
+                            <div class="img">
+                                <img src="../../../../../../assets/myras-logo.png" alt="">
+                            </div>
+    
+                            <div class="label">
+                                <div class="name">
+                                    <span>MyRAS membership fee</span>
+                                </div>
+                                <div class="group">
+                                    <span>Fee</span>
+                                </div>
+                            </div>
+    
+                            <div class="type">
+                                <div class="dropdown">
+                                    <select [(ngModel)]="memberType" (change)="updateTotal()">
+                                        <option value="corporate">Corporate</option>
+                                        <option value="regular">Regular</option>
+                                        <option value="lCorporate">Lifetime Corporate</option>
+                                        <option value="lRegular">Lifetime Regular</option>
+                                    </select>
+                                </div>
+                                
+                            </div>
+    
+                            <div class="quantity">
+                                <div class="dropdown">
+                                    <input type="number" min="0" value="1" [(ngModel)]="qnty" (change)="updateTotal()" disabled>
+                                </div>
+                            </div>
+    
+                            <div class="price">
+                                <div class="value">
+                                    <span>RM{{ price[memberType] }}</span>
+                                </div>
+                            </div>
+    
+                            <div class="btn-remove">
+                                <div class="label">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
             </p-panel>
-            <p-panel header="Others" [toggleable]="true">
+            <p-panel header="Others" [toggleable]="true" [collapsed]="true">
                 Content
             </p-panel>
         </div>
 
         <div class="summary">
+            <div class="summary-items">
+                <div class="item name">
+                    <div class="label">
+                        <span>Fullname</span>
+                    </div>
+                    <div class="value">
+                        <span>Muhammad Aidil Syazwan Hamdan</span>
+                    </div>
+                </div>
 
+                <div class="item email">
+                    <div class="label">
+                        <span>Email</span>
+                    </div>
+                    <div class="value">
+                        <span>th3ygen@gmail.com</span>
+                    </div>
+                </div>
+
+                <div class="item phone">
+                    <div class="label">
+                        <span>Phone</span>
+                    </div>
+                    <div class="value">
+                        <span>+60113625485</span>
+                    </div>
+                </div>
+
+                <div class="item total">
+                    <div class="label">
+                        <span>Total</span>
+                    </div>
+
+                    <div class="value">
+                        <span>RM{{ total }}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- <div class="total">
+                <div class="header">
+                    <span>Total:</span>
+                </div>
+
+                <div class="body">
+                    <span>RM{{ total }}</span>
+                </div>
+                
+            </div> -->
+            <div class="btn-checkout">
+                <span>Checkout</span>
+            </div>
+            <!-- <div class="btn-checkout glow"></div> -->
         </div>
     </div>
     

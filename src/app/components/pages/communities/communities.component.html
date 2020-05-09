@@ -4,97 +4,95 @@
 
 <div class="body">
     <div class="section s1">
-        <div class="section-header">
-            <span>Latest news</span>
+        <div class="header">
+            <span>News</span>
         </div>
-        <div class="section-header-t"></div>
-        <!-- <div class="section-brief">
-            <span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Donec finibus odio libero, sed ultrices orci convallis ut.
-            </span>
-        </div> -->
-
-        <div class="section-body">
-            <div class="highlights-wrapper">
-                <div class="highlight-img blur">
-                    <div class="img"
-                    [ngStyle]="{
-                        'background-image': ((!this.news) && this.master.getLoading) ? '' : 'url(' + 'http://159.89.206.45:8080' + this.news[this.newsIndex].img + ')',
-                        'background-position': 'center',
-                        'background-repeat': 'no-repeat',
-                        'background-size': 'cover'
-                    
-                    }"></div>
-               </div>
-                <div class="highlight-img">
-                     <div class="img"
-                     [ngStyle]="{
-                        'background-image': ((!this.news) && this.master.getLoading) ? '' : 'url(' + 'http://159.89.206.45:8080' + this.news[this.newsIndex].img + ')',
-                        'background-position': 'center',
-                        'background-repeat': 'no-repeat',
-                        'background-size': 'contain'
-                    
-                    }"></div>
+        <div class="news-wrapper">
+            <div class="trending-news-bar">
+                <div class="label">
+                    <span>Trending now</span>
                 </div>
-                
-                
-                <div class="highlight-title">
-                    <!-- <div class="highlight-title b">
-
-                    </div> -->
-                    <span>{{ (this.master.getLoading) ? '' : this.news[this.newsIndex].header }}</span>
-                </div>
-
-                <div class="highlight-nav">
-                    
-                    <p-carousel *ngIf="(this.news) && (!this.master.getLoading) " [value]="this.news" [numVisible]="3" orientation="vertical" verticalViewPortHeight="490px" (onPage)="this.switchPage($event)">
-                        <ng-template let-news pTemplate="item">
-                            <div class="highlight-nav-item" [ngStyle]="{'border': (this.newsIndex === news.index) ? '2px solid orange' : '2px solid transparent'}" (click)="this.switchNews(news.index)">
-                                <div class="brief">
-                                    <div class="bheader">
-                                        <span>{{ news.header }}</span>
+                <div class="value">
+                    <div class="trending-news-bar-items">
+                        <p-carousel [value]="['', '']">
+                            <ng-template let-event pTemplate="item">
+                                <div class="item">
+                                    <div class="title">
+                                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat dui, auctor ut suscipit in, bibendum et ante. Vivamus sed quam in magna</span>
                                     </div>
-                                    <div class="bbody">
-                                        <span>{{ news.brief }}</span>
-                                    </div>
-                                </div>
-                                <div class="img" 
-                                [ngStyle]="{
-                                    'background-image': 'url(' + 'http://159.89.206.45:8080' + news.img + ')',
-                                    'background-position': 'center',
-                                    'background-repeat': 'no-repeat',
-                                    'background-size': 'contain'
-                                
-                                }">
                                     
                                 </div>
-                            </div>
-                        </ng-template>
-                    </p-carousel>
+                                
+                            </ng-template>
+                        </p-carousel>
+                    </div>
+                    
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- <div class="section t">
-        <div class="section-header">
-            <span>Industry</span>
+            <div class="news-row" style="margin-top: 30px;">
+                <div class="news-highlights">
+                    <div class="img"></div>
+                    <div class="dark-overlay"></div>
+                    <div class="overlay">
+                        <div class="cluster">
+                            <span>Government</span>
+                        </div>
+                        <div class="title">
+                            <span>Lorem itsum test test lol</span>
+                        </div>
+                        <div class="info-items">
+                            <div class="item">
+                                <span>18 April, 2020</span>
+                            </div>
+                            <div class="item">
+                                <i class="fas fa-times"></i>
+                                <span>69</span>
+                            </div>
+                            <div class="item">
+                                <i class="fas fa-times"></i>
+                                <span>69</span>
+                            </div>
+                        </div>
+                        <div class="action-items">
+                            <div class="item">
+                                <span>Read more</span>
+                            </div>
+                            <div class="item">
+                                <span>Add to favourite</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-nav">
+                    <div class="header">
+                        <span>Trending Posts</span>
+                    </div>
+
+                    <div class="nav-body">
+                        <div class="trending-news-nav-items">
+                            <div class="item" *ngFor="let item of [0, 0, 0, 0]">
+                                <div class="img"></div>
+                                <div class="info">
+                                    <div class="cluster">
+                                        <span>Government</span>
+                                    </div>
+                                    <div class="title">
+                                        <span>Lorem itsum lmao test</span>
+                                    </div>
+                                    <div class="date">
+                                        <span>18 April, 2020</span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
         </div>
     </div>
-    <div class="section t">
-        <div class="section-header">
-            <span>Academian</span>
-        </div>
-    </div>
-    <div class="section t">
-        <div class="section-header">
-            <span>Government</span>
-        </div>
-    </div>
-    <div class="section t">
-        <div class="section-header">
-            <span>Public</span>
-        </div>
-    </div> -->
 </div>

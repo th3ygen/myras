@@ -6,9 +6,16 @@
     height: 100%;
     width: 100%;
 }
-/* 
+
 :host ::ng-deep {
-} */
+    .ui-dropdown {
+        width: 100px !important;
+    }
+
+    .ui-panel-content {
+        min-height: 400px !important;
+    }
+}
 
 .orders {
     position: relative;
@@ -39,23 +46,326 @@
     & > .body {
         position: relative;
 
-        height: calc(100% - 80px);
-        width: calc(100% - 300px);
+        height: calc(100% - 180px);
+        width: 100%;
 
         padding: 20px 50px;
+
+        overflow-y: scroll;
     }
 
     & > .summary {
         position: absolute;
-        top: 0;
-        right: 0;
+        bottom: 0;
+        left: 0;
 
-        height: 100%;
-        width: 300px;
+        height: 100px;
+        width: 100%;
 
-        box-shadow: 1px 1px 10px 0px rgba(black, 0.2);
-        border-left: 1px solid rgba(black, 0.15);
+        box-shadow: 1px 1px 15px 0px rgba(black, 0.5);
+        border-top: 1px solid rgba(black, 0.15);
 
-        background-color: rgba(black, .01);
+        background-color: white;
+
+        & > .summary-items {
+            position: relative;
+
+            height: 100%;
+            width: calc(100% - 200px);
+
+            padding: 10px 20px;
+
+            display: flex;
+
+            & > .item {
+                position: relative;
+
+                height: 100%;
+                width: 100%;
+
+                & > .label {
+                    position: absolute;
+                    left: 10px;
+                    top: 10px;
+
+                    font-size: 14px;
+                    color: orange;
+                }
+
+                & > .value {
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+
+                    height: fit-content;
+                    width: 100%;
+
+                    text-align: center;
+                    font-size: 16px;
+                    color: gray;
+
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            & > .total > .value {
+                font-size: 24px;
+                color: rgb(47, 202, 47);
+            }
+
+
+        }
+
+       /*  & div > .header {
+            position: relative;
+
+            height: fit-content;
+            width: 100%;
+
+            padding: 25px 30px;
+
+            font-size: 20px;
+
+            color: orange;
+        } */
+
+        /* & > .payment-methods {
+            position: relative;
+
+            height: fit-content;
+            width: 100%;
+
+            padding: 20px 0;
+
+            & > .body {
+                position: relative;
+
+                height: fit-content;
+                width: 100%;
+
+                display: flex;
+                justify-content: space-around;
+
+                & > .method {
+                    position: relative;
+    
+                    width: 130px;
+                    height: fit-content;
+    
+                    padding: 15px 10px;
+    
+                    border: 1px solid orange;
+    
+                    font-size: 14px;
+    
+                    white-space: nowrap;
+                    text-align: center;
+    
+                    cursor: pointer;
+    
+                    transition: .3s all;
+                    &.select {
+                        transform: scale(1.05);
+    
+                        background-color: orange;
+                        color: white;
+                        border: 1px solid white;
+                    }
+                }
+            }
+
+            
+        } */
+
+        /* & > .total {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            height: fit-content;
+            width: 250px;
+
+            display: flex;
+            justify-content: space-between;
+
+            padding: 0 30px;
+
+            & > .header {
+                position: relative;
+
+                height: fit-content;
+                width: 100%;
+
+                font-size: 25px;
+                color: orange;
+            }
+
+            & > .body {
+                position: relative;
+
+                height: fit-content;
+                width: 100%;
+
+                font-size: 25px;
+                color: gray;
+            }
+        } */
+
+        & > .btn-checkout {
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            height: 50px;
+            width: 170px;
+
+            background-color: orange;
+
+            color: white;
+            font-size: 18px;
+            line-height: 50px;
+            text-align: center;
+
+            border-radius: 25px;
+
+            cursor: pointer;
+            
+            z-index: 2;
+/* 
+            animation: bounce infinite alternate-reverse;
+            animation-duration: 1.5s;
+
+            z-index: 1; */
+            @at-root {
+                @keyframes bounce{
+                    from {
+                        transform: translateY(-50%);
+                    } 
+                    to {
+                        transform: translateY(calc(-50% - 5px));
+                    }
+                }
+            }
+
+            &.glow {
+                animation: glow infinite;
+                animation-duration: 1.5s;
+
+                z-index: 1;
+                @at-root {
+                    @keyframes glow{
+                        from {
+                            transform: translateY(-50%) scaleX(1) scaleY(1);
+                            opacity: 1;
+                        } 
+                        to {
+                            transform: translateY(-50%) scaleX(1.5) scaleY(1.8);
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.order-items {
+    position: relative;
+
+    height: fit-content;
+    width: 100%;
+
+    padding: 0 15px;
+
+    & > .item {
+        position: relative;
+
+        height: 100px;
+        width: 100%;
+
+        border-bottom: 2px solid rgba(black, .1);
+
+        & > .item-wrapper {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+
+            height: fit-content;
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+
+            color: gray;
+
+            & > .price, .btn-remove {
+                & > div {
+                    height: 100%;
+
+                    line-height: 50px;
+                }
+            }
+
+            & > .type, .quantity {
+                & > .dropdown { 
+                    position: relative;
+                    height: 100%;
+                    width: 100px;
+
+                    & > select, input {
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+
+                        width: 100px;
+
+                        padding: 5px 8px;
+
+                    }
+                }
+            }
+
+            & > .img {
+                position: relative;
+    
+                max-height: 50px;
+                max-width: 50px;
+    
+                overflow: hidden;
+    
+                & > img {
+                    height: 50px;
+                }
+            }
+
+            & > .label {
+                position: relative;
+
+                & > .name {
+                    color: orange;
+                }
+                
+                & > .group {
+                    padding-top: 5px;
+                }
+            }
+
+            & > .btn-remove {
+                font-size: 20px;
+                color: rgb(252, 77, 77);
+
+                cursor: pointer;
+            }
+        }
+
+        
+        
     }
 }

@@ -3,14 +3,6 @@
         <div class="header">
             <i class="fas fa-list"></i>
             <span>Invoice list</span>
-            <!-- <div class="label">
-                <span>Invoice list</span>
-                <span>(10)</span>
-            </div> -->
-
-            <!-- <div class="search">
-                <span>search here</span>
-            </div> -->
         </div>
 
         <div class="body">
@@ -36,7 +28,7 @@
                             <th *ngFor="let col of columns">
                                 {{ col.header }}
                             </th>
-                            
+                            <th>Actions</th>
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-invoice let-expanded="expanded" let-columns="columns">
@@ -49,13 +41,76 @@
                             <td *ngFor="let col of columns">
                                 {{ invoice[col.field] }}
                             </td>
+
+                            <td>
+                                <div class="btn-action">
+                                    <i class="fas fa-print"></i>
+                                </div>
+                                <div class="btn-action">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                
+                            </td>
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="rowexpansion" let-invoice let-columns="columns">
                         <tr>
-                            <td [attr.colspan]="columns.length + 1">
+                            <td [attr.colspan]="columns.length + 2" style="padding: 0 !important">
                                 <div class="invoice-details">
+                                    <div class="detail-items">
+                                        <div class="item">
+                                            <div class="label">
+                                                <span>Name</span>
+                                            </div>
+                                            <div class="value">
+                                                <span>: Muhammad Aidil Syazwan</span>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="label">
+                                                <span>Description</span>
+                                            </div>
+                                            <div class="value">
+                                                <span>: MyRAS membership fee - CORPORATE</span>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="label">
+                                                <span>Reference 1</span>
+                                            </div>
+                                            <div class="value">
+                                                <span>: -</span>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="label">
+                                                <span>Reference 2</span>
+                                            </div>
+                                            <div class="value">
+                                                <span>: -</span>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="label">
+                                                <span>Phone number</span>
+                                            </div>
+                                            <div class="value">
+                                                <span>: +6012345784</span>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
 
+                                    <div class="actions-wrapper">
+                                        <div class="actions">
+                                            <div class="action">
+                                                <span>Print receipt</span>
+                                            </div>
+                                            <div class="action">
+                                                <span>Delete</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </td>
                         </tr>

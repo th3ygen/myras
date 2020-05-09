@@ -1,18 +1,64 @@
 <app-loading></app-loading>
 <app-form-register></app-form-register>
 <div *ngIf="!this.userUI">
-  <div class="top-navbar" [class.scrolled]="this.scrolled" [class.hide]="this.topnav.hide">
+  <div class="top-navbar" [class.scrolled]="this.scrolled" [class.hide]="this.topnav.hide" [ngClass]="{ 'hovered': (this.currentNavMenu != '') }">
     <div>
       <img src="../assets/myras-logo.png" alt="">
     </div>
       
     <div>
       <ul class="navbar-items">
-        <li *ngFor="let item of this.navItems" [class.active]="item.active" [routerLink]="item.path" routerLinkActive>{{ item.label }}</li>
-        <li class="glow" routerLink="/login">Login</li>
+        <li (mouseup)="this.navClick($event)" *ngFor="let item of this.navItems">
+          <span>{{ item.label }}</span>
+        </li>
+        <li class="login" routerLink="/login">
+          <span>Login</span>
+        </li>
       </ul>
     </div>
     
+  </div>
+
+  <div class="top-navbar-menu" #topmenu [ngClass]="{ 'hovered': (this.currentNavMenu != '') }">
+    <div class="menu-wrapper">
+      <div class="menu">
+        <div class="menu-items">
+          <ng-container *ngFor="let item of this.navItems">
+            <ng-container *ngIf="currentNavMenu === item.label && item.menu">
+              <div class="item" *ngFor="let menu of item.menu" (click)="menuNavigate(menu.path, menu.disabled)" [class.disabled]="menu.disabled">
+                <!-- <div class="hitbox">
+                  
+                </div> -->
+                <div class="icon">
+                  <i class="fas fa-cog"></i>
+                </div>
+                <div class="text">
+                  <div class="content">
+                    <div class="header">
+                      <span>{{ menu.label }}</span>
+                    </div>
+                    <div class="brief">
+                      <span>Lorem itsum sit doler amit ape lanjiao</span>
+                    </div>
+                  </div>
+                  
+                </div>
+
+                <div class="disabled-label">
+                  <div class="label">
+                    <span>Coming soon</span>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+          
+         
+        </div>
+      </div>
+     <!--  <div class="fade"></div> -->
+    </div>
+    <div class="mouse-exit-region" (mouseenter)="navLeave()"></div>
   </div>
 
   <div class="body-wrapper">

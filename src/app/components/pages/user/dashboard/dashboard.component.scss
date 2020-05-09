@@ -70,14 +70,14 @@
         bottom: 0;
         left: 0;
 
-        height: 200px;
+        height: 100%;
         width: 100%;
 
         & > .user-img {
             position: absolute;
             top: 50%;
-            left: 50px;
-            transform: translateY(-50%);
+            left: 50%;
+            transform: translate(-50%, -50%);
 
             height: 150px;
             width: 150px;
@@ -101,14 +101,16 @@
 
         & > .user-name {
             position: absolute;
-            top: 60%;
-            left: 230px;
+            bottom: 30px;
+            left: 0;
 
             height: fit-content;
-            width: calc(100% - 130px);
+            width: 100%;
 
             color: white;
             font-size: 25px;
+            
+            text-align: center;
         }
     }
 }
@@ -297,6 +299,8 @@
             height: 40%;
             width: 100%;
 
+            background: linear-gradient(177deg, rgba(255,205,0,.2) 0%, transparent 100%);
+            
             & > span {
                 display: inline-block;
 

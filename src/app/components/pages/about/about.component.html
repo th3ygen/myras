@@ -62,7 +62,23 @@
         </div>
 
         <div class="section-body">
-            <div class="p-grid p-justify-center" style="padding-bottom: 50px;" *ngIf="this.top">
+            <!-- <p-organizationChart [value]="org">
+                <ng-template let-node pTemplate="member">
+                    <div class="org-chart-item">
+                        <div class="title">
+                            <span></span>
+                        </div>
+                        <div class="img"></div>
+                        <div class="name"></div>
+                        <div class="test">
+                            {{ node.label }}
+                        </div>  
+                    </div>
+                    
+                </ng-template>
+            </p-organizationChart> -->
+            <app-page-about-org-chart></app-page-about-org-chart>
+            <!-- <div class="p-grid p-justify-center" style="padding-bottom: 50px;" *ngIf="this.top">
                 <div class="p-col-12 team-item" style="width: 100%;" *ngFor="let member of this.top">
                     <div class="team-avatar" style="
                     background: url('http://159.89.206.45:7070/assets/svg/undraw_male_avatar_323b.svg');
@@ -139,7 +155,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- <div class="p-grid" style="padding-bottom: 50px;">
                 <div class="p-col-3 team-item" style="width: 100%;" *ngFor="let member of this.team" >
                     <div class="team-avatar" style="

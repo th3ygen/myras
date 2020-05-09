@@ -1,4 +1,4 @@
-
+/* 
 .wrapper {
     position: relative;
 
@@ -182,3 +182,137 @@
     }
 }  
 
+ */
+
+.wrapper {
+    position: relative;
+
+    padding: 40px 30px;
+
+    height: 100%;
+    width: 100%;
+}
+
+:host ::ng-deep {
+    .ui-inputtext {
+        height: 30px;
+        width: 100% !important;    
+    }
+}
+
+.card {
+    position: relative;
+
+    min-height: 600px;
+    height: fit-content;
+    width: 100%;
+
+    background-color: #fff;
+
+    border-radius: 5px;
+
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, .3);
+
+    padding: 30px 50px;
+
+    & > .header {
+        position: relative;
+
+        height: 80px;
+        width: 100%;
+
+        font-size: 24px;
+        color: orange;
+    }
+
+    & > .body {
+        position: relative;
+
+        height: calc(100% - 80px);
+        width: 100%;
+
+        padding: 0 30px;
+    }
+ }
+
+ .info-items {
+    position: relative;
+
+    height: fit-content;
+    width: 100%;
+
+    & > .item {
+        position: relative;
+
+        height: fit-content;
+        width: 100%;
+
+        padding: 10px 0;
+    }
+ }
+
+ .input-items {
+     position: relative;
+
+     height: fit-content;
+     width: 100%;
+
+     padding: 10px;
+
+     & > .item {
+         position: relative;
+
+         height: fit-content;
+         width: 100%;
+
+        padding: 15px 0px;
+
+         display: flex;
+
+         & > .label {
+             position: relative;
+
+             width: 150px;
+             height: 100%;
+         }
+         & > .input {
+             position: relative;
+
+             max-width: 400px;
+             width: 100%;
+             height: fit-content;
+
+             & > .photo {
+                 position: relative;
+
+                 height: 150px;
+                 width: 130px;
+
+                 background-color: gray;
+
+                 margin-bottom: 10px;
+             }
+
+             & > .photo-options {
+                 position: relative;
+
+                 height: fit-content;
+                 width: fit-content;
+
+                 & > span {
+                    display: inline-block;
+
+                    padding: 10px 0;
+
+                    height: fit-content;
+                    width: fit-content;
+
+                    &.option {
+                        color: orange;
+                        text-decoration: underline;
+                    }
+                 }
+             }
+         }
+     }
+ }

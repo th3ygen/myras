@@ -22,6 +22,10 @@
         background-color: orange !important;
         color: white !important;
     }
+
+    .ui-table-scrollable-header {
+        background-color: orange;
+    }
 }
 
 .invoices {
@@ -101,11 +105,36 @@
 
             height: calc(100% - 100px);
             width: calc(100% - 100px);
+
+            border-left: 1px solid gray;
+            border-right: 1px solid gray;
         }
     }
 }
 
+.btn-action {
+    display: inline-block;
+    position: relative;
 
+    height: fit-content;
+    width: fit-content;
+
+    padding: 2.5px 6px;
+
+    background-color: orange;
+    color: white;
+
+    border-radius: 5px;
+
+    margin-right: 5px;
+
+    cursor: pointer;
+
+    transition: .3s all;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
 
 .invoice-details {
     position: relative;
@@ -113,7 +142,93 @@
     height: 200px;
     width: 100%;
 
-    
+    display: flex;
+
+    background: linear-gradient(177deg, rgba(255,205,0,.2) 0%, transparent 100%);
+    & > .detail-items {
+        position: relative;
+
+        height: 100%;
+        width: 50%;
+
+        padding: 30px 30px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        & > .item {
+            position: relative;
+
+            height: fit-content;
+            width: 100%;
+
+            display: flex;
+            
+            & > .label {
+                position: relative;
+
+                height: 100%;
+                width: 120px;
+            }
+            & > .value {
+                position: relative;
+
+                height: 100%;
+                width: 100%;
+
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+    }
+    & > .actions-wrapper {
+        position: relative;
+
+        height: 100%;
+        width: 50%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        & > .actions {
+            position: relative;
+
+            height: fit-content;
+            width: fit-content;
+
+            margin-left: auto;
+            margin-right: auto;
+            
+            display: flex;
+            justify-content: space-between;
+
+            & > .action {
+                position: relative;
+
+                height: fit-content;
+                width: fit-content;
+
+                padding: 10px 25px;
+
+                background-color: orange;
+                color: white;
+
+                border-radius: 5px;
+                box-shadow: 2px 1px 3px 0 rgba(black, .1);
+
+                margin-right: 10px;
+
+                cursor: pointer;
+
+                &:nth-last-child(1) {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
 }
 
 p-table {
@@ -133,15 +248,8 @@ th {
 
 tr {
     background-color: white !important;
-    border-bottom: 2px solid orange;
+    border-bottom: 1px solid gray !important;
     color: gray !important;
 
-    box-shadow: 1px 1px 5px 0px rgba(black, .1);
-
-    transition: .3s all;
-    &:hover {
-        box-shadow: 5px 1px 5px 0px rgba(black, .3);
-        /* color: white !important; */
-    }
 }
 /* tr:nth-child(even) {background-color: rgba(orange, .1) !important;} */

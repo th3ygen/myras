@@ -1,0 +1,99 @@
+<div class="wrapper">
+    <div class="header-banner">
+        <div class="bg-poly-overlay"></div>
+        <div class="banner">
+            <div class="label">
+                <div class="title">
+                    <span>Contact us</span>
+                </div>
+                <div class="brief">
+                    <span>Get in touch with us!</span>
+                </div>
+            </div>
+           
+            <div class="svg"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="intro">
+            <div class="header">
+                <span>We would love to hear from you</span>
+            </div>
+            <div class="brief">
+                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non justo sapien. Sed sit amet urna euismod felis consequat mollis. Vivamus iaculis vestibulum imperdiet.</span>
+            </div>
+        </div>
+
+        <div class="contacts">
+            <div>
+                <div class="contact-form">
+                    <span>Quick message</span>
+                    <div class="form-text">
+                        <input
+                            type="text"
+                            pInputText
+                            placeholder="Your name" 
+                        />
+                    </div>
+                    <div class="form-text">
+                        <input
+                            type="text"
+                            pInputText
+                            placeholder="Email to contact"
+                        />
+                    </div>
+                    <div class="form-textarea">
+                        <textarea
+                            [rows]="5"
+                            autoResize="autoResize"
+                            pInputTextarea
+                            placeholder="Your message"
+                        ></textarea>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="contact">
+                    <div class="header">
+                        <span>Malaysia Robotics and Automation Society (MyRAS)</span>
+                    </div>
+                    <div class="address">
+                        <span>Sandbox 2, Ground Floor,</span>
+                        <span>Futurise Centre, Block 3710</span>
+                        <span>Persiaran Apec, Cyber 8,</span>
+                        <span>63000 Cyberjaya, Selangor</span>
+                    </div>
+
+                    <div class="contact-items">
+                        <div class="contact-item" *ngFor="let item of [
+                            {
+                                icon: 'far fa-envelope',
+                                val: 'admin@myras.org'
+                            },
+                            {
+                                icon: 'fas fa-phone',
+                                val: 'Phone : +6018 914 3600'
+                            }
+                        ]">
+                            <div class="icon">
+                                <i [class]="item.icon"></i>
+                            </div>
+                            <div class="value">
+                                <span>{{ item.val }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="social-media">
+            <div class="header">
+                <span>Our social media</span>
+            </div>
+        </div>
+    </div>
+    
+</div>

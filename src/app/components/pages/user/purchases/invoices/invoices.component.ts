@@ -25,9 +25,10 @@ export class PageUserPurchaseInvoicesComponent implements OnInit {
   ngOnInit(): void {
     this.cols = [
       { field: 'id', header: 'Invoice ID'},
-      { field: 'date', header: 'Issue date' },
       { field: 'description', header: 'Description' },
-      { field: 'total', header: 'Total amount' },
+      { field: 'date', header: 'Issue date' },
+      { field: 'total', header: 'Amount' }
+
     ];
 
     FilterUtils['min amount'] = (value, filter): boolean => {
@@ -42,7 +43,7 @@ export class PageUserPurchaseInvoicesComponent implements OnInit {
       return parseInt(filter) >= value;
     };
 
-    for (let x = 0; x < 30; x++) {
+    for (let x = 0; x < 1; x++) {
       this.invoices.push({
         id: 'rndid123' + x,
         date: '13 March 2020',

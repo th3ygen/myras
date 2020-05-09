@@ -1,0 +1,150 @@
+<div class="wrapper">
+    <div class="header-banner">
+        <div class="bg-poly-overlay"></div>
+        <div class="banner">
+            <div class="label">
+                <div class="title">
+                    <span>Events</span>
+                </div>
+                <div class="brief">
+                    <span>List of MyRAS events</span>
+                </div>
+            </div>
+           
+            <div class="svg"></div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="cluster-nav">
+            <div class="nav-items">
+                <div class="item">
+                    <div class="label">
+                        <span>Industry</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="label">
+                        <span>Government</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="label">
+                        <span>Academia</span>
+                    </div>
+                </div>
+                <div class="item active">
+                    <div class="label">
+                        <span>Public</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="events">
+            <div class="events-items">
+                <div class="item" *ngFor="let item of [0, 0, 0, 0]">
+                    <div class="img"></div>
+                    <div class="info">
+                        <div class="title">
+                            <span>Heading here sire</span>
+                        </div>
+                        <div class="brief">
+                            <span>Put 'em brief here Put 'em brief herePut 'em brief herePut 'em brief herePut 'em brief herePut 'em brief herePut 'em brief herePut 'em brief herePut 'em brief herePut 'em brief herePut 'em brief herePut 'em brief here</span>
+                            <div class="overflow-cover"></div>
+                        </div>
+                        <div class="btn-read">
+                            <span>Read more</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p-paginator [rows]="10" [totalRecords]="30"></p-paginator>
+        </div>
+        <!-- <div class="cluster">
+            <div class="cluster-nav">
+                <div class="cluster-nav-item" *ngFor="let item of [['Industry', 'fas fa-industry'], ['Government', 'fas fa-university'], ['Academia','fas fa-graduation-cap'], ['Public', 'fas fa-users']]; let x = index" [class.active]="this.clusterIndex === x" (click)="this.clusterIndex = x">
+                    <div>
+                        <i [class]="item[1]" ></i>
+                        <span>{{ item[0] }}</span>
+                    </div>
+                    
+                </div>
+            </div>
+    
+            <div class="cluster-content">
+                <div class="body">
+                    <div class="card">
+                        <div class="header">
+                            <div class="header-line"></div>
+                            <div class="header-label">
+
+              :                  <span>Events</span>
+                            </div>
+                        </div>
+    
+                        <div class="event-content">
+                            <div class="event-items">
+                                <div class="item" *ngFor="let item of [0, 0, 0]">
+                                    <div class="thumbnail">
+                                        <div class="img"></div>
+                                    </div>
+                                    <div class="details">
+                                        <div class="header">
+                                            <span>Event header here</span>
+                                        </div>
+                                        <div class="body">
+                                            <span>
+                                                Event body here
+                                                Event body here
+                                                Event body here
+                                                Event body here
+                                                Event body here
+                                                Event body here
+                                                Event body here
+                                                Event body here
+                                                Event body here
+                                                Event body here
+                                                Event body here
+                                                Event body here
+
+                                                Event body here
+                                                Event body here
+                                                Event body here
+                                                Event body here
+                                                Event body here
+                                            </span>
+                                        </div>
+                                        <div class="footer">
+                                            <div class="date">
+                                                <i class="fas fa-times"></i>
+                                                <span>
+                                                    29 April 2020
+                                                </span>
+                                            </div>
+                                            <div class="views">
+                                                <i class="fas fa-times"></i>
+                                                <span>
+                                                    UMP Gambang
+                                                </span>
+                                            </div>
+                                            <div class="views">
+                                                <i class="fas fa-times"></i>
+                                                <span>
+                                                    10 views
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p-paginator [rows]="10" [totalRecords]="30"></p-paginator>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div> -->
+    </div>
+    
+</div>

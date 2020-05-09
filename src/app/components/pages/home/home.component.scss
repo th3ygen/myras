@@ -46,8 +46,6 @@
         height: calc(100% - 150px);
         width: 100%;
 
-        /* background-color: $color-bg-light; */
-
         padding-left: 12%;
         padding-right: 12%;
 
@@ -56,31 +54,11 @@
 
     &.s1 {
         background-color: rgb(15, 37, 87);
-
-        .bg-overlay {
-            position: relative;
-
-            height: 100%;
-            width: 100%;
-
-            background: linear-gradient(23deg, rgba(202, 202, 202,0.2) 0%, rgba(202, 202, 202,0.2) 13%,transparent 13%, transparent 80%,rgba(11, 11, 11,0.2) 80%, rgba(11, 11, 11,0.2) 100%),linear-gradient(42deg, rgba(98, 98, 98,0.2) 0%, rgba(98, 98, 98,0.2) 36%,transparent 36%, transparent 77%,rgba(252, 252, 252,0.2) 77%, rgba(252, 252, 252,0.2) 100%),linear-gradient(286deg, rgba(173, 173, 173,0.2) 0%, rgba(173, 173, 173,0.2) 2%,transparent 2%, transparent 12%,rgba(59, 59, 59,0.2) 12%, rgba(59, 59, 59,0.2) 100%),linear-gradient(77deg, rgba(87, 87, 87,0.2) 0%, rgba(87, 87, 87,0.2) 18%,transparent 18%, transparent 55%,rgba(247, 247, 247,0.2) 55%, rgba(247, 247, 247,0.2) 100%),linear-gradient(90deg, rgb(255,255,255),rgb(255,255,255));
-            opacity: .1;
-
-            z-index: 0;
-        }
     }
     &.s2 {
-        background-color: $color-bg-light;
+        background-color: white;
 
         height: 500px;
-/* 
-        & > .section-header {
-            transform: rotateZ(2deg);
-        }
-
-        & > .section-brief {
-            transform: rotateZ(2deg);
-        } */
     }
     &.s3 {
         height: 550px;
@@ -91,7 +69,7 @@
             position: absolute;
             top: 40%;
             left: 0;
-            /* left: 50%; */
+
             transform: translateY(-50%);
 
             height: fit-content;
@@ -119,9 +97,7 @@
                 width: 90px;
 
                 opacity: 0;
-/* 
-                margin-left: auto;
-                margin-right: auto; */
+
                 transition: .3s all;
                 background: radial-gradient(#fff, #00000000, #00000000);
             }
@@ -193,7 +169,7 @@
             height: 60px;
             width: 100%;
 
-            background-color: $color-bg-light;
+            background-color: white;
 
             clip-path: polygon(0 0, 0% 100%, 100% 100%);
         }
@@ -220,7 +196,7 @@
         height: 60px;
         width: 100%;
 
-        background-color: $color-bg-light;
+        background-color: white;
 
         clip-path: polygon(0 0, 100% 100%, 100% 0);
 
@@ -245,7 +221,7 @@
         height: 60px;
         width: 100%;
 
-        background-color: $color-bg-light;
+        background-color: white;
 
         clip-path: polygon(0 100%, 100% 100%, 100% 0);
 

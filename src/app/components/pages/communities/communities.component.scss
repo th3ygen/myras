@@ -18,7 +18,7 @@
     min-height: 100vh; 
     width: 100%;
 
-    background-color: $color-bg-light;
+    background-color: white;
 }
 
 
@@ -27,14 +27,61 @@
     position: relative;
 
     height: fit-content;
-    width: 100%;
+    width: calc(100% - 200px);
 
-    background-color: $color-bg-light;
+    background-color: white;
+
+    margin: 0 100px;
 
     &.t {
         height: 100vh;
     }
 
+    & > .header {
+        position: relative;
+
+        height: fit-content;
+        width: 100%;
+
+        font-size: 24px;
+        text-transform: uppercase;
+        color: gray;
+
+        & > span {
+            display: inline-block;
+
+            position: relative;
+
+            height: fit-content;
+            width: fit-content;
+
+            margin-left: 50px;
+
+            background-color: white;
+
+            padding: 30px 20px;
+
+            z-index: 2;
+        }
+
+       
+        &::before {
+            content: '';
+
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            
+            height: 2px;
+            width: 100%;
+
+            background-color: orange;
+
+            z-index: 1;
+        }
+    }
+    
     & > .section-header {
         position: relative;
 
@@ -230,6 +277,330 @@
                 width: 200px;
             }   
             
+        }
+    }
+}
+
+
+:host ::ng-deep {
+    .ui-carousel {
+        height: 100%;
+    }
+    .ui-carousel-content {
+        height: 100%;
+    }
+    .ui-carousel-container {
+        height: 100%;
+    }
+    .ui-carousel-items-container {
+        height: 100%;
+    }
+    .ui-carousel-dots-container{
+        display: none !important;
+    }
+}
+
+
+.news-wrapper {
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+}
+
+.trending-news-bar {
+    position: relative;
+
+    height: fit-content;
+    width: 100%;
+
+    display: flex;
+
+    & > .label {
+        position: relative;
+
+        height: fit-content;
+        width: 190px;
+
+        padding: 10px 25px;
+
+        white-space: nowrap;
+        background-color: orange;
+        color: white;
+
+        text-transform: uppercase;
+
+        &::before {
+            content: '';
+            
+            position: absolute;
+            right: -0.5px;
+            top: 0;
+
+            height: 100%;
+            width: 20px;
+
+            background-color: white;
+
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 100% 50%);
+        }
+    }
+
+    & > .value {
+        position: relative;
+
+        height: 100%;
+        width: calc(100% - 190px);
+    }
+}
+
+.trending-news-bar-items {
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+
+    & .item {
+        position: relative;
+
+        height: 100%;
+        width: 100%;
+
+        & > .title {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+
+            height: fit-content;
+            width: 100%;
+            
+            padding: 0 30px;
+
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+
+            color: gray;
+
+        }
+    }
+}
+
+.news-row {
+    position: relative;
+
+    height: 70vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.news-highlights {
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+
+    & > .img {
+        position: relative;
+
+        height: 100%;
+        width: 100%;
+
+        background-image: url('../../../../assets/panaroma-city.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    z-index: 1;
+
+    & > .dark-overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+
+        background: radial-gradient(circle, rgba(0,0,0,0.19681375968356096) 0%, rgba(0,0,0,1) 100%);
+        opacity: .4;
+        z-index: 2;
+    }
+
+    & > .overlay {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+
+        height: 200px;
+        width: 100%;
+
+        background-color: rgba(black, .1);
+
+        color: white;
+
+        z-index: 3;
+        & > .cluster {
+            position: relative;
+
+            height: fit-content;
+            width: fit-content;
+
+            color: white;
+            background-color: orange;
+
+            padding: 5px 15px;
+            margin-left: 30px;
+
+            text-transform: uppercase;
+            font-weight: bold;
+
+            &::before {
+                content: '';
+                
+                position: absolute;
+                right: -20px;
+                top: 0;
+    
+                height: 100%;
+                width: 20px;
+    
+                background-color: orange;
+    
+                clip-path: polygon(0 0, 0% 100%, 100% 50%);
+            }
+        }
+
+        & > .title {
+            position: relative;
+
+            height: fit-content;
+            max-width: 600px;
+            width: fit-content;
+
+            font-size: 35px;
+            font-weight: bold;
+            color: white;
+
+            padding: 10px 0;
+            margin-left: 30px;
+
+            /* background-color: black; */
+        }
+
+        & > .info-items {
+            position: relative;
+
+            height: fit-content;
+            width: 100%;
+
+            margin-left: 30px;
+
+            display: flex;
+
+            & > div {
+                position: relative;
+
+                height: fit-content;
+                width: fit-content;
+
+                padding: 10px 20px;
+
+                &:nth-child(1) {
+                    padding-left: 0;
+                }
+            }
+        }
+
+        & > .action-items {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+
+            height: fit-content;
+            width: 100%;
+
+            padding: 15px 30px;
+
+            background: linear-gradient(180deg, rgba(0,0,0,0.19681375968356096) 0%, rgba(0,0,0,1) 100%);
+
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+
+.news-nav {
+    position: relative;
+
+    height: 100%;
+    width: 500px;
+
+    background-color: #efeff2;
+
+    display: flex;
+    flex-direction: column;
+
+    & > .header {
+        position: relative;
+
+        height: 60px;
+        width: fit-content;
+
+        padding: 15px 30px;
+
+        color: orange;
+        font-size: 18px;
+    }
+
+    & > .nav-body {
+        position: relative;
+
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.trending-news-nav-items {
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    & > .item {
+        position: relative;
+
+        height: fit-content;
+        width: 100%;
+
+        padding: 10px;
+
+        display: flex;
+
+        & > .img {
+            position: relative;
+
+            height: 90px;
+            width: 200px;
+
+            background-color: green;
+
+            margin-right: 10px;
+        }
+
+        & > .info {
+            position: relative;
+
+            height: fit-content;
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
         }
     }
 }

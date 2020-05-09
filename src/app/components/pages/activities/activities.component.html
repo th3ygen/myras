@@ -15,9 +15,9 @@
         </div>
 
         <div class="cluster-content">
-            <div class="header">
+            <!-- <div class="header">
                 <span>Industry</span>
-            </div>
+            </div> -->
 
             <div class="body">
                 <div class="card">
@@ -29,100 +29,63 @@
                     </div>
 
                     <div class="content">
-                        <p-carousel [value]="this.events" [numVisible]="3" [numScroll]="1">
-                            <ng-template let-event pTemplate="item">
-                                <div class="act-card">
-                                    <div class="header">
-                                        <span>{{ event.title }}</span>
-                                    </div>
-    
+                        <div class="event-items">
+                            <div class="item" *ngFor="let item of [0, 0, 0]">
+                                <div class="thumbnail">
                                     <div class="img"></div>
-    
-                                    <div class="brief">
-                                        <span>{{ event.brief }}</span>
-                                        <div class="prop">
-                                            <div>
-                                                <i class="fas fa-user-tie"></i>
-                                                <span>MyRAS</span>
-                                            </div>
-                                            <div>
-                                                <i class="far fa-clock"></i>
-                                                <span>Tommorow</span>
-                                            </div>
-                                            <div>
-                                                <i class="far fa-eye"></i>
-                                                <span>128</span>
-                                            </div>
+                                </div>
+                                <div class="details">
+                                    <div class="header">
+                                        <span>Event header here</span>
+                                    </div>
+                                    <div class="body">
+                                        <span>
+                                            Event body here
+                                            Event body here
+                                            Event body here
+                                            Event body here
+                                            Event body here
+                                            Event body here
+                                            Event body here
+                                            Event body here
+                                            Event body here
+                                            Event body here
+                                            Event body here
+                                            Event body here
+                                            Event body here
+                                            Event body here
+                                            Event body here
+                                            Event body here
+                                            Event body here
+                                        </span>
+                                    </div>
+                                    <div class="footer">
+                                        <div class="date">
+                                            <i class="fas fa-times"></i>
+                                            <span>
+                                                29 April 2020
+                                            </span>
+                                        </div>
+                                        <div class="views">
+                                            <i class="fas fa-times"></i>
+                                            <span>
+                                                UMP Gambang
+                                            </span>
+                                        </div>
+                                        <div class="views">
+                                            <i class="fas fa-times"></i>
+                                            <span>
+                                                10 views
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
-                            </ng-template>
-                        </p-carousel>
-                    </div>
-                </div>
-                <!-- <div class="header">
-                    <div class="header-line"></div>
-                    <div class="header-label">
-                        <span>Events</span>
-                    </div>
-                    
-                </div>
-
-                <div class="content">
-                    <p-carousel [value]="this.events" [numVisible]="2" [numScroll]="1">
-                        <ng-template let-event pTemplate="item">
-                            <div class="act-card">
-                                <div class="header">
-                                    <span>{{ event.title }}</span>
-                                </div>
-
-                                <div class="img"></div>
-
-                                <div class="brief">
-                                    <span>{{ event.brief }}</span>
-                                </div>
                             </div>
-                        </ng-template>
-                    </p-carousel>
-                </div> -->
-                
-                <!-- <div class="header">
-                    <div class="header-line"></div>
-                    <div class="header-label">
-                        <span>Robotic Competitions</span>
+                        </div>
+                        <p-paginator [rows]="10" [totalRecords]="30"></p-paginator>
                     </div>
-                    
                 </div>
-
-                <div class="content">
-                    <p-carousel [value]="this.comps" [numVisible]="3" [numScroll]="1">
-                        <ng-template let-comp pTemplate="item">
-                            <div class="act-card">
-                                <div class="header">
-                                    <span>{{ comp.title }}</span>
-                                </div>
-
-                                <div class="img"></div>
-
-                                <div class="brief">
-                                    <span>{{ comp.brief }}</span>
-                                </div>
-                            </div>
-                        </ng-template>
-                    </p-carousel>
-                </div> -->
                 
-                <!-- <div class="header">
-                    <div class="header-line"></div>
-                    <div class="header-label">
-                        <span>Event Calendar</span>
-                    </div>
-                    
-                </div>
-
-                <div class="content">
-
-                </div> -->
             </div>
         </div>
     </div>
@@ -131,20 +94,5 @@
             
         </div>
     </div>
-    <!-- <div class="section">
-        <div class="section-header">
-            Academian
-        </div>
-    </div>
-    <div class="section">
-        <div class="section-header">
-            Government
-        </div>
-    </div>
-    <div class="section">
-        <div class="section-header">
-            Public
-        </div>
-    </div> -->
 
 </div>

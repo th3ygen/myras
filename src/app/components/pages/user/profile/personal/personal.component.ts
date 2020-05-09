@@ -33,7 +33,7 @@ export class PageUserProfilePersonalComponent implements OnInit {
   constructor(private auth: AuthService, private master: MasterService) { }
 
   ngOnInit(): void {
-    this.master.setLoading(true);
+    /* this.master.setLoading(true);
     this.auth.currentUser.subscribe((user: any) => {
       this.auth.getUser(user.membership.id).subscribe(data => {
         this.username = data.username;
@@ -59,7 +59,7 @@ export class PageUserProfilePersonalComponent implements OnInit {
         
       });
       
-    });
+    }); */
   }
 
 }

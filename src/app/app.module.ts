@@ -34,7 +34,11 @@ import { CarouselModule } from 'primeng/carousel';
 import { DropdownModule } from 'primeng/dropdown';
 import { ChartModule } from 'primeng/chart';
 import { PanelModule } from 'primeng/panel';
-
+import { KeyFilterModule } from 'primeng/keyfilter';
+import { DataViewModule } from 'primeng/dataview';
+import { PaginatorModule } from 'primeng/paginator';
+import { OrganizationChartModule } from 'primeng/organizationchart';
+/* import { TabViewModule } from 'primeng/tabview'; */
 /* import {DropdownModule} from 'primeng/dropdown'; */
 
 // Sections
@@ -82,6 +86,19 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { FormRegisterComponent } from './components/forms/register/register.component';
 import { PageSharedNewsPostComponent } from './components/shared/news/post/post.component';
 import { AdminSharedContenteditComponent } from './components/pages/admin/shared/contentedit/contentedit.component';
+import { PageAboutOrgChartComponent } from './components/pages/about/org-chart/org-chart.component';
+
+// new components
+import { PageAboutTeamComponent } from './components/pages/about/team/team.component';
+import { PageAboutContactComponent } from './components/pages/about/contact/contact.component';
+import { PageAboutFaqComponent } from './components/pages/about/faq/faq.component';
+import { PageActivitiesEventsComponent } from './components/pages/activities/events/events.component';
+import { PageActivitiesCalendarComponent } from './components/pages/activities/calendar/calendar.component';
+import { PageActivitiesGcpComponent } from './components/pages/activities/gcp/gcp.component';
+import { PageActivitiesCompetitionsComponent } from './components/pages/activities/competitions/competitions.component';
+import { PageCommunitiesNewsComponent } from './components/pages/communities/news/news.component';
+import { PageCommunitiesCollaborationsComponent } from './components/pages/communities/collaborations/collaborations.component';
+import { PageNotFoundComponent } from './components/pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +115,7 @@ import { AdminSharedContenteditComponent } from './components/pages/admin/shared
 
     // Guest
     PageAboutComponent,
+    PageAboutOrgChartComponent,
     PageContactComponent,
     SectionFooterComponent,
     SectionPageHeaderComponent,
@@ -129,6 +147,18 @@ import { AdminSharedContenteditComponent } from './components/pages/admin/shared
     PageUserPurchaseInvoicesComponent,
     PageUserPurchaseOrdersComponent,
 
+    // new components
+    PageAboutTeamComponent,
+    PageAboutContactComponent,
+    PageAboutFaqComponent,
+    PageActivitiesEventsComponent,
+    PageActivitiesCalendarComponent,
+    PageActivitiesGcpComponent,
+    PageActivitiesCompetitionsComponent,
+    PageCommunitiesNewsComponent,
+    PageCommunitiesCollaborationsComponent,
+    PageNotFoundComponent,
+
   ],
   imports: [
     FormsModule,
@@ -157,7 +187,9 @@ import { AdminSharedContenteditComponent } from './components/pages/admin/shared
     CarouselModule,
     DropdownModule,
     ChartModule,
-    PanelModule
+    PanelModule,
+    PaginatorModule,
+    OrganizationChartModule,
 
   ],
   providers: [

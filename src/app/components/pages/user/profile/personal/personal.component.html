@@ -1,4 +1,4 @@
-<div class="wrapper">
+<!-- <div class="wrapper">
     <div class="header">
         <span>
             User profile
@@ -138,6 +138,158 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="wrapper">
+    <div class="card">
+        <div class="header">
+            <span>Personal information</span>
+        </div>
+
+        <div class="body">
+            <div class="info-items">
+                <div class="item">
+                    <p-panel header="Detail" [toggleable]="true">
+                        <div class="input-items">
+                            <div class="item">
+                                <div class="label">
+                                    <span>Title</span>
+                                </div>
+                                <div class="input">
+                                    <p-dropdown [options]="
+                                    [
+                                        { label: 'Dr.', value: 'Dr.' },
+                                        { label: 'ENG', value: 'ENG' },
+                                        { label: 'Prof.', value: 'Prof.' },
+                                        { label: 'Miss', value: 'Miss' },
+                                        { label: 'Mr.', value: 'Mr.' },
+                                        { label: 'Mrs.', value: 'Mrs.' },
+                                        { label: 'Ms.', value: 'Ms.' },
+                                        { label: 'Professor', value: 'Professor' }
+                                    ]
+                                    " placeholder="Select one"></p-dropdown>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="label">
+                                    <span>Full name</span>
+                                </div>
+                                <div class="input">
+                                    <input type="text" pInputText />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="label">
+                                    <span>Preferred name</span>
+                                </div>
+                                <div class="input">
+                                    <input type="text" pInputText />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="label">
+                                    <span>Gender</span>
+                                </div>
+                                <div class="input">
+                                    <p-dropdown [options]="
+                                    [
+                                        { label: 'Male', value: 'male' },
+                                        { label: 'Female', value: 'female' },
+                                        { label: 'Other', value: 'other' },
+                                        { label: 'Prefer not to mention', value: '' }
+                                    ]
+                                    " placeholder="Select one"></p-dropdown>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="label">
+                                    <span>Date of birth</span>
+                                </div>
+                                <div class="input">
+                                    <p-calendar [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2020"></p-calendar>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="label">
+                                    <span>Photo</span>
+                                </div>
+                                <div class="input">
+                                    <div class="photo"></div>
+                                    <div class="photo-options">
+                                        <span class="option">Update</span>
+                                        <span style="padding: 10px;">or</span>
+                                        <span class="option">Remove</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </p-panel>
+                </div>
+                <div class="item">
+                    <p-panel header="Contact" [toggleable]="true">
+                        <div class="input-items">
+                            <div class="item">
+                                <div class="label">
+                                    <span>Email address</span>
+                                </div>
+                                <div class="input">
+                                    <input type="email" pInputText />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="label">
+                                    <span>Alternate email address</span>
+                                </div>
+                                <div class="input">
+                                    <input type="email" pInputText />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="label">
+                                    <span>Home telephone number</span>
+                                </div>
+                                <div class="input" style="max-width: 200px;">
+                                    <input type="text" pInputText />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="label">
+                                    <span>Mobile telephone number</span>
+                                </div>
+                                <div class="input" style="max-width: 200px;">
+                                    <input type="text" pInputText />
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="label">
+                                    <span>Work/School telephone number</span>
+                                </div>
+                                <div class="input" style="max-width: 200px;">
+                                    <input type="text" pInputText />
+                                </div>
+                            </div>
+                        </div>
+                    </p-panel>
+                </div>
+                <div class="item">
+                    <p-panel header="Biography" [toggleable]="true">
+                        <div class="input-items">
+                            <div class="item">
+                                <div class="label">
+                                    <span>Biography</span>
+                                </div>
+                                <div class="input">
+                                    <textarea [rows]="5" [cols]="30" [autoResize]="true" pInputTextarea></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </p-panel>
+                </div>
+            </div>
+            
         </div>
     </div>
 </div>

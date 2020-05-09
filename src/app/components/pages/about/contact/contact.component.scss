@@ -1,0 +1,226 @@
+@import '../../../../theme/colors.scss';
+
+:host ::ng-deep {
+    .ui-inputtext {
+        width: 100%;
+    }
+}
+
+.wrapper {
+    position: relative;
+
+    min-height: 100vh;
+    height: fit-content;
+    width: 100%;
+
+    /* margin: 0 100px; */
+   /*  margin-top: 80px; */
+
+    background-color: white;
+    /* box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, .1); */
+}
+
+.header-banner > .banner > .svg {
+    background: url('../../../../../assets/svg/undraw-edited/banner/about.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.container {
+    position: relative;
+
+    height: fit-content;
+    width: 100%;
+
+    padding: 30px 100px;
+}
+
+.intro {
+    position: relative;
+
+    height: fit-content;
+    width: 100%;
+
+    & > div {
+        position: relative;
+
+        height: fit-content;
+        width: 100%;
+
+        text-align: center;
+
+        padding: 30px 0;
+    }
+
+    & > .header {
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    & > .brief {
+        margin-left: auto;
+        margin-right: auto;
+
+        width: 70%;
+
+        font-size: 20px;
+        color: gray;
+    }
+}
+
+.contacts {
+    position: relative;
+
+    height: fit-content;
+    width: 100%;
+
+    margin: 50px 0;
+
+    display: flex;
+
+    
+    & > div {
+        position: relative;
+
+        height: fit-content;
+        width: 100%;
+
+        &:first-child {
+            border-right: 3px solid orange;
+        }
+
+        & > .contact-form {
+            position: relative;
+
+            margin-left: auto;
+            margin-right: auto;
+
+            height: fit-content;
+            width: 100%;
+            max-width: 500px;
+
+            padding: 0 30px;
+
+            & > span {
+                display: inline-block;
+                position: relative;
+        
+                height: fit-content;
+                width: 100%;
+        
+                font-size: 18px;
+
+                text-align: center;
+
+                padding-bottom: 30px;
+            }
+
+            & > div {
+                position: relative;
+
+                height: fit-content;
+                width: 100%;
+
+                padding: 10px 0;
+            }
+        }
+        
+        & > .contact {
+            position: relative;
+
+            margin-left: auto;
+            margin-right: auto;
+
+            height: fit-content;
+            width: 100%;
+            max-width: 500px;
+
+            & > .header {
+                position: relative;
+
+                font-weight: bolder;
+                font-size: 20px;
+
+                text-align: center;
+
+                padding-bottom: 30px;
+            }
+
+            & > .address {
+                position: relative;
+
+                margin-left: auto;
+                margin-right: auto;
+
+                height: fit-content;
+                width: fit-content;
+
+                text-align: justify;
+                & > span {
+                    position: relative;
+
+                    display: block;
+
+                    padding-bottom: 5px;
+                }
+            }
+
+            & > .contact-items {
+                position: relative;
+
+                height: fit-content;
+                width: 100%;
+
+                display: flex;
+                justify-content: space-around;
+
+                margin-top: 30px;
+
+                & > .contact-item {
+                    position: relative;
+
+                    height: fit-content;
+                    width: 100%;
+
+                    text-align: center;
+                    & > .icon {
+                        display: inline-block;
+                        position: relative;
+
+                        height: fit-content;
+                        width: fit-content;
+
+                        padding: 10px;
+                    }
+
+                    & > .value {
+                        display: inline-block;
+                        position: relative;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.social-media {
+    position: relative;
+
+    height: fit-content;
+    width: 100%;
+
+    padding: 30px 0;
+
+    & > .header {
+        position: relative;
+
+        height: fit-content;
+        width: 100%;
+
+        font-size: 30px;
+        font-weight: bold;
+
+        text-align: center;
+    }
+}

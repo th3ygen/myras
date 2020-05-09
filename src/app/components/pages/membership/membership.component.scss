@@ -11,32 +11,27 @@
     padding-top: 100px; // topnav is 100px height
 }
 
+.header-banner > .banner > .svg {
+  background: url('../../../../assets/svg/undraw-edited/banner/membership.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 
-.main-body {
+.wrapper {
     position: relative;
 
     min-height: 100vh;
-    height: auto;
+    height: fit-content;
     width: 100%;
 
     padding: 0;
     margin: 0;
 
-    background-color: #efeff2;
+    background-color: white;
     /* border: 20px solid #efeff2; */
 }
 
-.wrapper {
-  position: relative;
-
-  height: auto;
-  
-  width: 100%;
-
-  padding: 20px;
-
-  background-color: #fff;
-}
 
 .section {
   position: relative;
@@ -71,6 +66,7 @@
   }
 
   &.s1 {
+    padding-bottom: 50px;
     & > .section-body {
       & > .intro-item {
         padding-left: 12%;

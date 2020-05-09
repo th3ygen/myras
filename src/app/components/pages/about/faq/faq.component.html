@@ -1,0 +1,34 @@
+<div class="wrapper">
+    <div class="header-banner">
+        <div class="bg-poly-overlay"></div>
+        <div class="banner">
+            <div class="label">
+                <div class="title">
+                    <span>FAQ</span>
+                </div>
+                <div class="brief">
+                    <span>Frequenty asked questions</span>
+                </div>
+            </div>
+           
+            <div class="svg"></div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="faq-group" *ngFor="let item of [
+        'Activities',
+        'Communities',
+        'Membership'
+        ]">
+            <div class="faq-group-label">
+                <span>{{ item }}</span>
+            </div>
+            <div class="faq-group-items">
+                <p-panel [header]="(x + 1) + '. question here'" [toggleable]="true" [collapsed]="true" *ngFor="let faq of [0, 0, 0, 0, 0]; let x = index;">
+                    answer here
+                </p-panel>
+            </div>
+        </div>
+    </div>
+</div>
