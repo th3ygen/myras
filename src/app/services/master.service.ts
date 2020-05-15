@@ -39,10 +39,32 @@ export class MasterService {
       path: 'activities',
       active: false,
       menu: [
-        { label: 'Events', path: '/activities/events' },
-        { label: 'Event calendar', path: '/activities/calendar', disabled: true },
-        { label: 'Competitions', path: '/activities/competitions', disabled: true },
-        { label: 'Global Certification Program', path: '/activities/gcp' },
+        {
+          label: 'Events',
+          brief: 'Lorem ipsum doler sit amet for Events is doing great!',
+          path: '/activities/events',
+          icon: 'far fa-calendar-check'
+        },
+        {
+          label: 'Event calendar',
+          brief: 'Lorem ipsum doler sit amet for Event Calendar is doing great!',
+          path: '/activities/calendar',
+          icon: 'fas fa-cog',
+          disabled: true
+        },
+        {
+          label: 'Competitions',
+          brief: 'Lorem ipsum doler sit amet for Competitions is doing great!',
+          path: '/activities/competitions',
+          icon: 'fas fa-cog',
+          disabled: true
+        },
+        {
+          label: 'Global Certification Program',
+          brief: 'Lorem ipsum doler sit amet for GCP is doing great!',
+          path: '/activities/gcp',
+          icon: 'fas fa-award'
+        },
       ]
     },
     {
@@ -50,8 +72,19 @@ export class MasterService {
       path: 'communities',
       active: false,
       menu: [
-        { label: 'News', path: '/communities/news' },
-        { label: 'Collaborations', path: '/communities/collab', disabled: true },
+        {
+          label: 'News',
+          brief: 'Lorem ipsum doler sit amet for News is doing great!',
+          path: '/communities/news',
+          icon: 'far fa-newspaper'
+        },
+        {
+          label: 'Collaborations',
+          brief: 'Lorem ipsum doler sit amet for Collaborations is doing great!',
+          path: '/communities/collab',
+          icon: 'fas fa-cog',
+          disabled: true
+        },
       ]
     },
     {
@@ -59,9 +92,24 @@ export class MasterService {
       path: 'membership',
       active: false,
       menu: [
-        { label: 'Our membership package', path: '/membership' },
-        { label: 'Register', path: 'register' },
-        { label: 'Login', path: '/login' },
+        {
+          label: 'Pricings',
+          brief: 'Lorem ipsum doler sit amet for Membership is doing great!',
+          path: '/membership',
+          icon: 'fas fa-user-tag'
+        },
+        {
+          label: 'Register',
+          brief: 'Lorem ipsum doler sit amet for Register is doing great!',
+          path: 'register',
+          icon: 'fas fa-user-plus'
+        },
+        {
+          label: 'Login',
+          brief: 'Lorem ipsum doler sit amet for Login is doing great!',
+          path: '/login',
+          icon: 'fas fa-user-lock'
+        },
       ]
     },
     {
@@ -69,9 +117,24 @@ export class MasterService {
       path: 'about',
       active: false,
       menu: [
-        { label: 'Our team', path: '/about/team' },
-        { label: 'Contact us', path: '/about/contact' },
-        { label: 'FAQ', path: '/about/faq' },
+        {
+          label: 'Our team',
+          brief: 'Lorem ipsum doler sit amet for Out Team is doing great!',
+          path: '/about/team',
+          icon: 'fas fa-users'
+        },
+        {
+          label: 'Contact us',
+          brief: 'Lorem ipsum doler sit amet for Contact Us is doing great!',
+          path: '/about/contact',
+          icon: 'fas fa-phone'
+        },
+        {
+          label: 'FAQ',
+          brief: 'Lorem ipsum doler sit amet for FAQ is doing great!',
+          path: '/about/faq',
+          icon: 'far fa-lightbulb'
+        },
       ]
     }
   ];
@@ -148,17 +211,17 @@ export class MasterService {
       },
       {
         label: 'News',
-        path: 'admin/dashboard',
+        path: 'admin/news',
         icon: 'fas fa-share-square'
       },
       {
         label: 'Events',
-        path: 'admin/dashboard',
+        path: 'admin/events',
         icon: 'fas fa-share-square'
       },
       {
         label: 'Members',
-        path: 'admin/dashboard',
+        path: 'admin/members',
         icon: 'fas fa-share-square'
       },
       /* {

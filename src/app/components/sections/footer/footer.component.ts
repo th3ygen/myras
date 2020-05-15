@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MasterService } from '../../../services/master.service';
 
 @Component({
   selector: 'app-section-footer',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionFooterComponent implements OnInit {
 
-  constructor() { }
+  public navItems;
+
+  constructor( private master: MasterService ) {
+    this.navItems = master.navItems.slice();
+    this.navItems.splice(0, 1);
+  }
 
   ngOnInit() {
   }

@@ -8,9 +8,25 @@ import { SelectItem } from 'primeng/api';
 })
 export class PageCommunitiesNewsComponent implements OnInit {
 
-  public filterItems: SelectItem[];
+  public clusters: SelectItem[];
+  public time: SelectItem[];
 
-  constructor() { }
+  public selectedCluster: SelectItem;
+  public selectedTime: SelectItem;
+
+  constructor() {
+    this.clusters = [
+      { label: 'Industry', value: 'industry' },
+      { label: 'Government', value: 'government' },
+      { label: 'Academia', value: 'academia' },
+      { label: 'Public', value: 'public' },
+    ];
+    this.time = [
+      { label: 'Today', value: '1' },
+      { label: 'This week', value: '7' },
+      { label: 'This month', value: '31' },
+    ];
+  }
 
   ngOnInit(): void {
   }

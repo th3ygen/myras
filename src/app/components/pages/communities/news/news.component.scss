@@ -34,13 +34,31 @@
     height: fit-content;
     width: 100%;
 
+    & > .header {
+        position: relative;
+
+        height: fit-content;
+        width: 100%;
+
+        font-size: 40px;
+        font-weight: bolder;
+
+        text-transform: uppercase;
+        letter-spacing: 2px;
+
+        margin-bottom: 30px;
+
+        color: orange;
+
+    }
+
     & > .highlight {
         position: relative;
 
         height: 35vw;
         width: 100%;
 
-        background-color: orange;
+        border-radius: 0 15px 0 15px;
 
         overflow: hidden;
 
@@ -185,6 +203,97 @@
         }
     }
 
+    & > .highlight-childs {
+        position: relative;
+
+        height: fit-content;
+        width: 100%;
+
+        margin-top: 30px;
+
+        display: flex;
+        justify-content: space-between;
+
+        & > .child {
+            position: relative;
+
+            height: 300px;
+            width: 100%;
+
+            margin-right: 20px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            & > .img {
+                position: relative;
+
+                height: 100%;
+                width: 100%;
+
+                background-image: url('../../../../../assets/sunge\ perak.jpg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            & > .info-overlay {
+                position: absolute;
+                left: 0;
+                top: 0;
+
+                height: 100%;
+                width: 100%;
+
+                background-color: rgba(black, .3);
+
+                & > .tag {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+
+                    height: fit-content;
+                    width: fit-content;
+
+                    padding: 5px 10px;
+
+                    background-color: orange;
+
+                    font-size: 18px;
+                    /* font-weight: bold; */
+                    color: white;
+                }
+
+                & > .date {
+                    position: absolute;
+                    right: 10px;
+                    top: 5px;
+
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: white;
+                }
+
+                & > .title {
+                    position: absolute;
+                    left: 30px;
+                    bottom: 30px;
+
+                    height: fit-content;
+                    width: calc(100% - 60px);
+
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: white;
+
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+
     & > .container {
         position: relative;
 
@@ -193,15 +302,52 @@
 
         margin-top: 30px;
 
+        & > .header {
+            position: relative;
+
+            height: fit-content;
+            width: 100%;
+
+            font-size: 30px;
+            font-weight: bolder;
+
+            padding-top: 50px;
+            padding-bottom: 15px;
+
+            text-transform: uppercase;
+            letter-spacing: 2px;
+
+            color: orange;
+
+            border-bottom: 2px solid gray;
+        }
+
         & > .filter {
             position: relative;
 
             height: fit-content;
             width: 100%;
             
-            padding: 50px 0;
+            padding: 20px 0;
 
-            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+
+            & > .item {
+                position: relative;
+
+                height: fit-content;
+                width: fit-content;
+
+                padding-left: 50px;
+
+                & > span {
+                    padding-right: 30px;
+                }
+            }
+            
+
+            /* text-align: right; */
         }
 
         & > .news-cards {
@@ -212,7 +358,7 @@
             
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: space-between;
 
             & > .news-card {
                 position: relative;
@@ -220,9 +366,12 @@
                 height: 400px;
                 width: 350px;
 
+                border-radius: 10px;
                 box-shadow: 2px 2px 5px 0px rgba(black, 0.2);
 
                 margin-bottom: 30px;
+
+                overflow: hidden;
 
                 & > .img {
                     position: absolute;
@@ -291,6 +440,13 @@
                             border-bottom: 1px solid orange;
                         }
                     }
+                }
+
+                &.white-space {
+                    opacity: 0;
+
+                    pointer-events: none;
+                    user-select: none;
                 }
             }
         }

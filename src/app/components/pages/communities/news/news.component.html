@@ -17,6 +17,9 @@
 
     <div class="content">
         <div class="news">
+            <div class="header">
+                <span>Highlights</span>
+            </div>
             <div class="highlight">
                 <div class="img"></div>
                 <div class="info-overlay">
@@ -43,12 +46,40 @@
                     <div class="gradient-bot"></div>
                 </div>
             </div>
+            <div class="highlight-childs">
+                <div class="child" *ngFor="let item of [0, 0, 0]">
+                    <div class="img"></div>
+                    <div class="info-overlay">
+                        <div class="tag">
+                            <span>Academia</span>
+                        </div>
+                        <div class="date">
+                            <span>3 Jan 2039</span>
+                        </div>
+                        <div class="title">
+                            <span>Title is here, potong klau panjang, lorem itsum lol</span>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
             <div class="container">
+                <div class="header">
+                    <span>Latest news</span>
+                </div>
                 <div class="filter">
-                    <span>Filter letak sini</span>
+                    <div class="item">
+                        <span>Time range</span>
+                        <p-dropdown [options]="time" [(ngModel)]="selectedTime"></p-dropdown>
+                    </div>
+                    <div class="item">
+                        <span>Cluster</span>
+                        <p-dropdown [options]="clusters" [(ngModel)]="selectedCluster"></p-dropdown>
+                    </div>
+                    
                 </div>
                 <div class="news-cards">
-                    <div class="news-card" *ngFor="let card of [0, 0, 0, 0, 0]">
+                    <div class="news-card" *ngFor="let card of [0, 0, 0, 0, 0, 1]" [class.white-space]="(card === 1)">
                         <div class="img"></div>
                         <div class="details-panel">
                             <div class="title">

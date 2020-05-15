@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 @import './app/theme/colors.scss';
 
+html {
+    /* scroll-behavior: smooth; */
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -9,6 +13,8 @@ body {
     font-family: 'Poppins', sans-serif;
 
     overflow-x: hidden;
+
+    /* scroll-behavior: smooth; */
 }
 
 .bg-poly-overlay {
