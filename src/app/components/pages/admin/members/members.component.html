@@ -2,61 +2,61 @@
     <div class="events">
         <div class="events-header">
             <i class="fas fa-list"></i>
-            <span>News</span>
+            <span>Members</span>
 
-            <div class="btn-add">
+            <!-- <div class="btn-add">
                 <i class="fas fa-cog"></i>
                 <span>Post news</span>
-            </div>
+            </div> -->
         </div>
         <div class="events-body">
             <div class="items">
                 <div class="item-header">
                     <div class="tick">
-                        <p-checkbox name="groupname" value="val2"></p-checkbox>
+                        <p-checkbox name="groupname" [(ngModel)]="tick" [binary]="true" (onChange)="tickAll()"></p-checkbox>
                     </div>
                     <div class="label">
-                        <span>Title</span>
+                        <span>Fullname</span>
                     </div>
                     <div class="author">
-                        <span>Author</span>
+                        <span>Username</span>
                     </div>
                     <div class="cluster">
+                        <span>Member type</span>
+                    </div>
+                    <div class="tags">
                         <span>Cluster</span>
                     </div>
-                    <div class="tags">
-                        <span>Tags</span>
-                    </div>
                     <div class="date">
-                        <span>Date published</span>
+                        <span>Online</span>
                     </div>
                 </div>
-                <div class="item" *ngFor="let item of [0, 0, 0, 0, 0, 0, 0, 0]">
-                    <div class="tick">
-                        <p-checkbox name="groupname" value="val2"></p-checkbox>
+                <div class="item" *ngFor="let item of [0, 0, 0, 0, 0, 0, 0, 0]; let x = index">
+                    <div class="tick tick-child">
+                        <p-checkbox name="groupname" [binary]="true" [(ngModel)]="itemsTick[x]"></p-checkbox>
                     </div>
                     <div class="label">
-                        <span>Label here</span>
+                        <span>Muhammad Aidil Syazwan bin Hamdan</span>
                     </div>
                     <div class="author">
-                        <span>Author here</span>
-                    </div>
-                    <div class="cluster">
-                        <span>Cluster here</span>
+                        <span>testUsername</span>
                     </div>
                     <div class="tags">
-                        <span>infinite tags</span>
-                        <span>infinite tags</span>
-                        <span>infinite tags</span>
+                        <span>REGULAR</span>
+                        <span>LIFETIME</span>
                     </div>
+                    <div class="cluster">
+                        <span>Academian</span>
+                    </div>
+                    
                     <div class="date">
                         <span>3 January 2030</span>
                     </div>
 
                     <div class="actions">
-                        <span>Edit</span>
-                        <span>Hide</span>
-                        <span>Remove</span>
+                        <span>Show info</span>
+                        <span>Disable</span>
+                        <span>Delete</span>
                     </div>
                 </div>
             </div>

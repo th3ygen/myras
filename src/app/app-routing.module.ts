@@ -55,6 +55,9 @@ import { PageActivitiesCompetitionsComponent } from './components/pages/activiti
 import { PageCommunitiesNewsComponent } from './components/pages/communities/news/news.component';
 import { PageCommunitiesCollaborationsComponent } from './components/pages/communities/collaborations/collaborations.component';
 
+import { PageAdminEventsComponent } from './components/pages/admin/events/events.component';
+import { PageAdminMembersComponent } from './components/pages/admin/members/members.component';
+
 // 404 error page
 import { PageNotFoundComponent } from './components/pages/not-found/not-found.component';
 
@@ -108,7 +111,7 @@ const routes: Routes = [
   { path: 'admin', canActivate: [AuthGuardService], data: { role: 'admin' }, children: [
     { path: 'dashboard', component: PageAdminDashboardComponent },
     { path: 'news', children: [
-      { path: 'overview', component: PageAdminNewsOverviewComponent },
+      { path: 'all', component: PageAdminNewsComponent },
       { path: 'post', component: PageSharedNewsPostComponent },
     ] },
     { path: 'contentedit', children: [
@@ -119,10 +122,14 @@ const routes: Routes = [
       { path: 'about', component: AdminSharedContenteditComponent },
       { path: 'footer', component: AdminSharedContenteditComponent },
     ] },
-    { path: 'members', children: [
+    { path: 'events', component: PageAdminEventsComponent, children: [
       { path: 'manager', component: PageAdminMembersManagerComponent },
       { path: 'payments', component: PageAdminMembersPaymentsComponent },
-    ] }
+    ] },
+    { path: 'members', component: PageAdminMembersComponent, children: [
+      { path: 'manager', component: PageAdminMembersManagerComponent },
+      { path: 'payments', component: PageAdminMembersPaymentsComponent },
+    ] },
   ] },
   { path: '**', redirectTo: '/404' },
   { path: '404', component: PageNotFoundComponent },

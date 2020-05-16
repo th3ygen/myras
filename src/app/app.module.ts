@@ -99,8 +99,10 @@ import { PageActivitiesCompetitionsComponent } from './components/pages/activiti
 import { PageCommunitiesNewsComponent } from './components/pages/communities/news/news.component';
 import { PageCommunitiesCollaborationsComponent } from './components/pages/communities/collaborations/collaborations.component';
 import { PageNotFoundComponent } from './components/pages/not-found/not-found.component';
-/* import { MembersComponent } from './components/pages/admin/members/members.component';
-import { EventsComponent } from './components/pages/admin/events/events.component'; */
+import { PageAdminEventsComponent } from './components/pages/admin/events/events.component';
+import { PageAdminMembersComponent } from './components/pages/admin/members/members.component';
+import { UserComponent } from './components/pages/admin/members/new/user/user.component';
+import { AdminComponent } from './components/pages/admin/members/new/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -160,8 +162,10 @@ import { EventsComponent } from './components/pages/admin/events/events.componen
     PageCommunitiesNewsComponent,
     PageCommunitiesCollaborationsComponent,
     PageNotFoundComponent,
-    /* MembersComponent,
-    EventsComponent, */
+    PageAdminEventsComponent,
+    PageAdminMembersComponent,
+    UserComponent,
+    AdminComponent,
 
   ],
   imports: [

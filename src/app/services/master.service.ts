@@ -211,79 +211,78 @@ export class MasterService {
       },
       {
         label: 'News',
-        path: 'admin/news',
-        icon: 'fas fa-share-square'
-      },
-      {
-        label: 'Events',
-        path: 'admin/events',
-        icon: 'fas fa-share-square'
-      },
-      {
-        label: 'Members',
-        path: 'admin/members',
-        icon: 'fas fa-share-square'
-      },
-      /* {
-        label: 'News',
+        icon: 'fas fa-share-square',
         childs: [
           {
-            label: 'Post news',
+            label: 'All news',
+            path: 'admin/news/all',
+            icon: 'fas fa-share-square'
+          },
+          {
+            label: 'New post',
             path: 'admin/news/post',
             icon: 'fas fa-share-square'
           },
         ]
       },
       {
-        label: 'Content editor',
+        label: 'Events',
+        icon: 'fas fa-share-square',
         childs: [
           {
-            label: 'Home',
-            path: 'admin/contentedit/home',
-            icon: 'fas fa-home'
+            label: 'All events',
+            path: 'admin/events',
+            icon: 'fas fa-share-square'
           },
           {
-            label: 'Activities',
-            path: 'admin/contentedit/activities',
-            icon: 'fas fa-tasks'
-          },
-          {
-            label: 'Communities',
-            path: 'admin/contentedit/communities',
-            icon: 'fas fa-users'
-          },
-          {
-            label: 'Membership',
-            path: 'admin/contentedit/membership',
-            icon: 'fas fa-users-cog'
-          },
-          {
-            label: 'About',
-            path: 'admin/contentedit/about',
-            icon: 'fas fa-info-circle'
-          },
-          {
-            label: 'Footer',
-            path: 'admin/contentedit/footer',
-            icon: 'fas fa-bars'
+            label: 'New event',
+            path: 'admin/events',
+            icon: 'fas fa-share-square'
           },
         ]
-      }, 
+      },
       {
         label: 'Members',
+        icon: 'fas fa-share-square',
         childs: [
           {
-            label: 'Manager',
-            path: 'admin/members/manager',
-            icon: 'fas fa-tasks'
+            label: 'All members',
+            path: 'admin/members',
+            icon: 'fas fa-share-square'
           },
           {
-            label: 'Payments',
-            path: 'admin/members/payments',
-            icon: 'fas fa-money-bill-wave'
+            label: 'New user',
+            path: 'admin/members',
+            icon: 'fas fa-share-square'
+          },
+          {
+            label: 'New admin',
+            path: 'admin/members',
+            icon: 'fas fa-share-square'
+          },
+          {
+            label: 'Reset password',
+            path: 'admin/members',
+            icon: 'fas fa-share-square'
           },
         ]
-      },*/
+      },
+      {
+        label: 'Bills',
+        icon: 'fas fa-share-square',
+        childs: [
+          {
+            label: 'All bills',
+            path: 'admin/events',
+            icon: 'fas fa-share-square'
+          },
+          {
+            label: 'New bill',
+            path: 'admin/events',
+            icon: 'fas fa-share-square'
+          }
+        ]
+      },
     ]
   };
 
