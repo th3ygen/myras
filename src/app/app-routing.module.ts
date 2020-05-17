@@ -58,9 +58,18 @@ import { PageCommunitiesCollaborationsComponent } from './components/pages/commu
 import { PageAdminEventsComponent } from './components/pages/admin/events/events.component';
 import { PageAdminMembersComponent } from './components/pages/admin/members/members.component';
 
+import { PageAdminMembersNewUserComponent } from './components/pages/admin/members/new/user/user.component';
+import { PageAdminMembersNewAdminComponent } from './components/pages/admin/members/new/admin/admin.component';
+
+import { PageAdminMembersResetpassComponent } from './components/pages/admin/members/resetpass/resetpass.component';
+
+import { PageAdminEventsNewComponent } from './components/pages/admin/events/new/new.component';
+
+import { PageAdminBillsComponent } from './components/pages/admin/bills/bills.component';
+import { PageAdminBillsNewComponent } from './components/pages/admin/bills/new/new.component';
+
 // 404 error page
 import { PageNotFoundComponent } from './components/pages/not-found/not-found.component';
-
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -112,7 +121,7 @@ const routes: Routes = [
     { path: 'dashboard', component: PageAdminDashboardComponent },
     { path: 'news', children: [
       { path: 'all', component: PageAdminNewsComponent },
-      { path: 'post', component: PageSharedNewsPostComponent },
+      { path: 'post', component: PageAdminNewsPostComponent },
     ] },
     { path: 'contentedit', children: [
       { path: 'home', component: AdminSharedContenteditComponent },
@@ -122,13 +131,21 @@ const routes: Routes = [
       { path: 'about', component: AdminSharedContenteditComponent },
       { path: 'footer', component: AdminSharedContenteditComponent },
     ] },
-    { path: 'events', component: PageAdminEventsComponent, children: [
-      { path: 'manager', component: PageAdminMembersManagerComponent },
-      { path: 'payments', component: PageAdminMembersPaymentsComponent },
+    { path: 'events', children: [
+      { path: 'all', component: PageAdminEventsComponent },
+      { path: 'new', component: PageAdminEventsNewComponent },
     ] },
-    { path: 'members', component: PageAdminMembersComponent, children: [
-      { path: 'manager', component: PageAdminMembersManagerComponent },
-      { path: 'payments', component: PageAdminMembersPaymentsComponent },
+    { path: 'members', children: [
+      { path: 'all', component: PageAdminMembersComponent },
+      { path: 'new', children: [
+        { path: 'user', component: PageAdminMembersNewUserComponent },
+        { path: 'admin', component: PageAdminMembersNewAdminComponent },
+      ] },
+      { path: 'resetpass', component: PageAdminMembersResetpassComponent },
+    ] },
+    { path: 'bills', children: [
+      { path: 'all', component: PageAdminBillsComponent },
+      { path: 'new', component: PageAdminBillsNewComponent },
     ] },
   ] },
   { path: '**', redirectTo: '/404' },

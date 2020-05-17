@@ -11,6 +11,29 @@ export class PageAdminMembersComponent implements OnInit {
 
   public itemsTick: boolean[] = [];
 
+  public summary  = [
+    {
+      i: 'fas fa-users',
+      label: 'Total members',
+      value: 0,
+    },
+    {
+      i: 'fas fa-user-check',
+      label: 'Active members',
+      value: 0,
+    },
+    {
+      i: 'fas fa-user-plus',
+      label: 'New members',
+      value: 0,
+    },
+    {
+      i: 'fas fa-user-minus',
+      label: 'Closed accounts',
+      value: 0,
+    },
+  ];
+
   public tickAll() {
     this.itemsTick.forEach((t, x) => {
        this.itemsTick[x] = this.tick;

@@ -1,4 +1,17 @@
 <div class="wrapper">
+    <div class="summary">
+        <div class="summary-item" *ngFor="let item of summary">
+            <div class="summary-icon">
+                <i [class]="item.i"></i>
+            </div>
+
+            <div class="summary-value">
+                <span>{{ item.value }}</span>
+                <span>{{ item.label }}</span>
+            </div>
+        </div>
+    </div>
+    
     <div class="events">
         <div class="events-header">
             <i class="fas fa-list"></i>

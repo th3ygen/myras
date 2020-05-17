@@ -101,8 +101,12 @@ import { PageCommunitiesCollaborationsComponent } from './components/pages/commu
 import { PageNotFoundComponent } from './components/pages/not-found/not-found.component';
 import { PageAdminEventsComponent } from './components/pages/admin/events/events.component';
 import { PageAdminMembersComponent } from './components/pages/admin/members/members.component';
-import { UserComponent } from './components/pages/admin/members/new/user/user.component';
-import { AdminComponent } from './components/pages/admin/members/new/admin/admin.component';
+import { PageAdminMembersNewUserComponent } from './components/pages/admin/members/new/user/user.component';
+import { PageAdminMembersNewAdminComponent } from './components/pages/admin/members/new/admin/admin.component';
+import { PageAdminMembersResetpassComponent } from './components/pages/admin/members/resetpass/resetpass.component';
+import { PageAdminEventsNewComponent } from './components/pages/admin/events/new/new.component';
+import { PageAdminBillsComponent } from './components/pages/admin/bills/bills.component';
+import { PageAdminBillsNewComponent } from './components/pages/admin/bills/new/new.component';
 
 @NgModule({
   declarations: [
@@ -164,8 +168,12 @@ import { AdminComponent } from './components/pages/admin/members/new/admin/admin
     PageNotFoundComponent,
     PageAdminEventsComponent,
     PageAdminMembersComponent,
-    UserComponent,
-    AdminComponent,
+    PageAdminMembersNewUserComponent,
+    PageAdminMembersNewAdminComponent,
+    PageAdminMembersResetpassComponent,
+    PageAdminEventsNewComponent,
+    PageAdminBillsComponent,
+    PageAdminBillsNewComponent,
 
   ],
   imports: [

@@ -231,12 +231,12 @@ export class MasterService {
         childs: [
           {
             label: 'All events',
-            path: 'admin/events',
+            path: 'admin/events/all',
             icon: 'fas fa-share-square'
           },
           {
             label: 'New event',
-            path: 'admin/events',
+            path: 'admin/events/new',
             icon: 'fas fa-share-square'
           },
         ]
@@ -247,22 +247,22 @@ export class MasterService {
         childs: [
           {
             label: 'All members',
-            path: 'admin/members',
+            path: 'admin/members/all',
             icon: 'fas fa-share-square'
           },
           {
-            label: 'New user',
-            path: 'admin/members',
+            label: 'New member',
+            path: 'admin/members/new/user',
             icon: 'fas fa-share-square'
           },
-          {
+          /* {
             label: 'New admin',
-            path: 'admin/members',
+            path: 'admin/members/new/admin',
             icon: 'fas fa-share-square'
-          },
+          }, */
           {
             label: 'Reset password',
-            path: 'admin/members',
+            path: 'admin/members/resetpass',
             icon: 'fas fa-share-square'
           },
         ]
@@ -273,12 +273,12 @@ export class MasterService {
         childs: [
           {
             label: 'All bills',
-            path: 'admin/events',
+            path: 'admin/bills/all',
             icon: 'fas fa-share-square'
           },
           {
             label: 'New bill',
-            path: 'admin/events',
+            path: 'admin/bills/new',
             icon: 'fas fa-share-square'
           }
         ]
