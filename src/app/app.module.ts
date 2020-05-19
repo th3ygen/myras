@@ -38,6 +38,7 @@ import { KeyFilterModule } from 'primeng/keyfilter';
 import { DataViewModule } from 'primeng/dataview';
 import { PaginatorModule } from 'primeng/paginator';
 import { OrganizationChartModule } from 'primeng/organizationchart';
+import { PasswordModule } from 'primeng/password';
 /* import { TabViewModule } from 'primeng/tabview'; */
 /* import {DropdownModule} from 'primeng/dropdown'; */
 
@@ -101,12 +102,11 @@ import { PageCommunitiesCollaborationsComponent } from './components/pages/commu
 import { PageNotFoundComponent } from './components/pages/not-found/not-found.component';
 import { PageAdminEventsComponent } from './components/pages/admin/events/events.component';
 import { PageAdminMembersComponent } from './components/pages/admin/members/members.component';
-import { PageAdminMembersNewUserComponent } from './components/pages/admin/members/new/user/user.component';
-import { PageAdminMembersNewAdminComponent } from './components/pages/admin/members/new/admin/admin.component';
 import { PageAdminMembersResetpassComponent } from './components/pages/admin/members/resetpass/resetpass.component';
 import { PageAdminEventsNewComponent } from './components/pages/admin/events/new/new.component';
 import { PageAdminBillsComponent } from './components/pages/admin/bills/bills.component';
 import { PageAdminBillsNewComponent } from './components/pages/admin/bills/new/new.component';
+import { PageAdminMembersNewComponent } from './components/pages/admin/members/new/new.component';
 
 @NgModule({
   declarations: [
@@ -168,12 +168,11 @@ import { PageAdminBillsNewComponent } from './components/pages/admin/bills/new/n
     PageNotFoundComponent,
     PageAdminEventsComponent,
     PageAdminMembersComponent,
-    PageAdminMembersNewUserComponent,
-    PageAdminMembersNewAdminComponent,
     PageAdminMembersResetpassComponent,
     PageAdminEventsNewComponent,
     PageAdminBillsComponent,
     PageAdminBillsNewComponent,
+    PageAdminMembersNewComponent,
 
   ],
   imports: [
@@ -206,6 +205,7 @@ import { PageAdminBillsNewComponent } from './components/pages/admin/bills/new/n
     PanelModule,
     PaginatorModule,
     OrganizationChartModule,
+    PasswordModule
 
   ],
   providers: [

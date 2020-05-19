@@ -247,12 +247,12 @@ export class MasterService {
         childs: [
           {
             label: 'All members',
-            path: 'admin/members/all',
+            path: 'admin/members',
             icon: 'fas fa-share-square'
           },
           {
             label: 'New member',
-            path: 'admin/members/new/user',
+            path: 'admin/members/new',
             icon: 'fas fa-share-square'
           },
           /* {

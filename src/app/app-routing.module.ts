@@ -58,10 +58,9 @@ import { PageCommunitiesCollaborationsComponent } from './components/pages/commu
 import { PageAdminEventsComponent } from './components/pages/admin/events/events.component';
 import { PageAdminMembersComponent } from './components/pages/admin/members/members.component';
 
-import { PageAdminMembersNewUserComponent } from './components/pages/admin/members/new/user/user.component';
-import { PageAdminMembersNewAdminComponent } from './components/pages/admin/members/new/admin/admin.component';
-
 import { PageAdminMembersResetpassComponent } from './components/pages/admin/members/resetpass/resetpass.component';
+
+import { PageAdminMembersNewComponent } from './components/pages/admin/members/new/new.component';
 
 import { PageAdminEventsNewComponent } from './components/pages/admin/events/new/new.component';
 
@@ -136,11 +135,8 @@ const routes: Routes = [
       { path: 'new', component: PageAdminEventsNewComponent },
     ] },
     { path: 'members', children: [
-      { path: 'all', component: PageAdminMembersComponent },
-      { path: 'new', children: [
-        { path: 'user', component: PageAdminMembersNewUserComponent },
-        { path: 'admin', component: PageAdminMembersNewAdminComponent },
-      ] },
+      { path: '', component: PageAdminMembersComponent },
+      { path: 'new', component: PageAdminMembersNewComponent},
       { path: 'resetpass', component: PageAdminMembersResetpassComponent },
     ] },
     { path: 'bills', children: [

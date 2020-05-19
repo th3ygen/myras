@@ -1,0 +1,65 @@
+<div class="wrapper">
+    <div class="form">
+        <div class="header">
+            <i class="fas fa-user-plus"></i>
+            <span>New member account</span>
+        </div>
+
+        <div class="body">
+            <div class="header">
+                <span>Compulsory informations</span>
+            </div>
+            <div class="form-items">
+                <div class="row">
+                    <div class="item">
+                        <div class="label">
+                            <span>Title:</span>
+                        </div>
+                        <div class="input" style="width: fit-content;">
+                            <p-dropdown [options]="DD_TITLES" [(ngModel)]="selectedTitle"></p-dropdown>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="label">
+                            <span>Fullname:</span>
+                        </div>
+                        <div class="input" style="width: 400px;">
+                            <input type="text" pInputText />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="item">
+                        <div class="label">
+                            <span>Username:</span>
+                        </div>
+                        <div class="input" style="width: 200px;">
+                            <input type="text" pInputText />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="item">
+                        <div class="label">
+                            <span>Password option:</span>
+                        </div>
+                        <div class="input" style="width: fit-content">
+                            <p-dropdown [options]="DD_PASS_OPT" [(ngModel)]="selectedPassOpt"></p-dropdown>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="label">
+                            <span>Password:</span>
+                        </div>
+                        <div class="input" style="width: fit-content;">
+                            <input type="password" pPassword [(ngModel)]="inputPass" [value]="(selectedPassOpt) ? generatedPass : ''" [disabled]="selectedPassOpt"/>
+                        </div>
+                    </div>
+                </div>
+
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
