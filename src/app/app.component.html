@@ -1,4 +1,8 @@
 <app-loading></app-loading>
+<ng-container *ngIf="popupVideo">
+  <app-popup-video></app-popup-video>
+</ng-container>
+
 <app-form-register></app-form-register>
 <div *ngIf="!this.userUI">
   <div class="top-navbar" [class.scrolled]="this.scrolled" [class.hide]="this.topnav.hide" [ngClass]="{ 'hovered': (this.currentNavMenu != '') }">

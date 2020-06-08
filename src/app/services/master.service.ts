@@ -28,6 +28,9 @@ export class MasterService {
   private topnavToggleSubject: BehaviorSubject<boolean>;
   public topnavToggle: Observable<boolean>;
 
+  private popupVideoToggleSubject: BehaviorSubject<boolean>;
+  public popupVideoToggle: Observable<boolean>;
+
   public navItems = [
     {
       label: 'Home',
@@ -361,6 +364,10 @@ export class MasterService {
     this.topnavToggleSubject.next(flag);
   }
 
+  public togglePopupVideo(flag: boolean) {
+    this.popupVideoToggleSubject.next(flag);
+  }
+
   constructor(private router: Router, private auth: AuthService) {
     this.loadingSubject = new BehaviorSubject<boolean>(false);
     this.loading = this.loadingSubject.asObservable();
@@ -370,6 +377,9 @@ export class MasterService {
 
     this.topnavToggleSubject = new BehaviorSubject<boolean>(false);
     this.topnavToggle = this.topnavToggleSubject.asObservable();
+
+    this.popupVideoToggleSubject = new BehaviorSubject<boolean>(false);
+    this.popupVideoToggle = this.popupVideoToggleSubject.asObservable();
 
     this.router.events.subscribe(val => {
       this.reset();

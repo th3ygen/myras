@@ -1,0 +1,41 @@
+@import '~video.js/dist/video-js.css';
+
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    height: 100vh;
+    width: 100%;
+
+    background-color: rgba(black, .7);
+
+    z-index: 999;
+
+    & > .btn-exit {
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        height: fit-content;
+        width: fit-content;
+
+        padding: 30px;
+
+        color: white;
+
+        font-size: 30px;
+
+        cursor: pointer;
+    }
+
+    & > .item {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        height: fit-content;
+        width: 1024px;
+    }
+}

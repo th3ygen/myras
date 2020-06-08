@@ -22,10 +22,11 @@ export class PageMembershipComponent implements OnInit {
 
   ngOnInit() {
     this.packages.push({
-      name: 'Student',
-      svg: 'undraw_Graduation_ktn0.svg',
-      brief: 'Register for FREE and enjoy these benefits',
-      price: 0,
+      name: 'Corporate',
+      svg: 'undraw_active_options_8je6.svg',
+      brief: 'Pay only RM200 of our membership fee and enjoy these benefits',
+      price: 200,
+      lifetime: 1000,
 
       features: [
         {
@@ -34,11 +35,28 @@ export class PageMembershipComponent implements OnInit {
         },
         {
           icon: 'fas fa-cog',
-          label: 'Access to MyRAS network of companies and job opportunities'
+          label: 'Have your company logo displayed on the MyRAS official website'
         },
         {
           icon: 'fas fa-cog',
-          label: '10% Discounts for events directly organized by MyRAS'
+          label: 'Give your company\'s product talk at any of MyRAS\'s event for FREE!'
+        },
+        {
+          icon: 'fas fa-cog',
+          label: 'Invitation for Free/Heavily discounted' +
+          ' booth space in major events organized by MyRAS partners and MyRAS co-organized events'
+        },
+        {
+          icon: 'fas fa-cog',
+          label: 'Display your products on our NRX website for FREE!'
+        },
+        {
+          icon: 'fas fa-cog',
+          label: 'Special corporate member discount on our Global Certification Program'
+        },
+        {
+          icon: 'fas fa-cog',
+          label: 'Special offer for co-organized events'
         },
       ]
     });
@@ -81,11 +99,10 @@ export class PageMembershipComponent implements OnInit {
       ]
     });
     this.packages.push({
-      name: 'Corporate',
-      svg: 'undraw_active_options_8je6.svg',
-      brief: 'Pay only RM200 of our membership fee and enjoy these benefits',
-      price: 200,
-      lifetime: 1000,
+      name: 'Student',
+      svg: 'undraw_Graduation_ktn0.svg',
+      brief: 'Register for FREE and enjoy these benefits',
+      price: 0,
 
       features: [
         {
@@ -94,31 +111,15 @@ export class PageMembershipComponent implements OnInit {
         },
         {
           icon: 'fas fa-cog',
-          label: 'Have your company logo displayed on the MyRAS official website'
+          label: 'Access to MyRAS network of companies and job opportunities'
         },
         {
           icon: 'fas fa-cog',
-          label: 'Give your company\'s product talk at any of MyRAS\'s event for FREE!'
-        },
-        {
-          icon: 'fas fa-cog',
-          label: 'Invitation for Free/Heavily discounted' +
-          ' booth space in major events organized by MyRAS partners and MyRAS co-organized events'
-        },
-        {
-          icon: 'fas fa-cog',
-          label: 'Display your products on our NRX website for FREE!'
-        },
-        {
-          icon: 'fas fa-cog',
-          label: 'Special corporate member discount on our Global Certification Program'
-        },
-        {
-          icon: 'fas fa-cog',
-          label: 'Special offer for co-organized events'
+          label: '10% Discounts for events directly organized by MyRAS'
         },
       ]
     });
+
     this.master.setActive(3);
 
     this.headerService.setHeader('Membership');

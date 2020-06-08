@@ -1,4 +1,5 @@
 <div class="wrapper">
+    
     <div class="header-banner">
         <div class="bg-poly-overlay"></div>
         <div class="banner">
@@ -16,6 +17,7 @@
     </div>
 
     <div class="content">
+        <div class="bg-poly-overlay"></div>
         <div class="faq-group" *ngFor="let item of [
         'Activities',
         'Communities',
@@ -25,8 +27,8 @@
                 <span>{{ item }}</span>
             </div>
             <div class="faq-group-items">
-                <p-panel [header]="(x + 1) + '. question here'" [toggleable]="true" [collapsed]="true" *ngFor="let faq of [0, 0, 0, 0, 0]; let x = index;">
-                    answer here
+                <p-panel [header]="(x + 1) + '. Lorem ipsum dolor sit amet, consectetur adipiscing elit?'" [toggleable]="true" [collapsed]="true" *ngFor="let faq of [0, 0, 0, 0, 0]; let x = index;">
+                    Vivamus posuere porttitor tempus. In hac habitasse platea dictumst. Vivamus id ipsum pretium, consequat eros a, tempus nisi. Proin pulvinar, augue nec aliquam cursus, diam orci tincidunt lectus, at commodo augue ex eu massa.
                 </p-panel>
             </div>
         </div>

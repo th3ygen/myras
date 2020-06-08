@@ -13,7 +13,7 @@
 }
 
 .header-banner > .banner > .svg {
-    background: url('../../../../../assets/svg/undraw-edited/banner/communities.svg');
+    background: url('/assets/svg/undraw-edited/banner/communities.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -55,20 +55,28 @@
     & > .highlight {
         position: relative;
 
-        height: 35vw;
+        height: 80vh;
         width: 100%;
-
-        border-radius: 0 15px 0 15px;
 
         overflow: hidden;
 
-        & > .img {
+        & > .item {
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            height: 100%;
+            width: 100%;
+
+            overflow: hidden;
+        }
+
+        & > .item > .img {
             position: absolute;
 
             height: 100%;
             width: 100%;
 
-            background-image: url('../../../../../assets/sunge\ perak.jpg');
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -76,7 +84,7 @@
             transition: 3s all;
         }
 
-        & > .info-overlay {
+        & > .item > .info-overlay {
             position: absolute;
 
             height: 100%;
@@ -192,7 +200,7 @@
             }
         }
 
-        &:hover {
+        & > .item:hover {
             & > .img {
                 transform: scale(1.05);
             }
@@ -211,20 +219,24 @@
 
         margin-top: 30px;
 
-        display: flex;
-        justify-content: space-between;
-
-        & > .child {
+        /* display: flex;
+        justify-content: space-between; */
+        
+        & .child {
             position: relative;
 
             height: 300px;
-            width: 100%;
+            width: 350px;
 
-            margin-right: 20px;
+            margin: 0 auto;
 
-            &:last-child {
+            /* margin-right: 20px; */
+
+            cursor: pointer;
+
+            /* &:last-child {
                 margin-right: 0;
-            }
+            } */
 
             & > .img {
                 position: relative;
@@ -232,7 +244,6 @@
                 height: 100%;
                 width: 100%;
 
-                background-image: url('../../../../../assets/sunge\ perak.jpg');
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -328,7 +339,11 @@
             height: fit-content;
             width: 100%;
             
-            padding: 20px 0;
+            padding: 15px 30px;
+            margin: 15px 0;
+
+            background-color: white;
+            box-shadow: 1px 1px 5px 0 rgba(black, .2);
 
             display: flex;
             justify-content: flex-end;
@@ -358,18 +373,18 @@
             
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
 
             & > .news-card {
                 position: relative;
 
-                height: 400px;
-                width: 350px;
+                height: 300px;
+                width: 300px;
 
-                border-radius: 10px;
+                border-radius: 6px;
                 box-shadow: 2px 2px 5px 0px rgba(black, 0.2);
 
-                margin-bottom: 30px;
+                margin: 20px;
 
                 overflow: hidden;
 
@@ -378,21 +393,33 @@
                     top: 0;
                     left: 0;
 
-                    height: 60%;
+                    height: 75%;
                     width: 100%;
 
-                    background-image: url('../../../../../assets/sunge\ perak.jpg');
+                    background-image: url('/assets/stock/event.jpg');
                     background-position: center;
                     background-repeat: no-repeat;
                     background-size: cover;
                 }
 
-                & > .details-panel {
+                & > .overlay {
                     position: absolute;
-                    top: 60%;
+                    top: 0;
                     left: 0;
 
-                    height: 40%;
+                    height: 75%;
+                    width: 100%;
+
+                    background-color: rgba(black, 0.3);
+
+                }
+
+                & > .details-panel {
+                    position: absolute;
+                    top: 75%;
+                    left: 0;
+
+                    height: 25%;
                     width: 100%;
 
                     padding: 10px 20px;
@@ -403,6 +430,10 @@
                         position: relative;
 
                         font-size: 16px;
+
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
                     }
 
                     & > .item-bot {
@@ -453,675 +484,103 @@
     }
 }
 
-/* .wrapper {
-    position: relative;
-
-    min-height: 100vh;
-    height: fit-content;
-    width: calc(100% - 200px);
-
-    margin: 0 100px;
-    margin-top: 80px;
-}
-
-.container {
+.news-read {
     position: relative;
 
     height: fit-content;
     width: 100%;
 
-    background-color: #fff;
-    border-radius: 5px;
+    border-radius: 6px;
 
-    box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, .1);
+    padding: 30px 0;
 
-    padding: 50px 0;
+    box-shadow: 1px 1px 5px 1px rgba(black, .2);
 
-}
-
-.section {
-    position: relative;
-
-    height: fit-content;
-    width: 100%;
-
-    padding-bottom: 50px;
-}
-
-.highlights-wrapper {
-    position: relative;
-
-    height: 600px;
-    width: 100%;
-
-    background-color: #152342;
-    border-top: 25px solid orange;
-
-    overflow: hidden;
-
-    & > .highlight-img {
-        position: absolute;
-        left: 0;
-        top: 0;
-
-        height: 100%;
-        width: calc(100% - 500px);
-
-        & > .img {
-            height: 100%;
-            width: 100%;
-        }
-
-        &.blur {
-            filter: blur(10px);
-            
-            & > .img {
-                opacity: .3;
-            }
-        }
-    }
-
-    & > .highlight-title {
-        position: absolute;
-        bottom: 50px;
-        left: 0;
-
-        height: 100px;
-        width: 50%;
-
-        background-color: orange;
-
-        font-size: 30px;
-        font-weight: bold;
-        color: white;
-
-        line-height: 100px;
-
-        padding-left: 20px;
-
-        clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
-
-        &.b {
-            bottom: 35px;
-
-            width: calc(50% + 20px);
-
-            background-color: #152342;
-
-            
-        }
-
-        transition: .3s all;
-        &:hover {
-            opacity: .05;
-        }
-    }
-
-    & > .highlight-nav {
-        position: absolute;
-        right: 40px;
-        top: 0;
-
-        height: 100%;
-        width: 460px;
-
-        & .highlight-nav-item {
-            position: relative;
-
-            padding: 5px 0;
-            border-bottom: 1px solid orange;
-            
-
-            height: 162px;
-            width: 100%;
-
-            color: white;
-
-            border: 2px solid transparent;
-
-            transition: .3s all;
-            &:hover {
-                cursor: pointer;
-
-                border: 2px solid rgba(255, 166, 0, 0.747);
-            }
-
-            & > .brief {
-                position: absolute;
-                left: 0;
-                top: 0;
-
-                height: 100%;
-                width: calc(100% - 180px);
-
-                & > .bheader {
-                    height: 50px;
-                    width: 100%;
-
-                    padding-left: 10px;
-
-                    line-height: 50px;
-
-                    font-weight: bold;
-                    font-size: 20px;
-
-                    color: orange;
-                }
-
-                & > .bbody {
-                    height: calc(100% - 50px);
-                    width: 100%;
-
-                    padding: 10px;
-
-                    font-size: 15px;
-                }
-            }
-
-            & > .img {
-                position: absolute;
-                right: 0;
-                top: 0;
-
-                height: 100%;
-                width: 200px;
-            }   
-            
-        }
-    }
-}
-
-:host ::ng-deep {
-    .ui-carousel {
-        height: 100%;
-    }
-    .ui-carousel-content {
-        height: 100%;
-    }
-    .ui-carousel-container {
-        height: 100%;
-    }
-    .ui-carousel-items-container {
-        height: 100%;
-    }
-    .ui-carousel-dots-container{
-        display: none !important;
-    }
-}
-
-.news-wrapper {
-    position: relative;
-
-    height: 100%;
-    width: 100%;
-}
-
-.trending-news-bar {
-    position: relative;
-
-    height: fit-content;
-    width: 100%;
-
-    display: flex;
-
-    & > .label {
+    & > .title {
         position: relative;
 
         height: fit-content;
-        width: 190px;
-
-        padding: 10px 25px;
-
-        white-space: nowrap;
-        background-color: orange;
-        color: white;
-
-        text-transform: uppercase;
-
-        &::before {
-            content: '';
-            
-            position: absolute;
-            right: -0.5px;
-            top: 0;
-
-            height: 100%;
-            width: 20px;
-
-            background-color: white;
-
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 100% 50%);
-        }
-    }
-
-    & > .value {
-        position: relative;
-
-        height: 100%;
-        width: calc(100% - 190px);
-    }
-}
-
-.trending-news-bar-items {
-    position: relative;
-
-    height: 100%;
-    width: 100%;
-
-    & .item {
-        position: relative;
-
-        height: 100%;
         width: 100%;
 
-        & > .title {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
+        font-size: 40px;
+
+        padding: 10px 50px
+    }
+
+    & > .stats {
+        position: relative;
+
+        height: fit-content;
+        width: fit-content;
+
+        display: flex;
+
+        padding: 10px 50px;
+        margin-bottom: 30px;
+
+        & > .item {
+            position: relative;
 
             height: fit-content;
-            width: 100%;
-            
-            padding: 0 30px;
+            width: fit-content;
 
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
+            padding-right: 30px;
 
-            color: gray;
-
+            &.author {
+                color: gray;
+            }
+            &.date {
+                color: gray;
+            }
+            &.ecluster {
+                color: orange;
+                font-weight: bold;
+            }
         }
     }
-}
-
-.news-row {
-    position: relative;
-
-    height: 70vh;
-    width: 100%;
-
-    display: flex;
-    justify-content: space-between;
-}
-
-.news-highlights {
-    position: relative;
-
-    height: 100%;
-    width: 100%;
 
     & > .img {
         position: relative;
 
-        height: 100%;
+        height: 80vh;
         width: 100%;
 
-        background-image: url('../../../../../assets/panaroma-city.jpg');
+        background-image: url('/assets/stock/event.jpg');
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
     }
 
-    z-index: 1;
-
-    & > .dark-overlay {
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        right: 0;
-
-        background: radial-gradient(circle, rgba(0,0,0,0.19681375968356096) 0%, rgba(0,0,0,1) 100%);
-        opacity: .4;
-        z-index: 2;
-    }
-
-    & > .overlay {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-
-        height: 200px;
-        width: 100%;
-
-        background-color: rgba(black, .1);
-
-        color: white;
-
-        z-index: 3;
-        & > .cluster {
-            position: relative;
-
-            height: fit-content;
-            width: fit-content;
-
-            color: white;
-            background-color: orange;
-
-            padding: 5px 15px;
-            margin-left: 30px;
-
-            text-transform: uppercase;
-            font-weight: bold;
-
-            &::before {
-                content: '';
-                
-                position: absolute;
-                right: -17.5px;
-                top: 0;
-    
-                height: 100%;
-                width: 18px;
-    
-                background-color: orange;
-    
-                clip-path: polygon(0 0, 0% 100%, 100% 50%);
-            }
-        }
-
-        & > .title {
-            position: relative;
-
-            height: fit-content;
-            max-width: 600px;
-            width: fit-content;
-
-            font-size: 35px;
-            font-weight: bold;
-            color: white;
-
-            padding: 10px 0;
-            margin-left: 30px;
-
-        }
-
-        & > .info-items {
-            position: relative;
-
-            height: fit-content;
-            width: 100%;
-
-            margin-left: 30px;
-
-            display: flex;
-
-            & > div {
-                position: relative;
-
-                height: fit-content;
-                width: fit-content;
-
-                padding: 10px 20px;
-
-                &:nth-child(1) {
-                    padding-left: 0;
-                }
-            }
-        }
-
-        & > .action-items {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-
-            height: fit-content;
-            width: 100%;
-
-            padding: 15px 30px;
-
-            background: linear-gradient(180deg, rgba(0,0,0,0.19681375968356096) 0%, rgba(0,0,0,1) 100%);
-
-            display: flex;
-            justify-content: space-between;
-        }
-    }
-}
-
-.news-nav {
-    position: relative;
-
-    height: 100%;
-    width: 500px;
-
-    background-color: #efeff2;
-
-    display: flex;
-    flex-direction: column;
-
-    & > .header {
+    & > .content {
         position: relative;
 
-        height: 60px;
+        height: fit-content;
+        width: 100%;
+
+        font-size: 18px;
+
+        padding: 50px 80px;
+
+        text-align: justify;
+    }
+
+    & > .btn-back {
+        position: relative;
+
+        height: fit-content;
         width: fit-content;
 
-        padding: 15px 30px;
+        padding: 10px 40px;
+        margin: 0 auto;
 
-        color: orange;
-        font-size: 18px;
-    }
+        background-color: orange;
 
-    & > .nav-body {
-        position: relative;
+        border-radius: 60px;
 
-        height: 100%;
-        width: 100%;
-    }
-}
+        cursor: pointer;
 
-.trending-news-nav-items {
-    position: relative;
-
-    height: 100%;
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-
-    & > .item {
-        position: relative;
-
-        height: fit-content;
-        width: 100%;
-
-        padding: 10px;
-
-        display: flex;
-
-        & > .img {
-            position: relative;
-
-            height: 90px;
-            width: 200px;
-
-            background-color: green;
-
-            margin-right: 10px;
-        }
-
-        & > .info {
-            position: relative;
-
-            height: fit-content;
-            width: 100%;
-
-            display: flex;
-            flex-direction: column;
+        & > i {
+            padding-right: 10px;
         }
     }
 }
-
-.cluster-news-wrapper {
-    position: relative;
-
-    height: fit-content;
-    width: 100%;
-
-    & > .cluster {
-        position: relative;
-
-        height: fit-content;
-        width: 100%;
-
-        & > .header {
-            position: relative;
-    
-            height: fit-content;
-            width: 100%;
-    
-            border-bottom: 2px solid orange;
-    
-            padding: 5px 15px; 
-    
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        & > .body {
-            position: relative;
-
-            height: fit-content;
-            width: 100%;
-
-            padding: 30px;
-
-            & > .cluster-news-items {
-                position: relative;
-
-                height: fit-content;
-                width: 100%;
-
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-around;
-
-                & > .cluster-news-item {
-                    position: relative;
-
-                    height: 300px;
-                    width: 350px;
-                    min-width: 300px;
-
-                    box-shadow: 1px 1px 5px 0 rgba(black, 1);
-
-                    margin-bottom: 30px;
-
-                    overflow: hidden;
-                    cursor: pointer;
-
-                    & > .content {
-                        position: relative;
-
-                        height: 100%;
-                        width: 100%;
-
-                        & > .img {
-                            position: absolute;
-                            left: 0;
-                            top: 0;
-
-                            height: 100%;
-                            width: 100%;
-
-                            background-image: url('../../../../../assets/sunge\ perak.jpg');
-                            background-position: center;
-                            background-repeat: no-repeat;
-                            background-size: cover;
-
-                            pointer-events: none;
-
-                            z-index: 2;
-                        }
-
-                        & > .img-bg {
-                            position: absolute;
-                            left: 0;
-                            top: 0;
-
-                            height: 100%;
-                            width: 100%;
-
-                            background-image: url('../../../../../assets/sunge\ perak.jpg');
-                            background-position: center;
-                            background-repeat: no-repeat;
-                            background-size: cover;
-
-                            filter: blur(10px);
-
-                            pointer-events: none;
-
-                            z-index: 1;
-                        }
-                    }
-
-                    & > .title {
-                        position: absolute;
-                        bottom: 0;
-                        left: 0;
-
-                        padding: 10px;
-
-                        font-weight: bold;
-                        font-size: 18px;
-                        color: white;
-
-                        z-index: 6;
-                        transition: .3s all;
-                    }
-
-                    & > .info-items {
-                        position: absolute;
-                        bottom: -30%;
-                        left: 0;
-
-                        height: 30%;
-                        width: 100%;
-
-                        padding: 10px;
-
-                        background-color: white;
-
-                        display: flex;
-                        justify-content: space-between;
-
-                        transition: .3s all;
-
-                        z-index: 5;
-
-                        & > .info-item {
-                            position: relative;
-
-                            height: 100%;
-                            width: fit-content;
-
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: flex-end;
-
-                            & > span {
-                                display: inline-block;
-                            }
-                        }
-                    }
-
-                    &:hover {
-                        & > .title {
-                            bottom: 13%;
-                            color: black;
-                        }
-                        & > .info-items {
-                            bottom: 0;
-                        }
-                    }
-
-                    &.hidden {
-                        opacity: 0;
-                        pointer-events: none;
-                    }
-                }
-            }
-        }
-    }
-    
-} */

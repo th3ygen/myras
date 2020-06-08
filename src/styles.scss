@@ -17,6 +17,12 @@ body {
     /* scroll-behavior: smooth; */
 }
 
+:host ::ng-deep {
+    .ui-button {
+        background-color: orange !important;
+    }
+}
+
 .bg-poly-overlay {
     position: absolute;
     left: 0;

@@ -1,0 +1,46 @@
+:host ::ng-deep {
+
+    .ui-breadcrumb  {
+        background-color: transparent !important;
+
+        border: none;
+    }
+
+    .ui-breadcrumb-home {
+        font-size: 15px;
+        color: white;
+    }
+
+    .ui-menuitem-text {
+        color: white;
+
+        font-size: 15px;
+    }
+
+    .ui-button {
+        background-color: orange !important;
+        border: none !important;
+    }
+
+    .ui-state-highlight {
+        background-color: orange !important;
+    }
+
+    .ui-carousel-content {
+        padding: 0;
+    }
+    .ui-carousel-next, .ui-carousel-prev {
+        display: none !important;
+    }
+
+    .ui-carousel-dot-item .ui-button {
+        background-color: transparent !important;
+    }
+    .ui-carousel-dot-item.ui-state-highlight {
+        background-color: transparent !important;
+    }
+
+    .ui-carousel-dot-item.ui-state-highlight .ui-carousel-dot-icon {
+        background-color: orange !important;
+    }
+}

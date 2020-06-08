@@ -33,6 +33,7 @@
     "rxjs": "~6.5.4",
     "shortid": "^2.2.15",
     "tslib": "^1.10.0",
+    "video.js": "^7.8.2",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

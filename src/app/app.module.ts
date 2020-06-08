@@ -107,6 +107,7 @@ import { PageAdminEventsNewComponent } from './components/pages/admin/events/new
 import { PageAdminBillsComponent } from './components/pages/admin/bills/bills.component';
 import { PageAdminBillsNewComponent } from './components/pages/admin/bills/new/new.component';
 import { PageAdminMembersNewComponent } from './components/pages/admin/members/new/new.component';
+import { PopupVideoComponent } from './components/popup/video/video.component';
 
 @NgModule({
   declarations: [
@@ -173,6 +174,7 @@ import { PageAdminMembersNewComponent } from './components/pages/admin/members/n
     PageAdminBillsComponent,
     PageAdminBillsNewComponent,
     PageAdminMembersNewComponent,
+    PopupVideoComponent,
 
   ],
   imports: [
@@ -205,7 +207,8 @@ import { PageAdminMembersNewComponent } from './components/pages/admin/members/n
     PanelModule,
     PaginatorModule,
     OrganizationChartModule,
-    PasswordModule
+    PasswordModule,
+    KeyFilterModule
 
   ],
   providers: [

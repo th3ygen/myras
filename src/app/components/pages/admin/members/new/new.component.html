@@ -7,9 +7,117 @@
 
         <div class="body">
             <div class="header">
+                <span>Form checklist</span>
+                <span>Complete the checklist given below to create a new member account</span>
+            </div>
+            <div class="form-checklist" [ngClass]="{ 'init': (checklistStatus === 'init'), 'done': (checklistStatus === 'done'), 'error': (checklistStatus === 'error') }">
+                <div class="items">
+                    <div class="item" *ngFor="let item of formChecklist">
+                        <div class="check" [class]="item.status">
+                            <ng-container [ngSwitch]="item.status">
+                                <ng-container *ngSwitchCase="'done'">
+                                    <i class="fas fa-check"></i>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'error'">
+                                    <i class="fas fa-times"></i>
+                                </ng-container>
+                                <ng-container *ngSwitchDefault>
+                                    <i class="fas fa-minus"></i>
+                                </ng-container>
+                            </ng-container>
+                            <span>{{ item.label }}</span>
+                        </div>
+                        <div class="msg">
+                            <span *ngIf="(item.status === 'error')">
+                                <span>{{ item.msg.error[item.errorItem] }}</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header">
                 <span>Compulsory informations</span>
             </div>
             <div class="form-items">
+                <div class="row">
+                    <div class="item">
+                        <div class="label">
+                            <span>Account key:</span>
+                        </div>
+                        <div class="input" style="width: 400px;">
+                            <input type="text" pInputText [(ngModel)]="accountKey"/>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="label">
+                            <span>Validate key:</span>
+                        </div>
+                        <div class="input" style="width: 200px;">
+                            <p-button label="Validate" ></p-button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="item">
+                        <div class="msg">
+                            <span>Creating an account will require <b>Account key</b> <br>(can be retrieved from master account)</span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="item">
+                        <div class="label">
+                            <span>Account level:</span>
+                        </div>
+                        <div class="input" style="width: fit-content;">
+                            <p-dropdown [options]="DD_ACCOUNT" [(ngModel)]="selectedAccLvl"></p-dropdown>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="(selectedAccLvl === 'user')">
+                    <div class="form-items nested">
+                        <div class="row">
+                            <div class="item">
+                                <div class="label">
+                                    <span>Membership plan:</span>
+                                </div>
+                                <div class="input" style="width: fit-content;">
+                                    <p-dropdown [options]="DD_PLAN" [(ngModel)]="selectedPlan"></p-dropdown>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="label">
+                                    <span>Type:</span>
+                                </div>
+                                <div class="input" style="width: fit-content;">
+                                    <p-checkbox name="lifetime" label="Lifetime" [binary]="true" [(ngModel)]="lifetime"></p-checkbox>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="label">
+                                    <span>Payment status:</span>
+                                </div>
+                                <div class="input" style="width: fit-content;">
+                                    <p-checkbox name="paid" label="Paid" [binary]="true" [(ngModel)]="paid"></p-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="item">
+                                <div class="label">
+                                    <span>Cluster:</span>
+                                </div>
+                                <div class="input" style="width: fit-content;">
+                                    <p-dropdown [options]="DD_CLUSTER" [(ngModel)]="selectedCluster"></p-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </ng-container>
+                
                 <div class="row">
                     <div class="item">
                         <div class="label">
@@ -37,29 +145,353 @@
                             <input type="text" pInputText />
                         </div>
                     </div>
+                    <div class="item">
+                        <div class="label">
+                            <span>Validate username:</span>
+                        </div>
+                        <div class="input" style="width: 200px;">
+                            <p-button label="Validate" ></p-button>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="item">
                         <div class="label">
-                            <span>Password option:</span>
+                            <span>Email:</span>
                         </div>
-                        <div class="input" style="width: fit-content">
-                            <p-dropdown [options]="DD_PASS_OPT" [(ngModel)]="selectedPassOpt"></p-dropdown>
+                        <div class="input" style="width: 200px;">
+                            <input type="text" pInputText pKeyFilter="email">
                         </div>
                     </div>
+                    <div class="item">
+                        <div class="label">
+                            <span>Validate email:</span>
+                        </div>
+                        <div class="input" style="width: 200px;">
+                            <p-button label="Validate" ></p-button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="item">
                         <div class="label">
                             <span>Password:</span>
                         </div>
                         <div class="input" style="width: fit-content;">
-                            <input type="password" pPassword [(ngModel)]="inputPass" [value]="(selectedPassOpt) ? generatedPass : ''" [disabled]="selectedPassOpt"/>
+                            <input type="password" pPassword [value]="generatedPass" disabled="true"/>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="item">
+                        <div class="msg">
+                            <span>Account password is auto generated and will be sent to their email shortly after account creation</span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="header">
+                <span>Additional informations [OPTIONAL]</span>
+                <span>You may skip this form and scroll directly to the bottom of the page to submit</span>
+            </div>
+            <div class="form-items ">
+                <div class="row">
+                    <div class="item">
+                        <div class="label">
+                            <span>ID type:</span>
+                        </div>
+                        <div class="input" style="width: fit-content;">
+                            <p-dropdown [options]="DD_ID_TYPE" [(ngModel)]="selectedIdType"></p-dropdown>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="label">
+                            <span>ID number:</span>
+                        </div>
+                        <div class="input" style="width: 400px;">
+                            <input type="text" pInputText pKeyFilter="int" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="item">
+                        <div class="label">
+                            <span>Date of birth:</span>
+                        </div>
+                        <div class="input" style="width: fit-content;">
+                            <p-calendar [(ngModel)]="dob"></p-calendar>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="item">
+                        <div class="label">
+                            <span>Nationality:</span>
+                        </div>
+                        <div class="input" style="width: fit-content;">
+                            <input type="text" pInputText pKeyFilter="alpha" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="item">
+                        <div class="label">
+                            <span>Mailing address:</span>
+                        </div>
+                        <div class="input" style="width: 400px;">
+                            <input type="text" pInputText/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="item">
+                        <div class="label">
+                            <span>City:</span>
+                        </div>
+                        <div class="input" style="width: fit-content;">
+                            <input type="text" pInputText />
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="label">
+                            <span>Post code:</span>
+                        </div>
+                        <div class="input" style="width: fit-content;">
+                            <input type="text" pInputText />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="item">
+                        <div class="label">
+                            <span>State:</span>
+                        </div>
+                        <div class="input" style="width: fit-content;">
+                            <input type="text" pInputText />
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="label">
+                            <span>Country:</span>
+                        </div>
+                        <div class="input" style="width: fit-content;">
+                            <input type="text" pInputText />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="item">
+                        <div class="label">
+                            <span>Mobile number:</span>
+                        </div>
+                        <div class="input" style="width: fit-content;">
+                            <input type="text" pInputText pKeyFilter="int" />
                         </div>
                     </div>
                 </div>
 
-                
-                
+                <div class="header" style="margin-bottom: 15px; padding-left: 10px;">
+                    <span>Company details</span>
+                </div>
+                <div class="form-items nested">
+                    <div class="row">
+                        <div class="item">
+                            <div class="label">
+                                <span>Company name:</span>
+                            </div>
+                            <div class="input" style="width: fit-content;">
+                                <input type="text" pInputText />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="item">
+                            <div class="label">
+                                <span>Nature of business:</span>
+                            </div>
+                            <div class="input" style="width: fit-content;">
+                                <input type="text" pInputText />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="item">
+                            <div class="label">
+                                <span>Company sectors:</span>
+                            </div>
+                            <div class="input" style="width: 500px; display: flex; ;flex-wrap: wrap;">
+                                <div style="
+                                    position: relative;
+
+                                    height: fit-content;
+                                    width: fit-content;
+
+                                    padding-right: 10px;
+                                    padding-bottom: 10px; 
+                                " *ngFor="let item of ['Agriculture', 'Defence', 'Edutainment', 'SME', 'Healthcare', 'Oil & Gas', 'Smart city']">
+                                    <p-checkbox [label]="item" [binary]="true"></p-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="item">
+                            <div class="label">
+                                <span>Job title:</span>
+                            </div>
+                            <div class="input" style="width: fit-content;">
+                                <input type="text" pInputText />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="item">
+                            <div class="label">
+                                <span>Company address:</span>
+                            </div>
+                            <div class="input" style="width: 400px;">
+                                <input type="text" pInputText />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="item">
+                            <div class="label">
+                                <span>City:</span>
+                            </div>
+                            <div class="input" style="width: fit-content;">
+                                <input type="text" pInputText />
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="label">
+                                <span>Post code:</span>
+                            </div>
+                            <div class="input" style="width: fit-content;">
+                                <input type="text" pInputText />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="item">
+                            <div class="label">
+                                <span>State:</span>
+                            </div>
+                            <div class="input" style="width: fit-content;">
+                                <input type="text" pInputText />
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="label">
+                                <span>Country:</span>
+                            </div>
+                            <div class="input" style="width: fit-content;">
+                                <input type="text" pInputText />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="item">
+                            <div class="label">
+                                <span>Office phone number:</span>
+                            </div>
+                            <div class="input" style="width: fit-content;">
+                                <input type="text" pInputText pKeyFilter="int" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header" style="margin-bottom: 15px; padding-left: 10px;">
+                    <span>Student details</span>
+                </div>
+                <div class="form-items nested">
+                    <div class="row">
+                        <div class="item">
+                            <div class="label">
+                                <span>University name:</span>
+                            </div>
+                            <div class="input" style="width: fit-content;">
+                                <input type="text" pInputText />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="item">
+                            <div class="label">
+                                <span>Student ID:</span>
+                            </div>
+                            <div class="input" style="width: fit-content;">
+                                <input type="text" pInputText />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="item">
+                            <div class="label">
+                                <span>Course:</span>
+                            </div>
+                            <div class="input" style="width: fit-content;">
+                                <input type="text" pInputText />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="item">
+                            <div class="label">
+                                <span>University address:</span>
+                            </div>
+                            <div class="input" style="width: 400px;">
+                                <input type="text" pInputText />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="item">
+                            <div class="label">
+                                <span>City:</span>
+                            </div>
+                            <div class="input" style="width: fit-content;">
+                                <input type="text" pInputText />
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="label">
+                                <span>Post code:</span>
+                            </div>
+                            <div class="input" style="width: fit-content;">
+                                <input type="text" pInputText />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="item">
+                            <div class="label">
+                                <span>State:</span>
+                            </div>
+                            <div class="input" style="width: fit-content;">
+                                <input type="text" pInputText />
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="label">
+                                <span>Country:</span>
+                            </div>
+                            <div class="input" style="width: fit-content;">
+                                <input type="text" pInputText />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <div class="btn-submit">
+                <p-button label="Create new account" [disabled]="!(checklistStatus === 'done')"></p-button>
+            </div>
+            
         </div>
     </div>
+    
 </div>

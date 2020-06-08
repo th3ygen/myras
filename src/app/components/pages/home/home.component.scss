@@ -1,10 +1,21 @@
 
 @import '../../../theme/colors.scss';
 
+:host ::ng-deep {
+    .ui-carousel-content {
+    }
+    .ui-carousel-next, .ui-carousel-prev {
+        display: none;
+    }
+    .ui-carousel-item {
+        overflow: hidden;
+    }
+}
+
 .section {
     position: relative;
 
-    height: 100vh;
+    height: fit-content;
     width: 100%;
 
     & > .section-header {
@@ -53,6 +64,7 @@
     }
 
     &.s1 {
+        height: 103vh;
         background-color: rgb(15, 37, 87);
     }
     &.s2 {
@@ -138,13 +150,16 @@
             }
         }
     }
+    &.s4 > .section-body {
+        padding: 0 8%;
+    }
 
     overflow: hidden;
 }
 
 .poly-0 {
     position: absolute;
-    bottom: 0;
+    bottom: -1px;
     left: 0;
 
     height: 100px;
@@ -309,50 +324,6 @@
 
     /* border-bottom: 3px solid rgba(0,0,0,.3); */
 }
-
-/* .carousel-item {
-    position: absolute;
-    top: 0;
-
-    height: 100%;
-    width: 50%;
-
-    color: blue;
-    &:nth-child(1) {
-        left: 0;
-    }
-    &:nth-child(2) {
-        left: 50%;
-    }
-} */
-/* 
-.carousel-item {
-    position: relative;
-    height: 100%;
-}
-
-
-
-.c-div {
-    position: absolute;
-    top: 0;
-
-    height: 100%;
-    width: 50%;
-
-    color: blue !important;
-
-    &:nth-child(1) {
-        left: 0;
-
-        background-color: crimson;
-    }
-    &:nth-child(2) {
-        left: 50%;
-
-        background-color: lime;
-    }
-} */
 
 .s3 {
     & > .header {
@@ -780,4 +751,68 @@
     }
 }
 
+.partners {
+    position: relative;
+
+    height: fit-content;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 50px;
+
+    & > .item {
+        position: relative;
+
+        height: fit-content;
+        width: 100%;
+
+        & > .partner-label {
+            position: relative;
+    
+            height: fit-content;
+            width: fit-content;
+    
+            font-size: 30px;
+    
+            padding: 5px 30px;
+
+            border-bottom: 2px solid orange;
+        }
+
+        & > .body {
+            position: relative;
+
+            height: fit-content;
+            width: 100%;
+
+            & .logo {
+                display: block;
+                position: relative;
+
+                height: 200px;
+                width: 250px;
+
+                margin: 0 auto;
+
+                filter: grayscale(1);
+                opacity: .7;
+
+                /* background-image: url('../../../../assets/myras-logo.png'); */
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+
+                cursor: pointer;
+
+                transition: .3s all;
+                &:hover {
+                    opacity: 1;
+                    filter: grayscale(0);
+                }
+            }
+        }
+    }
+}
 

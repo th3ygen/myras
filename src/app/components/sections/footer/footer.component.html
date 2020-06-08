@@ -4,6 +4,9 @@
     </div>
     <div class="container">
         <div class="navs">
+            <div class="home" [routerLink]="'/home'" >
+                <span>Back to home</span>
+            </div>
             <div class="items">
                 <div class="item" *ngFor="let item of navItems">
                     <div class="header">
@@ -11,7 +14,7 @@
                     </div>
                     <div class="child">
                         <div class="items">
-                            <div class="item" *ngFor="let child of item.menu">
+                            <div class="item" [routerLink]="child.path" *ngFor="let child of item.menu">
                                 <span>{{ child.label }}</span>
                             </div>
                         </div>
@@ -25,15 +28,15 @@
                 <span>Follow us on</span>
             </div>
             <div class="items">
-                <div class="item">
+                <a class="item" target="_blank" href="https://facebook.com/Malaysia.RAS/">
                     <i class="fab fa-facebook-square"></i>
-                </div>
-                <div class="item">
+                </a>
+                <a class="item" target="_blank" href="https://instagram.com">
                     <i class="fab fa-instagram-square"></i>
-                </div>
-                <div class="item">
+                </a>
+                <a class="item" target="_blank" href="https://twitter.com">
                     <i class="fab fa-twitter-square"></i>
-                </div>
+                </a>
             </div>
         </div>
     </div>

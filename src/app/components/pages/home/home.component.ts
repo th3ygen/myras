@@ -4,8 +4,38 @@ import { Router } from '@angular/router';
 import { MasterService } from '../../../services/master.service';
 import { NewsService } from '../../../services/news.service';
 
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
+
 @Component({
   selector: 'app-page-home',
+  animations: [
+    trigger(
+      'inOutAnimation', [
+        transition(
+          ':enter', [
+            style({
+              transform: 'translateY(-300px)',
+              opacity: 0
+            }),
+            animate(
+              '.3s ease-out',
+              style({
+                transform: 'translateY(0)',
+                opacity: 1
+              })
+            )
+          ]
+        )
+      ]
+    )
+  ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -84,6 +114,100 @@ export class PageHomeComponent implements OnInit {
     },
   ];
 
+  public partners = {
+    international: {
+      label: 'International',
+      items: [
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+      ]
+    },
+    local: {
+      label: 'Local',
+      items: [
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+      ]
+    },
+    sponsors: {
+      label: 'Sponsors',
+      items: [
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+        {
+          logo: '../../../../assets/myras-logo.png',
+        },
+      ]
+    }
+  };
+
+  obj2Arr(obj): Array<any> {
+    return Object.keys(obj);
+  }
+
   routeTo(path: string) {
     this.router.navigateByUrl(path);
   }
@@ -93,6 +217,10 @@ export class PageHomeComponent implements OnInit {
   }
   headerPrev() {
     this.headerContentIndex = (this.headerContentIndex === 0) ? 3 : this.headerContentIndex - 1;
+  }
+
+  togglePopupVideo(flag: boolean) {
+    this.master.togglePopupVideo(flag);
   }
 
   constructor(private master: MasterService, private router: Router, private newsService: NewsService) {

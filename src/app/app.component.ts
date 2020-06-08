@@ -29,6 +29,7 @@ export class AppComponent implements OnInit, AfterViewChecked, AfterViewInit {
   public scrolled = false;
   public topnav;
   public footer;
+  public popupVideo = false;
 
   public userUI = false;
 
@@ -55,6 +56,10 @@ export class AppComponent implements OnInit, AfterViewChecked, AfterViewInit {
 
   public toggleSidebar() {
     this.showSidebar = !this.showSidebar;
+  }
+
+  public togglePopupVideo(flag: boolean) {
+    this.master.togglePopupVideo(flag);
   }
 
   ngOnInit() {
@@ -137,6 +142,9 @@ export class AppComponent implements OnInit, AfterViewChecked, AfterViewInit {
 
     this.master.topnavToggle.subscribe(flag => {
       this.scrolled = flag;
+    });
+    this.master.popupVideoToggle.subscribe(flag => {
+      this.popupVideo = flag;
     });
 
     this.breadcrumbItems = this.master.getBreadcrumbItems();

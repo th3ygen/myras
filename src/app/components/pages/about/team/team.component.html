@@ -16,6 +16,53 @@
     </div>
 
     <div class="content">
-        in progress sabo2
+        <div class="bg-poly-overlay"></div>
+        <div class="org-chart">
+            <div class="label">
+                <span>Meet the leaders</span>
+            </div>
+            <div class="chart">
+                <p-organizationChart [value]="orgChartLv0" [preserveSpace]="false" styleClass="company">
+                    <ng-template let-node pTemplate="default">
+                        <div class="photo" [style.backgroundImage]="'url(' + node.data.image + ')'">
+                        </div>
+                        <div class="name">
+                            <span>{{ node.data.name }}</span>
+                        </div>
+                        <div class="contacts">
+                            <a target="blank_" [href]="c.link" *ngFor="let c of node.data.contacts">
+                                <i [class]="c.icon"></i>
+                            </a>
+                        </div>
+                        <div class="role">
+                            <span>{{ node.label }}</span>
+                        </div>
+                    </ng-template>
+                </p-organizationChart>
+            </div>
+        </div>
+        <div class="org-chart">
+            <div class="label">
+                <span>The exco members</span>
+            </div>
+            <div class="excos">
+                <div class="exco" *ngFor="let node of orgChartLv2">
+                    <div class="photo" [style.backgroundImage]="'url(' + node.data.image + ')'">
+                    </div>
+                    <div class="name">
+                        <span>{{ node.data.name }}</span>
+                    </div>
+                    <div class="contacts">
+                        <a target="blank_" [href]="c.link" *ngFor="let c of node.data.contacts">
+                            <i [class]="c.icon"></i>
+                        </a>
+                    </div>
+                    <div class="role">
+                        <span>{{ node.label }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </div>
