@@ -18,8 +18,8 @@ import { catchError, map } from 'rxjs/operators';
 
 
 export class AuthService {
-  private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<User>;
+  private currentUserSubject: BehaviorSubject<any>;
+  public currentUser: Observable<any>;
 
   public refreshAccessToken(): Observable<any> {
     return this.http.post<any>(ROUTE_CONFIG.auth.refreshToken, { refreshToken: this.currentUserValue.refreshToken })
@@ -43,11 +43,12 @@ export class AuthService {
   }
 
   public logout() {
+    localStorage.removeItem('token');
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
     /* return this.http.delete<any>(ROUTE_CONFIG.auth.logout)
     .pipe(map(data => {
-      
+
     })); */
 
   }
@@ -55,9 +56,11 @@ export class AuthService {
   public login(username: string, password: string): Observable<any> {
     return this.http.post<any>(ROUTE_CONFIG.auth.login, {username, password})
       .pipe(map(data => {
+        localStorage.setItem('token', data.token);
         localStorage.setItem('currentUser', JSON.stringify(data.user));
+        // tslint:disable-next-line: no-string-literal
         this.currentUserSubject.next(data.user);
-        return data.user;
+        return data;
       }));
   }
 

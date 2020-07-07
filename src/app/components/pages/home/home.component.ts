@@ -228,7 +228,8 @@ export class PageHomeComponent implements OnInit {
 
   public loadNews() {
     this.master.setLoading(true);
-    this.newsService.getLatestNews(10).subscribe(data => {
+    this.master.setLoading(false);
+    /* this.newsService.getLatestNews(10).subscribe(data => {
       data.forEach(e => {
         this.news.push({
           title: e.header,
@@ -238,7 +239,7 @@ export class PageHomeComponent implements OnInit {
       });
       this.loaded = true;
       this.master.setLoading(false);
-    });
+    }); */
 
   }
 

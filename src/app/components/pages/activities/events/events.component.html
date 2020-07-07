@@ -20,7 +20,7 @@
         <ng-container *ngIf="!reading">
             <div class="cluster-nav" [@inOutAnimation]>
                 <div class="nav-items">
-                    <div class="item" [class.active]="(cnav.name === activeCluster)" (click)="selectCluster(cnav.name)" *ngFor="let cnav of clusterNav; let x = index">
+                    <div class="item" [class.active]="cnav.active" (click)="selectCluster(x, cnav.name)" *ngFor="let cnav of clusterNav; let x = index">
                         <div class="label">
                             <span>{{ cnav.label }}</span>
                         </div>
@@ -32,41 +32,56 @@
                 <div class="filters">
                     <div class="item">
                         <div class="ui-inputgroup">
-                            <input type="text" pInputText placeholder="Keyword">   
-                            <button pButton type="button" icon="pi pi-search" class="ui-button-warn"></button>      
+                            <input type="text" pInputText placeholder="Keywords" [(ngModel)]="activeKeyword" (keyup.enter)="query()">   
+                            <button pButton type="button" icon="pi pi-search" class="ui-button-warn" (click)="query()"></button>      
                         </div>
                     </div>
                     <div class="item">
-                        <p-dropdown [options]="sortItems" [(ngModel)]="activeSort"></p-dropdown>
+                        <p-dropdown [options]="sortItems" [(ngModel)]="activeSort" (onChange)="query()"></p-dropdown>
                     </div>
                 </div>
                 <div class="events-items">
-                    <div class="item" [@eventItem] *ngFor="let event of events">
-                        <div class="img" [style.backgroundImage]="'url(' + event.imgPath + ')'" ></div>
-                        <div class="info">
-                            <div class="cluster">
-                                <span>{{ event.cluster.value }}</span>
-                            </div>
-                            <div class="title">
-                                <span>{{ event.title }}</span>
-                            </div>
-                            <div class="brief">
-                                <span>{{ event.brief }}</span>
-                                <div class="overflow-cover"></div>
-                            </div>
-                            <div class="stats">
-                                <div class="item" *ngFor="let stat of event.stats">
-                                    <!-- <i [class]="stat.icon"></i> -->
-                                    <span>{{ stat.value }} </span>
-                                    <span>{{ stat.label }}</span>
-                                    
+                    <ng-container *ngIf="loadingEvent">
+                        <div class="item-placeholder" *ngFor="let event of [0, 0, 0]">
+                            <div class="img"></div>
+                            <div class="info">
+                                <div class="header">
+                                    <div class="title"></div>
+                                    <div class="cluster"></div>
                                 </div>
-                            </div>
-                            <div class="btn-read" (click)="toggleRead(true)">
-                                <span>Read more</span>
+                                <div class="brief"></div>
+                                <div class="stats"><div class="item"></div></div>
                             </div>
                         </div>
-                    </div>
+                    </ng-container>
+                    <ng-container *ngIf="!loadingEvent">
+                        <div class="item" [@eventItem] *ngFor="let event of events">
+                            <div class="img" [style.backgroundImage]="'url(' + event.imgPath + ')'" ></div>
+                            <div class="info">
+                                <div class="cluster">
+                                    <span>{{ event.cluster }}</span>
+                                </div>
+                                <div class="title">
+                                    <span>{{ event.title }}</span>
+                                </div>
+                                <div class="brief">
+                                    <span>{{ event.brief }}</span>
+                                    <div class="overflow-cover"></div>
+                                </div>
+                                <div class="stats">
+                                    <div class="item" *ngFor="let stat of event.stats">
+                                        <!-- <i [class]="stat.icon"></i> -->
+                                        <span>{{ stat.value }} </span>
+                                        <span>{{ stat.label }}</span>
+                                        
+                                    </div>
+                                </div>
+                                <div class="btn-read" (click)="toggleRead(true, event.id)">
+                                    <span>Read more</span>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
                 </div>
                 <p-paginator [rows]="10" [totalRecords]="30"></p-paginator>
             </div>
@@ -74,7 +89,6 @@
         
         <ng-container *ngIf="reading">
             <div class="event-read" [@inOutAnimation]>
-                <div class="bg-poly-overlay"></div>
                 <div class="title">
                     <span>{{ readEventData.title }}</span>
                 </div>
@@ -84,14 +98,12 @@
                     </div>
                 </div>
     
-                <div class="img"></div>
+                <div class="img" [style.backgroundImage]="'url(' + readEventData.imgPath + ')'" ></div>
     
-                <div class="content">
-                    <p>{{ readEventData.content }}</p>
-                    <p>{{ readEventData.content }}</p>
+                <div class="content ql-editor" [innerHTML]="this.readEventData.content | safeContent: 'html'" >
                 </div>
 
-                <div class="btn-back" (click)="toggleRead(false)">
+                <div class="btn-back" (click)="toggleRead(false, '')">
                     <i class="fas fa-arrow-left"></i>
                     <span>Go back</span>
                 </div>

@@ -13,14 +13,17 @@ export class ErrorInterceptor implements HttpInterceptor {
         return next.handle(request).pipe(catchError(err => {
             const error = err.error.message || err.statusText;
             if (err.status === 401) {
-
-                if (request.url.includes('login') || request.url.includes('refreshtoken')) {
+               /*  if (request.url.includes('login') || request.url.includes('refreshtoken')) {
 
                     if (request.url.includes('refreshtoken')) {
                         this.auth.logout();
                         window.location.reload();
                     }
 
+                    return throwError(error);
+                } */
+                
+                if (request.url.includes('login')) {
                     return throwError(error);
                 }
 
@@ -45,10 +48,14 @@ export class ErrorInterceptor implements HttpInterceptor {
 
                 // auto logout if 401 response returned from api
 
-                this.auth.logout();
-                window.location.reload();
+                /* this.auth.logout();
+                window.location.reload(); */
             }
-
+            
+            if (err.status === 200) {
+                return next.handle(request);
+            }
+            
             return throwError(error);
         }));
     }

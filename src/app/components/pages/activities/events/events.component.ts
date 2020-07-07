@@ -1,11 +1,17 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 
+import { HttpClient } from '@angular/common/http';
+
+import { MasterService } from '../../../../services/master.service';
+import { EventsService } from '../../../../services/events.service';
+
 interface Event {
+  id: string;
   imgPath: string;
   title: string;
   brief: string;
-  cluster: Cluster;
+  cluster: string;
   stats: Array<{
     icon: string;
     label: string;
@@ -57,14 +63,29 @@ import {
               opacity: 0
             }),
             animate(
-              '.5s ease-out',
+              '.3s ease-out',
               style({
                 transform: 'scale(1.0)',
                 opacity: 1
               })
             )
           ]
-        )
+        ),
+        transition(
+          ':leave', [
+            style({
+              transform: 'scale(1.0)',
+              opacity: 1
+            }),
+            animate(
+              '.3s ease-out',
+              style({
+                transform: 'scale(0.97)',
+                opacity: 0
+              })
+            )
+          ]
+        ),
       ]
     )
   ],
@@ -74,19 +95,25 @@ import {
 export class PageActivitiesEventsComponent implements OnInit {
   public static ITEM_LIMIT = 4;
 
+  public reader: FileReader;
+
   @ViewChild('content', { static: true }) content: ElementRef;
 
   public sortItems: SelectItem[];
-  public activeSort = '';
+
+  public activeCluster = '';
+  public activeKeyword = '';
+  public activeSort = [];
+
+  public loadingEvent = true;
 
   public clusterIndex = 0;
 
-  public clusters: Array<Cluster>;
   public clusterNav: Array<{
     label: string;
     name: string;
+    active: boolean;
   }>;
-  public activeCluster = '';
 
   public events: Array<Event> = [];
 
@@ -94,7 +121,7 @@ export class PageActivitiesEventsComponent implements OnInit {
 
   public readEventData = {
     title: 'Lorem itsum sit doler',
-    img: '/assets/stock/event.jpg',
+    imgPath: '/assets/stock/event.jpg',
     // tslint:disable-next-line: max-line-length
     content: 'Quisque tincidunt semper orci sit amet volutpat. Proin eget pharetra neque. Morbi condimentum, tellus eget finibus aliquam, dui lacus pulvinar ipsum, non lobortis mi orci a leo. Nam vehicula neque vitae ante sagittis, a accumsan enim aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed mattis pretium tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer eget tincidunt lacus. Aenean sed metus ex. In maximus porttitor bibendum. Nulla aliquet commodo pellentesque. Sed vulputate placerat erat nec pulvinar. Donec dapibus eros ut nunc consequat, at volutpat nulla dignissim. Etiam sodales, felis non lacinia accumsan, turpis urna porta risus, eu convallis ex magna nec massa. Donec neque enim, sodales vel accumsan vel, ultricies accumsan justo. Curabitur neque diam, fringilla nec ipsum id, fringilla porttitor odio.',
     stats: [
@@ -120,104 +147,112 @@ export class PageActivitiesEventsComponent implements OnInit {
     });
   }
 
-  toggleRead(flag: boolean) {
-    this.reading = flag;
-
-    this.scroll2Top();
+  private read(file: Blob) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsText(file);
+      reader.onload = (e) => {
+        if (reader.result) {
+          resolve(reader.result);
+        } else {
+          reject('can\'t read event file');
+        }
+      };
+    });
   }
 
-  selectCluster(which: string) {
-    this.activeCluster = which;
+  async toggleRead(flag: boolean, id: string) {
+    this.reading = flag;
+    this.scroll2Top();
+    if (flag) {
+      this.master.setLoading(true);
+      const { event } = await this.eventsService.getEventById(id);
 
+      const content = await this.http.get('http://localhost:8080' + event.contentPath, { responseType: 'blob' }).toPromise();
+
+      this.readEventData.imgPath = `http://localhost:8080${event.imgPath}`;
+      this.readEventData.content = await this.read(content) as any;
+
+      this.master.setLoading(false);
+    }
+  }
+
+  async query() {
     this.events = [];
-    for (const cluster of this.clusters) {
-      if (which === 'all') {
-        this.events = this.events.concat(cluster.events);
-      } else if (cluster.value === which) {
-        this.events = cluster.events;
-        break;
-      }
+  
+    this.loadingEvent = true;
+
+    const { events } = await this.eventsService.query(this.activeCluster, this.activeKeyword, this.activeSort);
+  
+    for await (const event of events) {
+      this.events.push({
+        id: event._id,
+        imgPath: `http://localhost:8080${event.imgPath}`,
+        title: event.title,
+        brief: event.description,
+        cluster: event.cluster,
+        stats: [{ icon: 'fas fa-eye', label: 'views', value: event.views }]
+      });
     }
 
+    this.loadingEvent = false;
+  }
+
+  selectCluster(x: number, which: string) {
+    for (const cnav of this.clusterNav) {
+      cnav.active = false;
+    }
+    this.clusterNav[x].active = true;
+    this.activeCluster = which;
+
+    this.query();
+
     this.scroll2Top();
   }
 
-  constructor() {}
+  constructor( private eventsService: EventsService, private http: HttpClient, private master: MasterService ) {}
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.reader = new FileReader();
     this.sortItems = [
-      { label: 'Latest', value: 'latest' },
-      { label: 'Oldest', value: 'oldest' },
-      { label: 'Most views', value: 'views' },
-      { label: 'Least views', value: 'views' },
+      { label: 'Latest', value: ['datePublish', '-1']},
+      { label: 'Oldest', value: ['datePublish', '1'] },
+      { label: 'Most views', value: ['views', '-1'] },
+      { label: 'Least views', value: ['views', '1'] },
     ];
 
-    this.activeSort = 'latest';
+    this.activeCluster = '';
 
-    this.clusters = [
-      {
-        label: 'Industry',
-        value: 'industry',
-        events: []
-      },
-      {
-        label: 'Government',
-        value: 'government',
-        events: []
-      },
-      {
-        label: 'Academia',
-        value: 'academia',
-        events: []
-      },
-      {
-        label: 'Public',
-        value: 'public',
-        events: []
-      },
-    ];
     this.clusterNav = [
       {
         label: 'All',
-        name: 'all'
+        name: '',
+        active: true
       },
       {
         label: 'Industry',
-        name: 'industry'
+        name: 'industry',
+        active: false
       },
       {
         label: 'Government',
-        name: 'government'
+        name: 'government',
+        active: false
       },
       {
         label: 'Academia',
-        name: 'academia'
+        name: 'academia',
+        active: false
       },
       {
         label: 'Public',
-        name: 'public'
+        name: 'public',
+        active: false
       }
     ];
 
-    this.clusters.forEach(cluster => {
-      for (let x = 0; x < 4; x++) {
-        const event: Event = {
-          imgPath: '/assets/stock/event.jpg',
-          title: 'Lorem itsum sit doler',
-          // tslint:disable-next-line: max-line-length
-          brief: 'Quisque tincidunt semper orci sit amet volutpat. Proin eget pharetra neque. Morbi condimentum, tellus eget finibus aliquam, dui lacus pulvinar ipsum, non lobortis mi orci a leo. Nam vehicula neque vitae ante sagittis, a accumsan enim aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed mattis pretium tincidunt.',
-          cluster,
-          stats: [
-            { icon: 'fas fa-eye', label: 'views', value: 33432 },
-          ]
-        };
-        cluster.events.push(event);
-      }
+    this.activeSort = this.sortItems[0].value;
 
-      this.events = this.events.concat(cluster.events);
-    });
-
-    this.activeCluster = this.clusterNav[0].name;
+    this.selectCluster(0, '');
   }
-
 }

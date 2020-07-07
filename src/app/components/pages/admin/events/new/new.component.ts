@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import { Router } from '@angular/router';
 
 import { NewsService } from '../../../../../services/news.service';
 
@@ -14,9 +15,9 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./new.component.scss']
 })
 export class PageAdminEventsNewComponent implements OnInit {
-  public header: string;
-  public brief: string;
-  public tags: string;
+  public title: string;
+  public description: string;
+  public keywords: string;
   public content: string;
   public cluster: string;
 
@@ -28,7 +29,7 @@ export class PageAdminEventsNewComponent implements OnInit {
   public type: SelectItem[];
   public clusters: SelectItem[];
 
-  constructor(private news: NewsService, private http: HttpClient) {
+  constructor(private news: NewsService, private http: HttpClient, private router: Router ) {
     this.type = [];
   }
 
@@ -55,6 +56,23 @@ export class PageAdminEventsNewComponent implements OnInit {
     }
   }
 
+  clearFormInputs(): void {
+    this.title = '';
+    this.description = '';
+    this.keywords = '';
+    this.content = '';
+    this.cluster = '';
+
+    this.img = null;
+
+    this.imgViewStyle = {
+      'background-image': '',
+    };
+    this.imgViewBlurStyle = {
+      'background-image': '',
+    };
+  }
+
   processFile(file: File) {
     this.imgViewStyle = {
       'background-image': `url(${URL.createObjectURL(file)})`,
@@ -74,7 +92,7 @@ export class PageAdminEventsNewComponent implements OnInit {
   }
 
   validate() {
-    return true;
+    return { err: false, message: 'ok' };
   }
 
   public dataURItoBlob(dataURI) {
@@ -99,64 +117,42 @@ export class PageAdminEventsNewComponent implements OnInit {
   }
 
   uploadNews() {
+    const validate = this.validate();
+    if (validate.err) {
+      return alertify.success('Error posting new event: ' + validate.message);
+    }
 
-    const elements = this.content.split('<img ');
+    const contentFile = new Blob([this.content], { type: 'text/plain' });
 
-    const images = [];
-    elements.forEach(element => {
-      if (element.startsWith('src="data:image/')) {
-        images.push({
-          filename: `${shortid.generate()}.${element.split(';base64,')[0].split(':')[1].split('/')[1]}`,
-          blob: this.dataURItoBlob(element.split('"')[1])
-        });
+    const data = new FormData();
 
-        console.log(`${shortid.generate()}.${element.split(';base64,')[0].split(':')[1].split('/')[1]}`);
-      }
-    });
+    data.set('title', this.title);
+    data.set('description', this.description);
+    data.set('cluster', this.cluster);
+    data.set('keywords', this.keywords);
+    data.set('organizer', 'MyRAS');
+    data.set('startDate', Date.now().toString());
+    data.set('endDate', Date.now().toString());
+    data.set('datePublish', Date.now().toString());
 
-    const formData = new FormData();
+    data.append('img', this.img);
+    data.append('content', contentFile);
 
-    images.forEach(img => {
-      formData.append('img', img.blob, img.filename);
-    });
-    this.http.post<any>('http://localhost:8080/storage/images/uploadmultiple', formData)
+    this.http.post<any>('http://localhost:8080/api/events/post', data)
     .subscribe(res => {
-      alertify.success('images uploaded');
+      this.clearFormInputs();
+      alertify.success('Event posted!');
     });
-
-    /* console.log(images[0]); */
-
-
-    /* const formData = new FormData();
-    formData.append('img', img, img.name);
-    formData.append('data', JSON.stringify(data)); */
-
-    /* this.http.post */
-    /* if (this.validate()) {
-      this.news.postNews(
-        this.header,
-        this.brief,
-        this.tags,
-        this.img,
-        this.content)
-        .subscribe(data => {
-          alertify.success('News post successful!');
-        });
-    } */
   }
 
   ngOnInit() {
     this.clusters = [
       {label: 'Select cluster', value : null},
       {label: 'Industry', value : 'industry'},
-      {label: 'Academian', value : 'academian'},
+      {label: 'Academia', value : 'academia'},
       {label: 'Government', value : 'government'},
       {label: 'Public', value : 'public'},
     ];
-    /* this.news.getLatestNews(1).subscribe(data => {
-      console.log(data);
-
-    }); */
   }
 
 }

@@ -78,6 +78,14 @@
     }
 }
 
+@keyframes placeHolderShimmer{
+    0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+}
 .events {
     position: relative;
 
@@ -234,6 +242,186 @@
                         width: fit-content;
 
                         padding-right: 30px;
+                    }
+                }
+
+                & > .btn-read {
+                    position: absolute;
+                    bottom: 10px;
+                    right: 30px;
+
+                    height: fit-content;
+                    width: fit-content;
+
+                    padding: 5px 15px;
+
+                    border-bottom: 2px solid orange;
+
+                    cursor: pointer;
+                }
+            }
+        }
+        & > .item-placeholder {
+            position: relative;
+
+            height: fit-content;
+            width: 100%;
+
+            margin-bottom: 30px;
+
+           /*  border-radius: 6px;
+            box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, .3); */
+            border: 1px solid rgba(grey, .3);
+
+            overflow: hidden;
+
+            background-color: #fff;
+
+            & > .img {
+                position: absolute;
+                left: 0;
+                top: 0;
+
+                height: 100%;
+                width: 300px;
+
+                background: #f6f7f8;
+                background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+                background-size: 1000px 104px;
+
+                overflow: hidden;
+
+                animation-duration: 1s;
+                animation-fill-mode: forwards;
+                animation-iteration-count: infinite;
+                animation-name: placeHolderShimmer;
+                animation-timing-function: linear;
+            }
+
+            & > .info {
+                position: relative;
+
+                height: 250px;
+                width: calc(100% - 300px);
+
+                margin-left: 300px;
+
+                padding: 15px 30px;
+
+                & > .header {
+                    position: relative;
+
+                    height: fit-content;
+                    width: 100%;
+
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                & .cluster {
+                    position: relative;
+                    float: right;
+
+                    height: 30px;
+                    width: 150px;
+
+                    background: #f6f7f8;
+                    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+                    background-size: 1000px 104px;
+
+                    overflow: hidden;
+
+                    border-radius: 0;
+                    box-shadow: none;
+
+                    animation-duration: 1s;
+                    animation-fill-mode: forwards;
+                    animation-iteration-count: infinite;
+                    animation-name: placeHolderShimmer;
+                    animation-timing-function: linear;
+                }
+
+                & .title {
+                    position: relative;
+                    float: left;
+
+                    height: 30px;
+                    width: calc(100% - 200px);
+
+                    background: #f6f7f8;
+                    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+                    background-size: 1000px 104px;
+
+                    overflow: hidden;
+
+                    border-radius: 0;
+                    box-shadow: none;
+
+                    animation-duration: 1s;
+                    animation-fill-mode: forwards;
+                    animation-iteration-count: infinite;
+                    animation-name: placeHolderShimmer;
+                    animation-timing-function: linear;
+                }
+
+                & > .brief {
+                    position: relative;
+
+                    margin-top: 30px;
+
+                    height: 110px;
+                    width: 100%;
+
+                    background: #f6f7f8;
+                    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+                    background-size: 1000px 104px;
+
+                    overflow: hidden;
+
+                    border-radius: 0;
+                    box-shadow: none;
+
+                    animation-duration: 1s;
+                    animation-fill-mode: forwards;
+                    animation-iteration-count: infinite;
+                    animation-name: placeHolderShimmer;
+                    animation-timing-function: linear;
+                }
+
+                & > .stats {
+                    position: absolute;
+                    left: 30px;
+                    bottom: 10px;
+
+                    height: fit-content;
+                    width: fit-content;
+
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+
+                    & > .item {
+                        position: relative;
+
+                        margin-right: 30px;
+
+                        height: 30px;
+                        width: 150px;
+
+                        background: #f6f7f8;
+                        background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+                        background-size: 1000px 104px;
+
+                        overflow: hidden;
+
+                        border-radius: 0;
+                        box-shadow: none;
+
+                        animation-duration: 1s;
+                        animation-fill-mode: forwards;
+                        animation-iteration-count: infinite;
+                        animation-name: placeHolderShimmer;
+                        animation-timing-function: linear;
                     }
                 }
 
@@ -420,6 +608,7 @@
     }
 }
 
+/* 
 .event-items {
     position: relative;
 
@@ -507,7 +696,91 @@
             }
         }
     }
-}
+
+    & > .item-placeholder {
+        position: relative;
+
+        height: 350px;
+        width: 100%;
+
+        padding: 30px 30px;
+
+        display: flex;
+
+        background-color: #fff;
+
+        & > .img {
+            position: relative;
+
+            height: 100%;
+            width: 350px;
+
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+            animation-name: placeHolderShimmer;
+            animation-timing-function: linear;
+
+            background: #f6f7f8;
+            background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+            
+            background-size: 1000px 104px;
+
+            overflow: hidden;
+        }
+
+        & > .details {
+            position: relative;
+
+            height: 100%;
+            width: calc(100% - 350px);
+
+            padding-left: 30px;
+
+            display: flex;
+            flex-direction: column;
+
+            & > .header {
+                position: relative;
+
+                height: 50px;
+                width: 100%;
+
+                font-size: 24px;
+            }
+
+            & > .body {
+                position: relative;
+
+                height: 150px;
+                width: 100%;
+
+                text-align: justify;
+
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+
+            & > .footer {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+
+                height: fit-content;
+                width: fit-content;
+
+                display: flex;
+
+                font-size: 15px;
+
+                & > div {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+
+} */
 
 .act-card {
     position: relative;
@@ -621,6 +894,8 @@
 
     padding: 30px 0;
 
+    background-color: white;
+
     box-shadow: 1px 1px 5px 1px rgba(black, .2);
 
     & > .title {
@@ -672,7 +947,7 @@
         height: 80vh;
         width: 100%;
 
-        background-image: url('/assets/stock/event.jpg');
+        /* background-image: url('/assets/stock/event.jpg'); */
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -687,8 +962,6 @@
         font-size: 18px;
 
         padding: 50px 80px;
-
-        text-align: justify;
     }
 
     & > .btn-back {

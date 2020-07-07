@@ -13,6 +13,8 @@ import { AppComponent } from './app.component';
 import { PageAboutComponent } from './components/pages/about/about.component';
 import { PageContactComponent } from './components/pages/contact/contact.component';
 
+import { NgDompurifyModule } from '@tinkoff/ng-dompurify';
+
 // PrimeNG modules
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { CheckboxModule } from 'primeng/checkbox';
@@ -108,6 +110,7 @@ import { PageAdminBillsComponent } from './components/pages/admin/bills/bills.co
 import { PageAdminBillsNewComponent } from './components/pages/admin/bills/new/new.component';
 import { PageAdminMembersNewComponent } from './components/pages/admin/members/new/new.component';
 import { PopupVideoComponent } from './components/popup/video/video.component';
+import { SafeContentPipe } from './pipe/safe-content.pipe';
 
 @NgModule({
   declarations: [
@@ -175,6 +178,7 @@ import { PopupVideoComponent } from './components/popup/video/video.component';
     PageAdminBillsNewComponent,
     PageAdminMembersNewComponent,
     PopupVideoComponent,
+    SafeContentPipe,
 
   ],
   imports: [
@@ -183,6 +187,8 @@ import { PopupVideoComponent } from './components/popup/video/video.component';
     AppRoutingModule,
     HomeModule,
     HttpClientModule,
+
+    NgDompurifyModule,
 
     // PrimeNg
     TabMenuModule,

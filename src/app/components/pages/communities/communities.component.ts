@@ -47,7 +47,7 @@ export class PageCommunitiesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.master.setLoading(true);
+    /* this.master.setLoading(true);
 
     this.newsService.getLatestNews(10).subscribe(n => {
       let latestNews: News[] = [];
@@ -58,22 +58,19 @@ export class PageCommunitiesComponent implements OnInit {
               header: e.header,
               brief: e.description,
               img: e.imgURL,
-    
+
               index: x
             });
-    
+
             this.newsTotal++;
           }
-          
+
         });
         this.news = latestNews;
       }
-      
+
       this.master.setLoading(false);
-
-
-      /* this.initAutoPlay(); */
-    });
+    }); */
 
 
 

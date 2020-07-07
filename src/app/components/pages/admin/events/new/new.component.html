@@ -15,17 +15,17 @@
                     <div class="label" style="padding-top: 30px;">
                         <span>Title</span>
                     </div>
-                    <input type="text" pInputText [(ngModel)]="this.header" style="width: 100%;">  
+                    <input type="text" pInputText [(ngModel)]="this.title" style="width: 100%;">  
                     
                     <div class="label" style="padding-top: 30px;">
                         <span>Description</span>
                     </div>
-                    <textarea rows="5" cols="30" pInputTextarea autoResize="autoResize" [(ngModel)]="this.brief" style="width: 100%;"></textarea>
+                    <textarea rows="5" cols="30" pInputTextarea autoResize="autoResize" [(ngModel)]="this.description" style="width: 100%;"></textarea>
 
                     <div class="label" style="padding-top: 30px;">
-                        <span>Keywords</span>
+                        <span>Tags</span>
                     </div>
-                    <p-chips [(ngModel)]="this.tags"></p-chips>
+                    <p-chips [(ngModel)]="this.keywords"></p-chips>
                     <span class="label-file" style="text-align: left; font-size: 14px; color: rgba(0, 0, 0, .7)">Press Enter to add a keyword</span>
                     
                     <!-- <p-selectButton [options]="this.type" formControlName="selectedType"></p-selectButton> -->

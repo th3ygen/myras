@@ -1,13 +1,37 @@
+<div class="overlay-wrapper" *ngIf="showOverlay" [@overlayWrapper]>
+    <div class="confirm-box">
+        <div class="label">
+            <span>Are you sure?</span>
+        </div>
+        <div class="choices">
+            <div class="yes">
+                <span>Yes, delete it</span>
+            </div>
+            <div class="no" (click)="toggleOverlay(false)">
+                <span>Cancel</span>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="wrapper">
+    <div class="filters">
+        <div class="item input">
+            <input type="text" placeholder="Title" pInputText [(ngModel)]="title"/>
+        </div>
+        <div class="item input">
+            <input type="text" placeholder="Keywords" pInputText [(ngModel)]="keywords"/>
+        </div>
+        <div class="item search">
+            <div class="btn-search" (click)="query()">
+                <span>Search</span>
+            </div>
+        </div>
+
+    </div>
     <div class="events">
         <div class="events-header">
             <i class="fas fa-list"></i>
             <span>Events</span>
-
-            <div class="btn-add">
-                <i class="fas fa-cog"></i>
-                <span>New event</span>
-            </div>
         </div>
         <div class="events-body">
             <div class="items">
@@ -19,7 +43,7 @@
                         <span>Title</span>
                     </div>
                     <div class="author">
-                        <span>Author</span>
+                        <span>Organizer</span>
                     </div>
                     <div class="cluster">
                         <span>Cluster</span>
@@ -31,35 +55,34 @@
                         <span>Date published</span>
                     </div>
                 </div>
-                <div class="item" *ngFor="let item of [0, 0, 0, 0, 0, 0, 0, 0]">
+                <div class="item" *ngFor="let event of events">
                     <div class="tick">
                         <p-checkbox name="groupname" value="val2"></p-checkbox>
                     </div>
                     <div class="label">
-                        <span>Label here</span>
+                        <span>{{ event.title }}</span>
                     </div>
                     <div class="author">
-                        <span>Author here</span>
+                        <span>{{ event.organizer }}</span>
                     </div>
                     <div class="cluster">
-                        <span>Cluster here</span>
+                        <span>{{ event.cluster }}</span>
                     </div>
                     <div class="tags">
-                        <span>infinite tags</span>
-                        <span>infinite tags</span>
-                        <span>infinite tags</span>
+                        <span *ngFor="let keyword of event.keywords">{{ keyword }}</span>
                     </div>
                     <div class="date">
-                        <span>3 January 2030</span>
+                        <span>{{ toDate(event.datePublish) }}</span>
                     </div>
 
                     <div class="actions">
                         <span>Edit</span>
                         <span>Hide</span>
-                        <span>Remove</span>
+                        <span (click)="toggleOverlay(true)">Remove</span>
                     </div>
                 </div>
             </div>
         </div>
+        <p-paginator [rows]="10" [totalRecords]="totalEvents" (onPageChange)="changePage($event)"></p-paginator>
     </div>
 </div>
