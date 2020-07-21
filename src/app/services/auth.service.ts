@@ -54,6 +54,10 @@ export class AuthService {
     return this.http.post<any>(ROUTE_CONFIG.user.updatePW, { oldpw, newpw });
   }
 
+  public getBills(): Observable<any> {
+    return this.http.get<any>(ROUTE_CONFIG.user.getBills);
+  }
+
   public logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('currentUser');

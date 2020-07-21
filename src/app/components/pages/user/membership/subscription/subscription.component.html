@@ -159,9 +159,9 @@
 
     <div class="footer">
       <div class="total">
-        <span>Fee: RM200</span>
+        <span>Fee: RM{{ totalAmount }}</span>
       </div>
-      <div class="btn-order">
+      <div class="btn-order" (click)="checkout()">
         <span>Proceed to checkout</span>
       </div>
     </div>
@@ -174,16 +174,16 @@
     </div>
 
     <div class="body">
-      <div class="status-label">
-        <span>Active</span>
+      <div class="status-label" [class.inactive]="!accActive">
+        <span>{{ (accActive) ? 'Active' : 'Inactive' }}</span>
       </div>
       <div class="reasons">
         <div class="reason">
           <div class="label">
             <span>Membership fee</span>
           </div>
-          <div class="value">
-            <span>Paid</span>
+          <div class="value" [class.unpaid]="!paid">
+            <span>{{ (paid) ? 'Paid' : 'Unpaid'}}</span>
           </div>
         </div>
         <div class="reason">

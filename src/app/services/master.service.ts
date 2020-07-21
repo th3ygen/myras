@@ -186,7 +186,7 @@ export class MasterService {
           }
         ]
       },
-      {
+      /* {
         label: 'Purchase',
         childs: [
           {
@@ -200,7 +200,7 @@ export class MasterService {
             icon: 'fas fa-money-check-alt'
           }
         ]
-      },
+      }, */
     ]
   };
   public adminSideBar = {

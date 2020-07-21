@@ -614,7 +614,7 @@ export class FormRegisterComponent implements OnInit {
     });
 
     this.plans.push({
-      title: 'Regular',
+      title: 'regular',
       brief: 'Some brief description about the plan',
 
       selected: false,
@@ -627,7 +627,7 @@ export class FormRegisterComponent implements OnInit {
       price: 50,
     });
     this.plans.push({
-      title: 'Corporate',
+      title: 'corporate',
       brief: 'Some brief description about the plan',
 
       selected: false,
@@ -644,7 +644,7 @@ export class FormRegisterComponent implements OnInit {
       price: 200,
     });
     this.plans.push({
-      title: 'Student',
+      title: 'student',
       brief: 'Some brief description about the plan',
 
       selected: false,

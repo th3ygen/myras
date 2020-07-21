@@ -18,6 +18,7 @@ export const ROUTE_CONFIG = {
         getAll: prefix + '/api/users/getAll',
         updateInfo: prefix + '/api/users/currentUser/updateInfo',
         updatePW: prefix + '/api/users/currentUser/updatePW',
+        getBills: prefix + '/api/users/currentUser/getBills',
         activateMember: prefix + '/api/users/activate/'
     },
 

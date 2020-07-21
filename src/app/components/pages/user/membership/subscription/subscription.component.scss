@@ -139,6 +139,8 @@
             text-align: center;
 
             border-radius: 25px;
+
+            cursor: pointer;
         }
     }
 }
@@ -198,6 +200,10 @@
             background: linear-gradient(177deg, rgba(255,205,0,.2) 0%, transparent 100%);
 
             font-size: 30px;
+
+            &.inactive {
+                color: red !important;
+            }
         }
 
         & > .reasons {
@@ -228,6 +234,10 @@
                 & > .value {
                     width: 30%;
                     color: rgb(0, 214, 0);
+
+                    &.unpaid {
+                        color: red !important;
+                    }
                 }
             }
         }

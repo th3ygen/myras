@@ -9,7 +9,7 @@ import { AuthService } from '../../../../../services/auth.service';
 })
 export class PageUserMembershipSubscriptionComponent implements OnInit {
   public user: any;
-  
+
   public fullname = '';
   public id = '';
   public type = '';
@@ -17,10 +17,22 @@ export class PageUserMembershipSubscriptionComponent implements OnInit {
   public phone = '';
   public email = '';
   public address = [];
+
+  public accActive = false;
+
+  public totalAmount = 0;
+  public paid = false;
+
+  public checkoutURL = '';
   constructor( private master: MasterService, private auth: AuthService ) { }
 
+  checkout() {
+    if (this.checkoutURL !== '') {
+      window.open(this.checkoutURL);
+    }
+  }
+
   ngOnInit(): void {
-    this.master.setLoading(false);
     this.user = this.auth.currentUserValue;
 
     this.auth.getUserInfo().toPromise().then(res => {
@@ -40,7 +52,33 @@ export class PageUserMembershipSubscriptionComponent implements OnInit {
       }
     }).catch(err => {
       console.error(err);
-    })
+    });
+
+    this.master.setLoading(true);
+    this.auth.getBills().toPromise().then(res => {
+      const { due, paid } = res;
+      if (due.length > 0) {
+        const bill = due.find(e => {
+          return e.description === 'MyRAS membership fee';
+        });
+
+        this.paid = false;
+        this.accActive = false;
+        this.totalAmount = bill.amount / 100;
+
+        this.checkoutURL = bill.url;
+      } else {
+        this.paid = true;
+        this.accActive = true;
+        this.totalAmount = 0;
+        this.checkoutURL = '';
+      }
+
+      this.master.setLoading(false);
+    }).catch(err => {
+      console.log(err.message);
+      this.master.setLoading(false);
+    });
     /* this.master.hideFooter(true);
 
     this.master.setBreadcrumbItems([

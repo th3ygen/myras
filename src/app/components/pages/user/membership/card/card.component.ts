@@ -15,16 +15,16 @@ export class PageUserMembershipCardComponent implements OnInit {
   public user: any;
 
   public info = [
-    ['firstname', 'Muhd. Aidil Syazwan'],
-    ['role', 'Member'],
-    ['membership', 'STUDENT'],
-    ['mobile number', '+601136528296'],
-    ['email', 'th3ygen@myras.org'],
-    ['line 1', 'No. 114'],
-    ['line 2', 'Kg Kroh Hilir'],
-    ['city', 'Padang Rengas'],
-    ['postcode', '33700'],
-    ['state', 'Perak'],
+    ['firstname', ''],
+    ['role', ''],
+    ['membership', ''],
+    ['mobile number', ''],
+    ['email', ''],
+    ['line 1', ''],
+    ['line 2', ''],
+    ['city', ''],
+    ['postcode', ''],
+    ['state', ''],
   ];
 
   constructor( private master: MasterService, private auth: AuthService ) { }

@@ -44,16 +44,16 @@
 
                             <td>
                                 <div class="btn-action">
-                                    <i class="fas fa-print"></i>
+                                    <i class="fas fa-print" (click)="viewReceipt(invoice.id)"></i>
                                 </div>
-                                <div class="btn-action">
+                                <!-- <div class="btn-action">
                                     <i class="fas fa-times"></i>
-                                </div>
+                                </div> -->
                                 
                             </td>
                         </tr>
                     </ng-template>
-                    <ng-template pTemplate="rowexpansion" let-invoice let-columns="columns">
+                    <!-- <ng-template pTemplate="rowexpansion" let-invoice let-columns="columns">
                         <tr>
                             <td [attr.colspan]="columns.length + 2" style="padding: 0 !important">
                                 <div class="invoice-details">
@@ -114,7 +114,7 @@
                                 </div>
                             </td>
                         </tr>
-                    </ng-template>
+                    </ng-template> -->
                 </p-table>
             </div>
         </div>
