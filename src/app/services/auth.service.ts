@@ -42,6 +42,18 @@ export class AuthService {
     return this.http.get<any>(ROUTE_CONFIG.user.getOne + userId);
   }
 
+  public getUserInfo(): Observable<any> {
+    return this.http.get<any>(ROUTE_CONFIG.user.myInfo);
+  }
+
+  public updateUserInfo(info: any): Observable<any> {
+    return this.http.post<any>(ROUTE_CONFIG.user.updateInfo, { info });
+  }
+
+  public updatePassword(oldpw: string, newpw: string): Observable<any> {
+    return this.http.post<any>(ROUTE_CONFIG.user.updatePW, { oldpw, newpw });
+  }
+
   public logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('currentUser');
@@ -64,7 +76,7 @@ export class AuthService {
       }));
   }
 
-  public get currentUserValue(): User {
+  public get currentUserValue() {
     return this.currentUserSubject.value;
   }
 

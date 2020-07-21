@@ -1,147 +1,3 @@
-<!-- <div class="wrapper">
-    <div class="header">
-        <span>
-            User profile
-        </span>
-    </div>
-    <div class="card">
-        <div class="card-header">
-            <img src="../../../../../../assets/login-bg.jpg" alt="">
-            <div class="username">
-                <span>{{ this.username }}</span>
-            </div>
-            <div class="email">
-                <span>{{ this.email }}</span>
-            </div>
-            <div class="plan">
-                <span>{{ this.plan }}</span>
-            </div>
-        </div>
-
-        <div class="card-body">
-            <div class="info-items">
-                <div class="info-item">
-                    <div class="info-header">
-                        <span>Account</span>
-                    </div>
-                    <div class="info-item-list">
-                        <div class="info-item-list-item">
-                            <span>Username:</span>
-                            <span class="info-value">
-                                {{ this.username }}
-                            </span>
-                            
-                        </div>
-                        <div class="info-item-list-item">
-                            <span>Email:</span>
-                            <span class="info-value">
-                                {{ this.email }}
-                            </span>
-                            
-                        </div>
-                        <div class="info-item-list-item">
-                            <span>Subscription: </span>
-                            <span class="info-value">
-                                {{ this.plan }}
-                            </span>
-                            
-                        </div>
-                        <div class="info-item-list-item"></div>
-                    </div>
-                </div>
-                <div class="info-item">
-                    <div class="info-header">
-                        <span>User informations</span>
-                    </div>
-                    <div class="info-item-list">
-                        <div class="info-item-list-item">
-                            <span>Full name:</span>
-                            <span class="info-value">
-                                {{ this.fullname }}
-                            </span>
-                            
-                        </div>
-                        <div class="info-item-list-item">
-                            <span>DoB:</span>
-                            <span class="info-value">
-                                {{ this.dob }}
-                            </span>
-                            
-                        </div>
-                        <div class="info-item-list-item">
-                            <span>Phone: </span>
-                            <span class="info-value">
-                                {{ this.phone }}
-                            </span>
-                            
-                        </div>
-                        <div class="info-item-list-item"></div>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <div class="info-header">
-                        <span>Address</span>
-                    </div>
-                    <div class="info-item-list">
-                        <div class="info-item-list-item">
-                            <span>Line:</span>
-                            <span class="info-value">
-                                {{ this.address.line }}
-                            </span>
-                        </div>
-                        <div class="info-item-list-item">
-                            <span>City:</span>
-                            <span class="info-value">
-                                {{ this.address.city }}
-                            </span>
-                        </div>
-                        <div class="info-item-list-item">
-                            <span>State:</span>
-                            <span class="info-value">
-                                {{ this.address.state }}
-                            </span>
-                        </div>
-                        <div class="info-item-list-item">
-                            <span>ZIP Code:</span>
-                            <span class="info-value">
-                                {{ this.address.zip }}
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <div class="info-header">
-                        <span>University</span>
-                    </div>
-                    <div class="info-item-list">
-                        <div class="info-item-list-item">
-                            <span>Student ID:</span>
-                            <span class="info-value">
-                                {{ this.student.id }}
-                            </span>
-                        </div>
-                        <div class="info-item-list-item">
-                            <span>Name:</span>
-                            <span class="info-value">
-                                {{ this.student.university }}
-                            </span>
-                        </div>
-                        <div class="info-item-list-item">
-                            <span>Course:</span>
-                            <span class="info-value">
-                                {{ this.student.course }}
-                            </span>
-                        </div>
-                        <div class="info-item-list-item"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
 <div class="wrapper">
     <div class="card">
         <div class="header">
@@ -169,7 +25,7 @@
                                         { label: 'Ms.', value: 'Ms.' },
                                         { label: 'Professor', value: 'Professor' }
                                     ]
-                                    " placeholder="Select one"></p-dropdown>
+                                    " placeholder="Select one" [(ngModel)]="title"></p-dropdown>
                                 </div>
                             </div>
                             <div class="item">
@@ -177,18 +33,18 @@
                                     <span>Full name</span>
                                 </div>
                                 <div class="input">
-                                    <input type="text" pInputText />
+                                    <input type="text" pInputText [(ngModel)]="fullname"/>
                                 </div>
                             </div>
-                            <div class="item">
+                            <!-- <div class="item">
                                 <div class="label">
                                     <span>Preferred name</span>
                                 </div>
                                 <div class="input">
-                                    <input type="text" pInputText />
+                                    <input type="text" pInputText [(ngModel)]="prefname" />
                                 </div>
-                            </div>
-                            <div class="item">
+                            </div> -->
+                            <!-- <div class="item">
                                 <div class="label">
                                     <span>Gender</span>
                                 </div>
@@ -200,18 +56,18 @@
                                         { label: 'Other', value: 'other' },
                                         { label: 'Prefer not to mention', value: '' }
                                     ]
-                                    " placeholder="Select one"></p-dropdown>
+                                    " placeholder="Select one" [(ngModel)]="gender"></p-dropdown>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="item">
                                 <div class="label">
                                     <span>Date of birth</span>
                                 </div>
                                 <div class="input">
-                                    <p-calendar [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2020"></p-calendar>
+                                    <p-calendar [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2020" [(ngModel)]="dob"></p-calendar>
                                 </div>
                             </div>
-                            <div class="item">
+                            <!-- <div class="item">
                                 <div class="label">
                                     <span>Photo</span>
                                 </div>
@@ -223,7 +79,7 @@
                                         <span class="option">Remove</span>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </p-panel>
                 </div>
@@ -235,45 +91,48 @@
                                     <span>Email address</span>
                                 </div>
                                 <div class="input">
-                                    <input type="email" pInputText />
+                                    <input type="email" pInputText [(ngModel)]="contact.email" [disabled]="true"/>
                                 </div>
                             </div>
-                            <div class="item">
+                            <!-- <div class="item">
                                 <div class="label">
                                     <span>Alternate email address</span>
                                 </div>
                                 <div class="input">
-                                    <input type="email" pInputText />
+                                    <input type="email" pInputText [(ngModel)]="contact.altEmail" />
                                 </div>
-                            </div>
-                            <div class="item">
+                            </div> -->
+                            <!-- <div class="item">
                                 <div class="label">
                                     <span>Home telephone number</span>
                                 </div>
                                 <div class="input" style="max-width: 200px;">
-                                    <input type="text" pInputText />
+                                    <input type="tel" pInputText [(ngModel)]="contact.homePhone" />
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="item">
                                 <div class="label">
                                     <span>Mobile telephone number</span>
                                 </div>
                                 <div class="input" style="max-width: 200px;">
-                                    <input type="text" pInputText />
+                                    <input type="tel" pInputText [(ngModel)]="contact.mobilePhone" />
                                 </div>
                             </div>
-                            <div class="item">
+                            <!-- <div class="item">
                                 <div class="label">
                                     <span>Work/School telephone number</span>
                                 </div>
                                 <div class="input" style="max-width: 200px;">
-                                    <input type="text" pInputText />
+                                    <input type="text" pInputText [(ngModel)]="contact.workPhone" />
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </p-panel>
                 </div>
-                <div class="item">
+                <div class="btn-save" (click)="updateInfo()">
+                    <span>Save</span>
+                </div>
+                <!-- <div class="item">
                     <p-panel header="Biography" [toggleable]="true">
                         <div class="input-items">
                             <div class="item">
@@ -281,13 +140,13 @@
                                     <span>Biography</span>
                                 </div>
                                 <div class="input">
-                                    <textarea [rows]="5" [cols]="30" [autoResize]="true" pInputTextarea></textarea>
+                                    <textarea [rows]="5" [cols]="30" [autoResize]="true" pInputTextarea [(ngModel)]="bio"></textarea>
                                 </div>
                             </div>
                         </div>
                         
                     </p-panel>
-                </div>
+                </div> -->
             </div>
             
         </div>

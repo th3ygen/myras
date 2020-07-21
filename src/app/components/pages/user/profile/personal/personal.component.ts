@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as jwt_decode from 'jwt-decode';
 
 import { AuthService } from '../../../../../services/auth.service';
+
 import { MasterService } from '../../../../../services/master.service';
 
 @Component({
@@ -10,31 +11,69 @@ import { MasterService } from '../../../../../services/master.service';
   styleUrls: ['./personal.component.scss']
 })
 export class PageUserProfilePersonalComponent implements OnInit {
-  public username = '';
-  public email = '';
-  public plan = '';
+  public user: any;
+
+  public title = 'Mr.';
 
   public fullname = '';
-  public dob = '';
+  public prefname = '';
+  public gender = '';
+  public dob: Date;
   public phone = '';
 
-  public address = {
-    line: '',
-    city: '',
-    state: '',
-    zip: ''
+  public contact = {
+    email: '',
+    altEmail: '',
+    homePhone: '',
+    mobilePhone: '',
+    workPhone: ''
   };
 
-  public student = {
-    id: '',
-    university: '',
-    course: ''
-  };
+  public bio = '';
+
   constructor(private auth: AuthService, private master: MasterService) { }
 
+  updateInfo() {
+    const info = {
+      details: {
+        title: this.title,
+        fullname: this.fullname,
+        dob: this.dob,
+        phoneNum: this.contact.mobilePhone
+      }
+    };
+
+    this.master.setLoading(true);
+    this.auth.updateUserInfo(info).toPromise().then(() => {
+      window.location.reload();
+    })
+    .catch(err => {
+      console.log('err', err);
+      this.master.setLoading(false);
+    });
+  }
+
   ngOnInit(): void {
-    /* this.master.setLoading(true);
-    this.auth.currentUser.subscribe((user: any) => {
+    this.master.setLoading(false);
+    this.user = this.auth.currentUserValue;
+
+    if (this.user) {
+      this.master.setLoading(true);
+      this.auth.getUserInfo().subscribe(data => {
+        const u = data.user;
+
+        this.title = u.details.title;
+        this.fullname = u.details.fullname;
+        this.dob = new Date(u.details.dob);
+        this.contact.email = u.email;
+        this.contact.mobilePhone = u.details.phoneNum;
+
+        this.master.setLoading(false);
+      });
+    }
+
+    /* this.auth.currentUser.subscribe((user: any) => {
+      this.master.setLoading(true);
       this.auth.getUser(user.membership.id).subscribe(data => {
         this.username = data.username;
         this.email = data.email;
@@ -44,21 +83,10 @@ export class PageUserProfilePersonalComponent implements OnInit {
         this.dob = data.details.dob;
         this.phone = data.details.phoneNum;
 
-        this.address.line = data.details.address.line;
-        this.address.city = data.details.address.city;
-        this.address.state = data.details.address.state;
-        this.address.zip = data.details.address.zip;
-
-        this.student.id = data.details.student.stdId,
-        this.student.university = data.details.student.university;
-        this.student.course = data.details.student.course;
-
         if (data) {
           this.master.setLoading(false);
         }
-        
       });
-      
     }); */
   }
 

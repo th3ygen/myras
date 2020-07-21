@@ -100,7 +100,7 @@
             <span>Fullname</span>
           </div>
           <div class="value">
-            <span>Muhammad Aidil Syazwan bin Hamdan</span>
+            <span>{{ fullname }}</span>
           </div>
         </div>
         <div class="info-item">
@@ -108,7 +108,7 @@
             <span>MyRAS ID</span>
           </div>
           <div class="value">
-            <span>MYRAS00032</span>
+            <span>{{ id }}</span>
           </div>
         </div>
         <div class="info-item">
@@ -116,7 +116,7 @@
             <span>Membership</span>
           </div>
           <div class="value">
-            <span>Student</span>
+            <span>{{ type }}</span>
           </div>
         </div>
         <div class="info-item">
@@ -124,7 +124,7 @@
             <span>Lifetime</span>
           </div>
           <div class="value">
-            <span>YES</span>
+            <span>{{ lifetime }}</span>
           </div>
         </div>
         <div class="info-item">
@@ -132,7 +132,7 @@
             <span>Phone number</span>
           </div>
           <div class="value">
-            <span>+601136528964</span>
+            <span>{{ phone }}</span>
           </div>
         </div>
         <div class="info-item">
@@ -140,7 +140,7 @@
             <span>Email</span>
           </div>
           <div class="value">
-            <span>aidilsyaz@myras.org</span>
+            <span>{{ email }}</span>
           </div>
         </div>
         <div class="info-item">
@@ -148,9 +148,9 @@
             <span>Mailing address</span>
           </div>
           <div class="value">
-            <span>No. 114, Kg Kroh Hilir</span>
-            <span>Padang Rengas, 33700</span>
-            <span>Perak</span>
+            <span *ngFor="let item of address" >
+              {{ item }}
+            </span>
           </div>
         </div>
         

@@ -9,13 +9,13 @@
             <div class="img"></div>
         </div>
         <div class="user-name">
-            <span>Welcome, Muhammad Aidil Syazwan Hamdan</span>
+            <span>Welcome, {{ fullname }}</span>
         </div>
     </div>
 </div>
 
 <div class="wrapper">
-    <div class="events" style="margin-bottom: 15px;">
+    <!-- <div class="events" style="margin-bottom: 15px;">
         <div class="label">
             <span>Latest news</span>
         </div>
@@ -72,7 +72,7 @@
             </p-carousel>
         </div>
     </div>
-
+ -->
     <div class="membership-validity">
         <div class="header">
             <div class="label">
@@ -83,19 +83,19 @@
        
         <div class="body">
             <div class="plan">
-                <span>Corporate</span>
+                <span>{{ this.accountStatus.plan }}</span>
             </div>
 
             <div class="validity">
                 <div class="header">
                     <div class="item">
                         <span>Account status: </span>
-                        <span>Active</span>
+                        <span>{{ accountStatus.status }}</span>
                     </div>
     
                     <div class="item">
                         <span>Expire in: </span>
-                        <span>65 days</span>
+                        <span>{{ accountStatus.exp }} days</span>
                     </div>
                 </div>
                 
@@ -132,13 +132,23 @@
 
         <div class="body">
             <div class="items">
-                <div class="item" *ngFor="let item of [0, 0, 0, 0]">
+                <div class="item" *ngFor="let item of notification">
+                    
                     <div class="label">
                         <span>You got a new message! from asd asd ads</span>
                     </div>
                     <div class="btn-remove">
                         <i class="fas fa-times"></i>
                     </div>
+                </div>
+                <div class="item" *ngIf="notification.length === 0">
+                    
+                    <div class="label">
+                        <span>Nothing new here</span>
+                    </div>
+                    <!-- <div class="btn-remove">
+                        <i class="fas fa-times"></i>
+                    </div> -->
                 </div>
             </div>
         </div>

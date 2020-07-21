@@ -316,3 +316,20 @@
          }
      }
  }
+
+ .btn-save {
+     position: relative;
+
+     height: fit-content;
+     width: fit-content;
+
+     padding: 10px 30px;
+
+     background-color: orange;
+     color: white;
+     border-radius: 100px;
+
+     margin: 0 auto;
+
+     cursor: pointer;
+ }

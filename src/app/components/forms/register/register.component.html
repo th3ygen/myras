@@ -118,8 +118,8 @@
             
                     <div class="p-col-7">
                         <div class="p-grid">
-                            <p-radioButton class="p-col" name="groupname" value="std" label="Annually"></p-radioButton>
-                            <p-radioButton class="p-col" name="groupname" value="reg" label="Lifetime" [(ngModel)]="this.accountForm.lifetime"></p-radioButton>
+                            <p-radioButton class="p-col" name="groupname" label="Annually"></p-radioButton>
+                            <p-radioButton class="p-col" name="groupname" label="Lifetime" [(ngModel)]="this.accountForm.lifetime"></p-radioButton>
                             
                         </div>
                     </div>
@@ -254,10 +254,10 @@
 
                 <div class="p-grid" style="padding-bottom: 30px;">
                     <div class="p-col-3">
-                        <label for="username">Mobile number :</label>
+                        <label for="mobilenum">Mobile number :</label>
                     </div>
                     <div class="p-col-6">
-                        <input class="input-txt-1" name="username" type="text" [(ngModel)]="this.contactInfoForm.mobileNum" pInputText>
+                        <input class="input-txt-1" name="mobilenum" type="tel" [(ngModel)]="this.contactInfoForm.mobileNum" pInputText>
                     </div>
                 </div>
 
@@ -478,7 +478,7 @@
                             <label for="username">Office phone number :</label>
                         </div>
                         <div class="p-col-6">
-                            <input class="input-txt-0" name="username" type="text" [(ngModel)]="this.companyInfoForm.officePhone" pInputText>
+                            <input class="input-txt-0" name="username" type="tel" [(ngModel)]="this.companyInfoForm.officePhone" pInputText>
                         </div>
                     </div>
                 </ng-container>

@@ -8,13 +8,16 @@ export const ROUTE_CONFIG = {
         login: prefix + '/api/users/login',
         logout: prefix + '/api/users/logout',
         current: prefix + '/api/users/current',
-        register: prefix + '/api/users',
+        register: prefix + '/api/users/register',
         refreshToken: prefix + '/refreshtoken',
     },
 
     user: {
-        getOne: prefix + '/api/users/get/',
+        myInfo: prefix + '/api/users/currentUser/info',
+        getOne: prefix + '/api/users/',
         getAll: prefix + '/api/users/getAll',
+        updateInfo: prefix + '/api/users/currentUser/updateInfo',
+        updatePW: prefix + '/api/users/currentUser/updatePW',
         activateMember: prefix + '/api/users/activate/'
     },
 

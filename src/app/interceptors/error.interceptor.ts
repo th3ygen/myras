@@ -22,7 +22,7 @@ export class ErrorInterceptor implements HttpInterceptor {
 
                     return throwError(error);
                 } */
-                
+
                 if (request.url.includes('login')) {
                     return throwError(error);
                 }
@@ -51,11 +51,11 @@ export class ErrorInterceptor implements HttpInterceptor {
                 /* this.auth.logout();
                 window.location.reload(); */
             }
-            
+
             if (err.status === 200) {
                 return next.handle(request);
             }
-            
+
             return throwError(error);
         }));
     }

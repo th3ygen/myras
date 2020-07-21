@@ -62,20 +62,19 @@ export class PageLoginComponent implements OnInit, AfterViewInit {
       this.auth.login(this.username, this.password)
       .pipe(first())
       .subscribe(
-        user => {
-          this.master.setLoading(false);
-          if (user.admin) {
-            this.router.navigate(['/admin/dashboard']);
+        res => {
+          const user = res.user;
+
+          if (user) {
+            this.master.setLoading(false);
+            if (user.admin) {
+              this.router.navigate(['/admin/dashboard']);
+            } else {
+              this.router.navigate(['/user/dashboard']);
+            }
           } else {
-            this.router.navigate(['/user/dashboard']);
-          }
-        },
+            this.master.setLoading(false);
 
-        error => {
-          this.master.setLoading(false);
-
-          this.error = error;
-          if (error === 'Unauthorized') {
             alertify.error('Username and password does not match');
           }
         }

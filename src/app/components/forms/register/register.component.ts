@@ -41,7 +41,7 @@ export class FormRegisterComponent implements OnInit {
   };
 
   public contactInfoForm = {
-    title: '',
+    title: 'Mr.',
     fullname: '',
     ic: '',
     dob: '',
@@ -79,12 +79,14 @@ export class FormRegisterComponent implements OnInit {
   };
 
   public userTitles = [
-    {label: 'Mr', value: 'Mr'},
-    {label: 'Ms', value: 'Ms'},
-    {label: 'Mrs', value: 'Mrs'},
-    {label: 'Dato\'', value: 'Dato\''},
-    {label: 'Datin', value: 'Datin'},
-    {label: 'Other', value: 'other'},
+    { label: 'Mr.', value: 'Mr.' },
+    { label: 'Mrs.', value: 'Mrs.' },
+    { label: 'Ms.', value: 'Ms.' },
+    { label: 'Dr.', value: 'Dr.' },
+    { label: 'ENG', value: 'ENG' },
+    { label: 'Prof.', value: 'Prof.' },
+    { label: 'Miss', value: 'Miss' },
+    { label: 'Professor', value: 'Professor' }
   ];
 
   constructor(private router: Router, private master: MasterService, private auth: AuthService) { }
@@ -349,7 +351,7 @@ export class FormRegisterComponent implements OnInit {
 
       email: this.accountForm.email,
 
-      membership: {
+      member: {
         plan: this.plan,
         lifetime: this.accountForm.lifetime,
       },
@@ -400,7 +402,7 @@ export class FormRegisterComponent implements OnInit {
       }
     };
 
-    return this.auth.register(data);
+    return this.auth.register({ user: data }).toPromise();
   }
 
   nextPage(): void {
@@ -457,7 +459,7 @@ export class FormRegisterComponent implements OnInit {
 
     if (this.btnText === 'Create account') {
       this.master.setLoading(true);
-      this.register().subscribe(e => {
+      this.register().then(e => {
         this.master.setLoading(false);
 
         switch (this.doneIndex) {
@@ -471,11 +473,13 @@ export class FormRegisterComponent implements OnInit {
 
         this.progress = {width: `${(100 / (this.items.length - 1)) * this.currentIndex}%`};
 
-        this.items.forEach(e => {
-          e.active = false;
+        this.items.forEach(d => {
+          d.active = false;
         });
 
         this.items[this.currentIndex].active = true;
+      }).catch(err => {
+        console.log('err', err);
       });
     } else {
       switch (this.doneIndex) {
