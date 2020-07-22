@@ -19,7 +19,9 @@ export const ROUTE_CONFIG = {
         updateInfo: prefix + '/api/users/currentUser/updateInfo',
         updatePW: prefix + '/api/users/currentUser/updatePW',
         getBills: prefix + '/api/users/currentUser/getBills',
-        activateMember: prefix + '/api/users/activate/'
+        activateMember: prefix + '/api/users/activate/',
+        disable: prefix + '/api/users/disable',
+        remove: prefix + '/api/users/delete'
     },
 
     news: {

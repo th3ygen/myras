@@ -11,7 +11,14 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   public getAll() {
-    return this.http.get<any[]>(ROUTE_CONFIG.user.getAll);
+    return this.http.get<any>(ROUTE_CONFIG.user.getAll);
+  }
+
+  public disable(id: string, flag: string) {
+    return this.http.get<any>(ROUTE_CONFIG.user.disable + `?id=${id}&flag=${flag}`);
+  }
+  public remove(id: string) {
+    return this.http.get<any>(ROUTE_CONFIG.user.remove + `?id=${id}`);
   }
 
   public activateMember(userId: string) {

@@ -69,7 +69,7 @@ export class AppComponent implements OnInit, AfterViewChecked, AfterViewInit {
       if (user) {
         this.currentUser = user;
 
-        if (this.currentUser.admin) {
+        if (this.currentUser.role === 'admin') {
           this.sidebar = this.master.adminSideBar;
         } else {
           this.sidebar = this.master.userSideBar;

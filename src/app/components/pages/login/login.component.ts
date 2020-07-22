@@ -67,7 +67,7 @@ export class PageLoginComponent implements OnInit, AfterViewInit {
 
           if (user) {
             this.master.setLoading(false);
-            if (user.admin) {
+            if (user.role === 'admin') {
               this.router.navigate(['/admin/dashboard']);
             } else {
               this.router.navigate(['/user/dashboard']);

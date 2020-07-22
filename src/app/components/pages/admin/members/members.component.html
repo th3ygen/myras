@@ -25,9 +25,9 @@
         <div class="events-body">
             <div class="items">
                 <div class="item-header">
-                    <div class="tick">
+                    <!-- <div class="tick">
                         <p-checkbox name="groupname" [(ngModel)]="tick" [binary]="true" (onChange)="tickAll()"></p-checkbox>
-                    </div>
+                    </div> -->
                     <div class="label">
                         <span>Fullname</span>
                     </div>
@@ -38,38 +38,38 @@
                         <span>Member type</span>
                     </div>
                     <div class="tags">
-                        <span>Cluster</span>
+                        <span>Status</span>
                     </div>
                     <div class="date">
                         <span>Online</span>
                     </div>
                 </div>
-                <div class="item" *ngFor="let item of [0, 0, 0, 0, 0, 0, 0, 0]; let x = index">
-                    <div class="tick tick-child">
+                <div class="item" *ngFor="let item of this.members; let x = index">
+                    <!-- <div class="tick tick-child">
                         <p-checkbox name="groupname" [binary]="true" [(ngModel)]="itemsTick[x]"></p-checkbox>
-                    </div>
+                    </div> -->
                     <div class="label">
-                        <span>Muhammad Aidil Syazwan bin Hamdan</span>
+                        <span>{{ item.details.fullname }}</span>
                     </div>
                     <div class="author">
-                        <span>testUsername</span>
+                        <span>{{ item.username }}</span>
                     </div>
                     <div class="tags">
-                        <span>REGULAR</span>
-                        <span>LIFETIME</span>
+                        <span>{{ item.member.plan }}</span>
+                        <span *ngIf="item.member.lifetime" >LIFETIME</span>
                     </div>
                     <div class="cluster">
-                        <span>Academian</span>
+                        <span>{{ (item.member.enabled) ? 'Enabled' : 'Disabled'  }}</span>
                     </div>
                     
                     <div class="date">
-                        <span>3 January 2030</span>
+                        <span>{{ item.lastOnline }}</span>
                     </div>
 
                     <div class="actions">
-                        <span>Show info</span>
-                        <span>Disable</span>
-                        <span>Delete</span>
+                        <!-- <span>Show info</span> -->
+                        <span (click)="disableMember(item.member.id, !item.member.enabled)" >{{ (!item.member.enabled) ? 'Enable' : 'Disable'  }}</span>
+                        <span (click)="deleteMember(item.member.id)">Delete</span>
                     </div>
                 </div>
             </div>
